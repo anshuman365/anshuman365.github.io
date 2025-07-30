@@ -1,5 +1,8 @@
 // js/api.js
-const BASE_URL = "https://antibodies-usual-header-emily.trycloudflare.com"; // Update after tunnel setup
+const BASE_URL = "https://antibodies-usual-header-emily.trycloudflare.com";
+
+// Store session token in localStorage
+const SESSION_KEY = 'portfolio_admin_session';
 
 export const fetchBlogs = async () => {
   try {
@@ -48,9 +51,16 @@ export const loginAdmin = async (password) => {
         const response = await fetch(`${BASE_URL}/api/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ password })
+            body: JSON.stringify({ password }),
+            credentials: 'include'
         });
-        return response.json();
+        
+        const result = await response.json();
+        if (result.status === 'logged_in') {
+            // Store session expiry timestamp
+            localStorage.setItem(SESSION_KEY, result.session_expiry);
+        }
+        return result;
     } catch (error) {
         console.error('Login Error:', error);
         return { status: 'error', message: 'Login failed' };
@@ -61,8 +71,10 @@ export const logoutAdmin = async () => {
     try {
         const response = await fetch(`${BASE_URL}/api/logout`, {
             method: 'POST',
-            credentials: 'include'  // Important for session cookies
+            credentials: 'include'
         });
+        // Clear local session data
+        localStorage.removeItem(SESSION_KEY);
         return response.json();
     } catch (error) {
         console.error('Logout Error:', error);
@@ -71,15 +83,57 @@ export const logoutAdmin = async () => {
 };
 
 export const checkAuth = async () => {
+    // Check local session first
+    const sessionExpiry = localStorage.getItem(SESSION_KEY);
+    
+    if (sessionExpiry && Date.now() < sessionExpiry * 1000) {
+        try {
+            // Validate session with server
+            const response = await fetch(`${BASE_URL}/api/validate-session`, {
+                credentials: 'include'
+            });
+            
+            if (response.status === 200) {
+                const data = await response.json();
+                // Update session expiry
+                localStorage.setItem(SESSION_KEY, data.session_expiry);
+                return true;
+            }
+        } catch (e) {
+            console.error('Session validation failed:', e);
+        }
+    }
+    
+    // Fallback to server check
     try {
         const response = await fetch(`${BASE_URL}/api/stats`, {
-            credentials: 'include'  // Send cookies with request
+            credentials: 'include'
         });
-        return response.status === 200;
+        
+        if (response.status === 200) {
+            const sessionExpiry = Date.now() + 30 * 24 * 60 * 60 * 1000; // 30 days
+            localStorage.setItem(SESSION_KEY, sessionExpiry.toString());
+            return true;
+        }
+        return false;
     } catch (error) {
         return false;
     }
 };
+
+// Auto-renew session periodically
+setInterval(async () => {
+    const sessionExpiry = localStorage.getItem(SESSION_KEY);
+    if (sessionExpiry && Date.now() < sessionExpiry * 1000 - 60000) { // Renew if < 1 min left
+        try {
+            await fetch(`${BASE_URL}/api/validate-session`, {
+                credentials: 'include'
+            });
+        } catch (e) {
+            console.error('Session renewal failed:', e);
+        }
+    }
+}, 5 * 60 * 1000); // Check every 5 minutes
 
 // Add new API methods
 export const getStats = async () => {

@@ -7,9 +7,12 @@ import os
 import secrets
 from flask import make_response
 import time
+from datetime import timedelta
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', secrets.token_hex(16))
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=30)  # 30-day sessions
+app.config['SESSION_REFRESH_EACH_REQUEST'] = True  # Auto-refresh sessions
 CORS(app, supports_credentials=True)
 
 # Register blueprints
@@ -19,20 +22,36 @@ app.register_blueprint(contact_bp)
 # Admin authentication endpoint
 @app.route('/api/login', methods=['POST'])
 def login():
-    """Authenticate admin user"""
+    """Authenticate admin user with persistent session"""
     try:
         data = request.json
         if 'password' not in data:
             return jsonify({"error": "Password required"}), 400
             
         if data.get("password") == os.getenv('ADMIN_PASSWORD', 'secret123'):
-            # Create session
+            # Create persistent session
             session['logged_in'] = True
             session['admin'] = True
-            return jsonify({"status": "logged_in"})
+            session.permanent = True  # Make session persistent
+            
+            return jsonify({
+                "status": "logged_in",
+                "session_expiry": int((datetime.now() + app.config['PERMANENT_SESSION_LIFETIME']).timestamp())
+            })
         return jsonify({"status": "fail", "error": "Invalid credentials"}), 401
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+# Add session validation endpoint
+@app.route('/api/validate-session', methods=['GET'])
+def validate_session():
+    """Validate existing session"""
+    if session.get('admin'):
+        return jsonify({
+            "status": "valid",
+            "session_expiry": int((datetime.now() + app.config['PERMANENT_SESSION_LIFETIME']).timestamp())
+        })
+    return jsonify({"status": "invalid"}), 401
 
 # Logout endpoint
 @app.route('/api/logout', methods=['POST'])
@@ -140,4 +159,4 @@ def delete_blog(blog_id):
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     debug_mode = os.environ.get('DEBUG', 'False') == 'True'
-    app.run(host='0.0.0.0', port=port, debug=debug_mode)
+    app.run(host='0.0.0.0', port=port, debug=True)

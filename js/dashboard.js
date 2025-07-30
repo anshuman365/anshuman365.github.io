@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else {
         loginSection.classList.remove('hidden');
         dashboardContent.classList.add('hidden');
+        localStorage.removeItem('portfolio_admin_session');
     }
 
     // Login form handler
