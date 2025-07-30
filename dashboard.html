@@ -103,7 +103,7 @@
     </nav>
     <br>
     <!-- Login Section -->
-    <div id="login-section" class="hidden bg-white rounded-xl shadow p-8 max-w-md mx-auto my-32">
+<div id="login-section" class="hidden bg-white rounded-xl shadow p-8 max-w-md mx-auto my-32">
         <h2 class="text-2xl font-bold mb-6 text-center">Admin Login</h2>
         <form id="login-form">
             <div class="mb-4">
@@ -114,83 +114,58 @@
         </form>
     </div>
 
-    <!-- Dashboard Layout -->
-    <div id="dashboard-content" class="hidden">
-        <div class="dashboard-grid">
-            <!-- Sidebar -->
-            <div class="sidebar p-6">
-                <h2 class="text-2xl font-bold mb-10 flex items-center">
-                    <i class="fas fa-chart-line mr-3"></i>
-                    Dashboard
-                </h2>
-            
-                <nav class="space-y-4">
-                    <a href="#" class="flex items-center p-3 rounded-lg bg-white/10">
-                        <i class="fas fa-home mr-3"></i>
-                        Overview
-                    </a>
-                    <a href="#" class="flex items-center p-3 rounded-lg hover:bg-white/10">
-                        <i class="fas fa-blog mr-3"></i>
-                        Blog Posts
-                    </a>
-                    <a href="#" class="flex items-center p-3 rounded-lg hover:bg-white/10">
-                        <i class="fas fa-envelope mr-3"></i>
-                        Messages
-                    </a>
-                    <a href="#" class="flex items-center p-3 rounded-lg hover:bg-white/10">
-                        <i class="fas fa-cog mr-3"></i>
-                        Settings
-                    </a>
-                    <a href="#" id="logout-link" class="flex items-center p-3 rounded-lg hover:bg-white/10 mt-20">
-                        <i class="fas fa-sign-out-alt mr-3"></i>
-                        Logout
-                    </a>
-                </nav>
+<!-- Dashboard Layout -->
+<div id="dashboard-content" class="hidden">
+    <div class="dashboard-grid">
+        <!-- Sidebar -->
+        <div class="sidebar p-6">
+            <h2 class="text-2xl font-bold mb-10 flex items-center">
+                <i class="fas fa-chart-line mr-3"></i>
+                Dashboard
+            </h2>
+        
+            <nav class="space-y-4">
+                <a href="#" class="sidebar-nav flex items-center p-3 rounded-lg bg-white/10" data-section="overview">
+                    <i class="fas fa-home mr-3"></i>
+                    Overview
+                </a>
+                <a href="#" class="sidebar-nav flex items-center p-3 rounded-lg hover:bg-white/10" data-section="blog">
+                    <i class="fas fa-blog mr-3"></i>
+                    Blog Posts
+                </a>
+                <a href="#" class="sidebar-nav flex items-center p-3 rounded-lg hover:bg-white/10" data-section="messages">
+                    <i class="fas fa-envelope mr-3"></i>
+                    Messages
+                </a>
+                <a href="#" class="sidebar-nav flex items-center p-3 rounded-lg hover:bg-white/10" data-section="settings">
+                    <i class="fas fa-cog mr-3"></i>
+                    Settings
+                </a>
+                <a href="#" id="logout-link" class="flex items-center p-3 rounded-lg hover:bg-white/10 mt-20">
+                    <i class="fas fa-sign-out-alt mr-3"></i>
+                    Logout
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-3xl font-bold">Admin Dashboard</h1>
+                <div class="flex items-center">
+                    <div class="mr-4 text-right">
+                        <div class="font-bold">Anshuman Singh</div>
+                        <div class="text-gray-600 text-sm">Admin</div>
+                    </div>
+                    <img src="assets/profile.jpg" alt="Admin" class="w-12 h-12 rounded-full">
+                </div>
             </div>
             
-            <!-- Main Content -->
-            <div class="p-8">
-                <div class="flex justify-between items-center mb-8">
-                    <h1 class="text-3xl font-bold">Admin Dashboard</h1>
-                    <div class="flex items-center">
-                        <div class="mr-4 text-right">
-                            <div class="font-bold">Anshuman Singh</div>
-                            <div class="text-gray-600 text-sm">Admin</div>
-                        </div>
-                        <img src="assets/profile.jpg" alt="Admin" class="w-12 h-12 rounded-full">
-                    </div>
-                </div>
-                
+            <!-- Overview Section -->
+            <div id="overview-section" class="dashboard-section">
                 <!-- Stats Overview -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                    <div class="stat-card bg-white p-6 rounded-xl shadow">
-                        <div class="text-3xl font-bold text-primary">24</div>
-                        <div class="text-gray-600">Blog Posts</div>
-                        <div class="mt-2 text-sm text-green-500">
-                            <i class="fas fa-arrow-up mr-1"></i> 12% from last month
-                        </div>
-                    </div>
-                    <div class="stat-card bg-white p-6 rounded-xl shadow">
-                        <div class="text-3xl font-bold text-primary">42</div>
-                        <div class="text-gray-600">Messages</div>
-                        <div class="mt-2 text-sm text-red-500">
-                            <i class="fas fa-arrow-down mr-1"></i> 3% from last month
-                        </div>
-                    </div>
-                    <div class="stat-card bg-white p-6 rounded-xl shadow">
-                        <div class="text-3xl font-bold text-primary">1.2K</div>
-                        <div class="text-gray-600">Page Views</div>
-                        <div class="mt-2 text-sm text-green-500">
-                            <i class="fas fa-arrow-up mr-1"></i> 24% from last month
-                        </div>
-                    </div>
-                    <div class="stat-card bg-white p-6 rounded-xl shadow">
-                        <div class="text-3xl font-bold text-primary">86%</div>
-                        <div class="text-gray-600">Engagement Rate</div>
-                        <div class="mt-2 text-sm text-green-500">
-                            <i class="fas fa-arrow-up mr-1"></i> 8% from last month
-                        </div>
-                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8" id="stats-container">
+                    <!-- Stats will be loaded here -->
                 </div>
                 
                 <!-- Recent Messages -->
@@ -198,44 +173,24 @@
                     <div class="p-6 border-b">
                         <h2 class="text-xl font-bold">Recent Messages</h2>
                     </div>
-                    <div class="divide-y">
-                        <div class="p-6 flex items-start hover:bg-gray-50">
-                            <div class="mr-4">
-                                <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center">
-                                    JD
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <div class="font-bold">John Doe</div>
-                                <div class="text-gray-600 mb-2">Interested in web development services</div>
-                                <div class="text-sm text-gray-500">2 hours ago</div>
-                            </div>
-                            <div>
-                                <button class="text-primary hover:text-secondary">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="p-6 flex items-start hover:bg-gray-50">
-                            <div class="mr-4">
-                                <div class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center">
-                                    AS
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <div class="font-bold">Alice Smith</div>
-                                <div class="text-gray-600 mb-2">Startup consultation inquiry</div>
-                                <div class="text-sm text-gray-500">1 day ago</div>
-                            </div>
-                            <div>
-                                <button class="text-primary hover:text-secondary">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </button>
-                            </div>
-                        </div>
+                    <div id="recent-messages" class="divide-y">
+                        <!-- Messages will be loaded here -->
                     </div>
                 </div>
-                
+            </div>
+            
+            <!-- Blog Section -->
+            <div id="blog-section" class="dashboard-section hidden">
+                <!-- Blog Management Content -->
+                <div class="bg-white rounded-xl shadow mb-8">
+                    <div class="p-6 border-b">
+                        <h2 class="text-xl font-bold">All Blog Posts</h2>
+                    </div>
+                    <div id="blog-posts-container" class="divide-y">
+                        <!-- Blog posts will be loaded here -->
+                    </div>
+                </div>
+
                 <!-- Create Blog Post -->
                 <div class="bg-white rounded-xl shadow">
                     <div class="p-6 border-b">
@@ -248,8 +203,12 @@
                                 <input type="text" id="blog-title" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary" required>
                             </div>
                             <div>
+                                <label class="block text-gray-700 mb-2">Summary</label>
+                                <input type="text" id="blog-summary" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            </div>
+                            <div>
                                 <label class="block text-gray-700 mb-2">Category</label>
-                                <select class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary">
+                                <select id="blog-category" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary">
                                     <option>Web Development</option>
                                     <option>Startups</option>
                                     <option>Tech Trends</option>
@@ -261,12 +220,8 @@
                                 <textarea id="blog-content" rows="10" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
                             </div>
                             <div>
-                                <label class="block text-gray-700 mb-2">Featured Image</label>
-                                <div class="flex items-center">
-                                    <input type="file" class="hidden" id="blog-image">
-                                    <label for="blog-image" class="px-4 py-2 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300">Choose File</label>
-                                    <span class="ml-4 text-gray-600">No file chosen</span>
-                                </div>
+                                <label class="block text-gray-700 mb-2">Featured Image URL</label>
+                                <input type="text" id="blog-image" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary" placeholder="https://example.com/image.jpg">
                             </div>
                             <div class="flex justify-end">
                                 <button type="submit" class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-secondary transition">Publish Post</button>
@@ -275,8 +230,62 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Messages Section -->
+            <div id="messages-section" class="dashboard-section hidden">
+                <!-- Messages Content -->
+                <div class="bg-white rounded-xl shadow">
+                    <div class="p-6 border-b">
+                        <h2 class="text-xl font-bold">All Messages</h2>
+                    </div>
+                    <div id="all-messages-container" class="divide-y">
+                        <!-- All messages will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Settings Section -->
+            <div id="settings-section" class="dashboard-section hidden">
+                <!-- Settings Content -->
+                <div class="bg-white rounded-xl shadow p-6">
+                    <h2 class="text-xl font-bold mb-6">Settings</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-3">Change Password</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Current Password</label>
+                                    <input type="password" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">New Password</label>
+                                    <input type="password" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Confirm New Password</label>
+                                    <input type="password" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <button class="bg-primary text-white px-6 py-2 rounded-lg font-bold hover:bg-secondary transition">Update Password</button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold mb-3">Backup & Restore</h3>
+                            <div class="flex space-x-4">
+                                <button class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-bold hover:bg-gray-300 transition">
+                                    <i class="fas fa-download mr-2"></i> Backup Data
+                                </button>
+                                <button class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-bold hover:bg-gray-300 transition">
+                                    <i class="fas fa-upload mr-2"></i> Restore Data
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
     <script type="module">
         import { addBlog } from './js/api.js';

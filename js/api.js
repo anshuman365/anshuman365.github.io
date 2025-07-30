@@ -80,3 +80,56 @@ export const checkAuth = async () => {
         return false;
     }
 };
+
+// Add new API methods
+export const getStats = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/stats`, {
+      credentials: 'include'
+    });
+    if (!response.ok) throw new Error('Network response was not ok');
+    return response.json();
+  } catch (error) {
+    console.error('API Error:', error);
+    return { error: 'Failed to fetch stats' };
+  }
+};
+
+export const getAllMessages = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/contact/all-messages`, {
+      credentials: 'include'
+    });
+    if (!response.ok) throw new Error('Network response was not ok');
+    return response.json();
+  } catch (error) {
+    console.error('API Error:', error);
+    return { error: 'Failed to fetch messages' };
+  }
+};
+
+export const getAllBlogs = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/admin/blogs`, {
+      credentials: 'include'
+    });
+    if (!response.ok) throw new Error('Network response was not ok');
+    return response.json();
+  } catch (error) {
+    console.error('API Error:', error);
+    return { error: 'Failed to fetch blogs' };
+  }
+};
+
+export const deleteBlog = async (blog_id) => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/blogs/${blog_id}`, {
+      method: 'DELETE',
+      credentials: 'include'
+    });
+    return response.json();
+  } catch (error) {
+    console.error('API Error:', error);
+    return { status: 'error', message: 'Failed to delete blog' };
+  }
+};
