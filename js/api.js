@@ -1,8 +1,6 @@
 // js/api.js
 const BASE_URL = "https://antibodies-usual-header-emily.trycloudflare.com";
-
-// Store session token in localStorage
-const SESSION_KEY = 'portfolio_admin_session';
+const SESSION_KEY = 'portfolio_session_data';
 
 export const fetchBlogs = async () => {
   try {
@@ -52,13 +50,16 @@ export const loginAdmin = async (password) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ password }),
-            credentials: 'include'
+            credentials: 'include'  // Important for cookies
         });
         
         const result = await response.json();
         if (result.status === 'logged_in') {
-            // Store session expiry timestamp
-            localStorage.setItem(SESSION_KEY, result.session_expiry);
+            // Store session info in localStorage
+            localStorage.setItem(SESSION_KEY, JSON.stringify({
+                loggedIn: true,
+                timestamp: Date.now()
+            }));
         }
         return result;
     } catch (error) {
@@ -83,10 +84,10 @@ export const logoutAdmin = async () => {
 };
 
 export const checkAuth = async () => {
-    // Check local session first
-    const sessionExpiry = localStorage.getItem(SESSION_KEY);
+    // Check local session data
+    const sessionData = JSON.parse(localStorage.getItem(SESSION_KEY));
     
-    if (sessionExpiry && Date.now() < sessionExpiry * 1000) {
+    if (sessionData && sessionData.loggedIn) {
         try {
             // Validate session with server
             const response = await fetch(`${BASE_URL}/api/validate-session`, {
@@ -94,9 +95,6 @@ export const checkAuth = async () => {
             });
             
             if (response.status === 200) {
-                const data = await response.json();
-                // Update session expiry
-                localStorage.setItem(SESSION_KEY, data.session_expiry);
                 return true;
             }
         } catch (e) {
@@ -104,21 +102,13 @@ export const checkAuth = async () => {
         }
     }
     
-    // Fallback to server check
-    try {
-        const response = await fetch(`${BASE_URL}/api/stats`, {
-            credentials: 'include'
-        });
-        
-        if (response.status === 200) {
-            const sessionExpiry = Date.now() + 30 * 24 * 60 * 60 * 1000; // 30 days
-            localStorage.setItem(SESSION_KEY, sessionExpiry.toString());
-            return true;
-        }
-        return false;
-    } catch (error) {
-        return false;
-    }
+    return false;
+};
+
+// Add this new function
+export const getCSRFToken = () => {
+    const token = document.cookie.match('(^|;)\\s*csrf_token\\s*=\\s*([^;]+)');
+    return token ? token.pop() : '';
 };
 
 // Auto-renew session periodically

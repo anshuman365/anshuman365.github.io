@@ -1,23 +1,56 @@
 # backend/main.py
 from flask import Flask, request, jsonify, session
 from flask_cors import CORS
-from blog_api import blog_bp
-from contact_api import contact_bp
 import os 
 import secrets
 from flask import make_response
 import time
-from datetime import timedelta
+from datetime import timedelta, datetime
+from flask_wtf.csrf import CSRFProtect, generate_csrf
+from flask_session import Session  # Add this
+from functools import wraps
 
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY', secrets.token_hex(16))
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=30)  # 30-day sessions
-app.config['SESSION_REFRESH_EACH_REQUEST'] = True  # Auto-refresh sessions
-CORS(app, supports_credentials=True)
+app.secret_key = os.getenv('SECRET_KEY', secrets.token_hex(32))  # Stronger key
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=30)
+app.config['SESSION_TYPE'] = 'filesystem'  # Use filesystem for session storage
+app.config['SESSION_FILE_DIR'] = './.flask_session/'
+app.config['SESSION_COOKIE_NAME'] = 'portfolio_session'
+app.config['SESSION_COOKIE_HTTPONLY'] = True
+app.config['SESSION_COOKIE_SECURE'] = os.getenv('ENVIRONMENT') == 'production'  # HTTPS only in production
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 
-# Register blueprints
-app.register_blueprint(blog_bp)
-app.register_blueprint(contact_bp)
+Session(app)  # Initialize session extension
+
+CORS(app, supports_credentials=True, origins=["http://localhost:5000", "https://anshuman365.github.io"])  # Add your actual domains
+
+# Add CSRF protection
+csrf = CSRFProtect(app)
+
+@app.after_request
+def set_csrf_cookie(response):
+    if response.status_code < 400:
+        # Set CSRF token in cookie
+        response.set_cookie('csrf_token', generate_csrf(), httponly=True, secure=app.config['SESSION_COOKIE_SECURE'])
+    return response
+
+# Add CSRF validation middleware
+def csrf_protection(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
+            csrf_token = request.cookies.get('csrf_token')
+            if not csrf_token or csrf_token != request.headers.get('X-CSRF-Token'):
+                return jsonify({"error": "Invalid CSRF token"}), 403
+        return f(*args, **kwargs)
+    return decorated_function
+
+def register_bp():
+    # Register blueprints
+    from blog_api import blog_bp
+    from contact_api import contact_bp
+    app.register_blueprint(blog_bp)
+    app.register_blueprint(contact_bp)
 
 # Admin authentication endpoint
 @app.route('/api/login', methods=['POST'])
@@ -157,6 +190,7 @@ def delete_blog(blog_id):
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
+    register_bp()
     port = int(os.environ.get('PORT', 5000))
     debug_mode = os.environ.get('DEBUG', 'False') == 'True'
     app.run(host='0.0.0.0', port=port, debug=True)

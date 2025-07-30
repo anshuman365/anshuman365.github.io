@@ -3,6 +3,7 @@ from flask import Blueprint, request, jsonify, session
 from datetime import datetime
 import os
 import json
+from main import csrf_protection
 
 blog_bp = Blueprint('blog', __name__)
 
@@ -55,7 +56,9 @@ def get_blog(blog_id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# Protect all write operations
 @blog_bp.route('/api/blogs', methods=['POST'])
+@csrf_protection
 def add_blog():
     """Create a new blog post (admin only)"""
     try:
