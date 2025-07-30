@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anshuman Singh - Innovator • Developer • Visionary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#7C3AED',
+                        dark: '#1E293B'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #4F46E5, #7C3AED);
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+        .sidebar {
+            background: linear-gradient(180deg, #4F46E5 0%, #7C3AED 100%);
+            color: white;
+        }
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+	    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-primary flex items-center">
+                <span class="bg-primary text-white p-2 rounded mr-2">AS</span>
+                Anshuman Singh
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="font-medium hover:text-primary">Home</a>
+                <a href="services.html" class="hover:text-primary">Services</a>
+                <a href="journey.html" class="hover:text-primary">Journey</a>
+                <a href="blog.html" class="hover:text-primary">Blog</a>
+                <a href="contact.html" class="hover:text-primary">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="dashboard.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">Dashboard</a>
+                <button class="md:hidden text-gray-600" id="menu-toggle">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    <!-- Dashboard Layout -->
+    <div class="dashboard-grid">
+        <!-- Sidebar -->
+        <div class="sidebar p-6">
+            <h2 class="text-2xl font-bold mb-10 flex items-center">
+                <i class="fas fa-chart-line mr-3"></i>
+                Dashboard
+            </h2>
+            
+            <nav class="space-y-4">
+                <a href="#" class="flex items-center p-3 rounded-lg bg-white/10">
+                    <i class="fas fa-home mr-3"></i>
+                    Overview
+                </a>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-blog mr-3"></i>
+                    Blog Posts
+                </a>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-envelope mr-3"></i>
+                    Messages
+                </a>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-white/10">
+                    <i class="fas fa-cog mr-3"></i>
+                    Settings
+                </a>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-white/10 mt-20">
+                    <i class="fas fa-sign-out-alt mr-3"></i>
+                    Logout
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-3xl font-bold">Admin Dashboard</h1>
+                <div class="flex items-center">
+                    <div class="mr-4 text-right">
+                        <div class="font-bold">Anshuman Singh</div>
+                        <div class="text-gray-600 text-sm">Admin</div>
+                    </div>
+                    <img src="assets/profile.jpg" alt="Admin" class="w-12 h-12 rounded-full">
+                </div>
+            </div>
+            
+            <!-- Stats Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="stat-card bg-white p-6 rounded-xl shadow">
+                    <div class="text-3xl font-bold text-primary">24</div>
+                    <div class="text-gray-600">Blog Posts</div>
+                    <div class="mt-2 text-sm text-green-500">
+                        <i class="fas fa-arrow-up mr-1"></i> 12% from last month
+                    </div>
+                </div>
+                <div class="stat-card bg-white p-6 rounded-xl shadow">
+                    <div class="text-3xl font-bold text-primary">42</div>
+                    <div class="text-gray-600">Messages</div>
+                    <div class="mt-2 text-sm text-red-500">
+                        <i class="fas fa-arrow-down mr-1"></i> 3% from last month
+                    </div>
+                </div>
+                <div class="stat-card bg-white p-6 rounded-xl shadow">
+                    <div class="text-3xl font-bold text-primary">1.2K</div>
+                    <div class="text-gray-600">Page Views</div>
+                    <div class="mt-2 text-sm text-green-500">
+                        <i class="fas fa-arrow-up mr-1"></i> 24% from last month
+                    </div>
+                </div>
+                <div class="stat-card bg-white p-6 rounded-xl shadow">
+                    <div class="text-3xl font-bold text-primary">86%</div>
+                    <div class="text-gray-600">Engagement Rate</div>
+                    <div class="mt-2 text-sm text-green-500">
+                        <i class="fas fa-arrow-up mr-1"></i> 8% from last month
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Messages -->
+            <div class="bg-white rounded-xl shadow mb-8">
+                <div class="p-6 border-b">
+                    <h2 class="text-xl font-bold">Recent Messages</h2>
+                </div>
+                <div class="divide-y">
+                    <div class="p-6 flex items-start hover:bg-gray-50">
+                        <div class="mr-4">
+                            <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center">
+                                JD
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold">John Doe</div>
+                            <div class="text-gray-600 mb-2">Interested in web development services</div>
+                            <div class="text-sm text-gray-500">2 hours ago</div>
+                        </div>
+                        <div>
+                            <button class="text-primary hover:text-secondary">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex items-start hover:bg-gray-50">
+                        <div class="mr-4">
+                            <div class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center">
+                                AS
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold">Alice Smith</div>
+                            <div class="text-gray-600 mb-2">Startup consultation inquiry</div>
+                            <div class="text-sm text-gray-500">1 day ago</div>
+                        </div>
+                        <div>
+                            <button class="text-primary hover:text-secondary">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Create Blog Post -->
+            <div class="bg-white rounded-xl shadow">
+                <div class="p-6 border-b">
+                    <h2 class="text-xl font-bold">Create New Blog Post</h2>
+                </div>
+                <div class="p-6">
+                    <form id="blog-form" class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2">Title</label>
+                            <input type="text" id="blog-title" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Category</label>
+                            <select class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option>Web Development</option>
+                                <option>Startups</option>
+                                <option>Tech Trends</option>
+                                <option>Career Advice</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Content</label>
+                            <textarea id="blog-content" rows="10" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Featured Image</label>
+                            <div class="flex items-center">
+                                <input type="file" class="hidden" id="blog-image">
+                                <label for="blog-image" class="px-4 py-2 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300">Choose File</label>
+                                <span class="ml-4 text-gray-600">No file chosen</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Admin Password</label>
+                            <input type="password" id="admin-password" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        </div>
+                        <div class="flex justify-end">
+                            <button type="submit" class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-secondary transition">Publish Post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { addBlog } from './js/api.js';
+        
+        document.getElementById('blog-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const password = document.getElementById('admin-password').value;
+            
+            // Save original button text
+            const originalBtnText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Publishing...';
+            submitBtn.disabled = true;
+            
+            try {
+                const blogData = {
+                    title: form.querySelector('#blog-title').value,
+                    category: form.querySelector('select').value,
+                    content: form.querySelector('#blog-content').value,
+                    date: new Date().toISOString().split('T')[0]
+                };
+                
+                const response = await addBlog(blogData, password);
+                
+                if (response.status === 'added') {
+                    alert('Blog post published successfully!');
+                    form.reset();
+                } else {
+                    throw new Error(response.error || 'Failed to publish blog post');
+                }
+            } catch (error) {
+                console.error('Error publishing blog:', error);
+                alert(`Error: ${error.message}`);
+            } finally {
+                // Restore button
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

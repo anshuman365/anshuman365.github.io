@@ -1,0 +1,268 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anshuman Singh - Innovator • Developer • Visionary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#7C3AED',
+                        dark: '#1E293B'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #4F46E5, #7C3AED);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-primary flex items-center">
+                <span class="bg-primary text-white p-2 rounded mr-2">AS</span>
+                Anshuman Singh
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="font-medium hover:text-primary">Home</a>
+                <a href="services.html" class="hover:text-primary">Services</a>
+                <a href="journey.html" class="hover:text-primary">Journey</a>
+                <a href="blog.html" class="hover:text-primary">Blog</a>
+                <a href="contact.html" class="hover:text-primary">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="dashboard.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">Dashboard</a>
+                <button class="md:hidden text-gray-600" id="menu-toggle">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white px-4 py-6 shadow-lg" id="mobile-menu">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="font-medium">Home</a>
+                <a href="services.html">Services</a>
+                <a href="journey.html">Journey</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="pt-32 pb-20 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Let's Connect</h1>
+            <p class="text-xl max-w-2xl mx-auto">Have a project in mind? Want to collaborate? I'd love to hear from you!</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+                        </div>
+                        <button type="submit" class="bg-primary text-white px-8 py-4 rounded-lg font-bold hover:bg-secondary transition w-full">Send Message</button>
+                    </form>
+                </div>
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Email</h4>
+                                <p class="text-gray-600">anshumansingh3697@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-4">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Phone</h4>
+                                <p class="text-gray-600">+91 6393741885</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Location</h4>
+                                <p class="text-gray-600">India</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h4 class="font-bold text-lg mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition"><i class="fab fa-linkedin-in text-white"></i></a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition"><i class="fab fa-github text-white"></i></a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition"><i class="fab fa-twitter text-white"></i></a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition"><i class="fab fa-instagram text-white"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.8392349455!2d77.06889934999999!3d28.527280399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1689774298360!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Anshuman Singh</h3>
+                    <p class="opacity-80">Building the future one line of code at a time.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="opacity-80 hover:opacity-100">Home</a></li>
+                        <li><a href="services.html" class="opacity-80 hover:opacity-100">Services</a></li>
+                        <li><a href="journey.html" class="opacity-80 hover:opacity-100">Journey</a></li>
+                        <li><a href="blog.html" class="opacity-80 hover:opacity-100">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fas fa-envelope mr-2 opacity-80"></i> anshumansingh3697@gmail.com</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-2 opacity-80"></i> +91 6393741885</li>
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2 opacity-80"></i> India</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition"><i class="fab fa-github"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center opacity-80">
+                <p>&copy; 2023 Anshuman Singh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { submitContact } from './js/api.js';
+        
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
+            // Save original button text
+            const originalBtnText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                const formData = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    subject: form.subject.value,
+                    message: form.message.value
+                };
+                
+                const response = await submitContact(formData);
+                
+                if (response.status === 'success') {
+                    // Show success message
+                    alert('Message sent successfully! I\'ll get back to you soon.');
+                    form.reset();
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                console.error('Error submitting contact form:', error);
+                alert('Failed to send message. Please try again or email me directly at anshumansingh3697@gmail.com');
+            } finally {
+                // Restore button
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

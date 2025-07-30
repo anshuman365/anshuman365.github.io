@@ -1,4 +1,4 @@
-<!-- index.html -->
+<!-- blog.html -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -85,56 +85,40 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Blog Hero -->
     <section class="pt-32 pb-20 gradient-bg text-white">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-12 md:mb-0">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Innovator • Developer • Visionary</h1>
-                <p class="text-xl opacity-90 mb-8 max-w-xl">Building digital solutions that transform ideas into reality with cutting-edge technology and creative vision.</p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="contact.html" class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition transform hover:-translate-y-1">Get in Touch</a>
-                    <a href="services.html" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition">Explore Services</a>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative">
-                    <img src="assets/profile.jpg" alt="Anshuman Singh" class="w-80 h-80 object-cover rounded-full border-8 border-white/20 shadow-2xl animation-float">
-                    <div class="absolute -top-4 -right-4 bg-white text-primary p-4 rounded-full shadow-lg">
-                        <i class="fas fa-rocket text-3xl"></i>
-                    </div>
-                    <div class="absolute -bottom-4 -left-4 bg-white text-primary p-4 rounded-full shadow-lg">
-                        <i class="fas fa-code text-3xl"></i>
-                    </div>
-                </div>
-            </div>
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Tech Insights & Tutorials</h1>
+            <p class="text-xl max-w-2xl mx-auto">Sharing knowledge and experiences from my journey in tech</p>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="py-16 bg-gray-100">
+    <!-- Blog Posts -->
+    <section class="py-16">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="text-4xl font-bold text-primary mb-2">50+</div>
-                    <div class="text-gray-600">Projects</div>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="text-4xl font-bold text-primary mb-2">5+</div>
-                    <div class="text-gray-600">Years Experience</div>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="text-4xl font-bold text-primary mb-2">20+</div>
-                    <div class="text-gray-600">Happy Clients</div>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="text-4xl font-bold text-primary mb-2">10K+</div>
-                    <div class="text-gray-600">Lines of Code</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-container">
+                <!-- Blog posts will be loaded dynamically from API -->
+                <div class="text-center py-12">
+                    <i class="fas fa-spinner fa-spin text-4xl text-primary mb-4"></i>
+                    <p>Loading blog posts...</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Newsletter -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+            <h2 class="text-3xl font-bold mb-6">Stay Updated</h2>
+            <p class="text-gray-600 mb-8">Subscribe to my newsletter for the latest articles, tech tips, and exclusive content.</p>
+            <form class="flex flex-col sm:flex-row gap-4">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary">
+                <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary transition">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+        <!-- Footer -->
     <footer class="bg-dark text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -175,30 +159,51 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Animation on scroll
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fadeIn');
+    <script type="module">
+        import { fetchBlogs } from './js/api.js';
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetchBlogs();
+                const blogContainer = document.getElementById('blog-container');
+                
+                if (response.blogs && response.blogs.length > 0) {
+                    blogContainer.innerHTML = '';
+                    
+                    response.blogs.forEach(blog => {
+                        const blogCard = document.createElement('div');
+                        blogCard.className = 'bg-white rounded-xl shadow-md overflow-hidden card-hover';
+                        blogCard.innerHTML = `
+                            <img src="https://source.unsplash.com/random/600x400/?technology,${blog.id}" alt="${blog.title}" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4">${blog.category}</span>
+                                <h3 class="text-xl font-bold mb-3">${blog.title}</h3>
+                                <p class="text-gray-600 mb-4">${blog.summary}</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-500 text-sm">${blog.date}</span>
+                                    <a href="#" class="text-primary font-medium hover:text-secondary">Read More →</a>
+                                </div>
+                            </div>
+                        `;
+                        blogContainer.appendChild(blogCard);
+                    });
+                } else {
+                    blogContainer.innerHTML = `
+                        <div class="col-span-3 text-center py-12">
+                            <i class="fas fa-exclamation-circle text-4xl text-primary mb-4"></i>
+                            <p>No blog posts available at the moment.</p>
+                        </div>
+                    `;
                 }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
+            } catch (error) {
+                console.error('Error loading blogs:', error);
+                document.getElementById('blog-container').innerHTML = `
+                    <div class="col-span-3 text-center py-12">
+                        <i class="fas fa-exclamation-triangle text-4xl text-red-500 mb-4"></i>
+                        <p>Failed to load blog posts. Please try again later.</p>
+                    </div>
+                `;
+            }
         });
     </script>
 </body>
