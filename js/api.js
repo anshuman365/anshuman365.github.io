@@ -1,5 +1,5 @@
 // js/api.js
-const BASE_URL = "https://your-cloudflared-url"; // Replace with your Cloudflared URL
+const BASE_URL = "https://antibodies-usual-header-emily.trycloudflare.com"; // Update after tunnel setup
 
 export const fetchBlogs = async () => {
   try {
@@ -40,5 +40,19 @@ export const addBlog = async (blog, password) => {
   } catch (error) {
     console.error('API Error:', error);
     return { status: 'error', message: 'Failed to add blog' };
+  }
+};
+
+export const loginAdmin = async (password) => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password })
+    });
+    return response.json();
+  } catch (error) {
+    console.error('Login Error:', error);
+    return { status: 'error', message: 'Login failed' };
   }
 };
