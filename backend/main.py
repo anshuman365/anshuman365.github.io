@@ -1,5 +1,5 @@
 # backend/main.py
-from flask import Flask, request, jsonify, session, redirect, url_for
+from flask import Flask, request, jsonify, session
 from flask_cors import CORS
 from blog_api import blog_bp
 from contact_api import contact_bp
@@ -8,13 +8,13 @@ import secrets
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', secrets.token_hex(16))
-CORS(app)
+CORS(app, supports_credentials=True)
 
 # Register blueprints
 app.register_blueprint(blog_bp)
 app.register_blueprint(contact_bp)
 
-# Update login endpoint
+# Admin authentication endpoint
 @app.route('/api/login', methods=['POST'])
 def login():
     """Authenticate admin user"""
@@ -32,7 +32,7 @@ def login():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Add logout endpoint
+# Logout endpoint
 @app.route('/api/logout', methods=['POST'])
 def logout():
     """Logout admin user"""
@@ -50,7 +50,8 @@ def health_check():
         "endpoints": {
             "blogs": "/api/blogs",
             "contact": "/api/contact",
-            "login": "/api/login"
+            "login": "/api/login",
+            "logout": "/api/logout"
         }
     })
 
@@ -58,12 +59,12 @@ def health_check():
 def get_stats():
     """Get application statistics"""
     try:
-        # Check authorization
-        if request.headers.get('Authorization') != os.getenv('ADMIN_PASSWORD', 'secret123'):
+        # Check session authentication
+        if not session.get('admin'):
             return jsonify({"error": "Unauthorized"}), 401
         
-        from .blog_api import BLOGS
-        from .contact_api import MESSAGES
+        from blog_api import BLOGS
+        from contact_api import MESSAGES
         
         return jsonify({
             "blog_count": len(BLOGS),

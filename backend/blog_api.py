@@ -1,9 +1,8 @@
 # backend/blog_api.py
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, session
 from datetime import datetime
 import os
 import json
-from middleware import admin_required
 
 blog_bp = Blueprint('blog', __name__)
 
@@ -57,12 +56,11 @@ def get_blog(blog_id):
         return jsonify({"error": str(e)}), 500
 
 @blog_bp.route('/api/blogs', methods=['POST'])
-@admin_required
 def add_blog():
     """Create a new blog post (admin only)"""
     try:
-        # Check authorization
-        if request.headers.get('Authorization') != os.getenv('ADMIN_PASSWORD', 'secret123'):
+        # Check session authentication
+        if not session.get('admin'):
             return jsonify({"error": "Unauthorized"}), 401
         
         # Validate input

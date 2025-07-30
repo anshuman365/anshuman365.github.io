@@ -1,5 +1,5 @@
 # backend/contact_api.py
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, session
 from datetime import datetime
 import os
 import json
@@ -49,8 +49,8 @@ def submit_contact():
 def get_messages():
     """Get all contact messages (admin only)"""
     try:
-        # Check authorization
-        if request.headers.get('Authorization') != os.getenv('ADMIN_PASSWORD', 'secret123'):
+        # Check session authentication
+        if not session.get('admin'):
             return jsonify({"error": "Unauthorized"}), 401
         
         return jsonify({"messages": MESSAGES})

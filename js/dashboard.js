@@ -1,3 +1,4 @@
+// js/dashboard.js
 import { loginAdmin, logoutAdmin, checkAuth } from './auth.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
