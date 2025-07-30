@@ -1,0 +1,6 @@
+body { font-family: sans-serif; text-align: center; margin: 0; padding: 0; }
+header { background: #333; color: white; padding: 1rem; }
+nav a { color: white; margin: 0 1rem; text-decoration: none; }
+main { padding: 2rem; }
+footer { background: #eee; padding: 1rem; }
+button { padding: 10px 20px; margin: 10px; }
