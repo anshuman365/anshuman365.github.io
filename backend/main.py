@@ -75,15 +75,11 @@ def login():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Add session validation endpoint
 @app.route('/api/validate-session', methods=['GET'])
 def validate_session():
     """Validate existing session"""
     if session.get('admin'):
-        return jsonify({
-            "status": "valid",
-            "session_expiry": int((datetime.now() + app.config['PERMANENT_SESSION_LIFETIME']).timestamp())
-        })
+        return jsonify({"status": "valid"})
     return jsonify({"status": "invalid"}), 401
 
 # Logout endpoint

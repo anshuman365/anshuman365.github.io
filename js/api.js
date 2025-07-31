@@ -27,15 +27,16 @@ export const submitContact = async (data) => {
   }
 };
 
-export const addBlog = async (blog, password) => {
+export const addBlog = async (blog) => {
   try {
     const response = await fetch(`${BASE_URL}/api/blogs`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': password
+        'X-CSRF-Token': getCSRFToken()  // Add this
       },
-      body: JSON.stringify(blog)
+      body: JSON.stringify(blog),
+      credentials: 'include'
     });
     return response.json();
   } catch (error) {
@@ -177,3 +178,4 @@ export const deleteBlog = async (blog_id) => {
     return { status: 'error', message: 'Failed to delete blog' };
   }
 };
+

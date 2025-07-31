@@ -39,3 +39,19 @@ export const checkAuth = async () => {
         return false;
     }
 };
+
+// Add at the bottom of auth.js
+// Auto-renew session every 5 minutes
+setInterval(async () => {
+    const sessionData = JSON.parse(localStorage.getItem('portfolio_session_data'));
+    if (sessionData && sessionData.loggedIn) {
+        try {
+            await fetch(`${BASE_URL}/api/validate-session`, {
+                credentials: 'include'
+            });
+            console.log('Session renewed');
+        } catch (e) {
+            console.error('Session renewal failed:', e);
+        }
+    }
+}, 5 * 60 * 1000); // 5 minutes

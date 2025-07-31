@@ -1,4 +1,4 @@
-import { loginAdmin, logoutAdmin, checkAuth } from './auth.js';
+import { loginAdmin, logoutAdmin, checkAuth, getCSRFToken } from './auth.js';
 import { getStats, getAllMessages, getAllBlogs, addBlog, deleteBlog } from './api.js';
 import { createMessageElement, createBlogElement, formatDate } from './dashboard-utils.js';
 
@@ -6,7 +6,28 @@ import { createMessageElement, createBlogElement, formatDate } from './dashboard
 let currentSection = 'overview';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const isAuthenticated = await checkAuth();
+    // First check if we have a local session
+    const sessionData = JSON.parse(localStorage.getItem('portfolio_session_data'));
+    let isAuthenticated = false;
+    
+    if (sessionData && sessionData.loggedIn) {
+        // Validate with server
+        try {
+            const response = await fetch(`${BASE_URL}/api/validate-session`, {
+                credentials: 'include'
+            });
+            isAuthenticated = response.status === 200;
+        } catch (e) {
+            console.error('Session validation error:', e);
+            isAuthenticated = false;
+        }
+    }
+    
+    if (!isAuthenticated) {
+        // Fallback to standard check
+        isAuthenticated = await checkAuth();
+    }
+
     const loginSection = document.getElementById('login-section');
     const dashboardContent = document.getElementById('dashboard-content');
     
@@ -17,7 +38,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else {
         loginSection.classList.remove('hidden');
         dashboardContent.classList.add('hidden');
-        localStorage.removeItem('portfolio_admin_session');
+        // Clear invalid session
+        localStorage.removeItem('portfolio_session_data');
     }
 
     // Login form handler
