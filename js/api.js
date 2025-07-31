@@ -19,9 +19,15 @@ export const submitContact = async (data) => {
     const response = await fetch(`${BASE_URL}/api/contact`, {
       method: 'POST',
       headers: { 
-        'Content-Type': 'application/json'  // Add this line
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        subject: data.subject,
+        message: data.message
+      })
     });
     return response.json();
   } catch (error) {
@@ -54,9 +60,10 @@ export const loginAdmin = async (password) => {
         const response = await fetch(`${BASE_URL}/api/login`, {
             method: 'POST',
             headers: { 
-                'Content-Type': 'application/json'  // Add this line
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
-            body: JSON.stringify({ password }),
+            body: JSON.stringify({ password: password }), // Ensure proper key
             credentials: 'include'
         });
         
