@@ -13,11 +13,14 @@ export const fetchBlogs = async () => {
   }
 };
 
+// Update submitContact function
 export const submitContact = async (data) => {
   try {
     const response = await fetch(`${BASE_URL}/api/contact`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json'  // Add this line
+      },
       body: JSON.stringify(data)
     });
     return response.json();
@@ -45,11 +48,14 @@ export const addBlog = async (blog) => {
   }
 };
 
+// Update loginAdmin function
 export const loginAdmin = async (password) => {
     try {
         const response = await fetch(`${BASE_URL}/api/login`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+                'Content-Type': 'application/json'  // Add this line
+            },
             body: JSON.stringify({ password }),
             credentials: 'include'
         });

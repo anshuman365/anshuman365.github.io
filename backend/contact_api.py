@@ -12,12 +12,16 @@ MESSAGES = []
 @contact_bp.route('/api/contact', methods=['POST'])
 def submit_contact():
     try:
-        data = request.json
-        print("Received contact data:", data)  # Debugging
+        # Handle both form data and JSON
+        if request.content_type == 'application/json':
+            data = request.get_json()
+        else:
+            data = request.form
+            
+        print("Received contact data:", data)
         
-        # Check if data is nested under 'data' key
-        if 'data' in data:
-            data = data['data']
+        if not data:
+            return jsonify({"error": "No data received"}), 400
             
         required_fields = ['name', 'email', 'message']
         if not all(field in data for field in required_fields):
@@ -27,10 +31,10 @@ def submit_contact():
             return jsonify({"error": "Invalid email address"}), 400
         
         sanitized_data = {
-            "name": sanitize_input(data.get('name', '')),
-            "email": sanitize_input(data.get('email', '')),
+            "name": sanitize_input(data['name']),
+            "email": sanitize_input(data['email']),
             "subject": sanitize_input(data.get('subject', 'No Subject')),
-            "message": sanitize_input(data.get('message', '')),
+            "message": sanitize_input(data['message']),
             "timestamp": datetime.now().isoformat()
         }
         

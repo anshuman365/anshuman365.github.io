@@ -21,10 +21,20 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 
 Session(app)
 
-CORS(app, supports_credentials=True, origins=["http://localhost:5000", "https://anshuman365.github.io","https://bargains-dog-ran-anaheim.trycloudflare.com"])
+CORS(app, supports_credentials=True, origins=[
+    "http://localhost:5000", 
+    "https://anshuman365.github.io",
+    "https://bargains-dog-ran-anaheim.trycloudflare.com",
+    "https://anshuman365.github.io"  # Add your GitHub Pages URL here
+])
 
 # Add CSRF protection
 csrf = CSRFProtect(app)
+
+@app.before_request
+def log_request_info():
+    app.logger.debug('Headers: %s', request.headers)
+    app.logger.debug('Body: %s', request.get_data())
 
 @app.after_request
 def set_csrf_cookie(response):
@@ -51,22 +61,23 @@ def register_bp():
 
 @app.route('/api/login', methods=['POST'])
 def login():
+    print("login start")
     try:
-        data = request.json
-        print("Received login data:", data)  # Debugging
-        
-        # Check if data is a string (password directly)
-        if isinstance(data, str):
-            password = data
+        # Handle both form data and JSON
+        if request.content_type == 'application/json':
+            data = request.get_json()
         else:
-            password = data.get('password', '')
+            data = request.form
+            
+        print("Received data:", data)
         
-        if not password:
+        if not data or 'password' not in data:
             return jsonify({"error": "Password required"}), 400
             
-        print("Comparing passwords:", password, os.getenv('ADMIN_PASSWORD', 'secret123'))
+        password = data['password']
+        admin_password = os.getenv('ADMIN_PASSWORD', 'secret123')
         
-        if password == os.getenv('ADMIN_PASSWORD', 'secret123'):
+        if password == admin_password:
             session['logged_in'] = True
             session['admin'] = True
             session.permanent = True
