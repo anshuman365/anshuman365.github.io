@@ -22,7 +22,7 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 
 Session(app)  # Initialize session extension
 
-CORS(app, supports_credentials=True, origins=["http://localhost:5000", "https://anshuman365.github.io"])  # Add your actual domains
+CORS(app, supports_credentials=True, origins=["http://localhost:5000", "https://anshuman365.github.io","https://bargains-dog-ran-anaheim.trycloudflare.com"])  # Add your actual domains
 
 # Add CSRF protection
 csrf = CSRFProtect(app)

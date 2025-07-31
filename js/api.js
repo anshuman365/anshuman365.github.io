@@ -17,8 +17,12 @@ export const submitContact = async (data) => {
   try {
     const response = await fetch(`${BASE_URL}/api/contact`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': getCSRFToken()  // Add this
+      },
+      body: JSON.stringify(data),
+      credentials: 'include'
     });
     return response.json();
   } catch (error) {

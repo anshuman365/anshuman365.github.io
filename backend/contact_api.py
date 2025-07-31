@@ -18,9 +18,11 @@ def submit_contact():
         
         # Validate input
         required_fields = ['name', 'email', 'message']
+        print("required_fields",required_fields)
         if not all(field in data for field in required_fields):
             return jsonify({"error": "Missing required fields"}), 400
             
+        print(validate_email(data['email']))
         if not validate_email(data['email']):
             return jsonify({"error": "Invalid email address"}), 400
         
