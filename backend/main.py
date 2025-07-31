@@ -4,25 +4,24 @@ from flask_cors import CORS
 import os 
 import secrets
 from flask import make_response
-import time
-from datetime import timedelta, datetime
+from datetime import timedelta
 from flask_wtf.csrf import CSRFProtect, generate_csrf
-from flask_session import Session  # Add this
+from flask_session import Session
 from functools import wraps
 
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY', secrets.token_hex(32))  # Stronger key
+app.secret_key = os.getenv('SECRET_KEY', secrets.token_hex(32))
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=30)
-app.config['SESSION_TYPE'] = 'filesystem'  # Use filesystem for session storage
+app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_FILE_DIR'] = './.flask_session/'
 app.config['SESSION_COOKIE_NAME'] = 'portfolio_session'
 app.config['SESSION_COOKIE_HTTPONLY'] = True
-app.config['SESSION_COOKIE_SECURE'] = os.getenv('ENVIRONMENT') == 'production'  # HTTPS only in production
+app.config['SESSION_COOKIE_SECURE'] = os.getenv('ENVIRONMENT') == 'production'
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 
-Session(app)  # Initialize session extension
+Session(app)
 
-CORS(app, supports_credentials=True, origins=["http://localhost:5000", "https://anshuman365.github.io","https://bargains-dog-ran-anaheim.trycloudflare.com"])  # Add your actual domains
+CORS(app, supports_credentials=True, origins=["http://localhost:5000", "https://anshuman365.github.io","https://bargains-dog-ran-anaheim.trycloudflare.com"])
 
 # Add CSRF protection
 csrf = CSRFProtect(app)
@@ -30,7 +29,6 @@ csrf = CSRFProtect(app)
 @app.after_request
 def set_csrf_cookie(response):
     if response.status_code < 400:
-        # Set CSRF token in cookie
         response.set_cookie('csrf_token', generate_csrf(), httponly=True, secure=app.config['SESSION_COOKIE_SECURE'])
     return response
 
@@ -46,26 +44,32 @@ def csrf_protection(f):
     return decorated_function
 
 def register_bp():
-    # Register blueprints
     from blog_api import blog_bp
     from contact_api import contact_bp
     app.register_blueprint(blog_bp)
     app.register_blueprint(contact_bp)
 
-# Admin authentication endpoint
 @app.route('/api/login', methods=['POST'])
 def login():
-    """Authenticate admin user with persistent session"""
     try:
         data = request.json
-        if 'password' not in data:
+        print("Received login data:", data)  # Debugging
+        
+        # Check if data is a string (password directly)
+        if isinstance(data, str):
+            password = data
+        else:
+            password = data.get('password', '')
+        
+        if not password:
             return jsonify({"error": "Password required"}), 400
             
-        if data.get("password") == os.getenv('ADMIN_PASSWORD', 'secret123'):
-            # Create persistent session
+        print("Comparing passwords:", password, os.getenv('ADMIN_PASSWORD', 'secret123'))
+        
+        if password == os.getenv('ADMIN_PASSWORD', 'secret123'):
             session['logged_in'] = True
             session['admin'] = True
-            session.permanent = True  # Make session persistent
+            session.permanent = True
             
             return jsonify({
                 "status": "logged_in",
@@ -73,11 +77,11 @@ def login():
             })
         return jsonify({"status": "fail", "error": "Invalid credentials"}), 401
     except Exception as e:
+        print("Login error:", str(e))
         return jsonify({"error": str(e)}), 500
 
 @app.route('/api/validate-session', methods=['GET'])
 def validate_session():
-    """Validate existing session"""
     if session.get('admin'):
         return jsonify({"status": "valid"})
     return jsonify({"status": "invalid"}), 401
@@ -85,14 +89,12 @@ def validate_session():
 # Logout endpoint
 @app.route('/api/logout', methods=['POST'])
 def logout():
-    """Logout admin user"""
     session.pop('logged_in', None)
     session.pop('admin', None)
     return jsonify({"status": "logged_out"})
 
 @app.route('/')
 def health_check():
-    """Health check endpoint"""
     return jsonify({
         "status": "active",
         "service": "Anshuman Portfolio Backend",
@@ -107,20 +109,16 @@ def health_check():
 
 @app.route('/api/stats', methods=['GET'])
 def get_stats():
-    """Get application statistics"""
     try:
-        # Check session authentication
         if not session.get('admin'):
             return jsonify({"error": "Unauthorized"}), 401
         
         from blog_api import BLOGS
         from contact_api import MESSAGES
         
-        # Calculate engagement rate
         total_views = sum(b.get('views', 0) for b in BLOGS)
         engagement_rate = min(100, (total_views / (len(BLOGS) * 100)) * 100) if BLOGS else 0
         
-        # Get recent messages (last 3)
         recent_messages = sorted(MESSAGES, key=lambda x: x['timestamp'], reverse=True)[:3]
         
         return jsonify({
@@ -134,12 +132,9 @@ def get_stats():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Add this new endpoint for getting all messages
 @app.route('/api/contact/all-messages', methods=['GET'])
 def get_all_messages():
-    """Get all contact messages (admin only)"""
     try:
-        # Check session authentication
         if not session.get('admin'):
             return jsonify({"error": "Unauthorized"}), 401
         
@@ -148,12 +143,9 @@ def get_all_messages():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Add this new endpoint for getting all blogs
 @app.route('/api/admin/blogs', methods=['GET'])
 def get_all_blogs():
-    """Get all blog posts (admin only)"""
     try:
-        # Check session authentication
         if not session.get('admin'):
             return jsonify({"error": "Unauthorized"}), 401
         
@@ -162,19 +154,15 @@ def get_all_blogs():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Add this new endpoint for deleting a blog
 @app.route('/api/blogs/<int:blog_id>', methods=['DELETE'])
 def delete_blog(blog_id):
-    """Delete a blog post (admin only)"""
     try:
-        # Check session authentication
         if not session.get('admin'):
             return jsonify({"error": "Unauthorized"}), 401
         
         from blog_api import BLOGS
         global BLOGS
         
-        # Find and remove the blog
         original_count = len(BLOGS)
         BLOGS = [blog for blog in BLOGS if blog['id'] != blog_id]
         

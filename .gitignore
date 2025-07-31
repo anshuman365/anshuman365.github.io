@@ -1,0 +1,38 @@
+# .gitignore
+# Node dependencies
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.python-version
+env/
+venv/
+.venv/
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Cloudflared
+.cloudflared/
+
+# Session files
+.flask_session/
+
+# Frontend assets
+assets/
+!assets/favicon.ico

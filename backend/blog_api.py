@@ -7,7 +7,6 @@ from main import csrf_protection
 
 blog_bp = Blueprint('blog', __name__)
 
-# In-memory storage (replace with database in production)
 BLOGS = [
     {
         "id": 1,
@@ -35,9 +34,7 @@ BLOGS = [
 
 @blog_bp.route('/api/blogs', methods=['GET'])
 def get_blogs():
-    """Get all blog posts"""
     try:
-        # Sort by date (newest first)
         sorted_blogs = sorted(BLOGS, key=lambda x: x['date'], reverse=True)
         return jsonify({"blogs": sorted_blogs})
     except Exception as e:
@@ -45,34 +42,27 @@ def get_blogs():
 
 @blog_bp.route('/api/blogs/<int:blog_id>', methods=['GET'])
 def get_blog(blog_id):
-    """Get a specific blog post by ID"""
     try:
         blog = next((b for b in BLOGS if b['id'] == blog_id), None)
         if blog:
-            # Increment view count
             blog['views'] = blog.get('views', 0) + 1
             return jsonify(blog)
         return jsonify({"error": "Blog not found"}), 404
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Protect all write operations
 @blog_bp.route('/api/blogs', methods=['POST'])
 @csrf_protection
 def add_blog():
-    """Create a new blog post (admin only)"""
     try:
-        # Check session authentication
         if not session.get('admin'):
             return jsonify({"error": "Unauthorized"}), 401
         
-        # Validate input
         data = request.json
         required_fields = ['title', 'summary', 'content', 'category']
         if not all(field in data for field in required_fields):
             return jsonify({"error": "Missing required fields"}), 400
         
-        # Create new blog
         new_blog = {
             "id": len(BLOGS) + 1,
             "title": data['title'],
@@ -87,7 +77,6 @@ def add_blog():
         
         BLOGS.append(new_blog)
         
-        # Log to file
         os.makedirs('logs', exist_ok=True)
         with open('logs/blog_log.json', 'a') as f:
             f.write(json.dumps(new_blog) + '\n')
@@ -99,7 +88,6 @@ def add_blog():
 
 @blog_bp.route('/api/blogs/<int:blog_id>/like', methods=['POST'])
 def like_blog(blog_id):
-    """Like a blog post"""
     try:
         blog = next((b for b in BLOGS if b['id'] == blog_id), None)
         if blog:
