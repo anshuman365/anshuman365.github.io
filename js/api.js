@@ -17,12 +17,8 @@ export const submitContact = async (data) => {
   try {
     const response = await fetch(`${BASE_URL}/api/contact`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-Token': getCSRFToken()  // Add this
-      },
-      body: JSON.stringify(data),
-      credentials: 'include'
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
     });
     return response.json();
   } catch (error) {
@@ -37,7 +33,7 @@ export const addBlog = async (blog) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-CSRF-Token': getCSRFToken()  // Add this
+        'X-CSRF-Token': getCSRFToken()
       },
       body: JSON.stringify(blog),
       credentials: 'include'
@@ -55,7 +51,7 @@ export const loginAdmin = async (password) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ password }),
-            credentials: 'include'  // Important for cookies
+            credentials: 'include'
         });
         
         const result = await response.json();
@@ -110,27 +106,11 @@ export const checkAuth = async () => {
     return false;
 };
 
-// Add this new function
 export const getCSRFToken = () => {
     const token = document.cookie.match('(^|;)\\s*csrf_token\\s*=\\s*([^;]+)');
     return token ? token.pop() : '';
 };
 
-// Auto-renew session periodically
-setInterval(async () => {
-    const sessionExpiry = localStorage.getItem(SESSION_KEY);
-    if (sessionExpiry && Date.now() < sessionExpiry * 1000 - 60000) { // Renew if < 1 min left
-        try {
-            await fetch(`${BASE_URL}/api/validate-session`, {
-                credentials: 'include'
-            });
-        } catch (e) {
-            console.error('Session renewal failed:', e);
-        }
-    }
-}, 5 * 60 * 1000); // Check every 5 minutes
-
-// Add new API methods
 export const getStats = async () => {
   try {
     const response = await fetch(`${BASE_URL}/api/stats`, {
@@ -182,4 +162,3 @@ export const deleteBlog = async (blog_id) => {
     return { status: 'error', message: 'Failed to delete blog' };
   }
 };
-

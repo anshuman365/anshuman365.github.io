@@ -1,4 +1,4 @@
-import { loginAdmin, logoutAdmin, checkAuth, getCSRFToken } from './auth.js';
+// js/dashboard.js
 import { getStats, getAllMessages, getAllBlogs, addBlog, deleteBlog } from './api.js';
 import { createMessageElement, createBlogElement, formatDate } from './dashboard-utils.js';
 
@@ -6,65 +6,6 @@ import { createMessageElement, createBlogElement, formatDate } from './dashboard
 let currentSection = 'overview';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // First check if we have a local session
-    const sessionData = JSON.parse(localStorage.getItem('portfolio_session_data'));
-    let isAuthenticated = false;
-    
-    if (sessionData && sessionData.loggedIn) {
-        // Validate with server
-        try {
-            const response = await fetch(`${BASE_URL}/api/validate-session`, {
-                credentials: 'include'
-            });
-            isAuthenticated = response.status === 200;
-        } catch (e) {
-            console.error('Session validation error:', e);
-            isAuthenticated = false;
-        }
-    }
-    
-    if (!isAuthenticated) {
-        // Fallback to standard check
-        isAuthenticated = await checkAuth();
-    }
-
-    const loginSection = document.getElementById('login-section');
-    const dashboardContent = document.getElementById('dashboard-content');
-    
-    if (isAuthenticated) {
-        loginSection.classList.add('hidden');
-        dashboardContent.classList.remove('hidden');
-        loadDashboardData();
-    } else {
-        loginSection.classList.remove('hidden');
-        dashboardContent.classList.add('hidden');
-        // Clear invalid session
-        localStorage.removeItem('portfolio_session_data');
-    }
-
-    // Login form handler
-    document.getElementById('login-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const password = document.getElementById('admin-password').value;
-        const result = await loginAdmin(password);
-        
-        if (result.status === 'logged_in') {
-            loginSection.classList.add('hidden');
-            dashboardContent.classList.remove('hidden');
-            loadDashboardData();
-        } else {
-            alert('Login failed: ' + (result.error || 'Invalid credentials'));
-        }
-    });
-
-    // Logout handler
-    document.getElementById('logout-link').addEventListener('click', async (e) => {
-        e.preventDefault();
-        await logoutAdmin();
-        loginSection.classList.remove('hidden');
-        dashboardContent.classList.add('hidden');
-    });
-
     // Sidebar navigation
     document.querySelectorAll('.sidebar-nav').forEach(link => {
         link.addEventListener('click', function(e) {
@@ -144,11 +85,6 @@ function showSection(section) {
             loadMessages();
             break;
     }
-}
-
-// Load dashboard data
-function loadDashboardData() {
-    loadStats();
 }
 
 // Load stats for overview

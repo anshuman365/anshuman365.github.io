@@ -1,3 +1,4 @@
+// js/dashboard-utils.js
 // Format date for display
 export const formatDate = (dateString) => {
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -62,7 +63,7 @@ export const createBlogElement = (blog) => {
                 ${blog.category}
               </span>
               <span class="text-gray-500 text-sm">${formatDate(blog.date)}</span>
-            </div>
+            </极>
           </div>
           <div class="flex space-x-2">
             <span class="flex items-center text-gray-500">

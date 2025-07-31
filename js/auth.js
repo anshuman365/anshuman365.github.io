@@ -1,57 +1,39 @@
 // js/auth.js
-const BASE_URL = "https://antibodies-usual-header-emily.trycloudflare.com";
+import { loginAdmin, logoutAdmin, checkAuth } from './api.js';
 
-export const loginAdmin = async (password) => {
-    try {
-        const response = await fetch(`${BASE_URL}/api/login`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ password }),
-            credentials: 'include'  // Important for session cookies
-        });
-        return response.json();
-    } catch (error) {
-        console.error('Login Error:', error);
-        return { status: 'error', message: 'Login failed' };
+document.addEventListener('DOMContentLoaded', async () => {
+    const loginSection = document.getElementById('login-section');
+    const dashboardContent = document.getElementById('dashboard-content');
+    
+    const isAuthenticated = await checkAuth();
+    
+    if (isAuthenticated) {
+        loginSection.classList.add('hidden');
+        dashboardContent.classList.remove('hidden');
+    } else {
+        loginSection.classList.remove('hidden');
+        dashboardContent.classList.add('hidden');
     }
-};
 
-export const logoutAdmin = async () => {
-    try {
-        const response = await fetch(`${BASE_URL}/api/logout`, {
-            method: 'POST',
-            credentials: 'include'  // Important for session cookies
-        });
-        return response.json();
-    } catch (error) {
-        console.error('Logout Error:', error);
-        return { status: 'error', message: 'Logout failed' };
-    }
-};
-
-export const checkAuth = async () => {
-    try {
-        const response = await fetch(`${BASE_URL}/api/stats`, {
-            credentials: 'include'  // Send cookies with request
-        });
-        return response.status === 200;
-    } catch (error) {
-        return false;
-    }
-};
-
-// Add at the bottom of auth.js
-// Auto-renew session every 5 minutes
-setInterval(async () => {
-    const sessionData = JSON.parse(localStorage.getItem('portfolio_session_data'));
-    if (sessionData && sessionData.loggedIn) {
-        try {
-            await fetch(`${BASE_URL}/api/validate-session`, {
-                credentials: 'include'
-            });
-            console.log('Session renewed');
-        } catch (e) {
-            console.error('Session renewal failed:', e);
+    // Login form handler
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const password = document.getElementById('admin-password').value;
+        const result = await loginAdmin(password);
+        
+        if (result.status === 'logged_in') {
+            loginSection.classList.add('hidden');
+            dashboardContent.classList.remove('hidden');
+        } else {
+            alert('Login failed: ' + (result.error || 'Invalid credentials'));
         }
-    }
-}, 5 * 60 * 1000); // 5 minutes
+    });
+
+    // Logout handler
+    document.getElementById('logout-link').addEventListener('click', async (e) => {
+        e.preventDefault();
+        await logoutAdmin();
+        loginSection.classList.remove('hidden');
+        dashboardContent.classList.add('hidden');
+    });
+});

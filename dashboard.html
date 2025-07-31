@@ -92,7 +92,7 @@
         
                 <!-- Mobile Menu -->
         <div class="md:hidden hidden bg-white px-4 py-6 shadow-lg" id="mobile-menu">
-            <div class="flex flex-col space-y-4">
+            <极 class="flex flex-col space-y-4">
                 <a href="index.html" class="font-medium">Home</a>
                 <a href="services.html">Services</a>
                 <a href="journey.html">Journey</a>
@@ -155,7 +155,7 @@
                 <div class="flex items-center">
                     <div class="mr-4 text-right">
                         <div class="font-bold">Anshuman Singh</div>
-                        <div class="text-gray-600 text-sm">Admin</div>
+                        <div class="text-gray-600">Admin</div>
                     </div>
                     <img src="assets/profile.jpg" alt="Admin" class="w-12 h-12 rounded-full">
                 </div>
@@ -270,7 +270,7 @@
                         </div>
                         
                         <div>
-                            <h3 class="text-lg font-semibold mb-3">Backup & Restore</h3>
+                            <h3 class="text-lg font-semib极 mb-3">Backup & Restore</h3>
                             <div class="flex space-x-4">
                                 <button class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-bold hover:bg-gray-300 transition">
                                     <i class="fas fa-download mr-2"></i> Backup Data
@@ -286,48 +286,5 @@
         </div>
     </div>
 </div>
-
-    <script type="module">
-        import { addBlog } from './js/api.js';
-        
-        document.getElementById('blog-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const form = e.target;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            
-            // Save original button text
-            const originalBtnText = submitBtn.innerHTML;
-            
-            // Show loading state
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Publishing...';
-            submitBtn.disabled = true;
-            
-            try {
-                const blogData = {
-                    title: form.querySelector('#blog-title').value,
-                    category: form.querySelector('select').value,
-                    content: form.querySelector('#blog-content').value,
-                    date: new Date().toISOString().split('T')[0]
-                };
-                
-                const response = await addBlog(blogData);
-                
-                if (response.status === 'added') {
-                    alert('Blog post published successfully!');
-                    form.reset();
-                } else {
-                    throw new Error(response.error || 'Failed to publish blog post');
-                }
-            } catch (error) {
-                console.error('Error publishing blog:', error);
-                alert(`Error: ${error.message}`);
-            } finally {
-                // Restore button
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.disabled = false;
-            }
-        });
-    </script>
 </body>
 </html>
