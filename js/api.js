@@ -34,20 +34,26 @@ export const fetchBlogs = async () => {
 export const submitContact = async (data) => {
   try {
     logDebug('Submitting contact form...');
-    logDebug(`Contact data: ${JSON.stringify(data)}`);
+    
+    // First get CSRF token
+    await fetch(BASE_URL);
+    const csrfToken = getCSRFToken();
+    logDebug(`Obtained CSRF token: ${csrfToken}`);
     
     const response = await fetch(`${BASE_URL}/api/contact`, {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'X-CSRF-Token': csrfToken
       },
       body: JSON.stringify({
         name: data.name,
         email: data.email,
         subject: data.subject,
         message: data.message
-      })
+      }),
+      credentials: 'include'
     });
     
     logDebug(`Contact response status: ${response.status}`);
@@ -91,11 +97,17 @@ export const loginAdmin = async (password) => {
     try {
         logDebug(`Attempting login with password: ${password}`);
         
+        // First get CSRF token
+        await fetch(BASE_URL);
+        const csrfToken = getCSRFToken();
+        logDebug(`Obtained CSRF token: ${csrfToken}`);
+        
         const response = await fetch(`${BASE_URL}/api/login`, {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'X-CSRF-Token': csrfToken
             },
             body: JSON.stringify({ password }),
             credentials: 'include'
