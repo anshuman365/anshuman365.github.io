@@ -36,8 +36,12 @@ export const submitContact = async (data) => {
     logDebug('Submitting contact form...');
     
     // Get CSRF token
-    const csrfToken = getCSRFToken();
-    logDebug(`Obtained CSRF token: ${csrfToken}`);
+    let csrfToken = getCSRFToken();
+    if (!csrfToken) {
+        logDebug('No CSRF token found, fetching base URL to get token');
+        await fetch(BASE_URL, { credentials: 'include' });
+        csrfToken = getCSRFToken();
+    }
     
     const response = await fetch(`${BASE_URL}/api/contact`, {
       method: 'POST',
@@ -97,8 +101,16 @@ export const loginAdmin = async (password) => {
         logDebug(`Attempting login with password: ${password}`);
         
         // Get CSRF token
-        const csrfToken = getCSRFToken();
-        logDebug(`Obtained CSRF token: ${csrfToken}`);
+        let csrfToken = getCSRFToken();
+        logDebug(`Initial CSRF token: ${csrfToken}`);
+        
+        // If we don't have a token, try to get one by making a GET request
+        if (!csrfToken) {
+            logDebug('No CSRF token found, fetching base URL to get token');
+            await fetch(BASE_URL, { credentials: 'include' });
+            csrfToken = getCSRFToken();
+            logDebug(`New CSRF token: ${csrfToken}`);
+        }
         
         const response = await fetch(`${BASE_URL}/api/login`, {
             method: 'POST',
@@ -184,20 +196,26 @@ export const checkAuth = async () => {
 };
 
 export const getCSRFToken = () => {
-    const cookieName = 'csrf_token=';
-    const cookies = document.cookie.split(';');
+    // Get all cookies as a string
+    const cookieString = document.cookie;
+    logDebug(`All cookies: ${cookieString}`);
     
+    // Split cookies into individual parts
+    const cookies = cookieString.split(';');
+    let token = '';
+    
+    // Loop through all cookies to find the csrf_token
     for (let i = 0; i < cookies.length; i++) {
-        let cookie = cookies[i].trim();
-        if (cookie.startsWith(cookieName)) {
-            const token = cookie.substring(cookieName.length, cookie.length);
-            logDebug(`CSRF Token: ${token}`);
-            return token;
+        const cookie = cookies[i].trim();
+        // Check if this cookie is the csrf_token
+        if (cookie.startsWith('csrf_token=')) {
+            token = cookie.substring('csrf_token='.length);
+            break;
         }
     }
     
-    logDebug('CSRF Token not found in cookies', 'error');
-    return '';
+    logDebug(`CSRF Token: ${token}`);
+    return token;
 };
 
 export const getStats = async () => {

@@ -4,7 +4,7 @@ from flask_cors import CORS
 import os 
 import secrets
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_session import Session
 from functools import wraps
@@ -21,12 +21,15 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 
 Session(app)
 
-CORS(app, supports_credentials=True, origins=[
+# Define allowed origins directly
+ALLOWED_ORIGINS = [
     "http://localhost:5000", 
     "https://anshuman365.github.io",
     "https://transcription-highland-hawk-na.trycloudflare.com",
     "http://localhost:8000"
-])
+]
+
+CORS(app, supports_credentials=True, origins=ALLOWED_ORIGINS)
 
 # Add CSRF protection
 csrf = CSRFProtect(app)
@@ -48,12 +51,15 @@ def set_csrf_cookie(response):
 
 @app.after_request
 def add_cors_headers(response):
-    # Allow all origins from our CORS config
-    if request.origin in app.config['CORS_ORIGINS']:
-        response.headers['Access-Control-Allow-Origin'] = request.origin
+    # Always set the CORS headers
     response.headers['Access-Control-Allow-Credentials'] = 'true'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, X-CSRF-Token'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
+    
+    # Set allowed origin if it's in our list
+    if request.origin and request.origin in ALLOWED_ORIGINS:
+        response.headers['Access-Control-Allow-Origin'] = request.origin
+    
     return response
 
 # Add CSRF validation middleware
@@ -77,18 +83,22 @@ def register_bp():
 def login():
     print("login start")
     try:
-        # Try to get JSON data first
-        if request.content_type == 'application/json':
+        # Always try to parse as JSON first
+        try:
             data = request.get_json()
-        else:
-            # If no JSON, try form data
+        except:
+            data = None
+            
+        # If JSON parsing failed, try form data
+        if not data:
             data = request.form
-            # If form data is empty, try to parse as JSON
-            if not data:
-                try:
-                    data = json.loads(request.data.decode('utf-8'))
-                except:
-                    data = {}
+            
+        # If still no data, try to parse raw body
+        if not data:
+            try:
+                data = json.loads(request.data.decode('utf-8'))
+            except:
+                data = {}
             
         print("Received data:", data)
         
