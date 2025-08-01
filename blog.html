@@ -174,7 +174,7 @@
                         const blogCard = document.createElement('div');
                         blogCard.className = 'bg-white rounded-xl shadow-md overflow-hidden card-hover';
                         blogCard.innerHTML = `
-                            <img src="https://source.unsplash.com/random/600x400/?technology,${blog.id}" alt="${blog.title}" class="w-full h-48 object-cover">
+                            <img src="backend/images/${blog.title}" alt="${blog.title}" class="w-full h-48 object-cover">
                             <div class="p-6">
                                 <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4">${blog.category}</span>
                                 <h3 class="text-xl font-bold mb-3">${blog.title}</h3>
@@ -206,5 +206,6 @@
             }
         });
     </script>
+    <script type="module" src="js/debug-utils.js"></script>
 </body>
 </html>

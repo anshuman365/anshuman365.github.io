@@ -24,8 +24,9 @@ Session(app)
 CORS(app, supports_credentials=True, origins=[
     "http://localhost:5000", 
     "https://anshuman365.github.io",
-    "https://bargains-dog-ran-anaheim.trycloudflare.com",
-    "https://anshuman365.github.io"  # Add your GitHub Pages URL here
+    "https://transcription-highland-hawk-na.trycloudflare.com",
+    "https://anshuman365.github.io",
+    "http://localhost:8000"  # Add for local testing
 ])
 
 # Add CSRF protection

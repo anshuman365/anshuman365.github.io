@@ -1,5 +1,5 @@
 # backend/blog_api.py
-from flask import Blueprint, request, jsonify, session
+from flask import Blueprint, request, jsonify, session, current_app
 from datetime import datetime
 import os
 import json
@@ -15,7 +15,7 @@ BLOGS = [
         "content": "React is a powerful JavaScript library for building user interfaces. In this article, we'll cover the basics of React components, state management, and hooks...",
         "category": "Web Development",
         "date": "2023-07-15",
-        "image": "react.jpg",
+        "image": "backend/images/react.jpg",
         "views": 1250,
         "likes": 42
     },
@@ -26,7 +26,7 @@ BLOGS = [
         "content": "Securing funding is crucial for startup growth. We'll explore different funding options including bootstrapping, angel investors, venture capital, and crowdfunding...",
         "category": "Startups",
         "date": "2023-07-10",
-        "image": "funding.jpg",
+        "image": "backend/images/funding.jpg",
         "views": 890,
         "likes": 31
     }

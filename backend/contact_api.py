@@ -12,20 +12,8 @@ MESSAGES = []
 @contact_bp.route('/api/contact', methods=['POST'])
 def submit_contact():
     try:
-        # Try to get JSON data first
-        if request.content_type == 'application/json':
-            data = request.get_json()
-        else:
-            # If no JSON, try form data
-            data = request.form
-            
-        # If still no data, try to parse raw body
-        if not data:
-            try:
-                data = json.loads(request.data.decode('utf-8'))
-            except:
-                pass
-            
+        data = request.get_json()
+        
         print("Received contact data:", data)
         
         if not data:
@@ -37,23 +25,7 @@ def submit_contact():
             
         if not validate_email(data['email']):
             return jsonify({"error": "Invalid email address"}), 400
-        
-        sanitized_data = {
-            "name": sanitize_input(data['name']),
-            "email": sanitize_input(data['email']),
-            "subject": sanitize_input(data.get('subject', 'No Subject')),
-            "message": sanitize_input(data['message']),
-            "timestamp": datetime.now().isoformat()
-        }
-        
-        MESSAGES.append(sanitized_data)
-        
-        os.makedirs('logs', exist_ok=True)
-        with open('logs/contact_log.json', 'a') as f:
-            f.write(json.dumps(sanitized_data) + '\n')
-        
-        return jsonify({"status": "success"})
-    
+            
     except Exception as e:
         print("Contact error:", str(e))
         return jsonify({"error": str(e)}), 500

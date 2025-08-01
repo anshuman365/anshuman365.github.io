@@ -1,19 +1,23 @@
 // js/contact-handler.js
 import { submitContact } from './api.js';
+import { logDebug } from './debug-utils.js';
 
 export const setupContactForm = () => {
   const contactForm = document.getElementById('contact-form');
   
-  if (!contactForm) return;
+  if (!contactForm) {
+    logDebug('Contact form not found', 'warning');
+    return;
+  }
   
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const form = e.target;
     const submitBtn = form.querySelector('button[type="submit"]');
-    
-    // Save original button text
     const originalBtnText = submitBtn.innerHTML;
+    
+    logDebug('Contact form submitted');
     
     // Show loading state
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
@@ -28,17 +32,22 @@ export const setupContactForm = () => {
         timestamp: new Date().toISOString()
       };
       
+      logDebug(`Form data: ${JSON.stringify(formData)}`);
+      
       const response = await submitContact(formData);
+      logDebug(`Contact API response: ${JSON.stringify(response)}`);
       
       if (response.status === 'success') {
-        // Show success message
+        logDebug('Message sent successfully', 'success');
         alert('Message sent successfully! I\'ll get back to you soon.');
         form.reset();
       } else {
-        throw new Error('Failed to send message');
+        const errorMsg = response.error || 'Failed to send message';
+        logDebug(`API error: ${errorMsg}`, 'error');
+        throw new Error(errorMsg);
       }
     } catch (error) {
-      console.error('Form Submission Error:', error);
+      logDebug(`Form submission error: ${error.message}`, 'error');
       alert('Failed to send message. Please try again or email me directly at anshumansingh3697@gmail.com');
     } finally {
       // Restore button
@@ -49,4 +58,7 @@ export const setupContactForm = () => {
 };
 
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', setupContactForm);
+document.addEventListener('DOMContentLoaded', () => {
+  logDebug('Contact page loaded');
+  setupContactForm();
+});
