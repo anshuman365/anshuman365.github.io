@@ -35,8 +35,7 @@ export const submitContact = async (data) => {
   try {
     logDebug('Submitting contact form...');
     
-    // First get CSRF token
-    await fetch(BASE_URL);
+    // Get CSRF token
     const csrfToken = getCSRFToken();
     logDebug(`Obtained CSRF token: ${csrfToken}`);
     
@@ -97,8 +96,7 @@ export const loginAdmin = async (password) => {
     try {
         logDebug(`Attempting login with password: ${password}`);
         
-        // First get CSRF token
-        await fetch(BASE_URL);
+        // Get CSRF token
         const csrfToken = getCSRFToken();
         logDebug(`Obtained CSRF token: ${csrfToken}`);
         
@@ -186,10 +184,20 @@ export const checkAuth = async () => {
 };
 
 export const getCSRFToken = () => {
-    const token = document.cookie.match('(^|;)\\s*csrf_token\\s*=\\s*([^;]+)');
-    const result = token ? token.pop() : '';
-    logDebug(`CSRF Token: ${result}`);
-    return result;
+    const cookieName = 'csrf_token=';
+    const cookies = document.cookie.split(';');
+    
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if (cookie.startsWith(cookieName)) {
+            const token = cookie.substring(cookieName.length, cookie.length);
+            logDebug(`CSRF Token: ${token}`);
+            return token;
+        }
+    }
+    
+    logDebug('CSRF Token not found in cookies', 'error');
+    return '';
 };
 
 export const getStats = async () => {

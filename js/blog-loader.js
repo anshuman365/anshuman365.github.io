@@ -14,8 +14,14 @@ export const loadBlogPosts = async () => {
       response.blogs.forEach(blog => {
         const blogCard = document.createElement('article');
         blogCard.className = 'bg-white rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300 hover:shadow-xl';
+        
+        // Fix image path
+        const imageUrl = blog.image.startsWith('http') 
+          ? blog.image 
+          : `https://transcription-highland-hawk-na.trycloudflare.com/${blog.image}`;
+        
         blogCard.innerHTML = `
-          <img src="https://source.unsplash.com/random/600x400/?technology,${blog.id}" 
+          <img src="${imageUrl}" 
                alt="${blog.title}" 
                class="w-full h-48 object-cover"
                loading="lazy">
