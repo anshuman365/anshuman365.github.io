@@ -63,11 +63,19 @@ def register_bp():
 def login():
     print("login start")
     try:
-        # Handle both form data and JSON
+        # Try to get JSON data first
         if request.content_type == 'application/json':
             data = request.get_json()
         else:
+            # If no JSON, try form data
             data = request.form
+            
+        # If still no data, try to parse raw body
+        if not data:
+            try:
+                data = json.loads(request.data.decode('utf-8'))
+            except:
+                pass
             
         print("Received data:", data)
         

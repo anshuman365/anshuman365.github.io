@@ -1,5 +1,5 @@
 // js/api.js
-const BASE_URL = "https://bargains-dog-ran-anaheim.trycloudflare.com";
+const BASE_URL = "https://transcription-highland-hawk-na.trycloudflare.com";
 const SESSION_KEY = 'portfolio_session_data';
 
 export const fetchBlogs = async () => {
