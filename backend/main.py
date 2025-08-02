@@ -25,7 +25,7 @@ Session(app)
 ALLOWED_ORIGINS = [
     "http://localhost:5000", 
     "https://anshuman365.github.io",
-    "https://transcription-highland-hawk-na.trycloudflare.com",
+    "https://serum-warranties-infant-speeds.trycloudflare.com",
     "http://localhost:8000"
 ]
 
