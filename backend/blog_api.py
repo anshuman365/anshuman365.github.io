@@ -4,6 +4,8 @@ from datetime import datetime
 import os
 import json
 from main import session_required
+from utils import validate_blog_post
+
 
 blog_bp = Blueprint('blog', __name__)
 
@@ -99,5 +101,35 @@ def like_blog(blog_id):
             blog['likes'] = blog.get('likes', 0) + 1
             return jsonify({"likes": blog['likes']})
         return jsonify({"error": "Blog not found"}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@blog_bp.route('/api/blogs/<int:blog_id>', methods=['PUT'])
+@session_required
+def update_blog(blog_id):
+    try:
+        # Check session token
+        session_token = request.headers.get('X-Session-Token')
+        if not session_token or session_token != session.get('session_token'):
+            return jsonify({"error": "Invalid session token"}), 401
+
+        if not session.get('admin'):
+            return jsonify({"error": "Unauthorized"}), 401
+        
+        data = request.json
+        blog = next((b for b in BLOGS if b['id'] == blog_id), None)
+        
+        if not blog:
+            return jsonify({"error": "Blog not found"}), 404
+        
+        # Update blog fields
+        blog['title'] = data.get('title', blog['title'])
+        blog['summary'] = data.get('summary', blog['summary'])
+        blog['content'] = data.get('content', blog['content'])
+        blog['category'] = data.get('category', blog['category'])
+        blog['image'] = data.get('image', blog['image'])
+        
+        return jsonify({"status": "updated", "id": blog_id})
+    
     except Exception as e:
         return jsonify({"error": str(e)}), 500

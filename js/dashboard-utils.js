@@ -63,7 +63,7 @@ export const createBlogElement = (blog) => {
                 ${blog.category}
               </span>
               <span class="text-gray-500 text-sm">${formatDate(blog.date)}</span>
-            </极>
+            </div>
           </div>
           <div class="flex space-x-2">
             <span class="flex items-center text-gray-500">

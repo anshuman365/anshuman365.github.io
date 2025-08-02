@@ -305,3 +305,33 @@ export const deleteBlog = async (blog_id) => {
     return { status: 'error', message: 'Failed to delete blog' };
   }
 };
+
+export const updateBlog = async (blog_id, blogData) => {
+  try {
+    logDebug(`Updating blog ID: ${blog_id}...`);
+    logDebug(`Blog data: ${JSON.stringify(blogData)}`);
+    
+    // Get session data
+    const sessionData = JSON.parse(localStorage.getItem(SESSION_KEY));
+    const sessionToken = sessionData?.sessionToken || '';
+    
+    const response = await fetch(`${BASE_URL}/api/blogs/${blog_id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Session-Token': sessionToken
+      },
+      body: JSON.stringify(blogData),
+      credentials: 'include'
+    });
+    
+    logDebug(`Update blog response status: ${response.status}`);
+    const result = await response.json();
+    logDebug(`Update blog response: ${JSON.stringify(result)}`);
+    
+    return result;
+  } catch (error) {
+    logDebug(`Update blog error: ${error.message}`, 'error');
+    return { status: 'error', message: 'Failed to update blog' };
+  }
+};
