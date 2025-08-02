@@ -5,7 +5,6 @@ import os
 import secrets
 import json
 from datetime import datetime, timedelta
-from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_session import Session
 from functools import wraps
 
@@ -31,9 +30,6 @@ ALLOWED_ORIGINS = [
 
 CORS(app, supports_credentials=True, origins=ALLOWED_ORIGINS)
 
-# Add CSRF protection
-csrf = CSRFProtect(app)
-
 @app.before_request
 def log_request_info():
     app.logger.debug('Received %s request to %s', request.method, request.path)
@@ -42,12 +38,6 @@ def log_request_info():
     app.logger.debug('Form data: %s', request.form)
     app.logger.debug('JSON data: %s', request.get_json(silent=True))
     app.logger.debug('Cookies: %s', request.cookies)
-
-@app.after_request
-def set_csrf_cookie(response):
-    if response.status_code < 400:
-        response.set_cookie('csrf_token', generate_csrf(), httponly=True, secure=app.config['SESSION_COOKIE_SECURE'])
-    return response
 
 # Replace the existing add_cors_headers function with:
 @app.after_request
@@ -62,14 +52,12 @@ def add_cors_headers(response):
         response.headers['Access-Control-Allow-Origin'] = origin
     return response
 
-# Add CSRF validation middleware
-def csrf_protection(f):
+# Add session validation middleware
+def session_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
-            csrf_token = request.cookies.get('csrf_token')
-            if not csrf_token or csrf_token != request.headers.get('X-CSRF-Token'):
-                return jsonify({"error": "Invalid CSRF token"}), 403
+        if not session.get('admin'):
+            return jsonify({"error": "Unauthorized"}), 401
         return f(*args, **kwargs)
     return decorated_function
 
@@ -81,27 +69,8 @@ def register_bp():
 
 @app.route('/api/login', methods=['POST'])
 def login():
-    print("login start")
     try:
-        # Always try to parse as JSON first
-        try:
-            data = request.get_json()
-        except:
-            data = None
-            
-        # If JSON parsing failed, try form data
-        if not data:
-            data = request.form
-            
-        # If still no data, try to parse raw body
-        if not data:
-            try:
-                data = json.loads(request.data.decode('utf-8'))
-            except:
-                data = {}
-            
-        print("Received data:", data)
-        
+        data = request.get_json()
         if not data or 'password' not in data:
             return jsonify({"error": "Password required"}), 400
             
@@ -113,10 +82,14 @@ def login():
             session['admin'] = True
             session.permanent = True
             
+            # Generate and store a simple session token
+            session_token = secrets.token_hex(16)
+            session['session_token'] = session_token
+            
             return jsonify({
                 "status": "logged_in",
-                "session_expiry": int((datetime.now() + app.config['PERMANENT_SESSION_LIFETIME']).timestamp()),
-                "csrf_token": generate_csrf()  # Return new CSRF token
+                "session_token": session_token,
+                "session_expiry": int((datetime.now() + app.config['PERMANENT_SESSION_LIFETIME']).timestamp())
             })
         return jsonify({"status": "fail", "error": "Invalid credentials"}), 401
     except Exception as e:
@@ -125,15 +98,14 @@ def login():
 
 @app.route('/api/validate-session', methods=['GET'])
 def validate_session():
-    if session.get('admin'):
+    if session.get('admin') and session.get('session_token'):
         return jsonify({"status": "valid"})
     return jsonify({"status": "invalid"}), 401
 
 # Logout endpoint
 @app.route('/api/logout', methods=['POST'])
 def logout():
-    session.pop('logged_in', None)
-    session.pop('admin', None)
+    session.clear()
     return jsonify({"status": "logged_out"})
 
 @app.route('/')
@@ -150,7 +122,9 @@ def health_check():
         }
     })
 
+# All protected routes use session_required decorator
 @app.route('/api/stats', methods=['GET'])
+@session_required
 def get_stats():
     try:
         if not session.get('admin'):
@@ -176,6 +150,7 @@ def get_stats():
         return jsonify({"error": str(e)}), 500
 
 @app.route('/api/contact/all-messages', methods=['GET'])
+@session_required
 def get_all_messages():
     try:
         if not session.get('admin'):
@@ -187,6 +162,7 @@ def get_all_messages():
         return jsonify({"error": str(e)}), 500
 
 @app.route('/api/admin/blogs', methods=['GET'])
+@session_required
 def get_all_blogs():
     try:
         if not session.get('admin'):
@@ -198,6 +174,7 @@ def get_all_blogs():
         return jsonify({"error": str(e)}), 500
 
 @app.route('/api/blogs/<int:blog_id>', methods=['DELETE'])
+@session_required
 def delete_blog(blog_id):
     try:
         if not session.get('admin'):

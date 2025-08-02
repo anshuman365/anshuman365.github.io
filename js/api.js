@@ -4,7 +4,6 @@ import { logDebug } from './debug-utils.js';
 const BASE_URL = "https://serum-warranties-infant-speeds.trycloudflare.com";
 const SESSION_KEY = 'portfolio_session_data';
 
-// Add this to the top
 logDebug(`API Base URL: ${BASE_URL}`);
 
 export const fetchBlogs = async () => {
@@ -35,20 +34,11 @@ export const submitContact = async (data) => {
   try {
     logDebug('Submitting contact form...');
     
-    // Get CSRF token
-    let csrfToken = getCSRFToken();
-    if (!csrfToken) {
-        logDebug('No CSRF token found, fetching base URL to get token');
-        await fetch(BASE_URL, { credentials: 'include' });
-        csrfToken = getCSRFToken();
-    }
-    
     const response = await fetch(`${BASE_URL}/api/contact`, {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'X-CSRF-Token': sessionStorage.getItem('csrf_token') || ''
+        'Accept': 'application/json'
       },
       body: JSON.stringify({
         name: data.name,
@@ -75,11 +65,15 @@ export const addBlog = async (blog) => {
     logDebug('Adding new blog...');
     logDebug(`Blog data: ${JSON.stringify(blog)}`);
     
+    // Get session data
+    const sessionData = JSON.parse(localStorage.getItem(SESSION_KEY));
+    const sessionToken = sessionData?.sessionToken || '';
+    
     const response = await fetch(`${BASE_URL}/api/blogs`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-CSRF-Token': sessionStorage.getItem('csrf_token') || ''
+        'X-Session-Token': sessionToken
       },
       body: JSON.stringify(blog),
       credentials: 'include'
@@ -100,18 +94,6 @@ export const loginAdmin = async (password) => {
     try {
         logDebug(`Attempting login with password: ${password}`);
         
-        // Get CSRF token
-        let csrfToken = getCSRFToken();
-        logDebug(`Initial CSRF token: ${csrfToken}`);
-        
-        // If we don't have a token, try to get one by making a GET request
-        if (!csrfToken) {
-            logDebug('No CSRF token found, fetching base URL to get token');
-            await fetch(BASE_URL, { credentials: 'include' });
-            csrfToken = getCSRFToken();
-            logDebug(`New CSRF token: ${csrfToken}`);
-        }
-        
         const response = await fetch(`${BASE_URL}/api/login`, {
             method: 'POST',
             headers: { 
@@ -127,13 +109,13 @@ export const loginAdmin = async (password) => {
         const result = await response.json();
         logDebug(`Login response: ${JSON.stringify(result)}`);
         
-        if (result.status === 'logged_in' && result.csrf_token) {
+        if (result.status === 'logged_in') {
             logDebug('Login successful', 'success');
             localStorage.setItem(SESSION_KEY, JSON.stringify({
                 loggedIn: true,
+                sessionToken: result.session_token,
                 timestamp: Date.now()
             }));
-            sessionStorage.setItem('csrf_token', result.csrf_token);
         } else {
             logDebug(`Login failed: ${result.error}`, 'error');
         }
@@ -195,17 +177,18 @@ export const checkAuth = async () => {
     return false;
 };
 
-export const getCSRFToken = () => {
-    // Use regex to properly extract cookie value
-    const match = document.cookie.match(/csrf_token=([^;]+)/);
-    return match ? match[1] : '';
-};
-
 export const getStats = async () => {
   try {
     logDebug('Fetching stats...');
     
+    // Get session data
+    const sessionData = JSON.parse(localStorage.getItem(SESSION_KEY));
+    const sessionToken = sessionData?.sessionToken || '';
+    
     const response = await fetch(`${BASE_URL}/api/stats`, {
+      headers: {
+        'X-Session-Token': sessionToken
+      },
       credentials: 'include'
     });
     
@@ -232,7 +215,14 @@ export const getAllMessages = async () => {
   try {
     logDebug('Fetching all messages...');
     
+    // Get session data
+    const sessionData = JSON.parse(localStorage.getItem(SESSION_KEY));
+    const sessionToken = sessionData?.sessionToken || '';
+    
     const response = await fetch(`${BASE_URL}/api/contact/all-messages`, {
+      headers: {
+        'X-Session-Token': sessionToken
+      },
       credentials: 'include'
     });
     
@@ -259,7 +249,14 @@ export const getAllBlogs = async () => {
   try {
     logDebug('Fetching all blogs...');
     
+    // Get session data
+    const sessionData = JSON.parse(localStorage.getItem(SESSION_KEY));
+    const sessionToken = sessionData?.sessionToken || '';
+    
     const response = await fetch(`${BASE_URL}/api/admin/blogs`, {
+      headers: {
+        'X-Session-Token': sessionToken
+      },
       credentials: 'include'
     });
     
@@ -286,8 +283,15 @@ export const deleteBlog = async (blog_id) => {
   try {
     logDebug(`Deleting blog ID: ${blog_id}`);
     
+    // Get session data
+    const sessionData = JSON.parse(localStorage.getItem(SESSION_KEY));
+    const sessionToken = sessionData?.sessionToken || '';
+    
     const response = await fetch(`${BASE_URL}/api/blogs/${blog_id}`, {
       method: 'DELETE',
+      headers: {
+        'X-Session-Token': sessionToken
+      },
       credentials: 'include'
     });
     

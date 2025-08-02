@@ -3,7 +3,7 @@ from flask import Blueprint, request, jsonify, session, current_app
 from datetime import datetime
 import os
 import json
-from main import csrf_protection
+from main import session_required
 
 blog_bp = Blueprint('blog', __name__)
 
@@ -52,8 +52,13 @@ def get_blog(blog_id):
         return jsonify({"error": str(e)}), 500
 
 @blog_bp.route('/api/blogs', methods=['POST'])
-@csrf_protection
+@session_required
 def add_blog():
+    # Check session token
+    session_token = request.headers.get('X-Session-Token')
+    if not session_token or session_token != session.get('session_token'):
+        return jsonify({"error": "Invalid session token"}), 401
+
     try:
         if not session.get('admin'):
             return jsonify({"error": "Unauthorized"}), 401

@@ -40,13 +40,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const errorMsg = result.error || 'Invalid credentials';
                 logDebug(`Login failed: ${errorMsg}`, 'error');
                 alert(`Login failed: ${errorMsg}`);
-                alert(`Login failed: ${result.error || 'Invalid credentials'}`);
             }
         } catch (error) {
             alert('Login error: Server communication failed. Please try again.');
             console.error('Login error:', error);
             logDebug(`Login error: ${error.message}`, 'error');
-            alert(`Login failed: ${error.message}`);
         }
     });
 
