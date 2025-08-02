@@ -18,7 +18,7 @@ export const loadBlogPosts = async () => {
         // Fix image path
         const imageUrl = blog.image.startsWith('http') 
           ? blog.image 
-          : `https://transcription-highland-hawk-na.trycloudflare.com/${blog.image}`;
+          : `${BASE_URL}/${blog.image}`;
         
         blogCard.innerHTML = `
           <img src="${imageUrl}" 

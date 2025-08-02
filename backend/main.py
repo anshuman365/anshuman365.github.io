@@ -16,8 +16,8 @@ app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_FILE_DIR'] = './.flask_session/'
 app.config['SESSION_COOKIE_NAME'] = 'portfolio_session'
 app.config['SESSION_COOKIE_HTTPONLY'] = True
-app.config['SESSION_COOKIE_SECURE'] = os.getenv('ENVIRONMENT') == 'production'
-app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
+app.config['SESSION_COOKIE_SECURE'] = True
+app.config['SESSION_COOKIE_SAMESITE'] = 'None'  # Required for cross-site requests
 
 Session(app)
 
@@ -56,13 +56,10 @@ def add_cors_headers(response):
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, X-CSRF-Token'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
     
-    # Allow all origins in development, restrict in production
-    if os.getenv('ENVIRONMENT') == 'production':
-        if request.origin and request.origin in ALLOWED_ORIGINS:
-            response.headers['Access-Control-Allow-Origin'] = request.origin
-    else:
-        response.headers['Access-Control-Allow-Origin'] = '*'  # Allow all in dev
-    
+    # Set origin based on request
+    origin = request.headers.get('Origin')
+    if origin and origin in ALLOWED_ORIGINS:
+        response.headers['Access-Control-Allow-Origin'] = origin
     return response
 
 # Add CSRF validation middleware
@@ -118,7 +115,8 @@ def login():
             
             return jsonify({
                 "status": "logged_in",
-                "session_expiry": int((datetime.now() + app.config['PERMANENT_SESSION_LIFETIME']).timestamp())
+                "session_expiry": int((datetime.now() + app.config['PERMANENT_SESSION_LIFETIME']).timestamp()),
+                "csrf_token": generate_csrf()  # Return new CSRF token
             })
         return jsonify({"status": "fail", "error": "Invalid credentials"}), 401
     except Exception as e:

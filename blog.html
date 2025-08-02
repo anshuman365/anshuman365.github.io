@@ -112,7 +112,7 @@
     </nav>
 
     <!-- Blog Hero -->
-    <section class="pt-32 pb-20 gradient-b极 text-white">
+    <section class="pt-32 pb-20 gradient-bg text-white">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-6">Tech Insights & Tutorials</h1>
             <p class="text-xl max-w-2xl mx-auto">Sharing knowledge and experiences from my journey in tech</p>
@@ -200,7 +200,7 @@
                         const blogCard = document.createElement('div');
                         blogCard.className = 'bg-white rounded-xl shadow-md overflow-hidden card-hover';
                         blogCard.innerHTML = `
-                            <img src="backend/images/${blog.title}" alt="${blog.title}" class="w-full h-48 object-cover">
+                            <img src="${blog.image}" alt="${blog.title}" class="w-full h-48 object-cover">
                             <div class="p-6">
                                 <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4">${blog.category}</span>
                                 <h3 class="text-xl font-bold mb-3">${blog.title}</h3>
