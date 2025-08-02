@@ -49,16 +49,19 @@ def set_csrf_cookie(response):
         response.set_cookie('csrf_token', generate_csrf(), httponly=True, secure=app.config['SESSION_COOKIE_SECURE'])
     return response
 
+# Replace the existing add_cors_headers function with:
 @app.after_request
 def add_cors_headers(response):
-    # Always set the CORS headers
     response.headers['Access-Control-Allow-Credentials'] = 'true'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, X-CSRF-Token'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
     
-    # Set allowed origin if it's in our list
-    if request.origin and request.origin in ALLOWED_ORIGINS:
-        response.headers['Access-Control-Allow-Origin'] = request.origin
+    # Allow all origins in development, restrict in production
+    if os.getenv('ENVIRONMENT') == 'production':
+        if request.origin and request.origin in ALLOWED_ORIGINS:
+            response.headers['Access-Control-Allow-Origin'] = request.origin
+    else:
+        response.headers['Access-Control-Allow-Origin'] = '*'  # Allow all in dev
     
     return response
 
