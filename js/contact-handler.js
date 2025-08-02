@@ -28,8 +28,7 @@ export const setupContactForm = () => {
         name: form.name.value,
         email: form.email.value,
         subject: form.subject.value,
-        message: form.message.value,
-        timestamp: new Date().toISOString()
+        message: form.message.value
       };
       
       logDebug(`Form data: ${JSON.stringify(formData)}`);

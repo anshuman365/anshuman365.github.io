@@ -25,13 +25,36 @@ def submit_contact():
             
         if not validate_email(data['email']):
             return jsonify({"error": "Invalid email address"}), 400
+        
+        # Create message object
+        message = {
+            'id': len(MESSAGES) + 1,
+            'name': sanitize_input(data['name']),
+            'email': sanitize_input(data['email']),
+            'subject': sanitize_input(data.get('subject', 'No Subject')),
+            'message': sanitize_input(data['message']),
+            'timestamp': datetime.now().isoformat()
+        }
+        
+        MESSAGES.append(message)
+        print(f"New message received from {message['email']}")
+        
+        # Log the message
+        os.makedirs('logs', exist_ok=True)
+        with open('logs/contact_log.json', 'a') as f:
+            f.write(json.dumps(message) + '\n')
+        
+        return jsonify({
+            "status": "success",
+            "message": "Contact message received successfully"
+        })
             
     except Exception as e:
         print("Contact error:", str(e))
         return jsonify({"error": str(e)}), 500
 
-@contact_bp.route('/api/contact/messages', methods=['GET'])
-def get_messages():
+@contact_bp.route('/api/contact/all-messages', methods=['GET'])
+def get_all_messages():
     try:
         if not session.get('admin'):
             return jsonify({"error": "Unauthorized"}), 401
