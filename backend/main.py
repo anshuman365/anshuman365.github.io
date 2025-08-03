@@ -31,6 +31,17 @@ ALLOWED_ORIGINS = [
 CORS(app, supports_credentials=True, origins=ALLOWED_ORIGINS)
 
 @app.before_request
+def handle_preflight():
+    if request.method == "OPTIONS":
+        # Handle preflight request
+        response = jsonify({"status": "preflight"})
+        response.headers.add("Access-Control-Allow-Origin", request.headers.get("Origin"))
+        response.headers.add("Access-Control-Allow-Headers", "Content-Type, X-Session-Token")
+        response.headers.add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+        response.headers.add("Access-Control-Allow-Credentials", "true")
+        return response
+
+@app.before_request
 def log_request_info():
     app.logger.debug('Received %s request to %s', request.method, request.path)
     app.logger.debug('Headers: %s', request.headers)
@@ -43,7 +54,7 @@ def log_request_info():
 @app.after_request
 def add_cors_headers(response):
     response.headers['Access-Control-Allow-Credentials'] = 'true'
-    response.headers['Access-Control-Allow-Headers'] = 'Content-Type, X-CSRF-Token'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type, X-Session-Token'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
     
     # Set origin based on request

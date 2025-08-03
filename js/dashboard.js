@@ -102,26 +102,26 @@ async function loadStats() {
         
         const response = await getStats();
         
-        if (response.error) {
-            throw new Error(response.error);
+        if (response.error || !response) {
+            throw new Error(response?.error || 'No stats data received');
         }
         
         // Update stats cards
         statsContainer.innerHTML = `
             <div class="stat-card bg-white p-6 rounded-xl shadow">
-                <div class="text-3xl font-bold text-primary">${response.blog_count}</div>
+                <div class="text-3xl font-bold text-primary">${response.blog_count || 0}</div>
                 <div class="text-gray-600">Blog Posts</div>
             </div>
             <div class="stat-card bg-white p-6 rounded-xl shadow">
-                <div class="text-3xl font-bold text-primary">${response.message_count}</div>
+                <div class="text-3xl font-bold text-primary">${response.message_count || 0}</div>
                 <div class="text-gray-600">Messages</div>
-            </div>
+            </极>
             <div class="stat-card bg-white p-6 rounded-xl shadow">
-                <div class="text-3xl font-bold text-primary">${response.total_blog_views}</div>
+                <div class="text-3xl font-bold text-primary">${response.total_blog_views || 0}</div>
                 <div class="text-gray-600">Page Views</div>
             </div>
             <div class="stat-card bg-white p-6 rounded-xl shadow">
-                <div class="text-3xl font-bold text-primary">${response.engagement_rate}%</div>
+                <div class="text-3xl font-bold text-primary">${response.engagement_rate || 0}%</div>
                 <div class="text-gray-600">Engagement Rate</div>
             </div>
         `;

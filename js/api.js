@@ -177,6 +177,18 @@ export const checkAuth = async () => {
     return false;
 };
 
+const handleResponse = async (response, endpoint) => {
+    logDebug(`${endpoint} response status: ${response.status}`);
+    
+    if (!response.ok) {
+        const errorText = await response.text();
+        logDebug(`${endpoint} fetch error: ${errorText}`, 'error');
+        throw new Error(`API Error: ${response.status} - ${errorText}`);
+    }
+    
+    return response.json();
+};
+
 export const getStats = async () => {
   try {
     logDebug('Fetching stats...');
@@ -192,19 +204,7 @@ export const getStats = async () => {
       credentials: 'include'
     });
     
-    logDebug(`Stats response status: ${response.status}`);
-    
-    if (!response.ok) {
-      const errorText = await response.text();
-      logDebug(`Stats fetch error: ${errorText}`, 'error');
-      throw new Error(`API Error: ${response.status} - ${errorText}`);
-    }
-    
-    const data = await response.json();
-    logDebug('Stats fetched successfully', 'success');
-    logDebug(`Stats data: ${JSON.stringify(data, null, 2)}`);
-    
-    return data;
+    return handleResponse(response, 'Stats');
   } catch (error) {
     logDebug(`Stats fetch failed: ${error.message}`, 'error');
     return { error: 'Failed to fetch stats' };
@@ -226,19 +226,7 @@ export const getAllMessages = async () => {
       credentials: 'include'
     });
     
-    logDebug(`Messages response status: ${response.status}`);
-    
-    if (!response.ok) {
-      const errorText = await response.text();
-      logDebug(`Messages fetch error: ${errorText}`, 'error');
-      throw new Error(`API Error: ${response.status} - ${errorText}`);
-    }
-    
-    const data = await response.json();
-    logDebug('Messages fetched successfully', 'success');
-    logDebug(`Messages data: ${JSON.stringify(data, null, 2)}`);
-    
-    return data;
+    return handleResponse(response, 'Messages');
   } catch (error) {
     logDebug(`Messages fetch failed: ${error.message}`, 'error');
     return { error: 'Failed to fetch messages' };
@@ -260,19 +248,7 @@ export const getAllBlogs = async () => {
       credentials: 'include'
     });
     
-    logDebug(`Blogs response status: ${response.status}`);
-    
-    if (!response.ok) {
-      const errorText = await response.text();
-      logDebug(`Blogs fetch error: ${errorText}`, 'error');
-      throw new Error(`API Error: ${response.status} - ${errorText}`);
-    }
-    
-    const data = await response.json();
-    logDebug('Blogs fetched successfully', 'success');
-    logDebug(`Blogs data: ${JSON.stringify(data, null, 2)}`);
-    
-    return data;
+    return handleResponse(response, 'Blogs');
   } catch (error) {
     logDebug(`Blogs fetch failed: ${error.message}`, 'error');
     return { error: 'Failed to fetch blogs' };
