@@ -3,3 +3,7 @@ Allow: /
 Sitemap: https://anshuman365.github.io/sitemap.xml
 Sitemap: https://anshuman365.github.io/sitemap-static.xml
 Sitemap: https://anshuman365.github.io/sitemap-blog.xml
+
+# Google AdsBot
+User-agent: AdsBot-Google
+Allow: /
