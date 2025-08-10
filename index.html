@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
-	<!-- Google Analytics -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4X0M6RM0F6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-4X0M6RM0F6');
   </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Primary Meta Tags -->
   <title>Anshuman Singh - Python Developer | Portfolio</title>
   <meta name="title" content="Anshuman Singh - Python Developer Portfolio">
-  <meta name="description" content="Portfolio of Anshuman Singh - Python & Flask Developer, CUET Topper, and Digital Creator.">
-  <meta name="keywords" content="Anshuman Singh, Python Developer, Flask, Student, Portfolio, VSPSchool, GitHub Pages">
+  <meta name="description"
+    content="Portfolio of Anshuman Singh - Python & Flask Developer, CUET Topper, and Digital Creator.">
+  <meta name="keywords"
+    content="Anshuman Singh, Python Developer, Flask Developer, AI Integrator, Web Developer, Portfolio">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Anshuman Singh">
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://anshuman365.github.io/">
   <meta property="og:title" content="Anshuman Singh - Python Developer | Portfolio">
@@ -33,84 +36,127 @@
   <meta property="twitter:description" content="Projects, services and blog by Anshuman Singh.">
   <meta property="twitter:image" content="https://anshuman365.github.io/assets/profile.jpg">
 
-  <!-- Canonical URL -->
+  <!-- Canonical -->
   <link rel="canonical" href="https://anshuman365.github.io">
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 
   <!-- Google Site Verification -->
   <meta name="google-site-verification" content="google82d7c3c7c2312cb7" />
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS (uncompiled) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#4F46E5',
-            secondary: '#7C3AED',
-            dark: '#1E293B'
-          },
-          animation: {
-            'float': 'float 6s ease-in-out infinite',
-            'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-20px)' },
-            }
-          }
-        }
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Structured Data: Person -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Anshuman Singh",
+      "url": "https://anshuman365.github.io",
+      "image": "https://anshuman365.github.io/assets/profile.jpg",
+      "sameAs": [
+        "https://github.com/anshuman365",
+        "https://linkedin.com/in/anshuman-singh-662183303",
+        "https://twitter.com/SarvarSing35025"
+      ],
+      "jobTitle": "Python Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "knowsAbout": ["Python", "Flask", "AI Integration", "Backend Development", "APIs"],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "VSPSchool"
+      },
+      "birthPlace": {
+        "@type": "Place",
+        "name": "Chandauli, Uttar Pradesh, India"
+      },
+      "description": "Python & Flask Developer, CUET Topper, and Digital Creator"
+    }
+  </script>
+
+  <!-- Structured Data: Website -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://anshuman365.github.io/",
+      "name": "Anshuman Singh Portfolio",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://anshuman365.github.io/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
     }
   </script>
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Anshuman Singh",
-    "url": "https://anshuman365.github.io",
-    "image": "https://anshuman365.github.io/assets/profile.jpg",
-    "sameAs": [
-      "https://github.com/anshuman365",
-      "https://linkedin.com/in/anshuman-singh-662183303",
-      "https://twitter.com/SarvarSing35025"
-    ],
-    "jobTitle": "Python Developer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Freelance"
-    },
-    "description": "Python & Flask Developer, CUET Topper, and Digital Creator",
-    "alumniOf": "VSPSchool"
-  }
-  </script>
 
-  <!-- Custom Styles -->
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-    body { font-family: 'Inter', sans-serif; }
-    .gradient-bg { background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 2px;
-      background: linear-gradient(to bottom, #4F46E5, #7C3AED);
+  <!-- Structured Data: Breadcrumb -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://anshuman365.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About Anshuman Singh",
+          "item": "https://anshuman365.github.io/about-anshuman-singh.html"
+        }
+      ]
     }
-  </style>
+  </script>
+  
+  <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#7C3AED',
+                        dark: '#1E293B'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #4F46E5, #7C3AED);
+        }
+    </style>
+  
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Google Tag Manager (noscript) -->
