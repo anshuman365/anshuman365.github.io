@@ -32,7 +32,3 @@ logs/
 
 # Session files
 .flask_session/
-
-# Frontend assets
-assets/
-!assets/favicon.ico
