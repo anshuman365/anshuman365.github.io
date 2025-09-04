@@ -247,8 +247,9 @@
         <div class="container mx-auto px-4 max-w-3xl text-center">
             <h2 class="text-3xl font-bold mb-6">Stay Updated</h2>
             <p class="text-gray-600 mb-8">Subscribe to my newsletter for the latest articles, tech tips, and exclusive content.</p>
-            <form class="flex flex-col sm:flex-row gap-4">
+            <form class="flex flex-col sm:flex-row gap-4" action="https://formspree.io/f/mdklpdpo" method="POST">
                 <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary">
+                <input type="data" class=" hidden" value="This is subscribe form data">
                 <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary transition">Subscribe</button>
             </form>
         </div>
@@ -295,54 +296,5 @@
         </div>
     </footer>
 
-    <script type="module">
-        import { fetchBlogs } from './js/api.js';
-        
-        document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                const response = await fetchBlogs();
-                const blogContainer = document.getElementById('blog-container');
-                
-                if (response.blogs && response.blogs.length > 0) {
-                    blogContainer.innerHTML = '';
-                    
-                    response.blogs.forEach(blog => {
-                        const blogCard = document.createElement('div');
-                        blogCard.className = 'bg-white rounded-xl shadow-md overflow-hidden card-hover';
-                        blogCard.innerHTML = `
-                            <img src="${blog.image}" alt="${blog.title}" 
-                                 class="w-full h-48 object-cover" loading="lazy">
-                            <div class="p-6">
-                                <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4">${blog.category}</span>
-                                <h3 class="text-xl font-bold mb-3">${blog.title}</h3>
-                                <p class="text-gray-600 mb-4">${blog.summary}</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-gray-500 text-sm">${blog.date}</span>
-                                    <a href="#" class="text-primary font-medium hover:text-secondary">Read More →</a>
-                                </div>
-                            </div>
-                        `;
-                        blogContainer.appendChild(blogCard);
-                    });
-                } else {
-                    blogContainer.innerHTML = `
-                        <div class="col-span-3 text-center py-12">
-                            <i class="fas fa-exclamation-circle text-4xl text-primary mb-4"></i>
-                            <p>No blog posts available at the moment.</p>
-                        </div>
-                    `;
-                }
-            } catch (error) {
-                console.error('Error loading blogs:', error);
-                document.getElementById('blog-container').innerHTML = `
-                    <div class="col-span-3 text-center py-12">
-                        <i class="fas fa-exclamation-triangle text-4xl text-red-500 mb-4"></i>
-                        <p>Failed to load blog posts. Please try again later.</p>
-                    </div>
-                `;
-            }
-        });
-    </script>
-    <script type="module" src="js/debug-utils.js"></script>
 </body>
 </html>
