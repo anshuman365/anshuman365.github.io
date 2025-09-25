@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4X0M6RM0F6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4X0M6RM0F6');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Projects - Anshuman Singh | 60+ AI-Powered Projects</title>
+  <meta name="description" content="60+ production projects by Anshuman Singh - AI-powered development showcase">
+  
+  <!-- Updated Color Scheme -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            secondary: '#7C3AED', 
+            accent: '#059669',
+            dark: '#1E293B',
+            light: '#F8FAFC'
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); }
+    .project-card { transition: all 0.3s ease; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+  </style>
+</head>
+
+<body class="bg-light text-dark">
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="text-xl font-bold text-primary flex items-center">
+        <span class="bg-primary text-white p-2 rounded-lg mr-2">AS</span>
+        Anshuman Singh
+      </a>
+      
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-primary transition">Home</a>
+        <a href="projects.html" class="font-medium text-primary">Projects</a>
+        <a href="journey.html" class="hover:text-primary transition">Journey</a>
+        <a href="services.html" class="hover:text-primary transition">Services</a>
+        <a href="blog.html" class="hover:text-primary transition">Blog</a>
+        <a href="contact.html" class="hover:text-primary transition">Contact</a>
+      </div>
+
+      <button class="md:hidden text-gray-600" id="menu-toggle">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-white px-4 py-6 shadow-lg" id="mobile-menu">
+      <div class="flex flex-col space-y-4">
+        <a href="index.html" class="font-medium">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="journey.html">Journey</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Projects Hero -->
+  <section class="pt-24 pb-16 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">My Projects Portfolio</h1>
+      <p class="text-xl max-w-2xl mx-auto">60+ production-ready systems built with AI-powered development approach</p>
+    </div>
+  </section>
+
+  <!-- Projects Filter -->
+  <section class="py-8 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-center gap-4">
+        <button class="filter-btn bg-primary text-white px-4 py-2 rounded-full font-medium" data-filter="all">All Projects</button>
+        <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-full font-medium hover:bg-gray-300 transition" data-filter="ai">AI Projects</button>
+        <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-full font-medium hover:bg-gray-300 transition" data-filter="web">Web Applications</button>
+        <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-full font-medium hover:bg-gray-300 transition" data-filter="mobile">Mobile Apps</button>
+        <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-full font-medium hover:bg-gray-300 transition" data-filter="security">Security Systems</button>
+        <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-full font-medium hover:bg-gray-300 transition" data-filter="ecommerce">E-commerce</button>
+        <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-full font-medium hover:bg-gray-300 transition" data-filter="automation">Automation</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+        <!-- AI Exam Platform -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai security">
+          <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
+            <i class="fas fa-graduation-cap text-4xl mr-3"></i> AI Exam Platform
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">AI-Powered Exam System</h3>
+            <p class="text-gray-600 mb-4">Real-time question generation with anti-leak security features. AI generates unique questions minutes before exams.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Python Flask</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">AI Integration</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Security</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500">Security Level: <strong>High</strong></span>
+              <span class="bg-accent text-white px-2 py-1 rounded text-xs">Featured</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp Clone -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web security">
+          <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white font-bold text-xl">
+            <i class="fas fa-comments text-4xl mr-3"></i> WhatsApp Clone
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">Real-time Chat Application</h3>
+            <p class="text-gray-600 mb-4">WebSockets + WebRTC with end-to-end encryption. Video/audio calls, media sharing with double-layer security.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">WebRTC</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">WebSockets</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">E2E Encryption</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500">Complexity: <strong>Advanced</strong></span>
+              <span class="bg-accent text-white px-2 py-1 rounded text-xs">Featured</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Water Park System -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web ecommerce">
+          <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white font-bold text-xl">
+            <i class="fas fa-umbrella-beach text-4xl mr-3"></i> Water Park System
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">Water Park Management</h3>
+            <p class="text-gray-600 mb-4">Complete booking system with restaurant integration. Real-time seat booking, food ordering with Razorpay payments.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Payment Gateway</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Booking System</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">E-commerce</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500">Scale: <strong>Enterprise</strong></span>
+              <span class="bg-accent text-white px-2 py-1 rounded text-xs">Featured</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bank Management System -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web security">
+          <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
+            <i class="fas fa-university text-4xl mr-3"></i> Bank System
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">Bank Management System</h3>
+            <p class="text-gray-600 mb-4">Multi-level access with secure transaction handling. Admin, branch, and user modes with loan/credit card applications.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-level Access</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Secure Transactions</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Ticket System</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Razorpay</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500">Security: <strong>Bank Grade</strong></span>
+              <span class="bg-accent text-white px-2 py-1 rounded text-xs">Enterprise</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Multi-functional Assistant -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai">
+          <div class="h-48 bg-gradient-to-r from-accent to-primary flex items-center justify-center text-white font-bold text-xl">
+            <i class="fas fa-robot text-4xl mr-3"></i> AI Assistant
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">AI Multi-functional Assistant</h3>
+            <p class="text-gray-600 mb-4">Advanced AI chatbot with image generation, PDF analysis, news aggregation, and multi-API integration for comprehensive responses.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Gemini API</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Hugging Face</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Google Search</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">gNews</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500">AI Power: <strong>Advanced</strong></span>
+              <span class="bg-accent text-white px-2 py-1 rounded text-xs">AI-Powered</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- YouTube Downloader -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web automation">
+          <div class="h-48 bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white font-bold text-xl">
+            <i class="fab fa-youtube text-4xl mr-3"></i> YouTube Downloader
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">YouTube Video/Audio Downloader</h3>
+            <p class="text-gray-600 mb-4">Search and download YouTube videos/audio with quality selection. Google API integration for search functionality.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">YouTube API</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Download Manager</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Quality Selection</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">MP3/MP4</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500">Functionality: <strong>Utility</strong></span>
+              <span class="bg-accent text-white px-2 py-1 rounded text-xs">Popular</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fuel Delivery App -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="mobile web">
+          <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
+            <i class="fas fa-gas-pump text-4xl mr-3"></i> Fuel Delivery
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">Fuel Delivery Service</h3>
+            <p class="text-gray-600 mb-4">GPS tracking with real-time delivery management. Complete fuel ordering system with live tracking and secure payments.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">GPS Tracking</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Data</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Mobile App</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Payment Gateway</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500">Type: <strong>On-demand Service</strong></span>
+              <span class="bg-accent text-white px-2 py-1 rounded text-xs">Logistics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Healthcare System -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web security">
+          <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white font-bold text-xl">
+            <i class="fas fa-hospital text-4xl mr-3"></i> Healthcare System
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">Digital Health Management</h3>
+            <p class="text-gray-600 mb-4">Complete healthcare management system with patient records, appointment scheduling, and secure medical data handling.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Patient Records</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Appointment System</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Data Security</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">HIPAA Compliant</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500">Compliance: <strong>Medical Grade</strong></span>
+              <span class="bg-accent text-white px-2 py-1 rounded text-xs">Healthcare</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multi-tenant SaaS -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web security">
+          <div class="h-48 bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white font-bold text-xl">
+            <i class="fas fa-cloud text-4xl mr-3"></i> Multi-tenant SaaS
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">Multi-tenant SaaS Platform</h3>
+            <p class="text-gray-600 mb-4">Scalable SaaS solution with tenant isolation, custom domains, and billing management for multiple clients.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Tenant Isolation</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Custom Domains</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Billing System</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Scalable</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500">Architecture: <strong>Multi-tenant</strong></span>
+              <span class="bg-accent text-white px-2 py-1 rounded text-xs">SaaS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Telegram Bot -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai automation">
+          <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
+            <i class="fab fa-telegram text-4xl mr-3"></i> Telegram Bot
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">AI-Powered Telegram Bot</h3>
+            <p class="text-gray-600 mb-4">Multi-functional Telegram bot with image generation, news updates, PDF analysis, and AI conversation capabilities.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Telegram API</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Mistral AI</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Image Generation</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-language</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500">Platform: <strong>Telegram</strong></span>
+              <span class="bg-accent text-white px-2 py-1 rounded text-xs">Bot</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Study AI Platform -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai web">
+          <div class="h-48 bg-gradient-to-r from-accent to-primary flex items-center justify-center text-white font-bold text-xl">
+            <i class="fas fa-brain text-4xl mr-3"></i> Study AI Platform
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">AI-Powered Study Assistant</h3>
+            <p class="text-gray-600 mb-4">Comprehensive study platform with AI tutoring, content generation, progress tracking, and personalized learning paths.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">AI Tutoring</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Progress Tracking</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Content Generation</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Personalized Learning</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500">Focus: <strong>Education</strong></span>
+              <span class="bg-accent text-white px-2 py-1 rounded text-xs">EdTech</span>
+            </div>
+          </div>
+        </div>
+
+<!-- AI Cheating Surveillance -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai security">
+  <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-eye text-4xl mr-3"></i> AI Surveillance
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">AI Cheating Detection System</h3>
+    <p class="text-gray-600 mb-4">Real-time monitoring system using computer vision to detect suspicious activities during online examinations.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Computer Vision</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Analysis</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Face Detection</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Behavior Analysis</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Application: <strong>Education Security</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">AI Security</span>
+    </div>
+  </div>
+</div>
+
+<!-- E-commerce Platform -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ecommerce web">
+  <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-store text-4xl mr-3"></i> E-commerce Store
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Multi-vendor E-commerce Platform</h3>
+    <p class="text-gray-600 mb-4">Complete online marketplace with vendor management, inventory tracking, and secure payment processing.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-vendor</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Inventory Management</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Payment Gateway</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Order Tracking</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Scale: <strong>Enterprise</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">E-commerce</span>
+    </div>
+  </div>
+</div>
+
+<!-- Healthcare Management -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web security">
+  <div class="h-48 bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-heartbeat text-4xl mr-3"></i> Healthcare System
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Digital Healthcare Management</h3>
+    <p class="text-gray-600 mb-4">Comprehensive patient management system with electronic health records and appointment scheduling.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">EHR System</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Appointment Booking</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Patient Portal</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">HIPAA Compliant</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Compliance: <strong>Medical Grade</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Healthcare</span>
+    </div>
+  </div>
+</div>
+
+<!-- PDF Data Extractor -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai automation">
+  <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-file-pdf text-4xl mr-3"></i> PDF Extractor
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">AI-Powered PDF Data Extraction</h3>
+    <p class="text-gray-600 mb-4">Intelligent PDF processing system that extracts and categorizes data using OCR and machine learning.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">OCR Technology</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Data Classification</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Machine Learning</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Batch Processing</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Accuracy: <strong>High</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Automation</span>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Farm Project -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="mobile automation">
+  <div class="h-48 bg-gradient-to-r from-accent to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-tractor text-4xl mr-3"></i> Farm Management
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Smart Farm Management System</h3>
+    <p class="text-gray-600 mb-4">IoT-based farm monitoring and management system with real-time data analytics and automation controls.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">IoT Integration</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Monitoring</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Automation</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Data Analytics</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Domain: <strong>Agriculture Tech</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">IoT</span>
+    </div>
+  </div>
+</div>
+
+<!-- Voice Generator -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai automation">
+  <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-microphone text-4xl mr-3"></i> Voice Generator
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">AI Voice Generation System</h3>
+    <p class="text-gray-600 mb-4">Text-to-speech system with multiple voice options and natural language processing for realistic audio output.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Text-to-Speech</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Voice Cloning</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">NLP</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Audio Processing</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Quality: <strong>Studio Grade</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">AI Audio</span>
+    </div>
+  </div>
+</div>
+
+<!-- Attendance System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web security">
+  <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-fingerprint text-4xl mr-3"></i> Attendance System
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Biometric Attendance System</h3>
+    <p class="text-gray-600 mb-4">Secure attendance tracking with facial recognition and fingerprint authentication for organizations.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Facial Recognition</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Biometric Auth</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Tracking</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Reports</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Security: <strong>High</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Enterprise</span>
+    </div>
+  </div>
+</div>
+
+<!-- Study Tracker -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web ai">
+  <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-chart-line text-4xl mr-3"></i> Study Tracker
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">AI-Powered Study Tracker</h3>
+    <p class="text-gray-600 mb-4">Intelligent study planning and progress tracking system with personalized recommendations.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Progress Analytics</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Personalized Plans</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Goal Setting</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Performance Insights</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Focus: <strong>Education</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">EdTech</span>
+    </div>
+  </div>
+</div>
+
+<!-- Currency Converter -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web automation">
+  <div class="h-48 bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-money-bill-wave text-4xl mr-3"></i> Currency Converter
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Real-time Currency Converter</h3>
+    <p class="text-gray-600 mb-4">Multi-currency conversion system with live exchange rates and historical data analysis.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Rates</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-currency</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Historical Data</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">API Integration</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Update: <strong>Live</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Finance</span>
+    </div>
+  </div>
+</div>
+
+<!-- Live Sync System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web security">
+  <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-sync-alt text-4xl mr-3"></i> Live Sync
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Real-time Data Synchronization</h3>
+    <p class="text-gray-600 mb-4">Multi-device synchronization system with conflict resolution and offline capability.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Sync</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Conflict Resolution</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Offline Support</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-device</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Reliability: <strong>High</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Sync Technology</span>
+    </div>
+  </div>
+</div>
+
+<!-- Auto Downloader System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="automation web">
+  <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-download text-4xl mr-3"></i> Auto Downloader
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Intelligent Auto Downloader</h3>
+    <p class="text-gray-600 mb-4">AI-powered download manager with smart queue management, resume capability, and format detection</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Queue Management</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Resume Downloads</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Format Detection</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Batch Processing</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Efficiency: <strong>High</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Automation</span>
+    </div>
+  </div>
+</div>
+
+<!-- Advanced Secure Login System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="security web">
+  <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-shield-alt text-4xl mr-3"></i> Secure Login System
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Multi-layer Authentication System</h3>
+    <p class="text-gray-600 mb-4">Advanced security with biometric verification, OTP, device recognition, and behavioral analysis</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Biometric Auth</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Device Recognition</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Behavior Analysis</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-factor</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Security: <strong>Military Grade</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Security</span>
+    </div>
+  </div>
+</div>
+
+<!-- AI Service Integration Platform -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai automation">
+  <div class="h-48 bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-cogs text-4xl mr-3"></i> AI Service Integration
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Multi-API AI Integration Platform</h3>
+    <p class="text-gray-600 mb-4">Seamless integration of multiple AI services with fallback mechanisms and traffic distribution</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">API Integration</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Fallback System</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Traffic Control</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Load Balancing</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Integration: <strong>15+ APIs</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">AI Platform</span>
+    </div>
+  </div>
+</div>
+
+<!-- Child Monitor PWA -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="mobile web security">
+  <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-baby text-4xl mr-3"></i> Child Monitor PWA
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Progressive Web App for Child Monitoring</h3>
+    <p class="text-gray-600 mb-4">Real-time child activity tracking with alerts, location services, and emergency response system</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Tracking</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">GPS Location</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Emergency Alerts</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">PWA</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Safety: <strong>High Priority</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Safety</span>
+    </div>
+  </div>
+</div>
+
+<!-- Email Spam Classifier -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai security">
+  <div class="h-48 bg-gradient-to-r from-accent to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-envelope text-4xl mr-3"></i> Spam Classifier
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">AI-Powered Email Spam Detection</h3>
+    <p class="text-gray-600 mb-4">Machine learning system for real-time email classification with 99%+ accuracy in spam detection</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Machine Learning</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Analysis</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Pattern Recognition</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">High Accuracy</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Accuracy: <strong>99%+</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">AI Security</span>
+    </div>
+  </div>
+</div>
+
+<!-- Morse Code Master -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web automation">
+  <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-code text-4xl mr-3"></i> Morse Master
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Advanced Morse Code Translator</h3>
+    <p class="text-gray-600 mb-4">Real-time Morse code encoding/decoding with audio visualization and learning modules</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Translation</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Audio Visualization</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Learning System</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">History Tracking</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Speed: <strong>Real-time</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Education</span>
+    </div>
+  </div>
+</div>
+
+<!-- Music Player with AI -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai web mobile">
+  <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-music text-4xl mr-3"></i> AI Music Player
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Intelligent Music Player</h3>
+    <p class="text-gray-600 mb-4">AI-powered music recommendation system with mood detection and personalized playlists</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Mood Detection</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Personalized Playlists</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Audio Analysis</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Cross-platform</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">AI Power: <strong>Advanced</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Entertainment</span>
+    </div>
+  </div>
+</div>
+
+<!-- OTP Security System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="security automation">
+  <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-key text-4xl mr-3"></i> OTP System
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Advanced OTP Authentication</h3>
+    <p class="text-gray-600 mb-4">Multi-channel OTP delivery with time-based tokens and brute-force protection</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">TOTP/HOTP</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-channel</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Brute-force Protection</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Time-based</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Security: <strong>Enterprise</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Authentication</span>
+    </div>
+  </div>
+</div>
+
+<!-- PDF Generator & Analyzer -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai automation">
+  <div class="h-48 bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-file-alt text-4xl mr-3"></i> PDF Generator
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Smart PDF Generation & Analysis</h3>
+    <p class="text-gray-600 mb-4">AI-powered PDF creation with content analysis, formatting, and intelligent template system</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Content Analysis</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Template System</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Formatting</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Batch Processing</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Processing: <strong>Batch</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Document</span>
+    </div>
+  </div>
+</div>
+
+<!-- Text Summarizer AI -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai automation">
+  <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-file-contract text-4xl mr-3"></i> Text Summarizer
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">AI-Powered Text Summarization</h3>
+    <p class="text-gray-600 mb-4">Advanced NLP system for extracting key points and generating concise summaries from large texts</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">NLP Processing</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Key Point Extraction</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-language</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Context Aware</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Languages: <strong>10+</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">AI Text</span>
+    </div>
+  </div>
+</div>
+
+<!-- Blog System 2025 -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web security">
+  <div class="h-48 bg-gradient-to-r from-accent to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-blog text-4xl mr-3"></i> Blog System 2025
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Modern Blog Platform</h3>
+    <p class="text-gray-600 mb-4">Advanced blogging platform with AI content suggestions, SEO optimization, and social integration</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">SEO Optimization</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">AI Content</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Social Integration</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-user</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Features: <strong>50+</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Content</span>
+    </div>
+  </div>
+</div>
+
+<!-- Network Protocol Integrator -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="security automation">
+  <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-network-wired text-4xl mr-3"></i> Protocol Integrator
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Network Protocol Integration System</h3>
+    <p class="text-gray-600 mb-4">Multi-protocol support with real-time monitoring, security analysis, and traffic optimization</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-protocol</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Monitoring</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Traffic Optimization</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Security Analysis</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Protocols: <strong>15+</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Networking</span>
+    </div>
+  </div>
+</div>
+
+<!-- PDF Converter (English-Hindi) -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai automation">
+  <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-language text-4xl mr-3"></i> PDF Converter
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Bilingual PDF Translation System</h3>
+    <p class="text-gray-600 mb-4">AI-powered PDF translation between English and Hindi with layout preservation</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Bilingual Translation</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Layout Preservation</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">OCR Technology</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Batch Processing</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Accuracy: <strong>98%</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Translation</span>
+    </div>
+  </div>
+</div>
+
+<!-- Digital Health Card System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web security">
+  <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-id-card text-4xl mr-3"></i> Health Card System
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Digital Health Record Management</h3>
+    <p class="text-gray-600 mb-4">Secure digital health cards with medical history, prescriptions, and emergency access</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Medical Records</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Emergency Access</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">HIPAA Compliant</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">QR Code Access</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Security: <strong>Medical Grade</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Healthcare</span>
+    </div>
+  </div>
+</div>
+
+<!-- EduNotify System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web automation">
+  <div class="h-48 bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-bell text-4xl mr-3"></i> EduNotify
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Educational Notification Platform</h3>
+    <p class="text-gray-600 mb-4">Comprehensive notification system for educational institutions with multi-channel delivery</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-channel</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Scheduled Notifications</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Priority System</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Analytics</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Channels: <strong>8+</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Education</span>
+    </div>
+  </div>
+</div>
+
+<!-- GibberLink Security System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="security web">
+  <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-link text-4xl mr-3"></i> GibberLink
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Advanced URL Security System</h3>
+    <p class="text-gray-600 mb-4">URL obfuscation and security analysis with real-time threat detection and phishing protection</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">URL Obfuscation</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Threat Detection</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Phishing Protection</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Analysis</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Protection: <strong>Enterprise</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Security</span>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Control System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="mobile security">
+  <div class="h-48 bg-gradient-to-r from-accent to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-mobile-alt text-4xl mr-3"></i> Mobile Control
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Remote Mobile Management System</h3>
+    <p class="text-gray-600 mb-4">Comprehensive mobile device management with remote control, monitoring, and security features</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Remote Control</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Device Monitoring</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Security Management</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Cross-platform</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Control: <strong>Full Access</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Mobile</span>
+    </div>
+  </div>
+</div>
+
+<!-- Image Generator -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai automation">
+  <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-image text-4xl mr-3"></i> AI Image Generator
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Advanced AI Image Generation System</h3>
+    <p class="text-gray-600 mb-4">Multi-model AI image generation with fallback mechanisms. Supports various art styles and real-time rendering.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Hugging Face</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Stable Diffusion</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-style</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Models: <strong>3+</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">AI Creative</span>
+    </div>
+  </div>
+</div>
+
+<!-- Crypto Data Analyzer -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai web">
+  <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-chart-bar text-4xl mr-3"></i> Crypto Analyzer
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Cryptocurrency Data Analysis Platform</h3>
+    <p class="text-gray-600 mb-4">Real-time cryptocurrency tracking with predictive analytics and portfolio management features.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Data</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Predictive Analytics</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Portfolio Management</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">API Integration</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Coins: <strong>1000+</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Finance</span>
+    </div>
+  </div>
+</div>
+
+<!-- FastAPI Backend System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web automation">
+  <div class="h-48 bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-server text-4xl mr-3"></i> FastAPI System
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">High-Performance FastAPI Backend</h3>
+    <p class="text-gray-600 mb-4">Scalable backend system with async operations, rate limiting, and comprehensive API documentation.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Async Operations</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Rate Limiting</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Auto Documentation</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">High Performance</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Speed: <strong>Async</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Backend</span>
+    </div>
+  </div>
+</div>
+
+<!-- Quantum Computing Simulator -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai">
+  <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-atom text-4xl mr-3"></i> Quantum Simulator
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Quantum Computing Simulation Platform</h3>
+    <p class="text-gray-600 mb-4">Advanced quantum algorithms simulation with visualization and educational modules.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Quantum Algorithms</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Visualization</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Educational</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Simulation</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Qubits: <strong>16+</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Quantum</span>
+    </div>
+  </div>
+</div>
+
+<!-- Smart Notes & Task Organizer -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai automation">
+  <div class="h-48 bg-gradient-to-r from-accent to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-tasks text-4xl mr-3"></i> Smart Organizer
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">AI-Powered Task Management System</h3>
+    <p class="text-gray-600 mb-4">Intelligent task organization with priority scheduling, AI suggestions, and cross-platform sync.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">AI Scheduling</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Priority System</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Cross-platform</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Smart Notes</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">AI Power: <strong>Advanced</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Productivity</span>
+    </div>
+  </div>
+</div>
+
+<!-- Network Security Sniffer -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="security automation">
+  <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-shield-virus text-4xl mr-3"></i> Security Sniffer
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Advanced Network Security Analyzer</h3>
+    <p class="text-gray-600 mb-4">Real-time network traffic analysis with threat detection and intrusion prevention system.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Packet Analysis</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Threat Detection</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Intrusion Prevention</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Security: <strong>Enterprise</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Network Security</span>
+    </div>
+  </div>
+</div>
+
+<!-- Multi-language Translator -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai web">
+  <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-language text-4xl mr-3"></i> Multi Translator
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">AI-Powered Multi-language Translator</h3>
+    <p class="text-gray-600 mb-4">Real-time translation across 50+ languages with voice support and context awareness.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">50+ Languages</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Voice Support</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Context Aware</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Languages: <strong>50+</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Translation</span>
+    </div>
+  </div>
+</div>
+
+<!-- Voting System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web security">
+  <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-vote-yea text-4xl mr-3"></i> Secure Voting
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Blockchain-based Voting System</h3>
+    <p class="text-gray-600 mb-4">Secure digital voting platform with blockchain verification and anti-fraud mechanisms.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Blockchain</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Anti-fraud</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Secure Auth</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Results</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Security: <strong>Military Grade</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">E-voting</span>
+    </div>
+  </div>
+</div>
+
+<!-- Webcam Sharing System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web security">
+  <div class="h-48 bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-video text-4xl mr-3"></i> Webcam Share
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Secure Webcam Sharing Platform</h3>
+    <p class="text-gray-600 mb-4">Real-time webcam streaming with encryption and multi-user collaboration features.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Streaming</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">E2E Encryption</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-user</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Secure</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Streaming: <strong>HD Quality</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Video</span>
+    </div>
+  </div>
+</div>
+
+<!-- Instagram Clone -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web mobile">
+  <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fab fa-instagram text-4xl mr-3"></i> Instagram Clone
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Full-featured Social Media Platform</h3>
+    <p class="text-gray-600 mb-4">Complete Instagram clone with posts, stories, reels, and real-time messaging system.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Social Media</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Chat</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Stories/Reels</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Media Upload</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Scale: <strong>Social Network</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Social</span>
+    </div>
+  </div>
+</div>
+
+<!-- Server-Client Architecture -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="automation security">
+  <div class="h-48 bg-gradient-to-r from-accent to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-network-wired text-4xl mr-3"></i> Server-Client System
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Advanced Server-Client Architecture</h3>
+    <p class="text-gray-600 mb-4">Scalable client-server system with load balancing and secure communication protocols.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Load Balancing</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Secure Protocols</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Scalable</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Architecture: <strong>Distributed</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Networking</span>
+    </div>
+  </div>
+</div>
+
+<!-- Data Analysis Platform -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai automation">
+  <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-chart-pie text-4xl mr-3"></i> Data Analysis
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Comprehensive Data Analysis Platform</h3>
+    <p class="text-gray-600 mb-4">AI-powered data analysis with visualization, predictive modeling, and automated reporting.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Predictive Modeling</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Data Visualization</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Automated Reports</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">AI Analysis</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Analysis: <strong>Multi-dimensional</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Analytics</span>
+    </div>
+  </div>
+</div>
+
+<!-- Google Authentication System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="security web">
+  <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fab fa-google text-4xl mr-3"></i> Google Auth
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Advanced Google Authentication Integration</h3>
+    <p class="text-gray-600 mb-4">Secure OAuth 2.0 implementation with multi-factor authentication and session management.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">OAuth 2.0</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-factor</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Session Management</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Secure</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Security: <strong>Enterprise</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Authentication</span>
+    </div>
+  </div>
+</div>
+
+<!-- Real-time Tracking System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="mobile automation">
+  <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-map-marker-alt text-4xl mr-3"></i> Real-time Tracker
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">GPS Real-time Tracking System</h3>
+    <p class="text-gray-600 mb-4">Advanced location tracking with geofencing, route optimization, and real-time alerts.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">GPS Tracking</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Geofencing</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Route Optimization</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Alerts</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Accuracy: <strong>High</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Tracking</span>
+    </div>
+  </div>
+</div>
+
+<!-- Audio Streaming Platform -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web mobile">
+  <div class="h-48 bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-music text-4xl mr-3"></i> Audio Streamer
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">High-quality Audio Streaming Service</h3>
+    <p class="text-gray-600 mb-4">Real-time audio streaming with adaptive bitrate and cross-platform compatibility.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Adaptive Bitrate</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Streaming</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Cross-platform</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">High Quality</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Quality: <strong>Lossless</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Audio</span>
+    </div>
+  </div>
+</div>
+
+<!-- File Upload System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web security">
+  <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-upload text-4xl mr-3"></i> Secure Upload
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Advanced File Upload System</h3>
+    <p class="text-gray-600 mb-4">Secure file upload with virus scanning, format validation, and cloud storage integration.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Virus Scanning</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Format Validation</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Cloud Storage</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Secure</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Security: <strong>High</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">File Management</span>
+    </div>
+  </div>
+</div>
+
+<!-- Quiz System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai web">
+  <div class="h-48 bg-gradient-to-r from-accent to-primary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-question-circle text-4xl mr-3"></i> Quiz System
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">AI-Powered Quiz Platform</h3>
+    <p class="text-gray-600 mb-4">Adaptive quiz system with AI question generation and real-time performance analytics.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">AI Generation</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Adaptive Learning</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Analytics</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Questions: <strong>AI Generated</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Education</span>
+    </div>
+  </div>
+</div>
+
+<!-- MP3/MP4 Converter -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="automation web">
+  <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-file-audio text-4xl mr-3"></i> Media Converter
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Advanced Media Format Converter</h3>
+    <p class="text-gray-600 mb-4">Batch media conversion with format detection, quality preservation, and cloud processing.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Batch Processing</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Format Detection</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Quality Preservation</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Cloud Processing</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Formats: <strong>20+</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Media</span>
+    </div>
+  </div>
+</div>
+
+<!-- Attendance System with Face Recognition -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai security">
+  <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-user-check text-4xl mr-3"></i> Face Attendance
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">AI Facial Recognition Attendance System</h3>
+    <p class="text-gray-600 mb-4">Real-time face detection and recognition for automated attendance tracking.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Face Recognition</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Automated</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Secure</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Accuracy: <strong>99%</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Biometric</span>
+    </div>
+  </div>
+</div>
+
+<!-- Blog System -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="web automation">
+  <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white font-bold text-xl">
+    <i class="fas fa-blog text-4xl mr-3"></i> Advanced Blog
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">Multi-user Blogging Platform</h3>
+    <p class="text-gray-600 mb-4">Feature-rich blogging system with AI content suggestions and SEO optimization.</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Multi-user</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">AI Content</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">SEO Optimization</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">CMS</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500">Features: <strong>50+</strong></span>
+      <span class="bg-accent text-white px-2 py-1 rounded text-xs">Content</span>
+    </div>
+  </div>
+</div>
+
+        <!-- Fraud Detection System -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden" data-category="ai security">
+          <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white font-bold text-xl">
+            <i class="fas fa-shield-alt text-4xl mr-3"></i> Fraud Detection
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">AI Fraud Detection System</h3>
+            <p class="text-gray-600 mb-4">Advanced fraud detection using machine learning algorithms to identify suspicious activities and prevent financial fraud.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Machine Learning</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Pattern Recognition</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time Monitoring</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Alert System</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500">Detection: <strong>Real-time</strong></span>
+              <span class="bg-accent text-white px-2 py-1 rounded text-xs">Security</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- More Projects Section -->
+      <div class="mt-16">
+        <h2 class="text-3xl font-bold text-center mb-8">Additional Project Categories</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white p-6 rounded-xl shadow-md text-center">
+            <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-lock text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2">Security Systems</h3>
+            <p class="text-gray-600 text-sm">15+ projects with advanced encryption and authentication</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-md text-center">
+            <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-shopping-cart text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2">E-commerce</h3>
+            <p class="text-gray-600 text-sm">8+ online stores with payment integration</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-md text-center">
+            <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-mobile-alt text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2">Mobile Apps</h3>
+            <p class="text-gray-600 text-sm">12+ Android applications with various functionalities</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-md text-center">
+            <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-network-wired text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2">APIs & Services</h3>
+            <p class="text-gray-600 text-sm">20+ REST APIs and microservices</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="contact.html" class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition inline-flex items-center">
+          Start Your Project <i class="fas fa-arrow-right ml-3"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-4xl font-bold mb-2">60+</div>
+          <div class="opacity-90">Projects Completed</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">50+</div>
+          <div class="opacity-90">High Security Systems</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">100%</div>
+          <div class="opacity-90">AI-Powered Approach</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">∞</div>
+          <div class="opacity-90">Future Potential</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Anshuman Singh</h3>
+          <p class="opacity-80">Building the future with AI-powered development</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="opacity-80 hover:opacity-100 transition">Home</a></li>
+            <li><a href="projects.html" class="opacity-80 hover:opacity-100 transition">Projects</a></li>
+            <li><a href="journey.html" class="opacity-80 hover:opacity-100 transition">Journey</a></li>
+            <li><a href="contact.html" class="opacity-80 hover:opacity-100 transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Connect</h4>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-2 opacity-80"></i> 
+              anshumansingh3697@gmail.com
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-map-marker-alt mr-2 opacity-80"></i> 
+              Uttar Pradesh, India
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Follow My Journey</h4>
+          <div class="flex space-x-4">
+            <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition">
+              <i class="fab fa-linkedin-in text-white"></i>
+            </a>
+            <a href="https://www.github.com/anshuman365" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition">
+              <i class="fab fa-github text-white"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center opacity-80">
+        <p>&copy; 2025 Anshuman Singh. Building the future, one AI-powered project at a time.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Project filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active button
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-primary', 'text-white');
+          btn.classList.add('bg-gray-200', 'text-gray-700');
+        });
+        button.classList.remove('bg-gray-200', 'text-gray-700');
+        button.classList.add('bg-primary', 'text-white');
+        
+        // Filter projects
+        const filter = button.getAttribute('data-filter');
+        
+        projects.forEach(project => {
+          if (filter === 'all' || project.getAttribute('data-category').includes(filter)) {
+            project.style.display = 'block';
+          } else {
+            project.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

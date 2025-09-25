@@ -1,506 +1,425 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4X0M6RM0F6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-4X0M6RM0F6');
   </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anshuman Singh - Python Developer | Portfolio</title>
-  <meta name="title" content="Anshuman Singh - Python Developer Portfolio">
-  <meta name="description"
-    content="Portfolio of Anshuman Singh - Python & Flask Developer, CUET Topper, and Digital Creator.">
-  <meta name="keywords"
-    content="Anshuman Singh, Python Developer, Flask Developer, AI Integrator, Web Developer, Portfolio">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Anshuman Singh">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://anshuman365.github.io/">
-  <meta property="og:title" content="Anshuman Singh - Python Developer | Portfolio">
-  <meta property="og:description" content="Explore my journey, blogs, projects, and services.">
-  <meta property="og:image" content="https://anshuman365.github.io/assets/profile3.jpg">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://anshuman365.github.io/">
-  <meta property="twitter:title" content="Anshuman Singh Portfolio">
-  <meta property="twitter:description" content="Projects, services and blog by Anshuman Singh.">
-  <meta property="twitter:image" content="https://anshuman365.github.io/assets/profile3.jpg">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://anshuman365.github.io">
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-
-  <!-- Google Site Verification -->
-  <meta name="google-site-verification" content="google82d7c3c7c2312cb7" />
-
-  <!-- Tailwind CSS (uncompiled) -->
+  <title>Anshuman Singh - AI Developer | 60+ Real Projects | Future Entrepreneur</title>
+  <meta name="description" content="12th Pass AI Developer with 60+ Production Projects | Python Flask Expert | Building Complex Systems with AI">
+  
+  <!-- Updated Color Scheme -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Structured Data: Person -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Anshuman Singh",
-      "url": "https://anshuman365.github.io",
-      "image": "https://anshuman365.github.io/assets/profile3.jpg",
-      "sameAs": [
-        "https://github.com/anshuman365",
-        "https://linkedin.com/in/anshuman-singh-662183303",
-        "https://twitter.com/SarvarSing35025"
-      ],
-      "jobTitle": "Python Developer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Freelance"
-      },
-      "knowsAbout": ["Python", "Flask", "AI Integration", "Backend Development", "APIs"],
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "VSPSchool"
-      },
-      "birthPlace": {
-        "@type": "Place",
-        "name": "Chandauli, Uttar Pradesh, India"
-      },
-      "description": "Python & Flask Developer, CUET Topper, and Digital Creator"
-    }
-  </script>
-
-  <!-- Structured Data: Website -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://anshuman365.github.io/",
-      "name": "Anshuman Singh Portfolio",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://anshuman365.github.io/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            secondary: '#7C3AED', 
+            accent: '#059669',
+            dark: '#1E293B',
+            light: '#F8FAFC'
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
       }
     }
   </script>
 
-  <!-- Structured Data: Breadcrumb -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://anshuman365.github.io/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "About Anshuman Singh",
-          "item": "https://anshuman365.github.io/about-anshuman-singh.html"
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); }
+    .project-card { transition: all 0.3s ease; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+  </style>
+</head>
+
+<body class="bg-light text-dark">
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="text-xl font-bold text-primary flex items-center">
+        <span class="bg-primary text-white p-2 rounded-lg mr-2">AS</span>
+        Anshuman Singh
+      </a>
+      
+      <div class="hidden md:flex space-x-6">
+        <a href="#projects" class="font-medium hover:text-primary transition">Projects</a>
+        <a href="#skills" class="hover:text-primary transition">Skills</a>
+        <a href="#about" class="hover:text-primary transition">About</a>
+        <a href="contact.html" class="hover:text-primary transition">Contact</a>
+      </div>
+
+      <button class="md:hidden text-gray-600" id="menu-toggle">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-white px-4 py-6 shadow-lg" id="mobile-menu">
+      <div class="flex flex-col space-y-4">
+        <a href="#projects" class="font-medium">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-16 gradient-bg text-white">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-12 md:mb-0">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">AI-Powered Developer • 60+ Projects • Future Entrepreneur</h1>
+        <p class="text-xl opacity-90 mb-8 max-w-xl">
+          12th Pass Developer building complex systems using AI as co-developer. 
+          Created 60+ production-ready projects including AI platforms, real-time apps, 
+          and enterprise solutions. Currently preparing for NIT while building my path to entrepreneurship.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#projects" class="bg-white text-primary px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition">
+            View Projects
+          </a>
+          <a href="collaborate.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition">
+            Collaborate With Me
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <div class="relative">
+          <img src="assets/profile3.jpg" alt="Anshuman Singh - AI Developer" 
+               class="w-64 h-64 object-cover rounded-2xl border-4 border-white/20 shadow-2xl animate-float"
+               loading="lazy">
+          <div class="absolute -top-2 -right-2 bg-accent text-white p-3 rounded-full shadow-lg">
+            <i class="fas fa-robot text-2xl"></i>
+          </div>
+          <div class="absolute -bottom-2 -left-2 bg-accent text-white p-3 rounded-full shadow-lg">
+            <i class="fas fa-bolt text-2xl"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">My Development Stack</h2>
+      <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Leveraging AI to build complex systems efficiently</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <!-- Core Skills -->
+        <div>
+          <h3 class="text-xl font-bold mb-6 text-primary">Core Expertise</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Python & Flask</span>
+                <span class="font-bold text-primary">95%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-3">
+                <div class="bg-primary h-3 rounded-full transition-all duration-1000" style="width: 95%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">AI Integration</span>
+                <span class="font-bold text-primary">90%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-3">
+                <div class="bg-primary h-3 rounded-full transition-all duration-1000" style="width: 90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">System Architecture</span>
+                <span class="font-bold text-primary">88%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-3">
+                <div class="bg-primary h-3 rounded-full transition-all duration-1000" style="width: 88%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI-Powered Skills -->
+        <div>
+          <h3 class="text-xl font-bold mb-6 text-primary">AI-Powered Development</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">API Integration</span>
+                <span class="font-bold text-primary">92%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-3">
+                <div class="bg-primary h-3 rounded-full transition-all duration-1000" style="width: 92%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Problem Solving</span>
+                <span class="font-bold text-primary">96%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-3">
+                <div class="bg-primary h-3 rounded-full transition-all duration-1000" style="width: 96%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Project Management</span>
+                <span class="font-bold text-primary">85%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-3">
+                <div class="bg-primary h-3 rounded-full transition-all duration-1000" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Featured Production Projects</h2>
+      <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">60+ real systems built with AI collaboration</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- AI Exam Platform -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+          <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
+            🎓 AI Exam Platform
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">AI-Powered Exam System</h3>
+            <p class="text-gray-600 mb-4">Real-time question generation with anti-leak security features</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Python</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Flask</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">AI Integration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp Clone -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+          <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white font-bold text-xl">
+            💬 WhatsApp Clone
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">Real-time Chat Application</h3>
+            <p class="text-gray-600 mb-4">WebSockets + WebRTC with end-to-end encryption</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">WebRTC</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">WebSockets</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Water Park System -->
+        <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+          <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white font-bold text-xl">
+            🎢 Water Park System
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">Water Park Management</h3>
+            <p class="text-gray-600 mb-4">Complete booking system with restaurant integration</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Payment Gateway</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Booking System</span>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Real-time</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="projects.html" class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition inline-flex items-center">
+          View All 60+ Projects <i class="fas fa-arrow-right ml-3"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-2/5">
+            <img src="assets/profile2.jpg" alt="Anshuman Singh" class="w-full h-auto rounded-2xl shadow-lg" loading="lazy">
+          </div>
+          <div class="md:w-3/5">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">My Journey</h2>
+            <p class="text-gray-600 mb-6">
+              I'm a 12th pass developer currently building my path to entrepreneurship through AI-powered development. 
+              Despite being in a drop year, I've created 60+ production-ready systems using AI as my co-developer.
+            </p>
+            <p class="text-gray-600 mb-8">
+              My approach focuses on understanding business logic and system architecture, while leveraging AI 
+              for implementation. This allows me to deliver enterprise-level solutions that solve real problems.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="journey.html" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition">
+                My Full Story
+              </a>
+              <a href="collaborate.html" class="border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-gray-50 transition">
+  Let's Collaborate
+</a>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-4xl font-bold mb-2">60+</div>
+          <div class="opacity-90">Projects Completed</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">100%</div>
+          <div class="opacity-90">AI-Powered</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">2025</div>
+          <div class="opacity-90">12th Pass</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold mb-2">∞</div>
+          <div class="opacity-90">Future Potential</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Build Something Amazing?</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        Let's discuss how AI-powered development can bring your ideas to life faster and smarter.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="contact.html" class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition">
+          Start a Project
+        </a>
+        <a href="https://github.com/anshuman365" class="border-2 border-primary text-primary px-8 py-3 rounded-full font-bold hover:bg-primary/10 transition">
+          View GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Anshuman Singh</h3>
+          <p class="opacity-80">Building the future with AI-powered development</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="opacity-80 hover:opacity-100 transition">Home</a></li>
+            <li><a href="projects.html" class="opacity-80 hover:opacity-100 transition">Projects</a></li>
+            <li><a href="journey.html" class="opacity-80 hover:opacity-100 transition">Journey</a></li>
+            <li><a href="contact.html" class="opacity-80 hover:opacity-100 transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Connect</h4>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-2 opacity-80"></i> 
+              anshumansingh3697@gmail.com
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-map-marker-alt mr-2 opacity-80"></i> 
+              Uttar Pradesh, India
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Follow My Journey</h4>
+          <div class="flex space-x-4">
+            <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition">
+              <i class="fab fa-linkedin-in text-white"></i>
+            </a>
+            <a href="https://www.github.com/anshuman365" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition">
+              <i class="fab fa-github text-white"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center opacity-80">
+        <p>&copy; 2025 Anshuman Singh. Building the future, one AI-powered project at a time.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Animate skill bars on scroll
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const skillBars = entry.target.querySelectorAll('.bg-primary');
+          skillBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0%';
+            setTimeout(() => {
+              bar.style.width = width;
+            }, 100);
+          });
         }
-      ]
+      });
+    }, observerOptions);
+
+    // Observe skills section
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection) {
+      observer.observe(skillsSection);
     }
   </script>
-  
-  <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#4F46E5',
-                        secondary: '#7C3AED',
-                        dark: '#1E293B'
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 2px;
-            background: linear-gradient(to bottom, #4F46E5, #7C3AED);
-        }
-    </style>
-  
-</head>
-<body class="bg-gray-50 text-gray-800">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-1754763173847"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-primary flex items-center">
-                <span class="bg-primary text-white p-2 rounded mr-2">AS</span>
-                Anshuman Singh
-            </a>
-            
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="font-medium hover:text-primary">Home</a>
-                <a href="services.html" class="hover:text-primary">Services</a>
-                <a href="journey.html" class="hover:text-primary">Journey</a>
-                <a href="blog.html" class="hover:text-primary">Blog</a>
-                <a href="contact.html" class="hover:text-primary">Contact</a>
-            </div>
-            
-            <button class="md:hidden text-gray-600" id="menu-toggle">
-                    <i class="fas fa-bars text-xl"></i>
-             </button>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-white px-4 py-6 shadow-lg" id="mobile-menu">
-            <div class="flex flex-col space-y-4">
-                <a href="index.html" class="font-medium">Home</a>
-                <a href="services.html">Services</a>
-                <a href="journey.html">Journey</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 gradient-bg text-white">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-12 md:mb-0">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Python Developer • CUET Aspirant • Tech Innovator</h1>
-                <p class="text-xl opacity-90 mb-8 max-w-xl">
-                    I'm Anshuman Singh, a self-taught Python developer and CUET aspirant from Uttar Pradesh, India. 
-                    I've developed 50+ Flask projects including result checkers, AI bots, and personal blogs. 
-                    My goal is to serve India through NIC or UPSC leadership roles using technology.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="contact.html" class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition transform hover:-translate-y-1">Get in Touch</a>
-                    <a href="services.html" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition">Explore Services</a>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative">
-                    <img src="assets/profile3.jpg" alt="Anshuman Singh - Python Developer" 
-                         class="w-80 h-80 object-cover rounded-full border-8 border-white/20 shadow-2xl animation-float"
-                         loading="lazy">
-                    <div class="absolute -top-4 -right-4 bg-white text-primary p-4 rounded-full shadow-lg">
-                        <i class="fas fa-rocket text-3xl"></i>
-                    </div>
-                    <div class="absolute -bottom-4 -left-4 bg-white text-primary p-4 rounded-full shadow-lg">
-                        <i class="fas fa-code text-3xl"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-16 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="text-4xl font-bold text-primary mb-2">50+</div>
-                    <div class="text-gray-600">Projects</div>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="text-4xl font-bold text-primary mb-2">5+</div>
-                    <div class="text-gray-600">Years Experience</div>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="text-4xl font-bold text-primary mb-2">20+</div>
-                    <div class="text-gray-600">Happy Clients</div>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="text-4xl font-bold text-primary mb-2">10K+</div>
-                    <div class="text-gray-600">Lines of Code</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-        <!-- Services Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">What I Do</h2>
-            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Specializing in Python development with expertise in building modern web applications and solutions</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
-                <div class="card-hover bg-gray-50 p-8 rounded-xl shadow-md border border-gray-100">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Web Application Development</h3>
-                    <p class="text-gray-600">Building responsive and scalable web applications using Flask and modern frontend technologies.</p>
-                </div>
-                
-                <!-- Service Card 2 -->
-                <div class="card-hover bg-gray-50 p-8 rounded-xl shadow-md border border-gray-100">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Backend API Development</h3>
-                    <p class="text-gray-600">Creating robust RESTful APIs for web and mobile applications with Python backend frameworks.</p>
-                </div>
-                
-                <!-- Service Card 3 -->
-                <div class="card-hover bg-gray-50 p-8 rounded-xl shadow-md border border-gray-100">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">AI Integration</h3>
-                    <p class="text-gray-600">Implementing AI solutions including chatbots and automation scripts using Python ML libraries.</p>
-                </div>
-                
-                <!-- Service Card 4 -->
-                <div class="card-hover bg-gray-50 p-8 rounded-xl shadow-md border border-gray-100">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Database Design</h3>
-                    <p class="text-gray-600">Designing and optimizing SQL and NoSQL database structures for performance and scalability.</p>
-                </div>
-                
-                <!-- Service Card 5 -->
-                <div class="card-hover bg-gray-50 p-8 rounded-xl shadow-md border border-gray-100">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">API Integration</h3>
-                    <p class="text-gray-600">Connecting applications with third-party services and payment gateways through secure APIs.</p>
-                </div>
-                
-                <!-- Service Card 6 -->
-                <div class="card-hover bg-gray-50 p-8 rounded-xl shadow-md border border-gray-100">
-                    <div class="text-primary text-4xl mb-4">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Technical Consulting</h3>
-                    <p class="text-gray-600">Providing expert guidance on Python-based solutions and architecture for startups and businesses.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="py-16 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Featured Projects</h2>
-            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">A selection of my most impactful Python and Flask projects</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1 -->
-                <div class="card-hover bg-white rounded-xl shadow-md overflow-hidden">
-                    <img src="assets/project1.jpg" alt="School Result System" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">YouTube Care Support - JantaFile</h3>
-                        <p class="text-gray-600 mb-4">Flask-based youtube channel caring system for my YouTube channel <a href="https://www.youtube.com/@jantafile"> JantaFile </a> for providing extra data on request.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Flask</span>
-                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">MySQL</span>
-                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Bootstrap</span>
-                        </div>
-                        <a href="https://jantafile-youtube-care-support.onrender.com" class="text-primary font-semibold hover:underline flex items-center">
-                            View Project <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project Card 2 -->
-                <div class="card-hover bg-white rounded-xl shadow-md overflow-hidden">
-                    <img src="assets/project2.jpg" alt="AI Assistant" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Fuel Delivery App</h3>
-                        <p class="text-gray-600 mb-4">A full working fuel delivery app with integrated delivery point, delievery boy and backend support system./p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">GPS Tracking</span>
-                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Real time data</span>
-                        </div>
-                        <a href="https://nexora-fuel-delivery-service.onrender.com" class="text-primary font-semibold hover:underline flex items-center">
-                            View Project <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project Card 3 -->
-                <div class="card-hover bg-white rounded-xl shadow-md overflow-hidden">
-                    <img src="assets/project3.jpg" alt="E-commerce API" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">E-commerce Backend API</h3>
-                        <p class="text-gray-600 mb-4">RESTful API for online store with product management, user authentication, and payment integration.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Flask-RESTful</span>
-                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">JWT Auth</span>
-                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Stripe API</span>
-                        </div>
-                        <a href="https://e-commerce-store-05qg.onrender.com" class="text-primary font-semibold hover:underline flex items-center">
-                            View Project <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="https://www.github.com/anshuman365" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition inline-flex items-center">
-                    View All Projects Code<i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-2/5">
-                        <img src="assets/profile2.jpg" alt="Anshuman Singh" class="w-full h-auto rounded-xl shadow-lg" loading="lazy">
-                    </div>
-                    <div class="md:w-3/5">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
-                        <p class="text-gray-600 mb-6">
-                            I'm Anshuman Singh, a self-taught Python developer and CUET aspirant from Uttar Pradesh, India. 
-                            With over 5 years of coding experience, I've developed 50+ Flask projects including result systems, 
-                            AI bots, and personal blogs.
-                        </p>
-                        <p class="text-gray-600 mb-8">
-                            My journey in technology began at VSPSchool where I developed my first school management system. 
-                            Today, I'm passionate about creating solutions that solve real-world problems while preparing for 
-                            civil service examinations to serve India through NIC or UPSC leadership roles.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="journey.html" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition">
-                                My Full Journey
-                            </a>
-                            <a href="contact.html" class="border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-gray-50 transition">
-                                Contact Me
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact CTA Section -->
-    <section class="py-16 gradient-bg text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Let's Work Together</h2>
-            <p class="text-xl max-w-2xl mx-auto mb-8">
-                Have a project in mind? I'm currently available for freelance work and collaboration opportunities.
-            </p>
-            <a href="contact.html" class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition inline-flex items-center">
-                Get in Touch <i class="fas fa-paper-plane ml-3"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Anshuman Singh</h3>
-                    <p class="opacity-80">Building the future one line of code at a time.</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="opacity-80 hover:opacity-100">Home</a></li>
-                        <li><a href="services.html" class="opacity-80 hover:opacity-100">Services</a></li>
-                        <li><a href="journey.html" class="opacity-80 hover:opacity-100">Journey</a></li>
-                        <li><a href="blog.html" class="opacity-80 hover:opacity-100">Blog</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2">
-                        <li class="flex items-center"><i class="fas fa-envelope mr-2 opacity-80"></i> anshumansingh3697@gmail.com</li>
-                        <li class="flex items-center"><i class="fas fa-phone mr-2 opacity-80"></i> +91 6393741885</li>
-                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2 opacity-80"></i> India</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
-                    <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.github.com/anshuman365" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition"><i class="fab fa-github"></i></a>
-                        <a href="https://www.twitter.com/SarvarSing35025" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-12 pt-8 text-center opacity-80">
-                <p>&copy; 2025 Anshuman Singh. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Animation on scroll
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fadeIn');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-    </script>
 </body>
 </html>
-
-
-
