@@ -12,60 +12,52 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Anshuman Singh - AI Developer | 60+ Projects</title>
-  <meta name="description" content="Contact Anshuman Singh for AI-powered development projects and collaborations">
-    <meta name="keywords" content="contact, Python developer, Flask, web development, India">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Anshuman Singh">
+  <title>Contact Anshuman Singh - AI Developer | Python Flask Projects</title>
+  <meta name="description" content="Contact Anshuman Singh for AI-powered development projects and collaborations. Python Flask developer available for web applications and AI integration.">
+  <meta name="keywords" content="contact Python developer, Flask developer India, web development contact, AI project collaboration">
+  <meta name="author" content="Anshuman Singh">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://anshuman365.github.io/contact.html">
-    <meta property="og:title" content="Contact Anshuman Singh - Python Developer">
-    <meta property="og:description" content="Get in touch for web development projects or collaboration opportunities">
-    <meta property="og:image" content="https://anshuman365.github.io/assets/profile.jpg">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anshuman365.github.io/contact.html">
+  <meta property="og:title" content="Contact Anshuman Singh - AI Developer">
+  <meta property="og:description" content="Get in touch for AI-powered web development projects or collaboration opportunities">
+  <meta property="og:image" content="https://anshuman365.github.io/assets/profile.jpg">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://anshuman365.github.io/contact.html">
-    <meta property="twitter:title" content="Contact Anshuman Singh">
-    <meta property="twitter:description" content="Python developer available for projects and consulting">
-    <meta property="twitter:image" content="https://anshuman365.github.io/assets/profile.jpg">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact Anshuman Singh - AI Developer">
+  <meta name="twitter:description" content="Python Flask developer available for projects and consulting">
+  <meta name="twitter:image" content="https://anshuman365.github.io/assets/profile.jpg">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://anshuman365.github.io/contact.html">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    
-    <!-- Google Site Verification -->
-    <meta name="google-site-verification" content="google82d7c3c7c2312cb7" />
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
+  <!-- Canonical -->
+  <link rel="canonical" href="https://anshuman365.github.io/contact.html">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  
+  <!-- Google Site Verification -->
+  <meta name="google-site-verification" content="google82d7c3c7c2312cb7" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Anshuman Singh",
+    "description": "Contact page for AI developer Anshuman Singh",
+    "url": "https://anshuman365.github.io/contact.html",
+    "mainEntity": {
       "@type": "Person",
       "name": "Anshuman Singh",
-      "url": "https://anshuman365.github.io",
-      "image": "https://anshuman365.github.io/assets/profile.jpg",
-      "sameAs": [
-        "https://github.com/anshuman365",
-        "https://linkedin.com/in/anshuman-singh-662183303"
-      ],
-      "jobTitle": "Python Developer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Freelance"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "anshumansingh3697@gmail.com",
-        "contactType": "Business Inquiries",
-        "telephone": "+91-6393741885"
+      "jobTitle": "AI Developer",
+      "email": "anshumansingh3697@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "India"
       }
     }
-    </script>
+  }
+  </script>
   
   <!-- Updated Color Scheme -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -126,7 +118,7 @@
   <!-- Navigation -->
   <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="text-xl font-bold text-primary flex items-center">
+      <a href="index.html" class="text-xl font-bold text-primary flex items-center" aria-label="Anshuman Singh Home">
         <span class="bg-primary text-white p-2 rounded-lg mr-2">AS</span>
         Anshuman Singh
       </a>
@@ -140,7 +132,7 @@
         <a href="contact.html" class="font-medium text-primary">Contact</a>
       </div>
 
-      <button class="md:hidden text-gray-600" id="menu-toggle">
+      <button class="md:hidden text-gray-600" id="menu-toggle" aria-label="Toggle menu">
         <i class="fas fa-bars text-xl"></i>
       </button>
     </div>
@@ -179,16 +171,16 @@
               There was an error sending your message. Please try again or email me directly.
             </div>
             <div>
-              <label class="block text-gray-700 mb-2">Full Name</label>
-              <input type="text" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary" required>
+              <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+              <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary" required>
             </div>
             <div>
-              <label class="block text-gray-700 mb-2">Email Address</label>
-              <input type="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary" required>
+              <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+              <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary" required>
             </div>
             <div>
-              <label class="block text-gray-700 mb-2">Project Type</label>
-              <select name="project-type" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary">
+              <label for="project-type" class="block text-gray-700 mb-2">Project Type</label>
+              <select id="project-type" name="project-type" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary">
                 <option>Web Application</option>
                 <option>AI Integration</option>
                 <option>API Development</option>
@@ -197,8 +189,8 @@
               </select>
             </div>
             <div>
-              <label class="block text-gray-700 mb-2">Project Details</label>
-              <textarea name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+              <label for="message" class="block text-gray-700 mb-2">Project Details</label>
+              <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
             </div>
             <button type="submit" class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-secondary transition w-full">
               Send Message
@@ -212,7 +204,7 @@
             <div class="space-y-6">
               <div class="flex items-start">
                 <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-4">
-                  <i class="fas fa-envelope"></i>
+                  <i class="fas fa-envelope" aria-hidden="true"></i>
                 </div>
                 <div>
                   <h4 class="font-bold text-lg">Email</h4>
@@ -221,7 +213,7 @@
               </div>
               <div class="flex items-start">
                 <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-4">
-                  <i class="fas fa-map-marker-alt"></i>
+                  <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                 </div>
                 <div>
                   <h4 class="font-bold text-lg">Location</h4>
@@ -235,19 +227,19 @@
             <h3 class="text-2xl font-bold mb-6">Why Work With Me?</h3>
             <ul class="space-y-3">
               <li class="flex items-center">
-                <i class="fas fa-check-circle text-accent mr-3"></i>
+                <i class="fas fa-check-circle text-accent mr-3" aria-hidden="true"></i>
                 <span>60+ production projects delivered</span>
               </li>
               <li class="flex items-center">
-                <i class="fas fa-check-circle text-accent mr-3"></i>
+                <i class="fas fa-check-circle text-accent mr-3" aria-hidden="true"></i>
                 <span>AI-powered development approach</span>
               </li>
               <li class="flex items-center">
-                <i class="fas fa-check-circle text-accent mr-3"></i>
+                <i class="fas fa-check-circle text-accent mr-3" aria-hidden="true"></i>
                 <span>Fast and efficient project delivery</span>
               </li>
               <li class="flex items-center">
-                <i class="fas fa-check-circle text-accent mr-3"></i>
+                <i class="fas fa-check-circle text-accent mr-3" aria-hidden="true"></i>
                 <span>Enterprise-grade security standards</span>
               </li>
             </ul>
@@ -290,10 +282,10 @@
         <div>
           <h4 class="text-lg font-semibold mb-4">Follow My Journey</h4>
           <div class="flex space-x-4">
-            <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition">
+            <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition" aria-label="LinkedIn">
               <i class="fab fa-linkedin-in text-white"></i>
             </a>
-            <a href="https://www.github.com/anshuman365" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition">
+            <a href="https://www.github.com/anshuman365" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition" aria-label="GitHub">
               <i class="fab fa-github text-white"></i>
             </a>
           </div>
@@ -301,6 +293,11 @@
       </div>
       <div class="border-t border-gray-700 mt-12 pt-8 text-center opacity-80">
         <p>&copy; 2025 Anshuman Singh. Building the future, one AI-powered project at a time.</p>
+        <div class="mt-4 flex justify-center space-x-6 text-sm">
+          <a href="privacy.html" class="opacity-80 hover:opacity-100 transition">Privacy Policy</a>
+          <a href="terms.html" class="opacity-80 hover:opacity-100 transition">Terms of Service</a>
+          <a href="disclaimer.html" class="opacity-80 hover:opacity-100 transition">Disclaimer</a>
+        </div>
       </div>
     </div>
   </footer>

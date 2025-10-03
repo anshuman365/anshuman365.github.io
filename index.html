@@ -9,15 +9,56 @@
     gtag('js', new Date());
     gtag('config', 'G-4X0M6RM0F6');
   </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897" crossorigin="anonymous"></script>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anshuman Singh - AI Developer | 60+ Real Projects | Future Entrepreneur</title>
-  <meta name="description" content="12th Pass AI Developer with 60+ Production Projects | Python Flask Expert | Building Complex Systems with AI">
+  <title>Anshuman Singh - AI Developer | 60+ Real Projects | Python Flask Expert</title>
+  <meta name="description" content="Professional AI Developer with 60+ production projects. Python Flask expert specializing in AI integration, web applications, and enterprise solutions.">
+  <meta name="keywords" content="AI developer, Python developer, Flask developer, web development, India developer, AI integration">
+  <meta name="author" content="Anshuman Singh">
   <meta name="google-adsense-account" content="ca-pub-2633513915753897">
   
-  <!-- Updated Color Scheme -->
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anshuman365.github.io/">
+  <meta property="og:title" content="Anshuman Singh - AI Developer | 60+ Real Projects">
+  <meta property="og:description" content="Professional AI Developer with 60+ production projects. Python Flask expert specializing in AI integration.">
+  <meta property="og:image" content="https://anshuman365.github.io/assets/profile.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Anshuman Singh - AI Developer">
+  <meta name="twitter:description" content="Professional AI Developer with 60+ production projects">
+  <meta name="twitter:image" content="https://anshuman365.github.io/assets/profile.jpg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://anshuman365.github.io/">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Anshuman Singh",
+    "url": "https://anshuman365.github.io",
+    "image": "https://anshuman365.github.io/assets/profile.jpg",
+    "sameAs": [
+      "https://github.com/anshuman365",
+      "https://linkedin.com/in/anshuman-singh-662183303"
+    ],
+    "jobTitle": "AI Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Freelance"
+    },
+    "knowsAbout": ["Python", "Flask", "AI Integration", "Web Development", "API Development"],
+    "description": "AI Developer with 60+ production projects delivered"
+  }
+  </script>
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -53,6 +94,7 @@
     .gradient-bg { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); }
     .project-card { transition: all 0.3s ease; }
     .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    .skill-bar { transition: width 2s ease-in-out; }
   </style>
 </head>
 
@@ -60,7 +102,7 @@
   <!-- Navigation -->
   <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="text-xl font-bold text-primary flex items-center">
+      <a href="index.html" class="text-xl font-bold text-primary flex items-center" aria-label="Anshuman Singh Home">
         <span class="bg-primary text-white p-2 rounded-lg mr-2">AS</span>
         Anshuman Singh
       </a>
@@ -72,7 +114,7 @@
         <a href="contact.html" class="hover:text-primary transition">Contact</a>
       </div>
 
-      <button class="md:hidden text-gray-600" id="menu-toggle">
+      <button class="md:hidden text-gray-600" id="menu-toggle" aria-label="Toggle menu">
         <i class="fas fa-bars text-xl"></i>
       </button>
     </div>
@@ -109,14 +151,14 @@
       </div>
       <div class="md:w-1/2 flex justify-center">
         <div class="relative">
-          <img src="assets/profile3.jpg" alt="Anshuman Singh - AI Developer" 
+          <img src="assets/profile3.jpg" alt="Anshuman Singh - AI Developer and Python Flask Expert" 
                class="w-64 h-64 object-cover rounded-2xl border-4 border-white/20 shadow-2xl animate-float"
-               loading="lazy">
+               loading="lazy" width="256" height="256">
           <div class="absolute -top-2 -right-2 bg-accent text-white p-3 rounded-full shadow-lg">
-            <i class="fas fa-robot text-2xl"></i>
+            <i class="fas fa-robot text-2xl" aria-hidden="true"></i>
           </div>
           <div class="absolute -bottom-2 -left-2 bg-accent text-white p-3 rounded-full shadow-lg">
-            <i class="fas fa-bolt text-2xl"></i>
+            <i class="fas fa-bolt text-2xl" aria-hidden="true"></i>
           </div>
         </div>
       </div>
@@ -140,7 +182,7 @@
                 <span class="font-bold text-primary">95%</span>
               </div>
               <div class="w-full bg-gray-200 rounded-full h-3">
-                <div class="bg-primary h-3 rounded-full transition-all duration-1000" style="width: 95%"></div>
+                <div class="bg-primary h-3 rounded-full skill-bar" style="width: 95%" data-width="95%"></div>
               </div>
             </div>
             <div>
@@ -149,7 +191,7 @@
                 <span class="font-bold text-primary">90%</span>
               </div>
               <div class="w-full bg-gray-200 rounded-full h-3">
-                <div class="bg-primary h-3 rounded-full transition-all duration-1000" style="width: 90%"></div>
+                <div class="bg-primary h-3 rounded-full skill-bar" style="width: 90%" data-width="90%"></div>
               </div>
             </div>
             <div>
@@ -158,7 +200,7 @@
                 <span class="font-bold text-primary">88%</span>
               </div>
               <div class="w-full bg-gray-200 rounded-full h-3">
-                <div class="bg-primary h-3 rounded-full transition-all duration-1000" style="width: 88%"></div>
+                <div class="bg-primary h-3 rounded-full skill-bar" style="width: 88%" data-width="88%"></div>
               </div>
             </div>
           </div>
@@ -174,7 +216,7 @@
                 <span class="font-bold text-primary">92%</span>
               </div>
               <div class="w-full bg-gray-200 rounded-full h-3">
-                <div class="bg-primary h-3 rounded-full transition-all duration-1000" style="width: 92%"></div>
+                <div class="bg-primary h-3 rounded-full skill-bar" style="width: 92%" data-width="92%"></div>
               </div>
             </div>
             <div>
@@ -183,7 +225,7 @@
                 <span class="font-bold text-primary">96%</span>
               </div>
               <div class="w-full bg-gray-200 rounded-full h-3">
-                <div class="bg-primary h-3 rounded-full transition-all duration-1000" style="width: 96%"></div>
+                <div class="bg-primary h-3 rounded-full skill-bar" style="width: 96%" data-width="96%"></div>
               </div>
             </div>
             <div>
@@ -192,7 +234,7 @@
                 <span class="font-bold text-primary">85%</span>
               </div>
               <div class="w-full bg-gray-200 rounded-full h-3">
-                <div class="bg-primary h-3 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                <div class="bg-primary h-3 rounded-full skill-bar" style="width: 85%" data-width="85%"></div>
               </div>
             </div>
           </div>
@@ -271,7 +313,7 @@
       <div class="max-w-4xl mx-auto">
         <div class="flex flex-col md:flex-row items-center gap-12">
           <div class="md:w-2/5">
-            <img src="assets/profile2.jpg" alt="Anshuman Singh" class="w-full h-auto rounded-2xl shadow-lg" loading="lazy">
+            <img src="assets/profile2.jpg" alt="Anshuman Singh - AI Developer Journey" class="w-full h-auto rounded-2xl shadow-lg" loading="lazy" width="400" height="400">
           </div>
           <div class="md:w-3/5">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">My Journey</h2>
@@ -288,8 +330,7 @@
                 My Full Story
               </a>
               <a href="collaborate.html" class="border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-gray-50 transition">
-  Let's Collaborate
-</a>
+                Let's Collaborate
               </a>
             </div>
           </div>
@@ -373,10 +414,10 @@
         <div>
           <h4 class="text-lg font-semibold mb-4">Follow My Journey</h4>
           <div class="flex space-x-4">
-            <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition">
+            <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition" aria-label="LinkedIn">
               <i class="fab fa-linkedin-in text-white"></i>
             </a>
-            <a href="https://www.github.com/anshuman365" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition">
+            <a href="https://www.github.com/anshuman365" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition" aria-label="GitHub">
               <i class="fab fa-github text-white"></i>
             </a>
           </div>
@@ -384,6 +425,11 @@
       </div>
       <div class="border-t border-gray-700 mt-12 pt-8 text-center opacity-80">
         <p>&copy; 2025 Anshuman Singh. Building the future, one AI-powered project at a time.</p>
+        <div class="mt-4 flex justify-center space-x-6 text-sm">
+          <a href="privacy.html" class="opacity-80 hover:opacity-100 transition">Privacy Policy</a>
+          <a href="terms.html" class="opacity-80 hover:opacity-100 transition">Terms of Service</a>
+          <a href="disclaimer.html" class="opacity-80 hover:opacity-100 transition">Disclaimer</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -405,9 +451,9 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const skillBars = entry.target.querySelectorAll('.bg-primary');
+          const skillBars = entry.target.querySelectorAll('.skill-bar');
           skillBars.forEach(bar => {
-            const width = bar.style.width;
+            const width = bar.getAttribute('data-width');
             bar.style.width = '0%';
             setTimeout(() => {
               bar.style.width = width;
