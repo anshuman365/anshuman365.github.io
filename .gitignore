@@ -14,7 +14,9 @@ venv/
 
 # Environment variables
 .env
+js/env-config.js
 .env.local
+.env.production
 
 # Logs
 logs/
@@ -32,3 +34,6 @@ logs/
 
 # Session files
 .flask_session/
+
+# Backend
+backend/

@@ -95,6 +95,7 @@
     .project-card { transition: all 0.3s ease; }
     .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
     .skill-bar { transition: width 2s ease-in-out; }
+    #chatbot-messages{scrollbar-width:thin;scrollbar-color:#2563EB #f1f1f1;}#chatbot-messages::-webkit-scrollbar{width:6px;}#chatbot-messages::-webkit-scrollbar-track{background:#f1f1f1;border-radius:3px;}#chatbot-messages::-webkit-scrollbar-thumb{background:#2563EB;border-radius:3px;}#chatbot-messages::-webkit-scrollbar-thumb:hover{background:#1d4ed8;}
   </style>
 </head>
 
@@ -460,6 +461,60 @@
       </div>
     </div>
   </footer>
+  
+<!-- Chatbot Widget Structure -->
+<div id="chatbot-widget" class="fixed bottom-4 right-4 z-50">
+    <!-- Chat Button -->
+    <button id="chatbot-toggle" class="bg-primary text-white p-4 rounded-full shadow-lg hover:bg-secondary transition animate-bounce">
+        <i class="fas fa-robot text-xl"></i>
+    </button>
+
+    <!-- Chat Window -->
+    <div id="chatbot-window" class="hidden absolute bottom-16 right-0 w-80 h-96 bg-white rounded-lg shadow-xl flex flex-col border border-gray-200">
+        <!-- Chat Header -->
+        <div class="bg-primary text-white p-4 rounded-t-lg flex justify-between items-center">
+            <div>
+                <h3 class="font-bold">AI Assistant</h3>
+                <p class="text-xs opacity-80">Powered by OpenRouter</p>
+            </div>
+            <button id="chatbot-close" class="text-white hover:text-gray-200">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Chat Messages -->
+        <div id="chatbot-messages" class="flex-1 p-4 overflow-y-auto space-y-4">
+            <div class="flex items-start space-x-2">
+                <div class="bg-primary text-white p-2 rounded-full">
+                    <i class="fas fa-robot text-sm"></i>
+                </div>
+                <div class="bg-gray-100 rounded-lg p-3 max-w-[80%]">
+                    <p class="text-sm">👋 Hi! I'm Anshuman AI — your assistant here to explore Anshuman Singh's portfolio. Would you like to see his projects, services, or contact info?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="p-4 border-t">
+            <div class="flex space-x-2">
+                <input 
+                    type="text" 
+                    id="chatbot-input" 
+                    placeholder="Type your message..." 
+                    class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                    maxlength="500"
+                >
+                <button id="chatbot-send" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <p class="text-xs text-gray-500 mt-2">Using OpenRouter AI</p>
+        </div>
+    </div>
+</div>
+
+<!-- Load chatbot as module -->
+<script type="module" src="js/chatbot.js"></script>
 
   <script>
     // Mobile menu toggle
@@ -496,5 +551,6 @@
       observer.observe(skillsSection);
     }
   </script>
+ 
 </body>
 </html>

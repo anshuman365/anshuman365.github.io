@@ -47,3 +47,27 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+/* Add to your existing styles */
+#chatbot-messages {
+  scrollbar-width: thin;
+  scrollbar-color: #2563EB #f1f1f1;
+}
+
+#chatbot-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chatbot-messages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+#chatbot-messages::-webkit-scrollbar-thumb {
+  background: #2563EB;
+  border-radius: 3px;
+}
+
+#chatbot-messages::-webkit-scrollbar-thumb:hover {
+  background: #1d4ed8;
+}
