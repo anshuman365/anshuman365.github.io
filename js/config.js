@@ -57,12 +57,17 @@ class Config {
 
     async loadFromEnvFile() {
         try {
-            const response = await fetch('./.env');
+            // Load from root directory .env file
+            const response = await fetch('/.env');
             if (response.ok) {
                 const envContent = await response.text();
                 this.parseEnvContent(envContent);
+                console.log('Successfully loaded .env from root directory');
+            } else {
+                console.warn('.env file not found in root directory');
             }
         } catch (error) {
+            console.warn('Failed to load .env file from root:', error);
             // .env file not available, which is normal in production
         }
     }
@@ -75,13 +80,18 @@ class Config {
                 const key = match[1];
                 let value = match[2] || '';
                 
+                // Remove surrounding quotes if present
                 if (value.startsWith('"') && value.endsWith('"')) {
                     value = value.slice(1, -1);
                 } else if (value.startsWith("'") && value.endsWith("'")) {
                     value = value.slice(1, -1);
                 }
                 
+                // Trim whitespace
+                value = value.trim();
+                
                 this.values[key] = value;
+                console.log(`Loaded env variable: ${key} = ${value ? '***' + value.slice(-2) : 'empty'}`);
             }
         });
     }
