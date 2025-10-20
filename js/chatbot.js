@@ -412,19 +412,60 @@ User: "My name is Sarah, email sarah@example.com, I need an e-commerce site"
     }
 }
 
+// Load remote config from Render server
+function loadRemoteConfig() {
+    return new Promise((resolve, reject) => {
+        console.log('Loading remote config from Render server...');
+        
+        const script = document.createElement('script');
+        script.src = 'https://anshumansingh-dev.onrender.com/js/config.js';
+        script.onload = () => {
+            console.log('Remote config loaded successfully');
+            // Wait for APP_CONFIG to be initialized
+            const checkConfig = setInterval(() => {
+                if (window.APP_CONFIG && window.APP_CONFIG.isConfigLoaded) {
+                    clearInterval(checkConfig);
+                    resolve();
+                }
+            }, 100);
+            
+            // Timeout after 10 seconds
+            setTimeout(() => {
+                clearInterval(checkConfig);
+                if (!window.APP_CONFIG) {
+                    reject(new Error('Timeout waiting for APP_CONFIG initialization'));
+                }
+            }, 10000);
+        };
+        
+        script.onerror = () => {
+            console.error('Failed to load remote config');
+            reject(new Error('Failed to load remote config script'));
+        };
+        
+        document.head.appendChild(script);
+    });
+}
+
 // Initialize chatbot when everything is ready
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded, initializing chatbot...');
     
     try {
-        // First load the config system
-        await import('./config.js');
+        // Load remote config from Render server
+        await loadRemoteConfig();
         
         // Then initialize chatbot after a short delay to ensure config is loaded
         setTimeout(() => {
             new AIChatbot();
         }, 1000);
     } catch (error) {
-        console.error('Failed to load chatbot:', error);
+        console.error('Failed to load chatbot configuration:', error);
+        
+        // Fallback: try to initialize anyway (might use cached config)
+        console.log('Attempting to initialize chatbot with existing config...');
+        setTimeout(() => {
+            new AIChatbot();
+        }, 1000);
     }
 });
