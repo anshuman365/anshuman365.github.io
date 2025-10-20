@@ -3,6 +3,7 @@ class AIChatbot {
     constructor() {
         this.apiKey = '';
         this.apiUrl = 'https://openrouter.ai/api/v1/chat/completions';
+        this.backendUrl = 'https://nexoraindustries365.pythonanywhere.com';
         this.conversationHistory = [];
         this.isOpen = false;
         this.isInitialized = false;
@@ -14,13 +15,11 @@ class AIChatbot {
         try {
             console.log('Initializing chatbot...');
             
-            await this.waitForConfig();
-            
-            this.apiKey = window.APP_CONFIG.get('OPENROUTER_API_KEY');
-            console.log('API Key loaded:', this.apiKey ? 'Yes' : 'No');
+            // First try to get API key from backend
+            await this.getApiKeyFromBackend();
             
             if (!this.apiKey) {
-                console.error('OpenRouter API key not found in configuration');
+                console.error('OpenRouter API key not found from backend');
                 this.showConfigError();
                 return;
             }
@@ -29,7 +28,7 @@ class AIChatbot {
             this.attachEventListeners();
             this.isInitialized = true;
             
-            console.log('Chatbot initialized successfully');
+            console.log('Chatbot initialized successfully with backend API key');
             
         } catch (error) {
             console.error('Failed to initialize chatbot:', error);
@@ -37,26 +36,36 @@ class AIChatbot {
         }
     }
 
-    async waitForConfig() {
-        console.log('Waiting for configuration...');
-        
-        let attempts = 0;
-        while (!window.APP_CONFIG && attempts < 50) {
-            await new Promise(resolve => setTimeout(resolve, 100));
-            attempts++;
+    async getApiKeyFromBackend() {
+        try {
+            console.log('Fetching API key from backend...');
+            
+            const response = await fetch(`${this.backendUrl}/api/config/openrouter-api-key`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                if (data.status === 'success' && data.openrouter_api_key) {
+                    this.apiKey = data.openrouter_api_key;
+                    console.log('API key successfully retrieved from backend');
+                    return true;
+                } else {
+                    console.error('Backend returned error:', data.message);
+                    return false;
+                }
+            } else {
+                console.error('Backend request failed:', response.status);
+                return false;
+            }
+            
+        } catch (error) {
+            console.error('Error fetching API key from backend:', error);
+            return false;
         }
-        
-        if (!window.APP_CONFIG) {
-            throw new Error('APP_CONFIG not available');
-        }
-        
-        attempts = 0;
-        while (!window.APP_CONFIG.isConfigLoaded() && attempts < 50) {
-            await new Promise(resolve => setTimeout(resolve, 100));
-            attempts++;
-        }
-        
-        console.log('Configuration ready');
     }
 
     initializeElements() {
@@ -412,60 +421,8 @@ User: "My name is Sarah, email sarah@example.com, I need an e-commerce site"
     }
 }
 
-// Load remote config from Render server
-function loadRemoteConfig() {
-    return new Promise((resolve, reject) => {
-        console.log('Loading remote config from Render server...');
-        
-        const script = document.createElement('script');
-        script.src = 'https://anshumansingh-dev.onrender.com/js/config.js';
-        script.onload = () => {
-            console.log('Remote config loaded successfully');
-            // Wait for APP_CONFIG to be initialized
-            const checkConfig = setInterval(() => {
-                if (window.APP_CONFIG && window.APP_CONFIG.isConfigLoaded) {
-                    clearInterval(checkConfig);
-                    resolve();
-                }
-            }, 100);
-            
-            // Timeout after 10 seconds
-            setTimeout(() => {
-                clearInterval(checkConfig);
-                if (!window.APP_CONFIG) {
-                    reject(new Error('Timeout waiting for APP_CONFIG initialization'));
-                }
-            }, 10000);
-        };
-        
-        script.onerror = () => {
-            console.error('Failed to load remote config');
-            reject(new Error('Failed to load remote config script'));
-        };
-        
-        document.head.appendChild(script);
-    });
-}
-
 // Initialize chatbot when everything is ready
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing chatbot...');
-    
-    try {
-        // Load remote config from Render server
-        await loadRemoteConfig();
-        
-        // Then initialize chatbot after a short delay to ensure config is loaded
-        setTimeout(() => {
-            new AIChatbot();
-        }, 1000);
-    } catch (error) {
-        console.error('Failed to load chatbot configuration:', error);
-        
-        // Fallback: try to initialize anyway (might use cached config)
-        console.log('Attempting to initialize chatbot with existing config...');
-        setTimeout(() => {
-            new AIChatbot();
-        }, 1000);
-    }
+    new AIChatbot();
 });

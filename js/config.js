@@ -3,97 +3,56 @@ class Config {
     constructor() {
         this.values = {};
         this.isLoaded = false;
+        this.backendUrl = 'https://nexoraindustries365.pythonanywhere.com';
         this.loadConfig();
     }
 
     async loadConfig() {
         try {
-            console.log('Loading configuration...');
+            console.log('Loading configuration from backend...');
             
-            // First try to load from env-config.js (this works in static hosting)
-            await this.loadFromJSConfig();
+            // Try to get API key from backend
+            const backendSuccess = await this.loadFromBackend();
             
-            // If we still don't have the API key, try .env as fallback
-            if (!this.values.OPENROUTER_API_KEY) {
-                await this.loadFromEnvFile();
+            if (!backendSuccess) {
+                console.log('Backend failed, chatbot will use its own backend connection');
+                // Chatbot will handle its own backend connection
             }
             
             this.isLoaded = true;
-            console.log('Configuration loaded successfully:', Object.keys(this.values));
+            console.log('Configuration system ready');
             
         } catch (error) {
             console.warn('Config loading failed:', error);
-            this.isLoaded = true; // Mark as loaded anyway to prevent infinite waiting
+            this.isLoaded = true;
         }
     }
 
-    async loadFromJSConfig() {
-        return new Promise((resolve) => {
-            // Check if ENV_CONFIG is already available (script might be loaded already)
-            if (window.ENV_CONFIG) {
-                console.log('Found ENV_CONFIG in window');
-                this.values = { ...window.ENV_CONFIG };
-                resolve();
-                return;
-            }
-            
-            // Try to load the env-config.js file
-            const script = document.createElement('script');
-            script.src = './js/env-config.js';
-            script.onload = () => {
-                console.log('env-config.js loaded');
-                if (window.ENV_CONFIG) {
-                    this.values = { ...window.ENV_CONFIG };
-                }
-                resolve();
-            };
-            script.onerror = () => {
-                console.warn('Failed to load env-config.js');
-                resolve(); // Resolve anyway to continue
-            };
-            document.head.appendChild(script);
-        });
-    }
-
-    async loadFromEnvFile() {
+    async loadFromBackend() {
         try {
-            // Load from root directory .env file
-            const response = await fetch('/.env');
-            if (response.ok) {
-                const envContent = await response.text();
-                this.parseEnvContent(envContent);
-                console.log('Successfully loaded .env from root directory');
-            } else {
-                console.warn('.env file not found in root directory');
-            }
-        } catch (error) {
-            console.warn('Failed to load .env file from root:', error);
-            // .env file not available, which is normal in production
-        }
-    }
-
-    parseEnvContent(content) {
-        const lines = content.split('\n');
-        lines.forEach(line => {
-            const match = line.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/);
-            if (match != null) {
-                const key = match[1];
-                let value = match[2] || '';
-                
-                // Remove surrounding quotes if present
-                if (value.startsWith('"') && value.endsWith('"')) {
-                    value = value.slice(1, -1);
-                } else if (value.startsWith("'") && value.endsWith("'")) {
-                    value = value.slice(1, -1);
+            console.log('Trying to load from backend...');
+            
+            const response = await fetch(`${this.backendUrl}/api/config/openrouter-api-key`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
                 }
-                
-                // Trim whitespace
-                value = value.trim();
-                
-                this.values[key] = value;
-                console.log(`Loaded env variable: ${key} = ${value ? '***' + value.slice(-2) : 'empty'}`);
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                if (data.status === 'success' && data.openrouter_api_key) {
+                    this.values.OPENROUTER_API_KEY = data.openrouter_api_key;
+                    console.log('Successfully loaded API key from backend in config');
+                    return true;
+                }
             }
-        });
+            return false;
+            
+        } catch (error) {
+            console.warn('Failed to load from backend in config:', error);
+            return false;
+        }
     }
 
     get(key, defaultValue = '') {
