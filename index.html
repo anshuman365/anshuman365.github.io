@@ -117,36 +117,50 @@
 </head>
 
 <body class="bg-light text-dark">
-  <!-- Navigation -->
-  <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="text-xl font-bold text-primary flex items-center" aria-label="Anshuman Singh Home">
-        <span class="bg-primary text-white p-2 rounded-lg mr-2">AS</span>
-        Anshuman Singh
-      </a>
-      
-      <div class="hidden md:flex space-x-6">
-        <a href="#projects" class="font-medium hover:text-primary transition">Projects</a>
-        <a href="#skills" class="hover:text-primary transition">Skills</a>
-        <a href="#about" class="hover:text-primary transition">About</a>
-        <a href="contact.html" class="hover:text-primary transition">Contact</a>
-      </div>
-
-      <button class="md:hidden text-gray-600" id="menu-toggle" aria-label="Toggle menu">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
-    </div>
+<!-- Navigation -->
+<nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <a href="index.html" class="text-xl font-bold text-primary flex items-center" aria-label="Anshuman Singh Home">
+      <span class="bg-primary text-white p-2 rounded-lg mr-2">AS</span>
+      Anshuman Singh
+    </a>
     
-    <!-- Mobile Menu -->
-    <div class="md:hidden hidden bg-white px-4 py-6 shadow-lg" id="mobile-menu">
-      <div class="flex flex-col space-y-4">
-        <a href="#projects" class="font-medium">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#about">About</a>
-        <a href="contact.html">Contact</a>
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex space-x-6 items-center">
+      <a href="#projects" class="font-medium hover:text-primary transition">Projects</a>
+      <a href="#skills" class="hover:text-primary transition">Skills</a>
+      <a href="#about" class="hover:text-primary transition">About</a>
+      <a href="contact.html" class="hover:text-primary transition">Contact</a>
+
+      <!-- Dropdown for Python Libraries -->
+      <div class="relative group">
+        <button class="hover:text-primary transition font-medium flex items-center">
+          Python Libraries
+          <i class="fas fa-chevron-down ml-1 text-sm"></i>
+        </button>
+        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 w-48 border border-gray-100">
+          <a href="pyfusion.html" class="block px-4 py-2 hover:bg-primary/10 hover:text-primary transition">PyFusion</a>
+          <!-- Future libraries can go here -->
+        </div>
       </div>
     </div>
-  </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="md:hidden text-gray-600" id="menu-toggle" aria-label="Toggle menu">
+      <i class="fas fa-bars text-xl"></i>
+    </button>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div class="md:hidden hidden bg-white px-4 py-6 shadow-lg" id="mobile-menu">
+    <div class="flex flex-col space-y-4">
+      <a href="#projects" class="font-medium">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
 
   <!-- Hero Section -->
   <section class="pt-24 pb-16 gradient-bg text-white">
@@ -268,6 +282,38 @@
       <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">60+ real systems built with AI collaboration</p>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- PyFusion Project Card -->
+<div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+  <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex flex-col items-center justify-center">
+    <img src="assets/pyfusion.jpg" alt="PyFusion Banner" 
+                 class="w-full h-full object-cover" loading="lazy" width="400" height="256">
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-3">PyFusion - Python Framework</h3>
+    <p class="text-gray-600 mb-4">
+      All-in-One Python framework with built-in web server, database manager, HTTP client, and utilities.
+    </p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Python</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Flask</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">SQLite</span>
+      <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Open Source</span>
+    </div>
+    <div class="flex justify-between items-center mt-4">
+      <a href="pyfusion.html" class="text-primary font-semibold hover:underline">
+        Learn More
+      </a>
+      <div class="flex space-x-2">
+        <a href="https://pypi.org/project/pyfusion-v1/" target="_blank" class="text-gray-600 hover:text-primary">
+          <i class="fab fa-python text-lg"></i>
+        </a>
+        <a href="https://github.com/anshuman365/pyfusion" target="_blank" class="text-gray-600 hover:text-primary">
+          <i class="fab fa-github text-lg"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div> 
         <!-- Hotel Royal Orchid -->
         <div class="project-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
           <div class="h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
@@ -474,6 +520,9 @@
             </a>
             <a href="https://www.github.com/anshuman365" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition" aria-label="GitHub">
               <i class="fab fa-github text-white"></i>
+            </a>
+            <a href="https://www.instagram.com/anshumansingh.dev" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition" aria-label="Instagram">
+              <i class="fab fa-instagram text-white"></i>
             </a>
           </div>
         </div>

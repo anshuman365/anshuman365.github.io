@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4X0M6RM0F6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4X0M6RM0F6');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897" crossorigin="anonymous"></script>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PyFusion - All-in-One Python Framework | Anshuman Singh</title>
+  <meta name="description" content="PyFusion - A comprehensive Python framework with built-in web server, database manager, HTTP client, and utility functions. Created by Anshuman Singh.">
+  <meta name="keywords" content="PyFusion, Python framework, Flask, SQLite, web development, Anshuman Singh, open source">
+  <meta name="author" content="Anshuman Singh">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anshuman365.github.io/pyfusion.html">
+  <meta property="og:title" content="PyFusion - All-in-One Python Framework">
+  <meta property="og:description" content="Comprehensive Python framework with built-in web server, database manager, and utilities">
+  <meta property="og:image" content="https://anshuman365.github.io/assets/pyfusion-banner.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PyFusion - All-in-One Python Framework">
+  <meta name="twitter:description" content="Comprehensive Python framework by Anshuman Singh">
+  <meta name="twitter:image" content="https://anshuman365.github.io/assets/pyfusion-banner.jpg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://anshuman365.github.io/pyfusion.html">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            secondary: '#7C3AED', 
+            accent: '#059669',
+            dark: '#1E293B',
+            light: '#F8FAFC'
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Highlight.js for code syntax -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); }
+    .code-block { background: #1a1a1a; border-radius: 8px; overflow: hidden; }
+    .feature-card { transition: all 0.3s ease; }
+    .feature-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+  </style>
+</head>
+
+<body class="bg-light text-dark">
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="text-xl font-bold text-primary flex items-center">
+        <span class="bg-primary text-white p-2 rounded-lg mr-2">AS</span>
+        Anshuman Singh
+      </a>
+      
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="font-medium hover:text-primary transition">Home</a>
+        <a href="projects.html" class="hover:text-primary transition">Projects</a>
+        <a href="pyfusion.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">PyFusion</a>
+        <a href="blog.html" class="hover:text-primary transition">Blog</a>
+        <a href="contact.html" class="hover:text-primary transition">Contact</a>
+      </div>
+
+      <button class="md:hidden text-gray-600" id="menu-toggle">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-white px-4 py-6 shadow-lg" id="mobile-menu">
+      <div class="flex flex-col space-y-4">
+        <a href="index.html" class="font-medium">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="pyfusion.html" class="bg-primary text-white px-4 py-2 rounded-lg">PyFusion</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-16 gradient-bg text-white">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-4xl mx-auto">
+        <!-- Logo -->
+<div class="mb-8">
+  <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 inline-block text-center">
+    <img 
+      src="https://raw.githubusercontent.com/anshuman365/pyfusion/refs/heads/main/pyfusion_v1/assets/logo.jpg" 
+      alt="PyFusion Logo" 
+      class="mx-auto mb-4 w-24 h-24 rounded-xl shadow-lg"
+    />
+    <h1 class="text-5xl md:text-7xl font-bold mb-4">PyFusion</h1>
+    <p class="text-xl md:text-2xl opacity-90">All-in-One Python Framework</p>
+  </div>
+</div>
+
+        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+          A comprehensive Python framework that bundles web development, database operations, 
+          and utility functions into a single, easy-to-use package.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+          <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+            <i class="fab fa-python mr-2"></i> Built with Python
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+            <i class="fas fa-rocket mr-2"></i> Production Ready
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+            <i class="fas fa-code mr-2"></i> 60+ Lines of Setup Eliminated
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#installation" class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition text-lg">
+            <i class="fas fa-download mr-2"></i> Get Started
+          </a>
+          <a href="https://github.com/anshuman365/pyfusion" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition text-lg">
+            <i class="fab fa-github mr-2"></i> View on GitHub
+          </a>
+          <a href="https://pypi.org/project/pyfusion-v1/" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition text-lg">
+            <i class="fab fa-python mr-2"></i> PyPI Page
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-12 bg-white border-b">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl font-bold text-primary mb-2">1.0.3</div>
+          <div class="text-gray-600">Latest Version</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary mb-2">4</div>
+          <div class="text-gray-600">Core Modules</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary mb-2">60+</div>
+          <div class="text-gray-600">Setup Lines Saved</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary mb-2">∞</div>
+          <div class="text-gray-600">Possibilities</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Powerful Features</h2>
+      <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Everything you need to build production-ready applications</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Web Framework -->
+        <div class="feature-card bg-white rounded-xl shadow-lg border border-gray-200 p-6 text-center">
+          <div class="bg-primary/10 text-primary p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="fas fa-globe text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Web Framework</h3>
+          <p class="text-gray-600 mb-4">
+            Flask-based web server with easy routing, background threads, and API endpoints
+          </p>
+          <ul class="text-sm text-gray-500 space-y-1 text-left">
+            <li><i class="fas fa-check text-accent mr-2"></i> Built-in Web Server</li>
+            <li><i class="fas fa-check text-accent mr-2"></i> Easy Routing</li>
+            <li><i class="fas fa-check text-accent mr-2"></i> Background Processing</li>
+            <li><i class="fas fa-check text-accent mr-2"></i> REST API Support</li>
+          </ul>
+        </div>
+
+        <!-- Database Manager -->
+        <div class="feature-card bg-white rounded-xl shadow-lg border border-gray-200 p-6 text-center">
+          <div class="bg-primary/10 text-primary p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="fas fa-database text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Database Manager</h3>
+          <p class="text-gray-600 mb-4">
+            SQLite integration with ORM-like interface and automatic table setup
+          </p>
+          <ul class="text-sm text-gray-500 space-y-1 text-left">
+            <li><i class="fas fa-check text-accent mr-2"></i> SQLite Integration</li>
+            <li><i class="fas fa-check text-accent mr-2"></i> CRUD Operations</li>
+            <li><i class="fas fa-check text-accent mr-2"></i> Auto Table Setup</li>
+            <li><i class="fas fa-check text-accent mr-2"></i> Key-Value Store</li>
+          </ul>
+        </div>
+
+        <!-- HTTP Client -->
+        <div class="feature-card bg-white rounded-xl shadow-lg border border-gray-200 p-6 text-center">
+          <div class="bg-primary/10 text-primary p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="fas fa-cloud text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">HTTP Client</h3>
+          <p class="text-gray-600 mb-4">
+            Robust HTTP client for API interactions with session management
+          </p>
+          <ul class="text-sm text-gray-500 space-y-1 text-left">
+            <li><i class="fas fa-check text-accent mr-2"></i> GET/POST Requests</li>
+            <li><i class="fas fa-check text-accent mr-2"></i> Session Management</li>
+            <li><i class="fas fa-check text-accent mr-2"></i> JSON Handling</li>
+            <li><i class="fas fa-check text-accent mr-2"></i> Error Handling</li>
+          </ul>
+        </div>
+
+        <!-- Utilities -->
+        <div class="feature-card bg-white rounded-xl shadow-lg border border-gray-200 p-6 text-center">
+          <div class="bg-primary/10 text-primary p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="fas fa-tools text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Utilities</h3>
+          <p class="text-gray-600 mb-4">
+            Comprehensive utilities for file operations, validation, and networking
+          </p>
+          <ul class="text-sm text-gray-500 space-y-1 text-left">
+            <li><i class="fas fa-check text-accent mr-2"></i> File Operations</li>
+            <li><i class="fas fa-check text-accent mr-2"></i> Data Validation</li>
+            <li><i class="fas fa-check text-accent mr-2"></i> Network Tools</li>
+            <li><i class="fas fa-check text-accent mr-2"></i> Data Formatting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Start Section -->
+  <section id="installation" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Get Started in 30 Seconds</h2>
+      <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Start building immediately with zero configuration</p>
+
+      <div class="max-w-4xl mx-auto">
+        <!-- Installation -->
+        <div class="mb-12">
+          <h3 class="text-2xl font-bold mb-6 text-primary">1. Installation</h3>
+          <div class="code-block">
+            <div class="bg-gray-800 text-white px-4 py-2 flex justify-between items-center">
+              <span class="text-sm">Terminal</span>
+              <button class="copy-btn text-gray-400 hover:text-white" data-code="pip install pyfusion-v1">
+                <i class="far fa-copy"></i>
+              </button>
+            </div>
+            <pre><code class="language-bash">pip install pyfusion-v1</code></pre>
+          </div>
+        </div>
+
+        <!-- Basic Usage -->
+        <div class="mb-12">
+          <h3 class="text-2xl font-bold mb-6 text-primary">2. Create Your First App</h3>
+          <div class="code-block">
+            <div class="bg-gray-800 text-white px-4 py-2 flex justify-between items-center">
+              <span class="text-sm">Python</span>
+              <button class="copy-btn text-gray-400 hover:text-white" data-code="from pyfusion_v1 import WebServer, Database\n\n# Create web server\napp = WebServer()\n\n@app.route('/hello')\ndef hello():\n    return {'message': 'Hello from PyFusion!'}\n\n# Initialize database\ndb = Database()\n\n# Run server\napp.run(port=5000)">
+                <i class="far fa-copy"></i>
+              </button>
+            </div>
+            <pre><code class="language-python">from pyfusion_v1 import WebServer, Database
+
+# Create web server
+app = WebServer()
+
+@app.route('/hello')
+def hello():
+    return {'message': 'Hello from PyFusion!'}
+
+# Initialize database
+db = Database()
+
+# Run server
+app.run(port=5000)</code></pre>
+          </div>
+        </div>
+
+        <!-- Database Example -->
+        <div class="mb-12">
+          <h3 class="text-2xl font-bold mb-6 text-primary">3. Database Operations Made Simple</h3>
+          <div class="code-block">
+            <div class="bg-gray-800 text-white px-4 py-2 flex justify-between items-center">
+              <span class="text-sm">Python</span>
+              <button class="copy-btn text-gray-400 hover:text-white" data-code="# Insert data\nuser_id = db.insert('users', {\n    'username': 'john_doe',\n    'email': 'john@example.com'\n})\n\n# Query data\nusers = db.fetch_all('SELECT * FROM users')\n\n# Update data\ndb.update('users', {'username': 'john_updated'}, 'id = 1')\n\n# Delete data\ndb.delete('users', 'id = ?', [1])">
+                <i class="far fa-copy"></i>
+              </button>
+            </div>
+            <pre><code class="language-python"># Insert data
+user_id = db.insert('users', {
+    'username': 'john_doe',
+    'email': 'john@example.com'
+})
+
+# Query data
+users = db.fetch_all('SELECT * FROM users')
+
+# Update data
+db.update('users', {'username': 'john_updated'}, 'id = 1')
+
+# Delete data
+db.delete('users', 'id = ?', [1])</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Examples Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Real-World Examples</h2>
+      <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">See how PyFusion simplifies complex tasks</p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <!-- HTTP Client Example -->
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <h3 class="text-xl font-bold mb-4 text-primary">HTTP Client</h3>
+          <div class="code-block">
+            <pre><code class="language-python">from pyfusion_v1 import HttpClient
+
+# Create client
+client = HttpClient('https://api.example.com')
+
+# Make requests
+response = client.get('/users')
+response = client.post('/users', {
+    'name': 'John', 
+    'email': 'john@example.com'
+})
+
+print(response)</code></pre>
+          </div>
+        </div>
+
+        <!-- File Operations Example -->
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <h3 class="text-xl font-bold mb-4 text-primary">File Operations</h3>
+          <div class="code-block">
+            <pre><code class="language-python">from pyfusion_v1 import FileManager
+
+# Read/write JSON
+data = FileManager.read_json('config.json')
+FileManager.write_json('output.json', data)
+
+# Read/write CSV
+csv_data = FileManager.read_csv('data.csv')
+FileManager.write_csv('output.csv', csv_data)
+
+# Text files
+content = FileManager.read_file('README.md')</code></pre>
+          </div>
+        </div>
+
+        <!-- Utilities Example -->
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <h3 class="text-xl font-bold mb-4 text-primary">Utilities</h3>
+          <div class="code-block">
+            <pre><code class="language-python">from pyfusion_v1 import Validator, Formatter, NetworkTools
+
+# Validation
+print(Validator.is_email('test@example.com'))  # True
+print(Validator.is_strong_password('Secure123!'))  # True
+
+# Formatting
+print(Formatter.format_date('2024-01-15'))  # 15/01/2024
+print(Formatter.format_currency(1500.75))   # ₹1,500.75
+
+# Network
+print(NetworkTools.check_internet())  # True
+print(NetworkTools.get_local_ip())    # 192.168.1.100</code></pre>
+          </div>
+        </div>
+
+        <!-- Full Stack Example -->
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <h3 class="text-xl font-bold mb-4 text-primary">Full Stack App</h3>
+          <div class="code-block">
+            <pre><code class="language-python">from pyfusion_v1 import WebServer, Database, HttpClient
+
+app = WebServer()
+db = Database()
+http = HttpClient()
+
+@app.route('/api/data')
+def get_data():
+    users = db.fetch_all('SELECT * FROM users')
+    external_data = http.get('https://api.example.com/data')
+    return {
+        'users': users,
+        'external': external_data
+    }
+
+app.run()</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Build with PyFusion?</h2>
+      <p class="text-xl max-w-2xl mx-auto mb-8">
+        Join developers who are building faster and smarter with PyFusion
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#installation" class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition text-lg">
+          <i class="fas fa-play mr-2"></i> Get Started Now
+        </a>
+        <a href="https://github.com/anshuman365/pyfusion" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition text-lg">
+          <i class="fab fa-github mr-2"></i> Star on GitHub
+        </a>
+        <a href="contact.html" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition text-lg">
+          <i class="fas fa-question mr-2"></i> Get Help
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Anshuman Singh</h3>
+          <p class="opacity-80">Building the future with AI-powered development</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="opacity-80 hover:opacity-100 transition">Home</a></li>
+            <li><a href="projects.html" class="opacity-80 hover:opacity-100 transition">Projects</a></li>
+            <li><a href="pyfusion.html" class="opacity-80 hover:opacity-100 transition">PyFusion</a></li>
+            <li><a href="contact.html" class="opacity-80 hover:opacity-100 transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Connect</h4>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-2 opacity-80"></i> 
+              anshumansingh3697@gmail.com
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-map-marker-alt mr-2 opacity-80"></i> 
+              Uttar Pradesh, India
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Follow</h4>
+          <div class="flex space-x-4">
+            <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition">
+              <i class="fab fa-linkedin-in text-white"></i>
+            </a>
+            <a href="https://www.github.com/anshuman365" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition">
+              <i class="fab fa-github text-white"></i>
+            </a>
+            <a href="https://www.instagram.com/anshumansingh.dev" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition">
+              <i class="fab fa-instagram text-white"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center opacity-80">
+        <p>&copy; 2025 Anshuman Singh. Building the future, one AI-powered project at a time.</p>
+        <div class="mt-4 flex justify-center space-x-6 text-sm">
+          <a href="privacy.html" class="opacity-80 hover:opacity-100 transition">Privacy Policy</a>
+          <a href="terms.html" class="opacity-80 hover:opacity-100 transition">Terms of Service</a>
+          <a href="disclaimer.html" class="opacity-80 hover:opacity-100 transition">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Initialize syntax highlighting
+    document.addEventListener('DOMContentLoaded', function() {
+      hljs.highlightAll();
+      
+      // Copy button functionality
+      document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          const code = this.getAttribute('data-code');
+          navigator.clipboard.writeText(code).then(() => {
+            const icon = this.querySelector('i');
+            const original = icon.className;
+            icon.className = 'fas fa-check text-green-400';
+            setTimeout(() => {
+              icon.className = original;
+            }, 2000);
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

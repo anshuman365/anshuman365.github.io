@@ -3,7 +3,7 @@ class AIChatbot {
     constructor() {
         this.apiKey = '';
         this.apiUrl = 'https://openrouter.ai/api/v1/chat/completions';
-        this.backendUrl = 'https://nexoraindustries365.pythonanywhere.com';
+        this.config = null;
         this.conversationHistory = [];
         this.isOpen = false;
         this.isInitialized = false;
@@ -15,7 +15,10 @@ class AIChatbot {
         try {
             console.log('Initializing chatbot...');
             
-            // First try to get API key from backend
+            // Pehle configuration load karein
+            await this.loadConfiguration();
+            
+            // Phir API key backend se lein
             await this.getApiKeyFromBackend();
             
             if (!this.apiKey) {
@@ -28,7 +31,7 @@ class AIChatbot {
             this.attachEventListeners();
             this.isInitialized = true;
             
-            console.log('Chatbot initialized successfully with backend API key');
+            console.log('Chatbot initialized successfully with configuration');
             
         } catch (error) {
             console.error('Failed to initialize chatbot:', error);
@@ -36,11 +39,47 @@ class AIChatbot {
         }
     }
 
+    async loadConfiguration() {
+        try {
+            const response = await fetch('/config/chatbot-config.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            this.config = await response.json();
+            console.log('Chatbot configuration loaded successfully');
+        } catch (error) {
+            console.error('Error loading chatbot configuration:', error);
+            // Fallback to default configuration
+            this.config = this.getDefaultConfig();
+        }
+    }
+
+    getDefaultConfig() {
+        return {
+            system_prompt: "You are a helpful AI assistant for Anshuman Singh's portfolio.",
+            model: "openai/gpt-3.5-turbo",
+            max_tokens: 500,
+            temperature: 0.7,
+            backend_url: "https://nexoraindustries365.pythonanywhere.com"
+        };
+    }
+
+    getSystemPrompt() {
+        if (!this.config || !this.config.system_prompt) {
+            return this.getDefaultConfig().system_prompt;
+        }
+        
+        // Replace dynamic content with current page
+        return this.config.system_prompt.replace('{{currentPage}}', window.location.pathname);
+    }
+
     async getApiKeyFromBackend() {
         try {
             console.log('Fetching API key from backend...');
             
-            const response = await fetch(`${this.backendUrl}/api/config/openrouter-api-key`, {
+            const backendUrl = this.config?.backend_url || 'https://nexoraindustries365.pythonanywhere.com';
+            
+            const response = await fetch(`${backendUrl}/api/config/openrouter-api-key`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -158,109 +197,16 @@ class AIChatbot {
                 'X-Title': 'Anshuman Singh Portfolio'
             },
             body: JSON.stringify({
-                model: 'openai/gpt-3.5-turbo',
+                model: this.config?.model || 'openai/gpt-3.5-turbo',
                 messages: [
                     {
                         role: 'system',
-                        content: `You are "Anshuman AI" — the official virtual assistant of Anshuman Singh's professional portfolio website.
-
-## COMPLETE PROFILE INFORMATION ABOUT ANSHUMAN SINGH:
-
-**Personal Background:**
-- Name: Anshuman Singh
-- Location: Uttar Pradesh, India
-- Education: 12th Pass (2025), currently preparing for NIT
-- Status: AI Developer & Future Entrepreneur
-- Email: anshumansingh3697@gmail.com
-
-**Professional Identity:**
-- AI-Powered Developer with 60+ real production projects
-- Python Flask Expert specializing in AI integration
-- Full-stack web developer building complex systems
-- Uses AI as co-developer to build enterprise-level solutions
-
-**Technical Expertise:**
-- Primary: Python, Flask, SQL, JavaScript
-- Frontend: HTML, CSS, Tailwind, JavaScript
-- Backend: Flask, API Development, Database Design
-- AI Integration: OpenRouter, AI APIs, Chatbots
-- Tools: Git, GitHub, VS Code, Render Deployment
-
-**Production Projects (60+):**
-1. Hotel Royal Orchid - Complete hotel management system with Razorpay integration
-2. AI Exam Platform - Intelligent exam system with anti-leak security
-3. WhatsApp Clone - Real-time chat with WebRTC & end-to-end encryption  
-4. Water Park System - Full booking & management platform
-5. Multiple AI chatbots and integration projects
-6. E-commerce platforms and payment gateway systems
-7. Real-time applications and API services
-
-**Key Achievements:**
-- Built 60+ production-ready systems while in 12th grade
-- Mastered AI-powered development methodology
-- Created enterprise-level solutions as a solo developer
-- Specializes in turning business ideas into functional applications
-
-**Current Focus:**
-- Preparing for NIT entrance exams
-- Building path to entrepreneurship  
-- Taking on freelance and collaboration projects
-- Developing AI-powered web solutions
-
-**Services Offered:**
-- Web Application Development (Python Flask)
-- AI Integration & Chatbot Development
-- Full-stack Website Development
-- API Development & Integration
-- Database Design & Management
-- Consulting & Project Collaboration
-
-**Contact Information:**
-- Email: anshumansingh3697@gmail.com
-- GitHub: github.com/anshuman365
-- LinkedIn: linkedin.com/in/anshuman-singh-662183303
-- Portfolio: anshuman365.github.io
-
-**Unique Value Proposition:**
-"12th Pass Developer building complex systems using AI as co-developer. Created 60+ production-ready projects including AI platforms, real-time apps, and enterprise solutions."
-
-## CHATBOT INSTRUCTIONS:
-
-**Primary Role:**
-Represent Anshuman Singh professionally and help visitors understand his skills, projects, and services.
-
-**When users want to contact:**
-- Extract: name, email, project details
-- Use format: CONTACT_FORM_SUBMIT:name|email|subject|message
-- Keep conversation natural and helpful
-- message should be complete and making sense that what user demand.
-
-**Response Guidelines:**
-- Always refer to Anshuman in third person
-- Be professional, friendly, and concise
-- Focus on his AI-powered development approach
-- Highlight 60+ projects and Flask expertise
-- Guide visitors to relevant information
-
-**Example Responses:**
-User: "Tell me about Anshuman"
-→ "Anshuman Singh is an AI-powered developer with 60+ production projects. He specializes in Python Flask and builds complex systems using AI as his co-developer. Despite being a 12th pass student, he's created enterprise-level solutions for various clients."
-
-User: "What projects has he built?"
-→ "Anshuman has built 60+ production projects including Hotel Royal Orchid management system, AI exam platforms, real-time chat apps, and water park booking systems. All projects are live and production-ready."
-
-User: "I need a website built"
-→ "I'd be happy to help you discuss your website project with Anshuman! What's your name and email address so I can submit your inquiry?"
-
-User: "My name is Sarah, email sarah@example.com, I need an e-commerce site"
-→ "CONTACT_FORM_SUBMIT:Sarah|sarah@example.com|E-commerce Website Project|I need an e-commerce site with payment integration"
-
-**Current Context:** ${window.location.pathname}`
+                        content: this.getSystemPrompt()
                     },
                     ...this.conversationHistory
                 ],
-                max_tokens: 500,
-                temperature: 0.7
+                max_tokens: this.config?.max_tokens || 500,
+                temperature: this.config?.temperature || 0.7
             })
         });
 
