@@ -1,0 +1,417 @@
+<!-- library.html -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <title>Digital Library - Anshuman Singh | Protected PDF Collection</title>
+  <meta name="description" content="Secure digital library featuring programming books, personal writings, and exclusive content with advanced PDF protection">
+  <meta name="keywords" content="AI developer, Python developer, Flask developer, web development, India developer, AI integration, freelance developer Uttar Pradesh">
+  <meta name="author" content="Anshuman Singh">
+  <meta name="robots" content="index, follow">
+  <meta name="google-adsense-account" content="ca-pub-2633513915753897">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anshuman365.github.io/">
+  <meta property="og:title" content="Anshuman Singh - AI Developer | 60+ Real Projects">
+  <meta property="og:description" content="Professional AI Developer with 60+ production projects. Python Flask expert specializing in AI integration.">
+  <meta property="og:image" content="https://anshuman365.github.io/assets/profile3.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Anshuman Singh - AI Developer">
+  <meta name="twitter:description" content="Professional AI Developer with 60+ production projects">
+  <meta name="twitter:image" content="https://anshuman365.github.io/assets/profile3.jpg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://anshuman365.github.io/">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="assets/profile3.jpg" as="image">
+  <link rel="preload" href="assets/project1.jpg" as="image">
+  <link rel="preload" href="assets/project2.jpg" as="image">
+  <link rel="preload" href="assets/project3.jpg" as="image">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Anshuman Singh",
+    "url": "https://anshuman365.github.io",
+    "image": "https://anshuman365.github.io/assets/profile3.jpg",
+    "description": "AI Developer and Python Flask expert with 60+ production-grade projects integrating machine learning and web systems.",
+    "jobTitle": "AI Developer",
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Prayash 2.0 Batch, Physics Wallah"
+    },
+    "sameAs": [
+      "https://github.com/anshuman365",
+      "https://linkedin.com/in/anshuman-singh-662183303",
+      "https://twitter.com/SarvarSing35025"
+    ],
+    "knowsAbout": ["Python", "Flask", "Machine Learning", "API Development", "AI Integration", "Web Security", "Full Stack Development"],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Freelance Projects"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Uttar Pradesh",
+      "addressCountry": "India"
+    }
+  }
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            secondary: '#7C3AED', 
+            accent: '#059669',
+            dark: '#1E293B',
+            light: '#F8FAFC'
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); }
+    .project-card { transition: all 0.3s ease; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    .skill-bar { transition: width 2s ease-in-out; }
+    #chatbot-messages{scrollbar-width:thin;scrollbar-color:#2563EB #f1f1f1;}#chatbot-messages::-webkit-scrollbar{width:6px;}#chatbot-messages::-webkit-scrollbar-track{background:#f1f1f1;border-radius:3px;}#chatbot-messages::-webkit-scrollbar-thumb{background:#2563EB;border-radius:3px;}#chatbot-messages::-webkit-scrollbar-thumb:hover{background:#1d4ed8;}
+    /* Prevent text selection */
+    .book-card, #pdf-canvas {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    /* Prevent image drag */
+    img {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+    }
+/* Add to your existing CSS */
+.line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+/* Loading animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* PDF modal styles */
+#pdf-modal {
+    transition: opacity 0.3s ease-in-out;
+}
+
+#pdf-canvas {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+</style>
+
+<script>
+// Additional protection
+document.addEventListener('keydown', (e) => {
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    if (e.key === 'F12' || 
+        (e.ctrlKey && e.shiftKey && ['I', 'J'].includes(e.key)) ||
+        (e.ctrlKey && e.key === 'u')) {
+        e.preventDefault();
+        return false;
+    }
+});
+</script>
+</head>
+<body class="bg-light text-dark">
+  <!-- Navigation -->
+<nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <a href="index.html" class="text-xl font-bold text-primary flex items-center" aria-label="Anshuman Singh Home">
+      <span class="bg-primary text-white p-2 rounded-lg mr-2">AS</span>
+      Anshuman Singh
+    </a>
+    
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex space-x-6 items-center">
+      <a href="#projects" class="font-medium hover:text-primary transition">Projects</a>
+      <a href="#skills" class="hover:text-primary transition">Skills</a>
+      <a href="#about" class="hover:text-primary transition">About</a>
+      <a href="contact.html" class="hover:text-primary transition">Contact</a>
+
+<!-- Update navigation in all pages -->
+<div class="relative group">
+    <button class="hover:text-primary transition font-medium flex items-center">
+        Resources
+        <i class="fas fa-chevron-down ml-1 text-sm"></i>
+    </button>
+    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 w-48 border border-gray-100">
+        <a href="pyfusion.html" class="block px-4 py-2 hover:bg-primary/10 hover:text-primary transition">PyFusion</a>
+        <a href="library.html" class="block px-4 py-2 hover:bg-primary/10 hover:text-primary transition">Digital Library</a>
+    </div>
+</div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="md:hidden text-gray-600" id="menu-toggle" aria-label="Toggle menu">
+      <i class="fas fa-bars text-xl"></i>
+    </button>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div class="md:hidden hidden bg-white px-4 py-6 shadow-lg" id="mobile-menu">
+    <div class="flex flex-col space-y-4">
+      <a href="#projects" class="font-medium">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+  
+  <!-- Library Hero Section -->
+  <section class="pt-24 pb-16 gradient-bg text-white">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-6">Secure Digital Library</h1>
+      <p class="text-xl text-center max-w-2xl mx-auto opacity-90">
+        Access premium books and personal writings with advanced content protection
+      </p>
+    </div>
+  </section>
+
+  <!-- Books Grid -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="books-grid">
+        <!-- Books will be loaded dynamically -->
+      </div>
+    </div>
+  </section>
+
+<!-- PDF Modal में ये controls add करें -->
+<div id="pdf-modal" class="fixed inset-0 bg-black/90 hidden z-50">
+    <div class="w-full h-full flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg w-full max-w-6xl h-5/6 flex flex-col shadow-2xl">
+            <!-- Header -->
+            <div class="flex justify-between items-center p-4 border-b bg-gray-50 rounded-t-lg">
+                <h3 id="pdf-title" class="text-xl font-bold text-gray-800 truncate flex-1 mr-4"></h3>
+                <div class="flex items-center space-x-4">
+                    <div id="page-info" class="text-sm text-gray-600 font-medium"></div>
+                    <button id="close-pdf" class="text-gray-600 hover:text-gray-900 transition">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- PDF Controls -->
+            <div class="flex items-center justify-between p-4 bg-gray-100 border-b">
+                <!-- Left Controls -->
+                <div class="flex items-center space-x-4">
+                    <button id="prev-page" class="bg-white border border-gray-300 p-2 rounded-lg hover:bg-gray-50 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <button id="next-page" class="bg-white border border-gray-300 p-2 rounded-lg hover:bg-gray-50 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <button id="zoom-out" class="bg-white border border-gray-300 p-2 rounded-lg hover:bg-gray-50 transition">
+                        <i class="fas fa-search-minus"></i>
+                    </button>
+
+                    <button id="zoom-in" class="bg-white border border-gray-300 p-2 rounded-lg hover:bg-gray-50 transition">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+
+                    <button id="fit-to-width" class="bg-white border border-gray-300 p-2 rounded-lg hover:bg-gray-50 transition" title="Fit to Width">
+                        <i class="fas fa-arrows-alt-h"></i>
+                    </button>
+                </div>
+
+                <!-- Center Controls - Page Navigation -->
+                <div class="flex items-center space-x-4 flex-1 justify-center max-w-2xl">
+                    <!-- Page Slider -->
+                    <div class="flex items-center space-x-3 flex-1">
+                        <span class="text-sm text-gray-600 font-medium whitespace-nowrap">Page:</span>
+                        <input 
+                            type="range" 
+                            id="page-slider" 
+                            min="1" 
+                            max="100" 
+                            value="1" 
+                            class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                        >
+                        <div class="flex items-center space-x-2">
+                            <input 
+                                type="number" 
+                                id="page-input" 
+                                min="1" 
+                                max="100" 
+                                value="1" 
+                                class="w-16 px-2 py-1 border border-gray-300 rounded text-sm text-center"
+                            >
+                            <span id="total-pages" class="text-sm text-gray-600">/ 100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Controls -->
+                <div class="flex items-center space-x-2">
+                    <button id="first-page" class="bg-white border border-gray-300 p-2 rounded-lg hover:bg-gray-50 transition" title="First Page">
+                        <i class="fas fa-fast-backward"></i>
+                    </button>
+                    
+                    <button id="last-page" class="bg-white border border-gray-300 p-2 rounded-lg hover:bg-gray-50 transition" title="Last Page">
+                        <i class="fas fa-fast-forward"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- PDF Content -->
+            <div class="flex-1 relative bg-gray-100 overflow-auto">
+                <div id="pdf-container" class="absolute inset-0 flex items-center justify-center p-4">
+                    <canvas id="pdf-canvas" class="max-w-full max-h-full shadow-lg bg-white"></canvas>
+                </div>
+                
+                <!-- Loading Spinner -->
+                <div id="pdf-loading-spinner" class="absolute inset-0 flex items-center justify-center bg-white/90 z-10 hidden">
+                    <div class="flex flex-col items-center space-y-4">
+                        <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-primary"></div>
+                        <p class="text-gray-700 font-medium">Loading PDF...</p>
+                    </div>
+                </div>
+
+                <!-- Page Navigation Overlay -->
+                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-lg opacity-0 transition-opacity duration-300" id="page-jump-overlay">
+                    Jumping to page <span id="jump-page-number">1</span>
+                </div>
+            </div>
+
+            <!-- Footer with additional info -->
+            <div class="flex justify-between items-center p-3 bg-gray-50 border-t text-sm text-gray-600 rounded-b-lg">
+                <div class="flex items-center space-x-4">
+                    <span id="zoom-level">100%</span>
+                    <span id="pdf-dimensions">-</span>
+                </div>
+                <div>
+                    <span>Use slider or input to jump to any page</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Anshuman Singh</h3>
+          <p class="opacity-80">Building the future with AI-powered development</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="opacity-80 hover:opacity-100 transition">Home</a></li>
+            <li><a href="projects.html" class="opacity-80 hover:opacity-100 transition">Projects</a></li>
+            <li><a href="journey.html" class="opacity-80 hover:opacity-100 transition">Journey</a></li>
+            <li><a href="contact.html" class="opacity-80 hover:opacity-100 transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Connect</h4>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-2 opacity-80"></i> 
+              anshumansingh3697@gmail.com
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-map-marker-alt mr-2 opacity-80"></i> 
+              Uttar Pradesh, India
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Follow My Journey</h4>
+          <div class="flex space-x-4">
+            <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in text-white"></i>
+            </a>
+            <a href="https://www.github.com/anshuman365" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition" aria-label="GitHub">
+              <i class="fab fa-github text-white"></i>
+            </a>
+            <a href="https://www.instagram.com/anshumansingh.dev" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition" aria-label="Instagram">
+              <i class="fab fa-instagram text-white"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center opacity-80">
+        <p>&copy; 2025 Anshuman Singh. Building the future, one AI-powered project at a time.</p>
+        <div class="mt-4 flex justify-center space-x-6 text-sm">
+          <a href="privacy.html" class="opacity-80 hover:opacity-100 transition">Privacy Policy</a>
+          <a href="terms.html" class="opacity-80 hover:opacity-100 transition">Terms of Service</a>
+          <a href="disclaimer.html" class="opacity-80 hover:opacity-100 transition">Disclaimer</a>
+          <a href="dmca.html" class="opacity-80 hover:opacity-100 transition">DMCA</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<!-- library.html में -->
+<script src="assets/pdf/encryption_key.js"></script>
+<script src="js/library-security.js"></script>
+<script src="js/library-protection.js"></script>
+</body>
+</html>
