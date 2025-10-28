@@ -166,5 +166,47 @@
     "iv": "XrptP+ruddGRCp+SypKYmw==",
     "integrity_check": "26b28cb6f7a2e463fc42cc64a709488b12cf1eebaa08d7f9c4db26e1715ce9d4",
     "cover_image": "chanakya_neeti.jpg"
+  },
+  "python_tkinter_gui": {
+    "id": "python_tkinter_gui",
+    "title": "Python Tkinter GUI Projects",
+    "author": "Vaishali B. Bhagat",
+    "category": "programming",
+    "description": "Practical exercises for beginners to learn Tkinter GUI programming",
+    "filename": "python_tkinter_gui.enc",
+    "original_size": 5710088,
+    "encrypted_size": 5710128,
+    "salt": "BLcO9gez33QlYk/A25T+fw==",
+    "iv": "Y/aVHmp7/Epy0coSYMj5rQ==",
+    "integrity_check": "55798a16e0407ac00f919b21bc2a2fc37ce8ac7948d3dc490be407c7e6750dde",
+    "cover_image": "python_tkinter_gui.jpg"
+  },
+  "python_tips_tricks": {
+    "id": "python_tips_tricks",
+    "title": "Python Tips & Tricks",
+    "author": "Benjamin Bennett Alexander",
+    "category": "programming",
+    "description": "100 basic and intermediate tips and tricks for Python programmers",
+    "filename": "python_tips_tricks.enc",
+    "original_size": 3160824,
+    "encrypted_size": 3160864,
+    "salt": "psyg+JGdqRt+Dg0GUIN5xQ==",
+    "iv": "HbHveBXYWCGcWkq7DmTJdg==",
+    "integrity_check": "26530d7c75792c30446e21502d3b5c8f4602a9f114d50fa037da191e9fe0af6c",
+    "cover_image": "python_tips_tricks.jpg"
+  },
+  "python_ai_evolution": {
+    "id": "python_ai_evolution",
+    "title": "Python in the Evolution of AI",
+    "author": "Anshuman Singh",
+    "category": "programming",
+    "description": "The role of Python programming in artificial intelligence development",
+    "filename": "python_ai_evolution.enc",
+    "original_size": 204425,
+    "encrypted_size": 204464,
+    "salt": "t4hhMUHLPDVBSakBsRqEyg==",
+    "iv": "efKo3W3NmplBEKdQChFpXQ==",
+    "integrity_check": "38e21445899407150de631c785b1806fe53326dd6a17a3890bf3221611c30de4",
+    "cover_image": "python_ai_evolution.jpg"
   }
 }
