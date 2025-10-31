@@ -208,5 +208,27 @@
     "iv": "efKo3W3NmplBEKdQChFpXQ==",
     "integrity_check": "38e21445899407150de631c785b1806fe53326dd6a17a3890bf3221611c30de4",
     "cover_image": "python_ai_evolution.jpg"
+  },
+  "140_basic_python_programs": {
+    "id": "140_basic_python_programs",
+    "title": "140+ Basic Python Programs",
+    "author": "Anshuman Singh",
+    "category": "programming",
+    "description": "Collection of 140+ basic Python programs for beginners covering fundamentals, data structures, and algorithms",
+    "filename": "140+_Basic_Python_Programs.pdf",
+    "original_size": 1256894,
+    "encrypted": false,
+    "cover_image": "140_basic_python_programs.jpg"
+  },
+  "modern_python_development": {
+    "id": "modern_python_development",
+    "title": "Modern Python Development",
+    "author": "Anshuman Singh",
+    "category": "programming",
+    "description": "Complete guide to modern Python development practices, tools, and best practices",
+    "filename": "Modern_Python_Development.pdf",
+    "original_size": 2345678,
+    "encrypted": false,
+    "cover_image": "modern_python_development.jpg"
   }
 }

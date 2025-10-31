@@ -391,6 +391,9 @@ class SecurePDFLibrary {
                     `assets/pdf/cover_img/${book.cover_image}` : 
                     null;
                 
+                // Determine if book is encrypted (default to true if not specified for backward compatibility)
+                const isEncrypted = book.encrypted !== false;
+                
                 html += `
                     <div class="book-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
                         <div class="h-64 relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
@@ -410,6 +413,13 @@ class SecurePDFLibrary {
                                     <h4 class="text-sm font-bold text-gray-800 line-clamp-2">${book.title}</h4>
                                 </div>
                             `}
+                            <!-- Encryption Status Badge -->
+                            <div class="absolute top-3 left-3 bg-white/90 text-xs px-2 py-1 rounded flex items-center space-x-1">
+                                ${isEncrypted ? 
+                                    '<i class="fas fa-lock text-blue-600"></i><span class="text-blue-600 font-medium">Protected</span>' : 
+                                    '<i class="fas fa-lock-open text-green-600"></i><span class="text-green-600 font-medium">Open</span>'
+                                }
+                            </div>
                             <div class="absolute top-3 right-3 bg-accent text-white px-2 py-1 rounded-full text-xs font-semibold shadow-lg">
                                 ${this.formatFileSize(book.original_size)}
                             </div>
@@ -502,13 +512,26 @@ class SecurePDFLibrary {
             this.currentPage = 1;
             this.renderQueue = [];
 
-            // Fetch encrypted PDF
-            const encryptedData = await this.fetchEncryptedPDF(book.filename);
-            console.log(`🔐 Fetched encrypted data: ${encryptedData.byteLength} bytes`);
-            
-            // Decrypt PDF
-            const pdfData = await this.decryptPDF(encryptedData, book);
-            console.log(`✅ Decrypted PDF data: ${pdfData.byteLength} bytes`);
+            let pdfData;
+
+            // Determine if book is encrypted (default to true if not specified)
+            const isEncrypted = book.encrypted !== false;
+
+            if (!isEncrypted) {
+                // Handle unencrypted books
+                console.log('📄 Loading unencrypted PDF...');
+                pdfData = await this.fetchUnencryptedPDF(book.filename);
+                console.log(`✅ Loaded unencrypted PDF: ${pdfData.byteLength} bytes`);
+            } else {
+                // Handle encrypted books (existing logic)
+                console.log('🔐 Loading encrypted PDF...');
+                const encryptedData = await this.fetchEncryptedPDF(book.filename);
+                console.log(`🔐 Fetched encrypted data: ${encryptedData.byteLength} bytes`);
+                
+                // Decrypt PDF
+                pdfData = await this.decryptPDF(encryptedData, book);
+                console.log(`✅ Decrypted PDF data: ${pdfData.byteLength} bytes`);
+            }
             
             // Load PDF for display
             console.log('📄 Loading PDF document...');
@@ -528,6 +551,18 @@ class SecurePDFLibrary {
             this.showError(`Error loading book: ${error.message}`);
             this.closePDF();
         }
+    }
+
+    async fetchUnencryptedPDF(filename) {
+        console.log(`📥 Fetching unencrypted file: ${filename}`);
+        const response = await fetch(`assets/pdf/${filename}`);
+        
+        if (!response.ok) {
+            throw new Error(`Failed to fetch PDF: ${response.status} ${response.statusText}`);
+        }
+        
+        const arrayBuffer = await response.arrayBuffer();
+        return new Uint8Array(arrayBuffer);
     }
 
     showPDFModal(title) {
