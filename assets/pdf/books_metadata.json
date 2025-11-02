@@ -6,12 +6,15 @@
     "category": "psychology",
     "description": "Concise summary of the classic book on power dynamics",
     "filename": "48_laws_power_summary.enc",
+    "file_path": "encrypted/48_laws_power_summary.enc",
     "original_size": 3354,
     "encrypted_size": 3392,
     "salt": "yo7xnwetfyk2wln2oSbGOg==",
     "iv": "u1/JUoSai37bO/na/nYxWg==",
     "integrity_check": "092b0c01719222191af52b833da85781a0be1dd8c550f3f5013f2c75ab140133",
-    "cover_image": "48_laws_power_summary.jpg"
+    "cover_image": "48_laws_power_summary.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "meditations": {
     "id": "meditations",
@@ -20,12 +23,15 @@
     "category": "philosophy",
     "description": "Stoic philosophy and personal writings of Roman Emperor Marcus Aurelius",
     "filename": "meditations.enc",
+    "file_path": "encrypted/meditations.enc",
     "original_size": 824198,
     "encrypted_size": 824240,
     "salt": "EIIw4dz6YANpDfZhF548aw==",
     "iv": "2xuzg08cHC0H1eJDoso+Xw==",
     "integrity_check": "a0892f110f789a60c753da105c8222be4f5465bc51303fb959758843ac99d1d7",
-    "cover_image": "meditations.jpg"
+    "cover_image": "meditations.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "mastery": {
     "id": "mastery",
@@ -34,12 +40,15 @@
     "category": "self_improvement",
     "description": "The path to achieving mastery in any field",
     "filename": "mastery.enc",
+    "file_path": "encrypted/mastery.enc",
     "original_size": 1820123,
     "encrypted_size": 1820160,
     "salt": "dSzku8pU5M5Cpqww3ha/zA==",
     "iv": "n5lvn48Cw9kRRDgy6o9n2w==",
     "integrity_check": "476c7797bfb908d7f63404caf73163ee82dd61afb66d8a7cf1d3736e349b9b0a",
-    "cover_image": "mastery.jpg"
+    "cover_image": "mastery.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "48_laws_power_full": {
     "id": "48_laws_power_full",
@@ -48,12 +57,15 @@
     "category": "psychology",
     "description": "The definitive manual on power and strategy",
     "filename": "48_laws_power_full.enc",
+    "file_path": "encrypted/48_laws_power_full.enc",
     "original_size": 31058156,
     "encrypted_size": 31058192,
     "salt": "hTitjUw0MqykDb9/msclZw==",
     "iv": "aJzIQ2/ZCgxIitbvvMHhvA==",
     "integrity_check": "5586435106a4e20fca2fdf527fd9ce405b6c1f65e20a4340f7bac46f8b3f91c6",
-    "cover_image": "48_laws_power_full.jpg"
+    "cover_image": "48_laws_power_full.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "human_nature": {
     "id": "human_nature",
@@ -62,12 +74,15 @@
     "category": "psychology",
     "description": "Understanding human behavior and motivations",
     "filename": "human_nature.enc",
+    "file_path": "encrypted/human_nature.enc",
     "original_size": 2986842,
     "encrypted_size": 2986880,
     "salt": "5FSFEJ2qtZUpljbVGh/7hA==",
     "iv": "sNcIs87XxfR8AG6B2mIxFw==",
     "integrity_check": "e3ce8025644078a192204f200b428e8f8346c7108571307f414b40a92c175c7e",
-    "cover_image": "human_nature.jpg"
+    "cover_image": "human_nature.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "think_grow_rich": {
     "id": "think_grow_rich",
@@ -76,12 +91,15 @@
     "category": "wealth",
     "description": "Classic book on personal achievement and wealth building",
     "filename": "think_grow_rich.enc",
+    "file_path": "encrypted/think_grow_rich.enc",
     "original_size": 1603550,
     "encrypted_size": 1603584,
     "salt": "fXRHRtXpwC+WuRcref+yUQ==",
     "iv": "e5uoMCpINLtDlFopf+LwKw==",
     "integrity_check": "501c199c860c00584a045aa279d405af2a8261fc768b2781834b9ec9003f40fd",
-    "cover_image": "think_grow_rich.jpg"
+    "cover_image": "think_grow_rich.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "wings_of_fire": {
     "id": "wings_of_fire",
@@ -90,12 +108,15 @@
     "category": "biography",
     "description": "Autobiography of the Missile Man of India",
     "filename": "wings_of_fire.enc",
+    "file_path": "encrypted/wings_of_fire.enc",
     "original_size": 4815818,
     "encrypted_size": 4815856,
     "salt": "Ve+YLlqvIMO0GtSTjC9j/g==",
     "iv": "IDgUn+CZg7ktxmLJAp4hnA==",
     "integrity_check": "9cea4dff47006798aaf0dffc97016e0004168cd21cfeb51249c832c5d5833605",
-    "cover_image": "wings_of_fire.jpg"
+    "cover_image": "wings_of_fire.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "billionaire_habits": {
     "id": "billionaire_habits",
@@ -104,12 +125,15 @@
     "category": "wealth",
     "description": "Habits and mindsets of successful billionaires",
     "filename": "billionaire_habits.enc",
+    "file_path": "encrypted/billionaire_habits.enc",
     "original_size": 3676766,
     "encrypted_size": 3676800,
     "salt": "MdknkWVhsGRZYZEsdVW/wg==",
     "iv": "s8l11rLQAMyD9bCFf+vRUA==",
     "integrity_check": "34e5ce4babc10c30ea13a3e4aed63c9120942497ae5fe22c2cca3c8d61b6b258",
-    "cover_image": "billionaire_habits.jpg"
+    "cover_image": "billionaire_habits.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "zero_to_one": {
     "id": "zero_to_one",
@@ -118,12 +142,15 @@
     "category": "business",
     "description": "Notes on Startups, or How to Build the Future",
     "filename": "zero_to_one.enc",
+    "file_path": "encrypted/zero_to_one.enc",
     "original_size": 2237142,
     "encrypted_size": 2237184,
     "salt": "NlNPgltRrFX4gQ6vac+FFQ==",
     "iv": "KK+Wg5+Wq+FuWAComMPdWQ==",
     "integrity_check": "2062f24aab09372f22b74a9911ac409e99adad9fe286339069f3c42d264f321b",
-    "cover_image": "zero_to_one.jpg"
+    "cover_image": "zero_to_one.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "naval_ravikant": {
     "id": "naval_ravikant",
@@ -132,12 +159,15 @@
     "category": "wealth",
     "description": "Guide to wealth and happiness from Naval Ravikant",
     "filename": "naval_ravikant.enc",
+    "file_path": "encrypted/naval_ravikant.enc",
     "original_size": 1884309,
     "encrypted_size": 1884352,
     "salt": "ZKD8YnQhddNUK8CInQjOwQ==",
     "iv": "i8QXF8LGoYh7/hJexzJarg==",
     "integrity_check": "598f08927ad3a035762190d04f04e0a80c19dee32c4362caad93e06fc69f75dc",
-    "cover_image": "naval_ravikant.jpg"
+    "cover_image": "naval_ravikant.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "git_github": {
     "id": "git_github",
@@ -146,12 +176,15 @@
     "category": "programming",
     "description": "Complete guide to version control with Git and GitHub",
     "filename": "git_github.enc",
+    "file_path": "encrypted/git_github.enc",
     "original_size": 3541023,
     "encrypted_size": 3541056,
     "salt": "iJKPN31O1DD9qMmAhO/yEA==",
     "iv": "YU3AvRejiMy+naruKYXSkw==",
     "integrity_check": "935adf29313c196cf320a2d1781c0bf7dff00bddd5fdef12393f5548ec087ac5",
-    "cover_image": "git_github.jpg"
+    "cover_image": "git_github.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "chanakya_neeti": {
     "id": "chanakya_neeti",
@@ -160,12 +193,15 @@
     "category": "philosophy",
     "description": "Ancient Indian treatise on statecraft, economic policy and military strategy",
     "filename": "chanakya_neeti.enc",
+    "file_path": "encrypted/chanakya_neeti.enc",
     "original_size": 4586903,
     "encrypted_size": 4586944,
     "salt": "kFgY7diQVqP5+B18Vhwy2w==",
     "iv": "XrptP+ruddGRCp+SypKYmw==",
     "integrity_check": "26b28cb6f7a2e463fc42cc64a709488b12cf1eebaa08d7f9c4db26e1715ce9d4",
-    "cover_image": "chanakya_neeti.jpg"
+    "cover_image": "chanakya_neeti.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "python_tkinter_gui": {
     "id": "python_tkinter_gui",
@@ -174,12 +210,15 @@
     "category": "programming",
     "description": "Practical exercises for beginners to learn Tkinter GUI programming",
     "filename": "python_tkinter_gui.enc",
+    "file_path": "encrypted/python_tkinter_gui.enc",
     "original_size": 5710088,
     "encrypted_size": 5710128,
     "salt": "BLcO9gez33QlYk/A25T+fw==",
     "iv": "Y/aVHmp7/Epy0coSYMj5rQ==",
     "integrity_check": "55798a16e0407ac00f919b21bc2a2fc37ce8ac7948d3dc490be407c7e6750dde",
-    "cover_image": "python_tkinter_gui.jpg"
+    "cover_image": "python_tkinter_gui.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "python_tips_tricks": {
     "id": "python_tips_tricks",
@@ -188,12 +227,15 @@
     "category": "programming",
     "description": "100 basic and intermediate tips and tricks for Python programmers",
     "filename": "python_tips_tricks.enc",
+    "file_path": "encrypted/python_tips_tricks.enc",
     "original_size": 3160824,
     "encrypted_size": 3160864,
     "salt": "psyg+JGdqRt+Dg0GUIN5xQ==",
     "iv": "HbHveBXYWCGcWkq7DmTJdg==",
     "integrity_check": "26530d7c75792c30446e21502d3b5c8f4602a9f114d50fa037da191e9fe0af6c",
-    "cover_image": "python_tips_tricks.jpg"
+    "cover_image": "python_tips_tricks.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "python_ai_evolution": {
     "id": "python_ai_evolution",
@@ -202,12 +244,15 @@
     "category": "programming",
     "description": "The role of Python programming in artificial intelligence development",
     "filename": "python_ai_evolution.enc",
+    "file_path": "encrypted/python_ai_evolution.enc",
     "original_size": 204425,
     "encrypted_size": 204464,
     "salt": "t4hhMUHLPDVBSakBsRqEyg==",
     "iv": "efKo3W3NmplBEKdQChFpXQ==",
     "integrity_check": "38e21445899407150de631c785b1806fe53326dd6a17a3890bf3221611c30de4",
-    "cover_image": "python_ai_evolution.jpg"
+    "cover_image": "python_ai_evolution.jpg",
+    "encrypted": true,
+    "downloadable": false
   },
   "140_basic_python_programs": {
     "id": "140_basic_python_programs",
@@ -216,8 +261,10 @@
     "category": "programming",
     "description": "Collection of 140+ basic Python programs for beginners covering fundamentals, data structures, and algorithms",
     "filename": "140+_Basic_Python_Programs.pdf",
+    "file_path": "free/140+_Basic_Python_Programs.pdf",
     "original_size": 1256894,
     "encrypted": false,
+    "downloadable": true,
     "cover_image": "140_basic_python_programs.jpg"
   },
   "modern_python_development": {
@@ -227,8 +274,49 @@
     "category": "programming",
     "description": "Complete guide to modern Python development practices, tools, and best practices",
     "filename": "Modern_Python_Development.pdf",
+    "file_path": "free/Modern_Python_Development.pdf",
     "original_size": 2345678,
     "encrypted": false,
+    "downloadable": true,
     "cover_image": "modern_python_development.jpg"
+  },
+  "100_sql_queries": {
+    "id": "100_sql_queries",
+    "title": "100 SQL Queries Handbook",
+    "author": "Anshuman Singh",
+    "category": "programming",
+    "description": "Comprehensive collection of 100 essential SQL queries for database management and analysis",
+    "filename": "100_SQL_Queries.pdf",
+    "file_path": "free/100_SQL_Queries.pdf",
+    "original_size": 1892345,
+    "encrypted": false,
+    "downloadable": true,
+    "cover_image": "sql_queries.jpg"
+  },
+  "75_python_problems": {
+    "id": "75_python_problems",
+    "title": "75 Python Programming Problems",
+    "author": "Anshuman Singh",
+    "category": "programming",
+    "description": "Challenging programming problems with solutions to improve Python skills",
+    "filename": "75_python_problem.pdf",
+    "file_path": "free/75_python_problem.pdf",
+    "original_size": 1678901,
+    "encrypted": false,
+    "downloadable": true,
+    "cover_image": "python_problems.jpg"
+  },
+  "core_data_analyst": {
+    "id": "core_data_analyst",
+    "title": "Core Data Analyst Interview Topics",
+    "author": "Anshuman Singh",
+    "category": "programming",
+    "description": "Essential topics and questions for data analyst interviews with detailed explanations",
+    "filename": "core_data_analyst_interview_topic.pdf",
+    "file_path": "free/core_data_analyst_interview_topic.pdf",
+    "original_size": 2156789,
+    "encrypted": false,
+    "downloadable": true,
+    "cover_image": "data_analyst.jpg"
   }
 }

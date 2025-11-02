@@ -1,0 +1,51 @@
+{
+  "programming": {
+    "name": "Programming & Development",
+    "description": "Books about programming languages, frameworks, and software development",
+    "icon": "fas fa-code",
+    "color": "blue",
+    "count": 9
+  },
+  "psychology": {
+    "name": "Psychology & Mind", 
+    "description": "Books about human behavior, psychology, and mental models",
+    "icon": "fas fa-brain",
+    "color": "purple",
+    "count": 4
+  },
+  "business": {
+    "name": "Business & Entrepreneurship",
+    "description": "Books about business strategy, entrepreneurship, and wealth building", 
+    "icon": "fas fa-chart-line",
+    "color": "green",
+    "count": 1
+  },
+  "philosophy": {
+    "name": "Philosophy & Wisdom",
+    "description": "Books about philosophy, wisdom, and life principles",
+    "icon": "fas fa-book-open",
+    "color": "orange",
+    "count": 2
+  },
+  "self_improvement": {
+    "name": "Self Improvement", 
+    "description": "Books about personal development and self improvement",
+    "icon": "fas fa-user-grow",
+    "color": "pink",
+    "count": 1
+  },
+  "biography": {
+    "name": "Biography & History",
+    "description": "Biographies and historical accounts",
+    "icon": "fas fa-history", 
+    "color": "red",
+    "count": 1
+  },
+  "wealth": {
+    "name": "Wealth & Success",
+    "description": "Books about wealth building and success principles",
+    "icon": "fas fa-coins",
+    "color": "yellow",
+    "count": 3
+  }
+}

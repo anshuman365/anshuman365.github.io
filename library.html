@@ -118,50 +118,107 @@
         -o-user-drag: none;
         user-drag: none;
     }
-/* Add to your existing CSS */
-.line-clamp-1 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-}
-
-.line-clamp-2 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-}
-
-.line-clamp-3 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-}
-
-/* Loading animation */
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
+    /* Add to your existing CSS */
+    .line-clamp-1 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
     }
-}
 
-.animate-spin {
-    animation: spin 1s linear infinite;
-}
+    .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
 
-/* PDF modal styles */
-#pdf-modal {
-    transition: opacity 0.3s ease-in-out;
-}
+    .line-clamp-3 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
 
-#pdf-canvas {
-    max-width: 100%;
-    height: auto;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-</style>
+    /* Loading animation */
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .animate-spin {
+        animation: spin 1s linear infinite;
+    }
+
+    /* PDF modal styles */
+    #pdf-modal {
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    #pdf-canvas {
+        max-width: 100%;
+        height: auto;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    /* Enhanced PDF viewer styles */
+    #pdf-canvas {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+    
+    /* Search and recommendation animations */
+    .search-container {
+        animation: slideDown 0.5s ease-out;
+    }
+    
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .recommendation-card {
+        transition: all 0.3s ease;
+    }
+    
+    .recommendation-card:hover {
+        transform: translateY(-5px) scale(1.02);
+    }
+    
+    /* Loading animations */
+    .pulse-ai {
+        animation: pulse-ai 2s infinite;
+    }
+    
+    @keyframes pulse-ai {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+    }
+
+    /* Library chatbot specific styles */
+    #library-chatbot-messages {
+        scrollbar-width: thin;
+        scrollbar-color: #2563EB #f1f1f1;
+    }
+    
+    #library-chatbot-messages::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    #library-chatbot-messages::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+    }
+    
+    #library-chatbot-messages::-webkit-scrollbar-thumb {
+        background: #2563EB;
+        border-radius: 3px;
+    }
+    
+    #library-chatbot-messages::-webkit-scrollbar-thumb:hover {
+        background: #1d4ed8;
+    }
+  </style>
 
 <script>
 // Additional protection
@@ -224,23 +281,96 @@ document.addEventListener('keydown', (e) => {
   <!-- Library Hero Section -->
   <section class="pt-24 pb-16 gradient-bg text-white">
     <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold text-center mb-6">Secure Digital Library</h1>
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-6">AI-Powered Digital Library</h1>
       <p class="text-xl text-center max-w-2xl mx-auto opacity-90">
-        Access premium books and personal writings with advanced content protection
+        Discover books with AI recommendations, advanced search, and secure content protection
       </p>
     </div>
   </section>
 
-  <!-- Books Grid -->
-  <section class="py-16 bg-white">
+  <!-- Search Section -->
+  <section class="py-8 bg-white border-b">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="books-grid">
-        <!-- Books will be loaded dynamically -->
+      <div class="search-container">
+        <!-- Search UI will be loaded here by library-search.js -->
       </div>
     </div>
   </section>
 
-<!-- PDF Modal में ये controls add करें -->
+  <!-- AI Recommendations Section -->
+  <section id="ai-recommendations" class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-3xl font-bold text-dark">
+                <i class="fas fa-robot text-primary mr-3"></i>
+                AI Recommendations For You
+            </h2>
+            <button id="refresh-recommendations" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition flex items-center space-x-2">
+                <i class="fas fa-sync-alt mr-2"></i>Refresh
+            </button>
+        </div>
+
+        <!-- Personalized Recommendations -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-6 text-primary border-b-2 border-primary/20 pb-2">
+                <i class="fas fa-user-check text-primary mr-2"></i>Personalized For You
+            </h3>
+            <div id="personalized-recommendations" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Personalized books will be loaded here -->
+                <div class="col-span-full text-center py-8">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+                    <p class="text-gray-500">Loading personalized recommendations...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trending Now -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-6 text-accent border-b-2 border-accent/20 pb-2">
+                <i class="fas fa-fire text-accent mr-2"></i>Trending Now
+            </h3>
+            <div id="trending-books" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Trending books will be loaded here -->
+                <div class="col-span-full text-center py-8">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-accent mx-auto mb-4"></div>
+                    <p class="text-gray-500">Loading trending books...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recently Viewed -->
+        <div>
+            <h3 class="text-xl font-semibold mb-6 text-secondary border-b-2 border-secondary/20 pb-2">
+                <i class="fas fa-history text-secondary mr-2"></i>Recently Viewed
+            </h3>
+            <div id="recent-books" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Recently viewed books will be loaded here -->
+                <div class="col-span-full text-center py-8">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary mx-auto mb-4"></div>
+                    <p class="text-gray-500">Loading recent books...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- All Books Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12 text-dark">
+        <i class="fas fa-books text-primary mr-3"></i>Complete Collection
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="books-grid">
+        <!-- Books will be loaded dynamically -->
+        <div class="col-span-full text-center py-12">
+          <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-primary mx-auto mb-4"></div>
+          <p class="text-gray-500">Loading library collection...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- PDF Modal -->
 <div id="pdf-modal" class="fixed inset-0 bg-black/90 hidden z-50">
     <div class="w-full h-full flex items-center justify-center p-4">
         <div class="bg-white rounded-lg w-full max-w-6xl h-5/6 flex flex-col shadow-2xl">
@@ -409,9 +539,14 @@ document.addEventListener('keydown', (e) => {
       </div>
     </div>
   </footer>
-<!-- library.html में -->
+
+<!-- Scripts -->
 <script src="assets/pdf/encryption_key.js"></script>
 <script src="js/library-security.js"></script>
 <script src="js/library-protection.js"></script>
+<script src="js/library-recommendations.js"></script>
+<script src="js/library-search.js"></script>
+<script src="js/library-recommendations-ui.js"></script>
+<script src="js/chatbot_library.js"></script>
 </body>
 </html>

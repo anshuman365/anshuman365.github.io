@@ -1,4 +1,4 @@
-// js/library-security.js
+// js/library-security.js - Complete Updated Version
 class SecurePDFLibrary {
     constructor() {
         this.currentPdf = null;
@@ -9,6 +9,8 @@ class SecurePDFLibrary {
         this.currentScale = 1.0;
         this.isRendering = false;
         this.renderQueue = [];
+        this.currentBookInfo = null;
+        this.currentPdfData = null;
         
         this.init();
     }
@@ -65,16 +67,9 @@ class SecurePDFLibrary {
     }
 
     setupEventListeners() {
-        // Basic navigation
         this.setupBasicNavigation();
-        
-        // Advanced navigation
         this.setupAdvancedNavigation();
-        
-        // Zoom controls
         this.setupZoomControls();
-        
-        // Keyboard shortcuts
         this.setupKeyboardShortcuts();
         
         // Security: Disable right-click in viewer
@@ -160,7 +155,6 @@ class SecurePDFLibrary {
                 }, 100);
             });
 
-            // Page slider click for instant jump
             pageSlider.addEventListener('change', (e) => {
                 this.goToPage(parseInt(e.target.value));
             });
@@ -213,7 +207,6 @@ class SecurePDFLibrary {
                 return;
             }
 
-            // Prevent default if we're handling the key
             let handled = false;
 
             switch(e.key) {
@@ -282,7 +275,6 @@ class SecurePDFLibrary {
             overlay.classList.remove('opacity-0');
             overlay.classList.add('opacity-100');
             
-            // Hide after 1 second
             setTimeout(() => {
                 overlay.classList.remove('opacity-100');
                 overlay.classList.add('opacity-0');
@@ -296,7 +288,6 @@ class SecurePDFLibrary {
 
         let page = parseInt(pageInput.value);
         
-        // Validate page number
         if (isNaN(page) || page < 1) {
             page = 1;
         } else if (page > this.totalPages) {
@@ -315,11 +306,10 @@ class SecurePDFLibrary {
             return;
         }
 
-        // Add to render queue to prevent multiple simultaneous renders
         this.renderQueue.push(pageNum);
         
         if (this.isRendering) {
-            return; // Let the current render finish
+            return;
         }
 
         await this.processRenderQueue();
@@ -335,7 +325,6 @@ class SecurePDFLibrary {
         while (this.renderQueue.length > 0) {
             const pageNum = this.renderQueue.shift();
             
-            // Skip if we're already on this page
             if (pageNum === this.currentPage) continue;
             
             this.currentPage = pageNum;
@@ -353,7 +342,6 @@ class SecurePDFLibrary {
             return;
         }
 
-        // Check if we have books data
         if (Object.keys(this.booksMetadata).length === 0) {
             grid.innerHTML = `
                 <div class="col-span-full text-center py-12">
@@ -367,7 +355,6 @@ class SecurePDFLibrary {
 
         const categories = {};
         
-        // Group books by category
         Object.values(this.booksMetadata).forEach(book => {
             if (!categories[book.category]) {
                 categories[book.category] = [];
@@ -391,7 +378,6 @@ class SecurePDFLibrary {
                     `assets/pdf/cover_img/${book.cover_image}` : 
                     null;
                 
-                // Determine if book is encrypted (default to true if not specified for backward compatibility)
                 const isEncrypted = book.encrypted !== false;
                 
                 html += `
@@ -413,7 +399,6 @@ class SecurePDFLibrary {
                                     <h4 class="text-sm font-bold text-gray-800 line-clamp-2">${book.title}</h4>
                                 </div>
                             `}
-                            <!-- Encryption Status Badge -->
                             <div class="absolute top-3 left-3 bg-white/90 text-xs px-2 py-1 rounded flex items-center space-x-1">
                                 ${isEncrypted ? 
                                     '<i class="fas fa-lock text-blue-600"></i><span class="text-blue-600 font-medium">Protected</span>' : 
@@ -455,7 +440,6 @@ class SecurePDFLibrary {
         grid.innerHTML = html;
         console.log('✅ Books rendered successfully');
 
-        // Add loading animation for images
         this.setupImageLoading();
     }
 
@@ -469,7 +453,6 @@ class SecurePDFLibrary {
             img.style.opacity = '0';
             img.style.transition = 'opacity 0.3s ease-in-out';
             
-            // If image is already loaded
             if (img.complete) {
                 img.style.opacity = '1';
             }
@@ -503,37 +486,37 @@ class SecurePDFLibrary {
                 throw new Error(`Book "${bookId}" not found in metadata`);
             }
 
-            // Show loading state
+            if (window.BookRecommender) {
+                window.BookRecommender.recordBookView(bookId);
+            }
+
             this.showPDFModal('Loading...');
             this.showLoadingSpinner(true);
 
-            // Reset scale and navigation
             this.currentScale = 1.0;
             this.currentPage = 1;
             this.renderQueue = [];
+            this.currentBookInfo = book;
 
             let pdfData;
 
-            // Determine if book is encrypted (default to true if not specified)
             const isEncrypted = book.encrypted !== false;
 
             if (!isEncrypted) {
-                // Handle unencrypted books
                 console.log('📄 Loading unencrypted PDF...');
-                pdfData = await this.fetchUnencryptedPDF(book.filename);
+                pdfData = await this.fetchUnencryptedPDF(book.file_path || book.filename);
                 console.log(`✅ Loaded unencrypted PDF: ${pdfData.byteLength} bytes`);
             } else {
-                // Handle encrypted books (existing logic)
                 console.log('🔐 Loading encrypted PDF...');
-                const encryptedData = await this.fetchEncryptedPDF(book.filename);
+                const encryptedData = await this.fetchEncryptedPDF(book.file_path || book.filename);
                 console.log(`🔐 Fetched encrypted data: ${encryptedData.byteLength} bytes`);
                 
-                // Decrypt PDF
                 pdfData = await this.decryptPDF(encryptedData, book);
                 console.log(`✅ Decrypted PDF data: ${pdfData.byteLength} bytes`);
             }
             
-            // Load PDF for display
+            this.currentPdfData = pdfData;
+            
             console.log('📄 Loading PDF document...');
             this.currentPdf = await this.pdfjsLib.getDocument({ data: pdfData }).promise;
             this.totalPages = this.currentPdf.numPages;
@@ -542,8 +525,12 @@ class SecurePDFLibrary {
             console.log(`📄 PDF loaded: ${this.totalPages} pages`);
             
             this.showPDFModal(book.title);
-            await this.renderPage(this.currentPage);
+            
+            // Auto-fit to width for proper display
+            await this.fitToWidth();
+            
             this.updateNavigationControls();
+            this.updateDownloadButton();
             this.showLoadingSpinner(false);
             
         } catch (error) {
@@ -553,9 +540,58 @@ class SecurePDFLibrary {
         }
     }
 
-    async fetchUnencryptedPDF(filename) {
-        console.log(`📥 Fetching unencrypted file: ${filename}`);
-        const response = await fetch(`assets/pdf/${filename}`);
+    updateDownloadButton() {
+        const header = document.querySelector('#pdf-modal .flex.justify-between.items-center');
+        if (!header) return;
+
+        const existingBtn = document.getElementById('download-pdf');
+        if (existingBtn) {
+            existingBtn.remove();
+        }
+
+        if (this.currentBookInfo && this.currentBookInfo.downloadable === true) {
+            const downloadButton = document.createElement('button');
+            downloadButton.id = 'download-pdf';
+            downloadButton.className = 'bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition flex items-center space-x-2 ml-4';
+            downloadButton.innerHTML = `
+                <i class="fas fa-download"></i>
+                <span>Download PDF</span>
+            `;
+            downloadButton.addEventListener('click', () => this.downloadPDF());
+            
+            header.appendChild(downloadButton);
+        }
+    }
+
+    downloadPDF() {
+        if (!this.currentPdfData || !this.currentBookInfo) {
+            console.error('No PDF data available for download');
+            this.showError('PDF download not available');
+            return;
+        }
+
+        try {
+            const blob = new Blob([this.currentPdfData], { type: 'application/pdf' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${this.currentBookInfo.title}.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            console.log('✅ PDF download initiated');
+            this.showToast('📥 PDF download started!', 'success');
+        } catch (error) {
+            console.error('❌ Error downloading PDF:', error);
+            this.showError('Failed to download PDF');
+        }
+    }
+
+    async fetchUnencryptedPDF(filePath) {
+        console.log(`📥 Fetching unencrypted file: ${filePath}`);
+        const response = await fetch(`assets/pdf/${filePath}`);
         
         if (!response.ok) {
             throw new Error(`Failed to fetch PDF: ${response.status} ${response.statusText}`);
@@ -575,9 +611,9 @@ class SecurePDFLibrary {
         document.body.style.overflow = 'hidden';
     }
 
-    async fetchEncryptedPDF(filename) {
-        console.log(`📥 Fetching encrypted file: ${filename}`);
-        const response = await fetch(`assets/pdf/encrypted/${filename}`);
+    async fetchEncryptedPDF(filePath) {
+        console.log(`📥 Fetching encrypted file: ${filePath}`);
+        const response = await fetch(`assets/pdf/${filePath}`);
         
         if (!response.ok) {
             throw new Error(`Failed to fetch encrypted PDF: ${response.status} ${response.statusText}`);
@@ -590,24 +626,20 @@ class SecurePDFLibrary {
         try {
             console.log('🔓 Starting decryption...');
             
-            // Convert ArrayBuffer to Uint8Array
             const encryptedData = new Uint8Array(encryptedArrayBuffer);
             
             if (encryptedData.length < 32) {
                 throw new Error('Encrypted data too short');
             }
             
-            // Extract salt and IV (first 16 bytes each)
             const salt = encryptedData.slice(0, 16);
             const iv = encryptedData.slice(16, 32);
             const actualEncryptedData = encryptedData.slice(32);
             
             console.log(`🔑 Salt: ${salt.length} bytes, IV: ${iv.length} bytes, Data: ${actualEncryptedData.length} bytes`);
             
-            // Generate key from password
             const key = await this.deriveKey(LIBRARY_PASSWORD, salt);
             
-            // Decrypt data
             const decryptedData = await crypto.subtle.decrypt(
                 {
                     name: "AES-CBC",
@@ -630,7 +662,6 @@ class SecurePDFLibrary {
         const encoder = new TextEncoder();
         const passwordBuffer = encoder.encode(password);
         
-        // Import password as key
         const baseKey = await crypto.subtle.importKey(
             "raw",
             passwordBuffer,
@@ -639,7 +670,6 @@ class SecurePDFLibrary {
             ["deriveKey"]
         );
         
-        // Derive key using PBKDF2
         return await crypto.subtle.deriveKey(
             {
                 name: "PBKDF2",
@@ -656,24 +686,27 @@ class SecurePDFLibrary {
 
     async renderPage(pageNum) {
         const canvas = document.getElementById('pdf-canvas');
-        if (!canvas) {
-            throw new Error('PDF canvas element not found');
+        const container = document.getElementById('pdf-container');
+        
+        if (!canvas || !container) {
+            throw new Error('PDF canvas or container element not found');
         }
 
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d', { alpha: false });
         const page = await this.currentPdf.getPage(pageNum);
         
-        // Calculate viewport with current scale
+        // Calculate viewport with proper scaling
         const viewport = page.getViewport({ scale: this.currentScale });
         
         // Set canvas dimensions
         canvas.height = viewport.height;
         canvas.width = viewport.width;
+        canvas.style.height = viewport.height + 'px';
+        canvas.style.width = viewport.width + 'px';
         
-        // Clear previous content
+        // Clear and render
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        // Render page
         const renderContext = {
             canvasContext: ctx,
             viewport: viewport
@@ -681,10 +714,53 @@ class SecurePDFLibrary {
         
         await page.render(renderContext).promise;
         
-        // Update dimensions display
+        // Center the canvas properly
+        this.centerCanvasInContainer();
+        
         this.updateDimensionsInfo(viewport.width, viewport.height);
         
         console.log(`📄 Rendered page ${pageNum} at ${Math.round(this.currentScale * 100)}% scale`);
+    }
+
+    centerCanvasInContainer() {
+        const canvas = document.getElementById('pdf-canvas');
+        const container = document.getElementById('pdf-container');
+        
+        if (!canvas || !container) return;
+
+        // Reset styles and center properly
+        canvas.style.margin = 'auto';
+        canvas.style.display = 'block';
+        container.style.display = 'flex';
+        container.style.alignItems = 'center';
+        container.style.justifyContent = 'center';
+        container.style.overflow = 'auto';
+    }
+
+    async fitToWidth() {
+        const canvas = document.getElementById('pdf-canvas');
+        const container = document.getElementById('pdf-container');
+        
+        if (!canvas || !container || !this.currentPdf) return;
+
+        try {
+            const page = await this.currentPdf.getPage(this.currentPage);
+            const viewport = page.getViewport({ scale: 1.0 });
+            
+            // Calculate scale to fit container width with padding
+            const containerWidth = container.clientWidth - 60; // 30px padding on each side
+            this.currentScale = containerWidth / viewport.width;
+            
+            // Limit scale to reasonable bounds
+            this.currentScale = Math.max(0.5, Math.min(this.currentScale, 2.0));
+            
+            await this.renderPage(this.currentPage);
+            
+        } catch (error) {
+            console.error('Error fitting to width:', error);
+            this.currentScale = 1.0;
+            await this.renderPage(this.currentPage);
+        }
     }
 
     updateDimensionsInfo(width, height) {
@@ -700,33 +776,28 @@ class SecurePDFLibrary {
     }
 
     updateNavigationControls() {
-        // Update page info
         const pageInfo = document.getElementById('page-info');
         if (pageInfo) {
             pageInfo.textContent = `Page ${this.currentPage} of ${this.totalPages}`;
         }
 
-        // Update slider
         const pageSlider = document.getElementById('page-slider');
         if (pageSlider) {
             pageSlider.max = this.totalPages;
             pageSlider.value = this.currentPage;
         }
 
-        // Update page input
         const pageInput = document.getElementById('page-input');
         if (pageInput) {
             pageInput.max = this.totalPages;
             pageInput.value = this.currentPage;
         }
 
-        // Update total pages display
         const totalPages = document.getElementById('total-pages');
         if (totalPages) {
             totalPages.textContent = `/ ${this.totalPages}`;
         }
 
-        // Update button states
         const prevBtn = document.getElementById('prev-page');
         const nextBtn = document.getElementById('next-page');
         const firstBtn = document.getElementById('first-page');
@@ -763,22 +834,6 @@ class SecurePDFLibrary {
         this.renderPage(this.currentPage);
     }
 
-    async fitToWidth() {
-        const canvas = document.getElementById('pdf-canvas');
-        const container = document.getElementById('pdf-container');
-        
-        if (!canvas || !container) return;
-
-        const page = await this.currentPdf.getPage(this.currentPage);
-        const viewport = page.getViewport({ scale: 1.0 });
-        
-        // Calculate scale to fit container width
-        const containerWidth = container.clientWidth - 40; // 20px padding on each side
-        this.currentScale = containerWidth / viewport.width;
-        
-        await this.renderPage(this.currentPage);
-    }
-
     async nextPage() {
         if (this.currentPage < this.totalPages) {
             await this.goToPage(this.currentPage + 1);
@@ -799,13 +854,11 @@ class SecurePDFLibrary {
         
         document.body.style.overflow = 'auto';
         
-        // Clean up PDF resources
         if (this.currentPdf) {
             this.currentPdf.destroy();
             this.currentPdf = null;
         }
         
-        // Clear canvas
         const canvas = document.getElementById('pdf-canvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
@@ -816,6 +869,8 @@ class SecurePDFLibrary {
         this.totalPages = 0;
         this.currentScale = 1.0;
         this.renderQueue = [];
+        this.currentBookInfo = null;
+        this.currentPdfData = null;
         
         this.showLoadingSpinner(false);
     }
@@ -846,7 +901,6 @@ class SecurePDFLibrary {
     }
 
     showError(message) {
-        // Remove existing error modal if any
         const existingError = document.querySelector('.error-modal');
         if (existingError) {
             existingError.remove();
@@ -870,9 +924,28 @@ class SecurePDFLibrary {
         
         document.body.insertAdjacentHTML('beforeend', errorHtml);
     }
+
+    showToast(message, type = 'info') {
+        const toast = document.createElement('div');
+        toast.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg text-white font-medium transition-all duration-300 transform translate-x-0 ${
+            type === 'success' ? 'bg-green-600' : 
+            type === 'error' ? 'bg-red-600' : 'bg-blue-600'
+        }`;
+        toast.textContent = message;
+        
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 300);
+        }, 3000);
+    }
 }
 
-// Initialize library when page loads
 let library;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -880,10 +953,4 @@ document.addEventListener('DOMContentLoaded', () => {
     library = new SecurePDFLibrary();
 });
 
-// Add global error handler for better debugging
-window.addEventListener('error', (event) => {
-    console.error('Global error:', event.error);
-});
-
-// Export for global access
 window.SecurePDFLibrary = SecurePDFLibrary;
