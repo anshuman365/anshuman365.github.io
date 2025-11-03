@@ -318,5 +318,66 @@
     "encrypted": false,
     "downloadable": true,
     "cover_image": "data_analyst.jpg"
+  },
+  "75_python_problems": {
+    "id": "75_python_problems",
+    "title": "75 Python Programming Problems",
+    "author": "Anshuman Singh",
+    "category": "programming",
+    "description": "Comprehensive collection of 75 challenging Python problems covering syntax, data structures, functions, OOP, modules, exceptions, and advanced concepts. Perfect for interview preparation and skill assessment.",
+    "filename": "75_python_problem.pdf",
+    "file_path": "free/75_python_problem.pdf",
+    "original_size": 1678901,
+    "encrypted": false,
+    "downloadable": true,
+    "cover_image": "75_python_problems.jpg",
+    "difficulty_level": "Beginner to Expert",
+    "pages": 85,
+    "tags": ["python", "programming", "coding-challenges", "interview-prep", "problems"],
+    "features": [
+      "75 carefully crafted problems",
+      "Covers basic to advanced topics",
+      "Perfect for technical interviews",
+      "Skill gap identification",
+      "Self-assessment tool"
+    ],
+    "learning_outcomes": [
+      "Master Python syntax and concepts",
+      "Identify knowledge gaps",
+      "Prepare for coding interviews",
+      "Improve problem-solving skills",
+      "Understand common pitfalls"
+    ]
+  },
+  "75_python_solutions": {
+    "id": "75_python_solutions",
+    "title": "75 Python Problems - Complete Solutions",
+    "author": "Anshuman Singh",
+    "category": "programming",
+    "description": "Detailed solutions and comprehensive explanations for all 75 Python programming problems. Includes step-by-step walkthroughs, deep dive explanations, and best practices for each challenge.",
+    "filename": "75_problem_solution.pdf",
+    "file_path": "free/75_problem_solution.pdf",
+    "original_size": 2456789,
+    "encrypted": false,
+    "downloadable": true,
+    "cover_image": "75_python_solutions.jpg",
+    "difficulty_level": "Beginner to Expert",
+    "pages": 207,
+    "tags": ["python", "solutions", "explanations", "learning", "tutorial"],
+    "features": [
+      "Complete solutions for all 75 problems",
+      "Step-by-step explanations",
+      "Deep dive into Python concepts",
+      "Best practices and patterns",
+      "Common pitfalls and how to avoid them"
+    ],
+    "learning_outcomes": [
+      "Understand Python concepts deeply",
+      "Learn industry best practices",
+      "Improve code quality",
+      "Master problem-solving techniques",
+      "Avoid common programming mistakes"
+    ],
+    "prerequisites": ["75_python_problems"]
   }
 }
