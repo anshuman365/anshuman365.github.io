@@ -132,17 +132,18 @@
       <a href="#about" class="hover:text-primary transition">About</a>
       <a href="contact.html" class="hover:text-primary transition">Contact</a>
 
-<!-- Update navigation in all pages -->
-<div class="relative group">
-    <button class="hover:text-primary transition font-medium flex items-center">
-        Resources
-        <i class="fas fa-chevron-down ml-1 text-sm"></i>
-    </button>
-    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 w-48 border border-gray-100">
-        <a href="pyfusion.html" class="block px-4 py-2 hover:bg-primary/10 hover:text-primary transition">PyFusion</a>
-        <a href="library.html" class="block px-4 py-2 hover:bg-primary/10 hover:text-primary transition">Digital Library</a>
+      <!-- Resources Dropdown -->
+      <div class="relative group">
+        <button class="hover:text-primary transition font-medium flex items-center">
+          Resources
+          <i class="fas fa-chevron-down ml-1 text-sm"></i>
+        </button>
+        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 w-48 border border-gray-100 z-50">
+          <a href="pyfusion.html" class="block px-4 py-2 hover:bg-primary/10 hover:text-primary transition">PyFusion</a>
+          <a href="library.html" class="block px-4 py-2 hover:bg-primary/10 hover:text-primary transition">Digital Library</a>
+        </div>
+      </div>
     </div>
-</div>
 
     <!-- Mobile Menu Toggle -->
     <button class="md:hidden text-gray-600" id="menu-toggle" aria-label="Toggle menu">
@@ -153,10 +154,12 @@
   <!-- Mobile Menu -->
   <div class="md:hidden hidden bg-white px-4 py-6 shadow-lg" id="mobile-menu">
     <div class="flex flex-col space-y-4">
-      <a href="#projects" class="font-medium">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#about">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="#projects" class="font-medium hover:text-primary transition">Projects</a>
+      <a href="#skills" class="hover:text-primary transition">Skills</a>
+      <a href="#about" class="hover:text-primary transition">About</a>
+      <a href="contact.html" class="hover:text-primary transition">Contact</a>
+      <a href="pyfusion.html" class="hover:text-primary transition">PyFusion</a>
+      <a href="library.html" class="hover:text-primary transition">Digital Library</a>
     </div>
   </div>
 </nav>
@@ -494,6 +497,7 @@
           <ul class="space-y-2">
             <li><a href="index.html" class="opacity-80 hover:opacity-100 transition">Home</a></li>
             <li><a href="projects.html" class="opacity-80 hover:opacity-100 transition">Projects</a></li>
+            <li><a href="library.html" class="opacity-80 hover:opacity-100 transition">Digital Library</a></li>
             <li><a href="journey.html" class="opacity-80 hover:opacity-100 transition">Journey</a></li>
             <li><a href="contact.html" class="opacity-80 hover:opacity-100 transition">Contact</a></li>
           </ul>
