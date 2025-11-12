@@ -1,4 +1,3 @@
-<!-- library.html - Updated -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth" itemscope itemtype="https://schema.org/WebPage">
 <head>
@@ -20,21 +19,21 @@
   <meta name="theme-color" content="#2563EB">
   
   <!-- Enhanced SEO Meta Tags -->
-  <title>Digital Library - Anshuman Singh | Protected PDF Collection & AI Recommendations</title>
-  <meta name="description" content="Secure digital library featuring programming books, personal writings, and exclusive content with advanced PDF protection and AI-powered recommendations">
-  <meta name="keywords" content="digital library, PDF collection, programming books, AI recommendations, secure reading, Anshuman Singh library">
+  <title>Python Libraries by Anshuman Singh | PyFusion & SecureKit | Production-Ready Tools</title>
+  <meta name="description" content="Explore production-ready Python libraries created by Anshuman Singh - PyFusion framework and SecureKit cryptography library for modern development.">
+  <meta name="keywords" content="Python libraries, PyFusion, SecureKit, Python framework, cryptography, Anshuman Singh, open source, Flask, web development, security">
   <meta name="author" content="Anshuman Singh">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://anshuman365.github.io/library.html">
+  <link rel="canonical" href="https://anshuman365.github.io/python-libraries.html">
   
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://anshuman365.github.io/library.html">
-  <meta property="og:title" content="Digital Library - Anshuman Singh | Protected PDF Collection">
-  <meta property="og:description" content="Secure digital library with AI-powered recommendations and advanced content protection">
-  <meta property="og:image" content="https://anshuman365.github.io/assets/library-banner.jpg">
+  <meta property="og:url" content="https://anshuman365.github.io/python-libraries.html">
+  <meta property="og:title" content="Python Libraries by Anshuman Singh | PyFusion & SecureKit">
+  <meta property="og:description" content="Production-ready Python libraries for modern development - PyFusion framework and SecureKit cryptography">
+  <meta property="og:image" content="https://anshuman365.github.io/assets/python-libraries-banner.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Anshuman Singh - AI Developer">
@@ -43,9 +42,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@SarvarSing35025">
   <meta name="twitter:creator" content="@SarvarSing35025">
-  <meta name="twitter:title" content="Digital Library - Anshuman Singh">
-  <meta name="twitter:description" content="Secure digital library with AI-powered recommendations">
-  <meta name="twitter:image" content="https://anshuman365.github.io/assets/library-banner.jpg">
+  <meta name="twitter:title" content="Python Libraries by Anshuman Singh">
+  <meta name="twitter:description" content="PyFusion framework and SecureKit cryptography library">
+  <meta name="twitter:image" content="https://anshuman365.github.io/assets/python-libraries-banner.jpg">
   
   <!-- Additional SEO Meta Tags -->
   <meta name="language" content="EN">
@@ -56,10 +55,10 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "DigitalDocument",
-    "name": "Anshuman Singh Digital Library",
-    "description": "Secure digital library featuring programming books, personal writings, and exclusive content with advanced PDF protection",
-    "url": "https://anshuman365.github.io/library.html",
+    "@type": "CollectionPage",
+    "name": "Python Libraries by Anshuman Singh",
+    "description": "Collection of production-ready Python libraries including PyFusion framework and SecureKit cryptography",
+    "url": "https://anshuman365.github.io/python-libraries.html",
     "author": {
       "@type": "Person",
       "name": "Anshuman Singh",
@@ -71,13 +70,31 @@
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://anshuman365.github.io/library.html"
-    }
+      "@id": "https://anshuman365.github.io/python-libraries.html"
+    },
+    "hasPart": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "PyFusion",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Windows, macOS, Linux",
+        "description": "All-in-One Python framework with built-in web server, database manager, HTTP client, and utilities",
+        "url": "https://anshuman365.github.io/pyfusion.html"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "SecureKit",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Windows, macOS, Linux",
+        "description": "Enterprise-grade cryptography library with Argon2id, ChaCha20-Poly1305, and framework integrations",
+        "url": "https://anshuman365.github.io/securekit.html"
+      }
+    ]
   }
   </script>
   
   <!-- Preload Critical Resources -->
-  <link rel="preload" href="assets/library-banner.jpg" as="image">
+  <link rel="preload" href="assets/python-libraries-banner.jpg" as="image">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -152,10 +169,10 @@
     .hero-gradient {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
-    .book-card { 
+    .library-card { 
       transition: all 0.3s ease; 
     }
-    .book-card:hover { 
+    .library-card:hover { 
       transform: translateY(-5px); 
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
@@ -170,10 +187,10 @@
     }
     
     /* Library specific styles */
-    .category-badge {
+    .feature-badge {
       transition: all 0.3s ease;
     }
-    .category-badge:hover {
+    .feature-badge:hover {
       transform: scale(1.05);
     }
     
@@ -189,150 +206,26 @@
       transition: width 0.3s ease;
     }
     
-    /* Library chatbot styles */
-    #library-chatbot-messages {
+    /* Chatbot styles */
+    #chatbot-messages {
       scrollbar-width: thin;
       scrollbar-color: #2563EB #f1f1f1;
     }
-    #library-chatbot-messages::-webkit-scrollbar {
+    #chatbot-messages::-webkit-scrollbar {
       width: 6px;
     }
-    #library-chatbot-messages::-webkit-scrollbar-track {
+    #chatbot-messages::-webkit-scrollbar-track {
       background: #f1f1f1;
       border-radius: 3px;
     }
-    #library-chatbot-messages::-webkit-scrollbar-thumb {
+    #chatbot-messages::-webkit-scrollbar-thumb {
       background: #2563EB;
       border-radius: 3px;
     }
-    #library-chatbot-messages::-webkit-scrollbar-thumb:hover {
+    #chatbot-messages::-webkit-scrollbar-thumb:hover {
       background: #1d4ed8;
     }
-
-    /* Prevent text selection */
-    .book-card, #pdf-canvas {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-    
-    /* Prevent image drag */
-    img {
-        -webkit-user-drag: none;
-        -khtml-user-drag: none;
-        -moz-user-drag: none;
-        -o-user-drag: none;
-        user-drag: none;
-    }
-
-    .line-clamp-1 {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
-    }
-
-    .line-clamp-2 {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-    }
-
-    .line-clamp-3 {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-    }
-
-    /* Loading animation */
-    @keyframes spin {
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-    .animate-spin {
-        animation: spin 1s linear infinite;
-    }
-
-    /* PDF modal styles */
-    #pdf-modal {
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    #pdf-canvas {
-        max-width: 100%;
-        height: auto;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Enhanced PDF viewer styles */
-    #pdf-canvas {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-    }
-    
-    /* Search and recommendation animations */
-    .search-container {
-        animation: slideDown 0.5s ease-out;
-    }
-    
-    @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .recommendation-card {
-        transition: all 0.3s ease;
-    }
-    
-    .recommendation-card:hover {
-        transform: translateY(-5px) scale(1.02);
-    }
-    
-    /* Loading animations */
-    .pulse-ai {
-        animation: pulse-ai 2s infinite;
-    }
-    
-    @keyframes pulse-ai {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.7; }
-    }
-
-    /* Additional protection */
-    .protection-overlay {
-        pointer-events: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 9999;
-    }
   </style>
-
-<script>
-// Additional protection
-document.addEventListener('keydown', (e) => {
-    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-    if (e.key === 'F12' || 
-        (e.ctrlKey && e.shiftKey && ['I', 'J'].includes(e.key)) ||
-        (e.ctrlKey && e.key === 'u')) {
-        e.preventDefault();
-        return false;
-    }
-});
-
-// Disable right-click context menu
-document.addEventListener('contextmenu', (e) => {
-    e.preventDefault();
-    return false;
-});
-</script>
 </head>
 
 <body class="bg-light text-dark dark:bg-dark-bg dark:text-dark-text dark-mode-transition">
@@ -374,7 +267,7 @@ document.addEventListener('contextmenu', (e) => {
             <div class="px-4 py-2 border-b border-gray-100 dark:border-gray-700">
               <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Python Libraries</span>
             </div>
-            <a href="python-libraries.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700">
+            <a href="python-libraries.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700 bg-primary/5 dark:bg-blue-900/20">
               <div class="flex items-center">
                 <i class="fab fa-python text-green-500 mr-3 text-lg"></i>
                 <div>
@@ -406,7 +299,7 @@ document.addEventListener('contextmenu', (e) => {
             <div class="px-4 py-2 border-b border-gray-100 dark:border-gray-700">
               <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Digital Resources</span>
             </div>
-            <a href="library.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition bg-primary/5 dark:bg-blue-900/20">
+            <a href="library.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition">
               <div class="flex items-center">
                 <i class="fas fa-book-open text-purple-500 mr-3 text-lg"></i>
                 <div>
@@ -469,7 +362,7 @@ document.addEventListener('contextmenu', (e) => {
           <div class="ml-4 space-y-3">
             <div class="border-l-2 border-gray-200 dark:border-gray-600 pl-3">
               <div class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">PYTHON LIBRARIES</div>
-              <a href="python-libraries.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+              <a href="python-libraries.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center font-medium text-primary dark:text-blue-300">
                 <i class="fab fa-python text-green-500 mr-3"></i>
                 All Libraries
               </a>
@@ -484,7 +377,7 @@ document.addEventListener('contextmenu', (e) => {
             </div>
             <div class="border-l-2 border-gray-200 dark:border-gray-600 pl-3">
               <div class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">DIGITAL RESOURCES</div>
-              <a href="library.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center font-medium text-primary dark:text-blue-300">
+              <a href="library.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center">
                 <i class="fas fa-book-open text-purple-500 mr-3"></i>
                 Digital Library
               </a>
@@ -502,263 +395,278 @@ document.addEventListener('contextmenu', (e) => {
     </div>
   </nav>
 
-  <!-- Library Hero Section -->
+  <!-- Hero Section -->
   <section class="pt-24 pb-16 gradient-bg text-white">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">AI-Powered Digital Library</h1>
-      <p class="text-xl max-w-2xl mx-auto opacity-90 mb-8">
-        Discover books with AI recommendations, advanced search, and enterprise-grade content protection
-      </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-          <i class="fas fa-robot mr-2"></i> AI Recommendations
-        </div>
-        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-          <i class="fas fa-shield-alt mr-2"></i> Secure Reading
-        </div>
-        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-          <i class="fas fa-search mr-2"></i> Smart Search
-        </div>
-        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-          <i class="fas fa-book-open mr-2"></i> 50+ Books
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Search Section -->
-  <section class="py-8 bg-white dark:bg-dark-card border-b dark:border-gray-700">
-    <div class="container mx-auto px-4">
-      <div class="search-container max-w-4xl mx-auto">
-        <div class="bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-6">
-          <h3 class="text-xl font-bold mb-4 text-dark dark:text-white flex items-center">
-            <i class="fas fa-search text-primary mr-3"></i>
-            Find Your Next Read
-          </h3>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <input 
-              type="text" 
-              id="library-search" 
-              placeholder="Search by title, author, or category..."
-              class="flex-grow px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
-            >
-            <button id="search-btn" class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary transition flex items-center justify-center">
-              <i class="fas fa-search mr-2"></i> Search
-            </button>
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-8">
+          <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 inline-block">
+            <i class="fab fa-python text-6xl mb-4 text-green-400 animate-float"></i>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">Python Libraries</h1>
+            <p class="text-xl md:text-2xl opacity-90 animate-fade-in">Open-source tools for modern development</p>
           </div>
-          <div class="flex flex-wrap gap-2 mt-4">
-            <button class="category-badge bg-primary text-white px-3 py-1 rounded-full text-sm">
-              All Categories
-            </button>
-            <button class="category-badge bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm hover:bg-primary hover:text-white dark:hover:bg-primary transition">
-              Programming
-            </button>
-            <button class="category-badge bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm hover:bg-primary hover:text-white dark:hover:bg-primary transition">
-              Personal Development
-            </button>
-            <button class="category-badge bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm hover:bg-primary hover:text-white dark:hover:bg-primary transition">
-              Business
-            </button>
-            <button class="category-badge bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm hover:bg-primary hover:text-white dark:hover:bg-primary transition">
-              Free Resources
-            </button>
+        </div>
+
+        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in">
+          Collection of production-ready Python libraries built to solve real-world problems 
+          and simplify complex development tasks.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 animate-fade-in">
+          <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+            <i class="fas fa-code mr-2"></i> 2 Libraries
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+            <i class="fas fa-star mr-2"></i> Production Ready
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+            <i class="fas fa-download mr-2"></i> PyPI Published
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+            <i class="fas fa-rocket mr-2"></i> AI-Powered Development
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- AI Recommendations Section -->
-  <section id="ai-recommendations" class="py-12 bg-gray-50 dark:bg-gray-900">
-    <div class="container mx-auto px-4">
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-            <h2 class="text-3xl font-bold text-dark dark:text-white flex items-center">
-                <i class="fas fa-robot text-primary mr-3"></i>
-                AI Recommendations For You
-            </h2>
-            <button id="refresh-recommendations" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition flex items-center space-x-2">
-                <i class="fas fa-sync-alt mr-2"></i>Refresh
-            </button>
-        </div>
-
-        <!-- Personalized Recommendations -->
-        <div class="mb-12">
-            <h3 class="text-xl font-semibold mb-6 text-primary border-b-2 border-primary/20 pb-2 flex items-center">
-                <i class="fas fa-user-check text-primary mr-2"></i>Personalized For You
-            </h3>
-            <div id="personalized-recommendations" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- Personalized books will be loaded here -->
-                <div class="col-span-full text-center py-8">
-                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-                    <p class="text-gray-500 dark:text-gray-400">Loading personalized recommendations...</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Trending Now -->
-        <div class="mb-12">
-            <h3 class="text-xl font-semibold mb-6 text-accent border-b-2 border-accent/20 pb-2 flex items-center">
-                <i class="fas fa-fire text-accent mr-2"></i>Trending Now
-            </h3>
-            <div id="trending-books" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- Trending books will be loaded here -->
-                <div class="col-span-full text-center py-8">
-                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-accent mx-auto mb-4"></div>
-                    <p class="text-gray-500 dark:text-gray-400">Loading trending books...</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Recently Viewed -->
-        <div>
-            <h3 class="text-xl font-semibold mb-6 text-secondary border-b-2 border-secondary/20 pb-2 flex items-center">
-                <i class="fas fa-history text-secondary mr-2"></i>Recently Viewed
-            </h3>
-            <div id="recent-books" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- Recently viewed books will be loaded here -->
-                <div class="col-span-full text-center py-8">
-                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary mx-auto mb-4"></div>
-                    <p class="text-gray-500 dark:text-gray-400">Loading recent books...</p>
-                </div>
-            </div>
-        </div>
-    </div>
-  </section>
-
-  <!-- All Books Section -->
+  <!-- Libraries Grid -->
   <section class="py-16 bg-white dark:bg-dark-card">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12 text-dark dark:text-white flex items-center justify-center">
-        <i class="fas fa-books text-primary mr-3"></i>Complete Collection
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="books-grid">
-        <!-- Books will be loaded dynamically -->
-        <div class="col-span-full text-center py-12">
-          <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-primary mx-auto mb-4"></div>
-          <p class="text-gray-500 dark:text-gray-400">Loading library collection...</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-dark dark:text-white">Featured Libraries</h2>
+      <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">Tools that make development faster, safer, and more efficient</p>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        
+        <!-- PyFusion Card -->
+        <div class="library-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden animate-fade-in">
+          <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center relative">
+            <img src="assets/pyfusion.jpg" alt="PyFusion Framework - All-in-One Python Development Framework" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2">
+              <i class="fas fa-cube text-white text-2xl"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <h3 class="text-2xl font-bold text-primary dark:text-blue-300">PyFusion</h3>
+              <span class="ml-3 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm px-3 py-1 rounded-full feature-badge">Framework</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              All-in-One Python framework with built-in web server, database manager, HTTP client, 
+              and utility functions. Eliminates 60+ lines of boilerplate code.
+            </p>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm feature-badge">Web Server</span>
+              <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm feature-badge">Database</span>
+              <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm feature-badge">HTTP Client</span>
+              <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm feature-badge">Utilities</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-4">
+                <span class="text-sm text-gray-500 dark:text-gray-400">
+                  <i class="fas fa-download mr-1"></i> 1.0.3
+                </span>
+                <span class="text-sm text-gray-500 dark:text-gray-400">
+                  <i class="fas fa-star mr-1"></i> PyPI
+                </span>
+                <span class="text-sm text-gray-500 dark:text-gray-400">
+                  <i class="fas fa-code-branch mr-1"></i> Open Source
+                </span>
+              </div>
+              <div class="flex space-x-2">
+                <a href="pyfusion.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition flex items-center">
+                  Explore <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="https://pypi.org/project/pyfusion-v1/" target="_blank" class="border border-primary text-primary dark:text-blue-300 dark:border-blue-300 px-4 py-2 rounded-lg hover:bg-primary/10 transition flex items-center">
+                  <i class="fab fa-python"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SecureKit Card -->
+        <div class="library-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden animate-fade-in" style="animation-delay: 0.1s;">
+          <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center relative">
+            <img src="assets/securekit_banner.jpg" alt="SecureKit - Enterprise Cryptography Library for Python" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2">
+              <i class="fas fa-lock text-white text-2xl"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <h3 class="text-2xl font-bold text-green-600 dark:text-green-400">SecureKit</h3>
+              <span class="ml-3 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-sm px-3 py-1 rounded-full feature-badge">Security</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Enterprise-grade cryptography library with secure defaults. Features Argon2id hashing, 
+              ChaCha20-Poly1305 encryption, and framework integrations for Flask, Django, and FastAPI.
+            </p>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-sm feature-badge">Cryptography</span>
+              <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-sm feature-badge">Security</span>
+              <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-sm feature-badge">KMS Integration</span>
+              <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-sm feature-badge">Framework Ready</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-4">
+                <span class="text-sm text-gray-500 dark:text-gray-400">
+                  <i class="fas fa-download mr-1"></i> 1.0.3
+                </span>
+                <span class="text-sm text-gray-500 dark:text-gray-400">
+                  <i class="fas fa-star mr-1"></i> PyPI
+                </span>
+                <span class="text-sm text-gray-500 dark:text-gray-400">
+                  <i class="fas fa-shield-alt mr-1"></i> Zero Vulnerabilities
+                </span>
+              </div>
+              <div class="flex space-x-2">
+                <a href="securekit.html" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition flex items-center">
+                  Explore <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="https://pypi.org/project/securekit/" target="_blank" class="border border-green-600 text-green-600 dark:text-green-400 dark:border-green-400 px-4 py-2 rounded-lg hover:bg-green-50 dark:hover:bg-green-900/20 transition flex items-center">
+                  <i class="fab fa-python"></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-<!-- Enhanced PDF Modal -->
-<div id="pdf-modal" class="fixed inset-0 bg-black/90 hidden z-50">
-    <div class="w-full h-full flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-dark-card rounded-lg w-full max-w-6xl h-5/6 flex flex-col shadow-2xl">
-            <!-- Header -->
-            <div class="flex justify-between items-center p-4 border-b dark:border-gray-700 bg-gray-50 dark:bg-gray-800 rounded-t-lg">
-                <h3 id="pdf-title" class="text-xl font-bold text-gray-800 dark:text-white truncate flex-1 mr-4"></h3>
-                <div class="flex items-center space-x-4">
-                    <div id="page-info" class="text-sm text-gray-600 dark:text-gray-400 font-medium"></div>
-                    <button id="close-pdf" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition">
-                        <i class="fas fa-times text-2xl"></i>
-                    </button>
-                </div>
-            </div>
+  <!-- Comparison Section -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-dark dark:text-white">Choose the Right Tool</h2>
+      <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">Each library serves a specific purpose in the development workflow</p>
 
-            <!-- PDF Controls -->
-            <div class="flex items-center justify-between p-4 bg-gray-100 dark:bg-gray-700 border-b dark:border-gray-600">
-                <!-- Left Controls -->
-                <div class="flex items-center space-x-4">
-                    <button id="prev-page" class="bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-500 transition disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 dark:text-gray-300">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    
-                    <button id="next-page" class="bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-500 transition disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 dark:text-gray-300">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-
-                    <button id="zoom-out" class="bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-500 transition text-gray-700 dark:text-gray-300">
-                        <i class="fas fa-search-minus"></i>
-                    </button>
-
-                    <button id="zoom-in" class="bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-500 transition text-gray-700 dark:text-gray-300">
-                        <i class="fas fa-search-plus"></i>
-                    </button>
-
-                    <button id="fit-to-width" class="bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-500 transition text-gray-700 dark:text-gray-300" title="Fit to Width">
-                        <i class="fas fa-arrows-alt-h"></i>
-                    </button>
-                </div>
-
-                <!-- Center Controls - Page Navigation -->
-                <div class="flex items-center space-x-4 flex-1 justify-center max-w-2xl">
-                    <!-- Page Slider -->
-                    <div class="flex items-center space-x-3 flex-1">
-                        <span class="text-sm text-gray-600 dark:text-gray-400 font-medium whitespace-nowrap">Page:</span>
-                        <input 
-                            type="range" 
-                            id="page-slider" 
-                            min="1" 
-                            max="100" 
-                            value="1" 
-                            class="flex-1 h-2 bg-gray-200 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer slider"
-                        >
-                        <div class="flex items-center space-x-2">
-                            <input 
-                                type="number" 
-                                id="page-input" 
-                                min="1" 
-                                max="100" 
-                                value="1" 
-                                class="w-16 px-2 py-1 border border-gray-300 dark:border-gray-500 dark:bg-gray-600 dark:text-white rounded text-sm text-center"
-                            >
-                            <span id="total-pages" class="text-sm text-gray-600 dark:text-gray-400">/ 100</span>
-                        </div>
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-gray-50 dark:bg-gray-800">
+                <tr>
+                  <th class="px-6 py-4 text-left text-gray-700 dark:text-gray-300 font-semibold">Feature</th>
+                  <th class="px-6 py-4 text-left">
+                    <div class="flex items-center">
+                      <i class="fas fa-cube text-blue-500 mr-2"></i>
+                      <span class="font-bold text-blue-600 dark:text-blue-400">PyFusion</span>
                     </div>
-                </div>
-
-                <!-- Right Controls -->
-                <div class="flex items-center space-x-2">
-                    <button id="first-page" class="bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-500 transition text-gray-700 dark:text-gray-300" title="First Page">
-                        <i class="fas fa-fast-backward"></i>
-                    </button>
-                    
-                    <button id="last-page" class="bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-500 transition text-gray-700 dark:text-gray-300" title="Last Page">
-                        <i class="fas fa-fast-forward"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- PDF Content -->
-            <div class="flex-1 relative bg-gray-100 dark:bg-gray-800 overflow-auto">
-                <div id="pdf-container" class="absolute inset-0 flex items-center justify-center p-4">
-                    <canvas id="pdf-canvas" class="max-w-full max-h-full shadow-lg bg-white dark:bg-gray-700"></canvas>
-                </div>
-                
-                <!-- Loading Spinner -->
-                <div id="pdf-loading-spinner" class="absolute inset-0 flex items-center justify-center bg-white/90 dark:bg-gray-800/90 z-10 hidden">
-                    <div class="flex flex-col items-center space-y-4">
-                        <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-primary"></div>
-                        <p class="text-gray-700 dark:text-gray-300 font-medium">Loading PDF...</p>
+                  </th>
+                  <th class="px-6 py-4 text-left">
+                    <div class="flex items-center">
+                      <i class="fas fa-shield-alt text-green-600 mr-2"></i>
+                      <span class="font-bold text-green-700 dark:text-green-400">SecureKit</span>
                     </div>
-                </div>
-
-                <!-- Page Navigation Overlay -->
-                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-lg opacity-0 transition-opacity duration-300" id="page-jump-overlay">
-                    Jumping to page <span id="jump-page-number">1</span>
-                </div>
-            </div>
-
-            <!-- Footer with additional info -->
-            <div class="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 border-t dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400 rounded-b-lg">
-                <div class="flex items-center space-x-4">
-                    <span id="zoom-level">100%</span>
-                    <span id="pdf-dimensions">-</span>
-                </div>
-                <div class="text-center">
-                    <span>Use slider or input to jump to any page. For best experience read on desktop.</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-shield-alt text-green-500"></i>
-                    <span>Protected Content</span>
-                </div>
-            </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                  <td class="px-6 py-4 font-medium text-gray-700 dark:text-gray-300">Primary Use</td>
+                  <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Rapid Application Development</td>
+                  <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Data Security & Cryptography</td>
+                </tr>
+                <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition bg-gray-50 dark:bg-gray-800">
+                  <td class="px-6 py-4 font-medium text-gray-700 dark:text-gray-300">Best For</td>
+                  <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Web Apps, APIs, Full-stack Projects</td>
+                  <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Security-sensitive Applications</td>
+                </tr>
+                <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                  <td class="px-6 py-4 font-medium text-gray-700 dark:text-gray-300">Key Features</td>
+                  <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Web Server, Database, HTTP Client</td>
+                  <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Encryption, Hashing, Digital Signatures</td>
+                </tr>
+                <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition bg-gray-50 dark:bg-gray-800">
+                  <td class="px-6 py-4 font-medium text-gray-700 dark:text-gray-300">Framework Support</td>
+                  <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Standalone Framework</td>
+                  <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Flask, Django, FastAPI Integrations</td>
+                </tr>
+                <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                  <td class="px-6 py-4 font-medium text-gray-700 dark:text-gray-300">Installation</td>
+                  <td class="px-6 py-4">
+                    <code class="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-sm">pip install pyfusion-v1</code>
+                  </td>
+                  <td class="px-6 py-4">
+                    <code class="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-sm">pip install securekit</code>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition bg-gray-50 dark:bg-gray-800">
+                  <td class="px-6 py-4 font-medium text-gray-700 dark:text-gray-300">Production Ready</td>
+                  <td class="px-6 py-4">
+                    <span class="inline-flex items-center text-green-600 dark:text-green-400">
+                      <i class="fas fa-check-circle mr-2"></i> Yes
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span class="inline-flex items-center text-green-600 dark:text-green-400">
+                      <i class="fas fa-check-circle mr-2"></i> Yes
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </section>
 
-<!-- Enhanced Footer -->
+  <!-- Stats Section -->
+  <section class="py-16 bg-white dark:bg-dark-card">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-dark dark:text-white">Library Statistics</h2>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-4xl mx-auto">
+        <div class="animate-fade-in">
+          <div class="text-4xl font-bold mb-2 text-primary">2</div>
+          <div class="text-gray-600 dark:text-gray-400">Production Libraries</div>
+        </div>
+        <div class="animate-fade-in" style="animation-delay: 0.1s;">
+          <div class="text-4xl font-bold mb-2 text-green-600 dark:text-green-400">56</div>
+          <div class="text-gray-600 dark:text-gray-400">Tests Passed</div>
+        </div>
+        <div class="animate-fade-in" style="animation-delay: 0.2s;">
+          <div class="text-4xl font-bold mb-2 text-secondary">0</div>
+          <div class="text-gray-600 dark:text-gray-400">Known Vulnerabilities</div>
+        </div>
+        <div class="animate-fade-in" style="animation-delay: 0.3s;">
+          <div class="text-4xl font-bold mb-2 text-accent">60+</div>
+          <div class="text-gray-600 dark:text-gray-400">Setup Lines Saved</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-dark dark:text-white">Start Building Today</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+        Whether you're building web applications or securing sensitive data, these libraries have you covered.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="pyfusion.html" class="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-secondary transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-lg flex items-center">
+          <i class="fas fa-cube mr-2"></i> Explore PyFusion
+        </a>
+        <a href="securekit.html" class="bg-green-600 text-white px-8 py-4 rounded-full font-bold hover:bg-green-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-lg flex items-center">
+          <i class="fas fa-shield-alt mr-2"></i> Explore SecureKit
+        </a>
+        <a href="contact.html" class="border-2 border-primary text-primary dark:text-blue-300 dark:border-blue-300 px-8 py-4 rounded-full font-bold hover:bg-primary/10 dark:hover:bg-blue-900/20 transition text-lg flex items-center">
+          <i class="fas fa-question mr-2"></i> Get Help
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Footer -->
   <footer class="bg-dark text-white py-16">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
@@ -788,9 +696,9 @@ document.addEventListener('contextmenu', (e) => {
               <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
               Projects
             </a></li>
-            <li><a href="library.html" class="opacity-80 hover:opacity-100 hover:text-primary transition flex items-center group">
+            <li><a href="python-libraries.html" class="opacity-80 hover:opacity-100 hover:text-primary transition flex items-center group">
               <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
-              Digital Library
+              Python Libraries
             </a></li>
             <li><a href="contact.html" class="opacity-80 hover:opacity-100 hover:text-primary transition flex items-center group">
               <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
@@ -866,34 +774,34 @@ document.addEventListener('contextmenu', (e) => {
     <i class="fas fa-moon" id="dark-mode-float-icon"></i>
   </button>
 
-  <!-- Library Chatbot Widget Structure -->
-  <div id="library-chatbot-widget" class="fixed bottom-4 right-4 z-50">
+  <!-- Chatbot Widget Structure -->
+  <div id="chatbot-widget" class="fixed bottom-4 right-4 z-50">
     <!-- Chat Button -->
-    <button id="library-chatbot-toggle" class="bg-primary text-white p-4 rounded-full shadow-lg hover:bg-secondary transition animate-bounce">
-      <i class="fas fa-book-reader text-xl"></i>
+    <button id="chatbot-toggle" class="bg-primary text-white p-4 rounded-full shadow-lg hover:bg-secondary transition animate-bounce">
+      <i class="fas fa-robot text-xl"></i>
     </button>
 
     <!-- Chat Window -->
-    <div id="library-chatbot-window" class="hidden absolute bottom-16 right-0 w-80 h-96 bg-white dark:bg-dark-card rounded-lg shadow-xl flex flex-col border border-gray-200 dark:border-gray-700">
+    <div id="chatbot-window" class="hidden absolute bottom-16 right-0 w-80 h-96 bg-white dark:bg-dark-card rounded-lg shadow-xl flex flex-col border border-gray-200 dark:border-gray-700">
       <!-- Chat Header -->
       <div class="bg-primary text-white p-4 rounded-t-lg flex justify-between items-center">
         <div>
-          <h3 class="font-bold">Library Assistant</h3>
-          <p class="text-xs opacity-80">Find your perfect book</p>
+          <h3 class="font-bold">AI Assistant</h3>
+          <p class="text-xs opacity-80">Powered by OpenRouter</p>
         </div>
-        <button id="library-chatbot-close" class="text-white hover:text-gray-200">
+        <button id="chatbot-close" class="text-white hover:text-gray-200">
           <i class="fas fa-times"></i>
         </button>
       </div>
 
       <!-- Chat Messages -->
-      <div id="library-chatbot-messages" class="flex-1 p-4 overflow-y-auto space-y-4">
+      <div id="chatbot-messages" class="flex-1 p-4 overflow-y-auto space-y-4">
         <div class="flex items-start space-x-2">
           <div class="bg-primary text-white p-2 rounded-full">
-            <i class="fas fa-book-reader text-sm"></i>
+            <i class="fas fa-robot text-sm"></i>
           </div>
           <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-3 max-w-[80%]">
-            <p class="text-sm dark:text-gray-300">📚 Hi! I'm your library assistant. I can help you find books based on your interests, recommend similar titles, or help you explore different categories. What would you like to read today?</p>
+            <p class="text-sm dark:text-gray-300">👋 Hi! I can help you explore Python libraries, compare features, or answer questions about PyFusion and SecureKit. What would you like to know?</p>
           </div>
         </div>
       </div>
@@ -903,33 +811,27 @@ document.addEventListener('contextmenu', (e) => {
         <div class="flex space-x-2">
           <input 
             type="text" 
-            id="library-chatbot-input" 
-            placeholder="Ask about books or recommendations..." 
+            id="chatbot-input" 
+            placeholder="Ask about Python libraries..." 
             class="flex-1 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
             maxlength="500"
           >
-          <button id="library-chatbot-send" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">
+          <button id="chatbot-send" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">
             <i class="fas fa-paper-plane"></i>
           </button>
         </div>
-        <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Library AI Assistant</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Using OpenRouter AI</p>
       </div>
     </div>
   </div>
 
-<!-- Scripts -->
-<script src="assets/pdf/encryption_key.js"></script>
-<script src="js/library-security.js"></script>
-<script src="js/library-protection.js"></script>
-<script src="js/library-recommendations.js"></script>
-<script src="js/library-search.js"></script>
-<script src="js/library-recommendations-ui.js"></script>
-<script src="js/chatbot_library.js"></script>
+  <!-- Load chatbot as module -->
+  <script type="module" src="js/chatbot.js"></script>
+  
+  <!-- Dark Mode Script -->
+  <script src="js/dark-mode.js"></script>
 
-<!-- Dark Mode Script -->
-<script src="js/dark-mode.js"></script>
-
-<script>
+  <script>
     // Mobile menu toggle
     document.getElementById('menu-toggle').addEventListener('click', function() {
       const menu = document.getElementById('mobile-menu');
@@ -961,7 +863,7 @@ document.addEventListener('contextmenu', (e) => {
       });
     });
 
-    // Animation on scroll for book cards
+    // Animation on scroll for library cards
     const observerOptions = {
       root: null,
       rootMargin: '0px',
@@ -976,36 +878,11 @@ document.addEventListener('contextmenu', (e) => {
       });
     }, observerOptions);
 
-    // Observe book cards
-    const bookCards = document.querySelectorAll('.book-card');
-    bookCards.forEach(card => {
+    // Observe library cards
+    const libraryCards = document.querySelectorAll('.library-card');
+    libraryCards.forEach(card => {
       observer.observe(card);
     });
-
-    // Category filtering
-    document.querySelectorAll('.category-badge').forEach(button => {
-      button.addEventListener('click', function() {
-        const category = this.textContent.trim();
-        // Remove active class from all buttons
-        document.querySelectorAll('.category-badge').forEach(btn => {
-          btn.classList.remove('bg-primary', 'text-white', 'dark:bg-primary');
-          btn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
-        });
-        
-        // Add active class to clicked button
-        this.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
-        this.classList.add('bg-primary', 'text-white', 'dark:bg-primary');
-        
-        // Filter books based on category
-        filterBooksByCategory(category);
-      });
-    });
-
-    function filterBooksByCategory(category) {
-      // This would be implemented with actual filtering logic
-      console.log('Filtering by category:', category);
-      // For now, just log to console
-    }
-</script>
+  </script>
 </body>
 </html>

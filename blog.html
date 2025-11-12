@@ -1,42 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" itemscope itemtype="https://schema.org/WebPage">
 <head>
-  <!-- Google Analytics -->
+  <!-- Enhanced Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4X0M6RM0F6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-4X0M6RM0F6');
+    gtag('config', 'G-4X0M6RM0F6', {
+      page_title: document.title,
+      page_location: window.location.href
+    });
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897" crossorigin="anonymous"></script>
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Blog - Anshuman Singh | AI Development Tutorials & Insights</title>
+  <meta name="theme-color" content="#2563EB">
+  
+  <!-- Enhanced SEO Meta Tags -->
+  <title>Tech Blog - Anshuman Singh | AI Development Tutorials & Programming Insights</title>
   <meta name="description" content="Technical blog with Python Flask tutorials, AI integration guides, web development insights, and project management strategies from Anshuman Singh.">
-  <meta name="keywords" content="Python tutorials, Flask development blog, AI integration guides, web development tutorials, tech blog India">
+  <meta name="keywords" content="Python tutorials, Flask development blog, AI integration guides, web development tutorials, tech blog India, programming blog, AI development insights">
   <meta name="author" content="Anshuman Singh">
-
-  <!-- Open Graph -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://anshuman365.github.io/blog.html">
+  
+  <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://anshuman365.github.io/blog.html">
-  <meta property="og:title" content="Tech Blog - Anshuman Singh | AI Development Tutorials">
-  <meta property="og:description" content="Technical blog posts and tutorials about Python, Flask, and AI development">
-  <meta property="og:image" content="https://anshuman365.github.io/assets/profile.jpg">
-
-  <!-- Twitter -->
+  <meta property="og:title" content="Tech Blog - Anshuman Singh | AI Development Tutorials & Insights">
+  <meta property="og:description" content="Technical blog posts and tutorials about Python, Flask, AI development, and web application architecture.">
+  <meta property="og:image" content="https://anshuman365.github.io/assets/blog-banner.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Anshuman Singh - AI Developer">
+  
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@SarvarSing35025">
+  <meta name="twitter:creator" content="@SarvarSing35025">
   <meta name="twitter:title" content="Tech Blog - Anshuman Singh">
   <meta name="twitter:description" content="Technical blog posts and tutorials about Python, Flask, and AI development">
-  <meta name="twitter:image" content="https://anshuman365.github.io/assets/profile.jpg">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://anshuman365.github.io/blog.html">
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <meta name="twitter:image" content="https://anshuman365.github.io/assets/blog-banner.jpg">
   
-  <!-- Google Site Verification -->
-  <meta name="google-site-verification" content="google82d7c3c7c2312cb7" />
+  <!-- Additional SEO Meta Tags -->
+  <meta name="language" content="EN">
+  <meta name="geo.region" content="IN-UP">
+  <meta name="geo.placename" content="Uttar Pradesh">
   
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -44,23 +57,55 @@
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "Anshuman Singh Tech Blog",
-    "description": "Technical blog about AI development, Python Flask, and web development",
+    "description": "Technical blog about AI development, Python Flask, web development tutorials and programming insights",
     "url": "https://anshuman365.github.io/blog.html",
     "author": {
       "@type": "Person",
-      "name": "Anshuman Singh"
+      "name": "Anshuman Singh",
+      "url": "https://anshuman365.github.io"
     },
     "publisher": {
       "@type": "Person",
       "name": "Anshuman Singh"
-    }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://anshuman365.github.io/blog.html"
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "How I Built 60+ Production Projects Using AI as Co-Developer",
+        "description": "Discover the approach to leveraging AI for rapid development while maintaining code quality and security standards",
+        "author": {
+          "@type": "Person",
+          "name": "Anshuman Singh"
+        },
+        "datePublished": "2025-04-15",
+        "url": "https://anshuman365.github.io/blog/how-i-built-60-projects-with-ai.html"
+      }
+    ]
   }
   </script>
   
-  <!-- Updated Color Scheme -->
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="assets/blog-banner.jpg" as="image">
+  <link rel="preload" href="assets/blog-featured.jpg" as="image">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -68,15 +113,35 @@
             secondary: '#7C3AED', 
             accent: '#059669',
             dark: '#1E293B',
-            light: '#F8FAFC'
+            light: '#F8FAFC',
+            'dark-bg': '#0f172a',
+            'dark-card': '#1e293b',
+            'dark-text': '#f1f5f9'
           },
           animation: {
             'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s ease-in-out infinite',
+            'bounce-slow': 'bounce 3s infinite',
+            'slide-in': 'slideIn 0.5s ease-out',
+            'fade-in': 'fadeIn 0.5s ease-in',
+            'zoom-in': 'zoomIn 0.5s ease-out'
           },
           keyframes: {
             float: {
               '0%, 100%': { transform: 'translateY(0)' },
               '50%': { transform: 'translateY(-10px)' },
+            },
+            slideIn: {
+              '0%': { transform: 'translateY(-20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            zoomIn: {
+              '0%': { transform: 'scale(0.9)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' },
             }
           }
         }
@@ -89,83 +154,294 @@
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-    body { font-family: 'Inter', sans-serif; }
-    .gradient-bg { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); }
-    .blog-card { transition: all 0.3s ease; }
-    .blog-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    body { 
+      font-family: 'Inter', sans-serif; 
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .gradient-bg { 
+      background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); 
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .blog-card { 
+      transition: all 0.3s ease; 
+    }
+    .blog-card:hover { 
+      transform: translateY(-5px); 
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .dark-mode-transition {
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    
+    /* Blog specific styles */
+    .category-badge {
+      transition: all 0.3s ease;
+    }
+    .category-badge:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Reading progress bar */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #2563EB, #7C3AED);
+      z-index: 9999;
+      transition: width 0.3s ease;
+    }
+    
+    /* Chatbot styles */
+    #chatbot-messages {
+      scrollbar-width: thin;
+      scrollbar-color: #2563EB #f1f1f1;
+    }
+    #chatbot-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+    #chatbot-messages::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 3px;
+    }
+    #chatbot-messages::-webkit-scrollbar-thumb {
+      background: #2563EB;
+      border-radius: 3px;
+    }
+    #chatbot-messages::-webkit-scrollbar-thumb:hover {
+      background: #1d4ed8;
+    }
   </style>
 </head>
 
-<body class="bg-light text-dark">
+<body class="bg-light text-dark dark:bg-dark-bg dark:text-dark-text dark-mode-transition">
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="reading-progress"></div>
+
   <!-- Navigation -->
-  <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg">
+  <nav class="fixed w-full z-50 bg-white/95 dark:bg-dark-card/95 backdrop-blur-sm shadow-lg dark:shadow-gray-900/50">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="text-xl font-bold text-primary flex items-center" aria-label="Anshuman Singh Home">
+      <a href="index.html" class="text-xl font-bold text-primary dark:text-white flex items-center" aria-label="Anshuman Singh Home">
         <span class="bg-primary text-white p-2 rounded-lg mr-2">AS</span>
         Anshuman Singh
       </a>
       
-      <div class="hidden md:flex space-x-6">
-        <a href="index.html" class="hover:text-primary transition">Home</a>
-        <a href="projects.html" class="hover:text-primary transition">Projects</a>
-        <a href="journey.html" class="hover:text-primary transition">Journey</a>
-        <a href="services.html" class="hover:text-primary transition">Services</a>
-        <a href="blog.html" class="font-medium text-primary">Blog</a>
-        <a href="contact.html" class="hover:text-primary transition">Contact</a>
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-6 items-center">
+        <a href="index.html" class="font-medium hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+          <i class="fas fa-home mr-2"></i>Home
+        </a>
+        <a href="projects.html" class="hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+          <i class="fas fa-code mr-2"></i>Projects
+        </a>
+        <a href="journey.html" class="hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+          <i class="fas fa-road mr-2"></i>Journey
+        </a>
+        <a href="services.html" class="hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+          <i class="fas fa-cogs mr-2"></i>Services
+        </a>
+        
+        <!-- Unified Resources Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-primary dark:hover:text-blue-300 transition font-medium flex items-center">
+            <i class="fas fa-cube mr-2 text-primary dark:text-blue-300"></i>
+            Resources
+            <i class="fas fa-chevron-down ml-1 text-sm"></i>
+          </button>
+          <div class="absolute hidden group-hover:block bg-white dark:bg-dark-card shadow-xl rounded-lg mt-2 w-56 border border-gray-100 dark:border-gray-700 z-50">
+            <!-- Python Libraries Section -->
+            <div class="px-4 py-2 border-b border-gray-100 dark:border-gray-700">
+              <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Python Libraries</span>
+            </div>
+            <a href="python-libraries.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700">
+              <div class="flex items-center">
+                <i class="fab fa-python text-green-500 mr-3 text-lg"></i>
+                <div>
+                  <div class="font-semibold text-gray-800 dark:text-white">All Libraries</div>
+                  <div class="text-xs text-gray-500 dark:text-gray-400">Complete collection</div>
+                </div>
+              </div>
+            </a>
+            <a href="pyfusion.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700">
+              <div class="flex items-center">
+                <i class="fas fa-cube text-blue-500 mr-3 text-lg"></i>
+                <div>
+                  <div class="font-semibold text-gray-800 dark:text-white">PyFusion</div>
+                  <div class="text-xs text-gray-500 dark:text-gray-400">All-in-One Framework</div>
+                </div>
+              </div>
+            </a>
+            <a href="securekit.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700">
+              <div class="flex items-center">
+                <i class="fas fa-shield-alt text-green-600 mr-3 text-lg"></i>
+                <div>
+                  <div class="font-semibold text-gray-800 dark:text-white">SecureKit</div>
+                  <div class="text-xs text-gray-500 dark:text-gray-400">Cryptography Library</div>
+                </div>
+              </div>
+            </a>
+            
+            <!-- Digital Library Section -->
+            <div class="px-4 py-2 border-b border-gray-100 dark:border-gray-700">
+              <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Digital Resources</span>
+            </div>
+            <a href="library.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition">
+              <div class="flex items-center">
+                <i class="fas fa-book-open text-purple-500 mr-3 text-lg"></i>
+                <div>
+                  <div class="font-semibold text-gray-800 dark:text-white">Digital Library</div>
+                  <div class="text-xs text-gray-500 dark:text-gray-400">PDF Collection</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <a href="blog.html" class="font-medium text-primary dark:text-blue-300 flex items-center">
+          <i class="fas fa-blog mr-2"></i>Blog
+        </a>
+        <a href="contact.html" class="hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+          <i class="fas fa-envelope mr-2"></i>Contact
+        </a>
+        
+        <!-- Dark Mode Toggle for Desktop -->
+        <button id="dark-mode-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+          <i class="fas fa-moon text-gray-700 dark:text-yellow-400" id="dark-mode-icon"></i>
+        </button>
       </div>
-<!-- Update navigation in all pages -->
-<div class="relative group">
-    <button class="hover:text-primary transition font-medium flex items-center">
-        Resources
-        <i class="fas fa-chevron-down ml-1 text-sm"></i>
-    </button>
-    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 w-48 border border-gray-100">
-        <a href="pyfusion.html" class="block px-4 py-2 hover:bg-primary/10 hover:text-primary transition">PyFusion</a>
-        <a href="library.html" class="block px-4 py-2 hover:bg-primary/10 hover:text-primary transition">Digital Library</a>
-    </div>
-</div>
-      <button class="md:hidden text-gray-600" id="menu-toggle" aria-label="Toggle menu">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
+
+      <!-- Mobile Menu Toggle -->
+      <div class="flex items-center space-x-4 md:hidden">
+        <!-- Dark Mode Toggle for Mobile -->
+        <button id="dark-mode-toggle-mobile" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+          <i class="fas fa-moon text-gray-700 dark:text-yellow-400" id="dark-mode-icon-mobile"></i>
+        </button>
+        
+        <button class="text-gray-600 dark:text-gray-300" id="menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
     </div>
     
     <!-- Mobile Menu -->
-    <div class="md:hidden hidden bg-white px-4 py-6 shadow-lg" id="mobile-menu">
+    <div class="md:hidden hidden bg-white dark:bg-dark-card px-4 py-6 shadow-lg dark:shadow-gray-900/50" id="mobile-menu">
       <div class="flex flex-col space-y-4">
-        <a href="index.html" class="font-medium">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="journey.html">Journey</a>
-        <a href="services.html">Services</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" class="font-medium flex items-center dark:text-white">
+          <i class="fas fa-home mr-3"></i>Home
+        </a>
+        <a href="projects.html" class="flex items-center dark:text-gray-300">
+          <i class="fas fa-code mr-3"></i>Projects
+        </a>
+        <a href="journey.html" class="flex items-center dark:text-gray-300">
+          <i class="fas fa-road mr-3"></i>Journey
+        </a>
+        <a href="services.html" class="flex items-center dark:text-gray-300">
+          <i class="fas fa-cogs mr-3"></i>Services
+        </a>
+        
+        <!-- Mobile Resources Section -->
+        <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-2">
+          <div class="font-semibold text-primary dark:text-blue-300 mb-2 flex items-center">
+            <i class="fas fa-cube mr-3"></i>
+            Resources
+          </div>
+          <div class="ml-4 space-y-3">
+            <div class="border-l-2 border-gray-200 dark:border-gray-600 pl-3">
+              <div class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">PYTHON LIBRARIES</div>
+              <a href="python-libraries.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+                <i class="fab fa-python text-green-500 mr-3"></i>
+                All Libraries
+              </a>
+              <a href="pyfusion.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center ml-4">
+                <i class="fas fa-cube text-blue-500 mr-3"></i>
+                PyFusion
+              </a>
+              <a href="securekit.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center ml-4">
+                <i class="fas fa-shield-alt text-green-600 mr-3"></i>
+                SecureKit
+              </a>
+            </div>
+            <div class="border-l-2 border-gray-200 dark:border-gray-600 pl-3">
+              <div class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">DIGITAL RESOURCES</div>
+              <a href="library.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+                <i class="fas fa-book-open text-purple-500 mr-3"></i>
+                Digital Library
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <a href="blog.html" class="font-medium text-primary dark:text-blue-300 flex items-center">
+          <i class="fas fa-blog mr-3"></i>Blog
+        </a>
+        <a href="contact.html" class="flex items-center dark:text-gray-300">
+          <i class="fas fa-envelope mr-3"></i>Contact
+        </a>
       </div>
     </div>
   </nav>
 
-  <!-- Blog Hero -->
+  <!-- Blog Hero Section -->
   <section class="pt-24 pb-16 gradient-bg text-white">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">AI Development Insights</h1>
-      <p class="text-xl max-w-2xl mx-auto">Sharing knowledge from building 60+ production projects with AI-powered development</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">AI Development Insights & Tutorials</h1>
+      <p class="text-xl max-w-2xl mx-auto opacity-90 mb-8">
+        Sharing knowledge from building 60+ production projects with AI-powered development. 
+        Tutorials, best practices, and technical insights.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+          <i class="fas fa-robot mr-2"></i> AI-Powered Development
+        </div>
+        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+          <i class="fab fa-python mr-2"></i> Python Flask
+        </div>
+        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+          <i class="fas fa-code mr-2"></i> Web Development
+        </div>
+        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+          <i class="fas fa-shield-alt mr-2"></i> Security
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Featured Post -->
-  <section class="py-12 bg-white">
+  <section class="py-12 bg-white dark:bg-dark-card">
     <div class="container mx-auto px-4">
-      <div class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 md:p-12">
+      <div class="bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 md:p-12">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div>
-            <span class="inline-block bg-primary text-white px-3 py-1 rounded-full text-sm mb-4">Featured</span>
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">How I Built 60+ Production Projects Using AI as Co-Developer</h2>
-            <p class="text-gray-600 mb-6">Discover my approach to leveraging AI for rapid development while maintaining code quality and security standards.</p>
-            <a href="blog/how-i-built-60-projects-with-ai.html" class="bg-primary text-white px-6 py-3 rounded-lg font-bold hover:bg-secondary transition inline-flex items-center">
+          <div class="animate-fade-in">
+            <span class="inline-block bg-primary text-white px-3 py-1 rounded-full text-sm mb-4 category-badge">Featured</span>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">How I Built 60+ Production Projects Using AI as Co-Developer</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+              Discover my approach to leveraging AI for rapid development while maintaining code quality, 
+              security standards, and production-ready architecture across multiple projects.
+            </p>
+            <div class="flex items-center text-gray-500 dark:text-gray-400 mb-6">
+              <i class="fas fa-calendar mr-2"></i>
+              <span class="mr-4">April 15, 2025</span>
+              <i class="fas fa-clock mr-2"></i>
+              <span>8 min read</span>
+            </div>
+            <a href="blog/how-i-built-60-projects-with-ai.html" class="bg-primary text-white px-6 py-3 rounded-lg font-bold hover:bg-secondary transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center">
               Read Full Article <i class="fas fa-arrow-right ml-2"></i>
             </a>
           </div>
-          <div class="flex justify-center">
+          <div class="flex justify-center animate-zoom-in">
             <div class="relative">
-              <img src="assets/blog-featured.jpg" alt="AI Development Process - Building Projects with AI Assistance" class="rounded-xl shadow-lg w-full max-w-md" loading="lazy" width="400" height="250">
+              <img src="assets/blog-featured.jpg" alt="AI Development Process - Building Projects with AI Assistance" 
+                   class="rounded-xl shadow-lg w-full max-w-md" loading="lazy" width="400" height="250">
               <div class="absolute -top-4 -right-4 bg-accent text-white p-3 rounded-full shadow-lg">
                 <i class="fas fa-robot text-2xl" aria-hidden="true"></i>
               </div>
@@ -176,190 +452,441 @@
     </div>
   </section>
 
-  <!-- Blog Posts -->
-  <section class="py-16">
+  <!-- Blog Categories -->
+  <section class="py-8 bg-gray-50 dark:bg-gray-900">
     <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-center gap-4">
+        <button class="bg-white dark:bg-dark-card text-gray-700 dark:text-gray-300 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-blue-300 hover:text-primary dark:hover:text-blue-300 transition category-badge">
+          All Topics
+        </button>
+        <button class="bg-white dark:bg-dark-card text-gray-700 dark:text-gray-300 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-blue-300 hover:text-primary dark:hover:text-blue-300 transition category-badge">
+          AI Development
+        </button>
+        <button class="bg-white dark:bg-dark-card text-gray-700 dark:text-gray-300 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-blue-300 hover:text-primary dark:hover:text-blue-300 transition category-badge">
+          Python Flask
+        </button>
+        <button class="bg-white dark:bg-dark-card text-gray-700 dark:text-gray-300 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-blue-300 hover:text-primary dark:hover:text-blue-300 transition category-badge">
+          Web Security
+        </button>
+        <button class="bg-white dark:bg-dark-card text-gray-700 dark:text-gray-300 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-blue-300 hover:text-primary dark:hover:text-blue-300 transition category-badge">
+          API Development
+        </button>
+        <button class="bg-white dark:bg-dark-card text-gray-700 dark:text-gray-300 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-blue-300 hover:text-primary dark:hover:text-blue-300 transition category-badge">
+          Career Growth
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Posts Grid -->
+  <section class="py-16 bg-white dark:bg-dark-card">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-dark dark:text-white">Latest Articles</h2>
+      
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- AI Security -->
-        <div class="blog-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-          <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white">
+        
+        <!-- AI Security Article -->
+        <div class="blog-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden animate-fade-in">
+          <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white relative">
             <i class="fas fa-shield-alt text-5xl" aria-hidden="true"></i>
+            <div class="absolute top-4 left-4">
+              <span class="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm category-badge">AI Security</span>
+            </div>
           </div>
           <div class="p-6">
-            <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4">AI Security</span>
-            <h3 class="text-xl font-bold mb-3">Implementing Enterprise-Grade Security in AI Applications</h3>
-            <p class="text-gray-600 mb-4">Best practices for securing AI-powered applications with encryption, authentication, and data protection.</p>
+            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Implementing Enterprise-Grade Security in AI Applications</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+              Best practices for securing AI-powered applications with encryption, authentication, 
+              and data protection in production environments.
+            </p>
             <div class="flex justify-between items-center">
-              <span class="text-gray-500 text-sm">April 10, 2025</span>
-              <a href="https://anshuman365.blogspot.com/2025/09/implementing-enterprise-grade-security.html" class="text-primary font-medium hover:text-secondary transition">Read More →</a>
+              <span class="text-gray-500 dark:text-gray-400 text-sm">April 10, 2025</span>
+              <a href="https://anshuman365.blogspot.com/2025/09/implementing-enterprise-grade-security.html" 
+                 class="text-primary dark:text-blue-300 font-medium hover:text-secondary dark:hover:text-purple-300 transition flex items-center">
+                Read More <i class="fas fa-arrow-right ml-2"></i>
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Real-time Systems -->
-        <div class="blog-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-          <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white">
+        <!-- Real-time Systems Article -->
+        <div class="blog-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden animate-fade-in" style="animation-delay: 0.1s;">
+          <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center text-white relative">
             <i class="fas fa-bolt text-5xl" aria-hidden="true"></i>
+            <div class="absolute top-4 left-4">
+              <span class="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm category-badge">Real-time</span>
+            </div>
           </div>
           <div class="p-6">
-            <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4">Real-time</span>
-            <h3 class="text-xl font-bold mb-3">Building Scalable Real-time Applications with WebSockets</h3>
-            <p class="text-gray-600 mb-4">Architecture patterns for real-time features in chat apps, live tracking, and collaborative tools.</p>
+            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Building Scalable Real-time Applications with WebSockets</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+              Architecture patterns for real-time features in chat applications, live tracking systems, 
+              and collaborative tools using Python and modern web technologies.
+            </p>
             <div class="flex justify-between items-center">
-              <span class="text-gray-500 text-sm">March 28, 2025</span>
-              <a href="https://medium.com/@hnasr/building-scalable-backends-with-websockets-0ff7292d63db" class="text-primary font-medium hover:text-secondary transition">Read More →</a>
+              <span class="text-gray-500 dark:text-gray-400 text-sm">March 28, 2025</span>
+              <a href="https://medium.com/@hnasr/building-scalable-backends-with-websockets-0ff7292d63db" 
+                 class="text-primary dark:text-blue-300 font-medium hover:text-secondary dark:hover:text-purple-300 transition flex items-center">
+                Read More <i class="fas fa-arrow-right ml-2"></i>
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Python Flask -->
-        <div class="blog-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-          <div class="h-48 bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white">
+        <!-- Python Flask Article -->
+        <div class="blog-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden animate-fade-in" style="animation-delay: 0.2s;">
+          <div class="h-48 bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white relative">
             <i class="fab fa-python text-5xl" aria-hidden="true"></i>
+            <div class="absolute top-4 left-4">
+              <span class="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm category-badge">Python Flask</span>
+            </div>
           </div>
           <div class="p-6">
-            <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4">Python Flask</span>
-            <h3 class="text-xl font-bold mb-3">Advanced Flask Patterns for Production Applications</h3>
-            <p class="text-gray-600 mb-4">Factory patterns, blueprints, and extension management for maintainable Flask applications.</p>
+            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Advanced Flask Patterns for Production Applications</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+              Factory patterns, application blueprints, extension management, and testing strategies 
+              for building maintainable and scalable Flask applications.
+            </p>
             <div class="flex justify-between items-center">
-              <span class="text-gray-500 text-sm">March 15, 2025</span>
-              <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure" class="text-primary font-medium hover:text-secondary transition">Read More →</a>
+              <span class="text-gray-500 dark:text-gray-400 text-sm">March 15, 2025</span>
+              <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure" 
+                 class="text-primary dark:text-blue-300 font-medium hover:text-secondary dark:hover:text-purple-300 transition flex items-center">
+                Read More <i class="fas fa-arrow-right ml-2"></i>
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- API Design -->
-        <div class="blog-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-          <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white">
+        <!-- API Design Article -->
+        <div class="blog-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden animate-fade-in" style="animation-delay: 0.3s;">
+          <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white relative">
             <i class="fas fa-code text-5xl" aria-hidden="true"></i>
+            <div class="absolute top-4 left-4">
+              <span class="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm category-badge">API Design</span>
+            </div>
           </div>
           <div class="p-6">
-            <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4">API Design</span>
-            <h3 class="text-xl font-bold mb-3">RESTful API Design Principles for Microservices</h3>
-            <p class="text-gray-600 mb-4">Designing scalable, versioned APIs with proper authentication and documentation practices.</p>
+            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">RESTful API Design Principles for Microservices</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+              Designing scalable, versioned APIs with proper authentication, documentation practices, 
+              and microservices communication patterns for modern applications.
+            </p>
             <div class="flex justify-between items-center">
-              <span class="text-gray-500 text-sm">February 22, 2025</span>
-              <a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design" class="text-primary font-medium hover:text-secondary transition">Read More →</a>
+              <span class="text-gray-500 dark:text-gray-400 text-sm">February 22, 2025</span>
+              <a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design" 
+                 class="text-primary dark:text-blue-300 font-medium hover:text-secondary dark:hover:text-purple-300 transition flex items-center">
+                Read More <i class="fas fa-arrow-right ml-2"></i>
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Database Optimization -->
-        <div class="blog-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-          <div class="h-48 bg-gradient-to-r from-accent to-primary flex items-center justify-center text-white">
+        <!-- Database Optimization Article -->
+        <div class="blog-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden animate-fade-in" style="animation-delay: 0.4s;">
+          <div class="h-48 bg-gradient-to-r from-accent to-primary flex items-center justify-center text-white relative">
             <i class="fas fa-database text-5xl" aria-hidden="true"></i>
+            <div class="absolute top-4 left-4">
+              <span class="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm category-badge">Database</span>
+            </div>
           </div>
           <div class="p-6">
-            <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4">Database</span>
-            <h3 class="text-xl font-bold mb-3">Database Optimization Techniques for High-Traffic Applications</h3>
-            <p class="text-gray-600 mb-4">Indexing, query optimization, and caching strategies for performance-critical applications.</p>
+            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Database Optimization Techniques for High-Traffic Applications</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+              Advanced indexing strategies, query optimization techniques, caching implementations, 
+              and performance monitoring for database-intensive applications.
+            </p>
             <div class="flex justify-between items-center">
-              <span class="text-gray-500 text-sm">February 8, 2025</span>
-              <a href="https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/optimize-data-performance" class="text-primary font-medium hover:text-secondary transition">Read More →</a>
+              <span class="text-gray-500 dark:text-gray-400 text-sm">February 8, 2025</span>
+              <a href="https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/optimize-data-performance" 
+                 class="text-primary dark:text-blue-300 font-medium hover:text-secondary dark:hover:text-purple-300 transition flex items-center">
+                Read More <i class="fas fa-arrow-right ml-2"></i>
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Career Growth -->
-        <div class="blog-card bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-          <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white">
+        <!-- Career Growth Article -->
+        <div class="blog-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden animate-fade-in" style="animation-delay: 0.5s;">
+          <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white relative">
             <i class="fas fa-graduation-cap text-5xl" aria-hidden="true"></i>
+            <div class="absolute top-4 left-4">
+              <span class="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm category-badge">Career</span>
+            </div>
           </div>
           <div class="p-6">
-            <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-4">Career</span>
-            <h3 class="text-xl font-bold mb-3">From Student to AI Developer: My Learning Path</h3>
-            <p class="text-gray-600 mb-4">How I transitioned from 12th pass to building 60+ production projects using AI-powered development.</p>
+            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">From Student to AI Developer: My Learning Path</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+              How I transitioned from 12th pass student to building 60+ production projects using 
+              AI-powered development and continuous learning strategies.
+            </p>
             <div class="flex justify-between items-center">
-              <span class="text-gray-500 text-sm">January 25, 2025</span>
-              <a href="https://medium.com/madhukarkumar/a-developers-roadmap-to-getting-started-with-ai-in-2025-f3f000ef6770" class="text-primary font-medium hover:text-secondary transition">Read More →</a>
+              <span class="text-gray-500 dark:text-gray-400 text-sm">January 25, 2025</span>
+              <a href="https://medium.com/madhukarkumar/a-developers-roadmap-to-getting-started-with-ai-in-2025-f3f000ef6770" 
+                 class="text-primary dark:text-blue-300 font-medium hover:text-secondary dark:hover:text-purple-300 transition flex items-center">
+                Read More <i class="fas fa-arrow-right ml-2"></i>
+              </a>
             </div>
           </div>
         </div>
+
       </div>
 
       <div class="text-center mt-12">
-        <a href="blog-archive.html" class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition">
-          View All Blog Posts
+        <a href="blog-archive.html" class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center">
+          View All Blog Posts <i class="fas fa-arrow-right ml-3"></i>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Newsletter -->
-  <section class="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+  <!-- Newsletter Section -->
+  <section class="py-16 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
     <div class="container mx-auto px-4 max-w-3xl text-center">
-      <h2 class="text-3xl font-bold mb-6">Stay Updated with AI Development</h2>
-      <p class="text-gray-600 mb-8">Get the latest articles on AI integration, web development, and project management strategies.</p>
+      <h2 class="text-3xl font-bold mb-6 text-dark dark:text-white">Stay Updated with AI Development</h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-8 text-lg">
+        Get the latest articles on AI integration, web development, security best practices, 
+        and project management strategies delivered to your inbox.
+      </p>
       <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" action="https://formspree.io/f/mdklpdpo" method="POST">
-        <input type="email" name="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary" required aria-label="Email address for newsletter">
-        <input type="text" name="subject" value="Blog Newsletter Subscription" class="hidden" >
-        <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary transition">Subscribe</button>
+        <input type="email" name="email" placeholder="Your email address" 
+               class="flex-grow px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary" 
+               required aria-label="Email address for newsletter">
+        <input type="text" name="subject" value="Blog Newsletter Subscription" class="hidden">
+        <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+          Subscribe
+        </button>
       </form>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-4">
+        No spam. Unsubscribe at any time.
+      </p>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white py-12">
+  <!-- Enhanced Footer -->
+  <footer class="bg-dark text-white py-16">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
         <div>
-          <h3 class="text-xl font-bold mb-4">Anshuman Singh</h3>
-          <p class="opacity-80">Building the future with AI-powered development</p>
+          <h3 class="text-2xl font-bold mb-4 flex items-center">
+            <span class="bg-primary text-white p-2 rounded-lg mr-3">AS</span>
+            Anshuman Singh
+          </h3>
+          <p class="opacity-80 mb-4 leading-relaxed">
+            Building intelligent solutions with AI-powered development. 
+            60+ production projects delivered with Python Flask expertise.
+          </p>
+          <div class="flex items-center space-x-2 text-sm opacity-70">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Uttar Pradesh, India</span>
+          </div>
         </div>
+        
         <div>
-          <h4 class="text-lg font-semibold mb-4">Navigation</h4>
-          <ul class="space-y-2">
-            <li><a href="index.html" class="opacity-80 hover:opacity-100 transition">Home</a></li>
-            <li><a href="projects.html" class="opacity-80 hover:opacity-100 transition">Projects</a></li>
-            <li><a href="journey.html" class="opacity-80 hover:opacity-100 transition">Journey</a></li>
-            <li><a href="blog.html" class="opacity-80 hover:opacity-100 transition">Blog</a></li>
+          <h4 class="text-lg font-semibold mb-4 text-primary">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="opacity-80 hover:opacity-100 hover:text-primary transition flex items-center group">
+              <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+              Home
+            </a></li>
+            <li><a href="projects.html" class="opacity-80 hover:opacity-100 hover:text-primary transition flex items-center group">
+              <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+              Projects
+            </a></li>
+            <li><a href="blog.html" class="opacity-80 hover:opacity-100 hover:text-primary transition flex items-center group">
+              <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+              Blog
+            </a></li>
+            <li><a href="contact.html" class="opacity-80 hover:opacity-100 hover:text-primary transition flex items-center group">
+              <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+              Contact
+            </a></li>
           </ul>
         </div>
+        
         <div>
-          <h4 class="text-lg font-semibold mb-4">Connect</h4>
-          <ul class="space-y-2">
-            <li class="flex items-center">
-              <i class="fas fa-envelope mr-2 opacity-80"></i> 
-              anshumansingh3697@gmail.com
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-map-marker-alt mr-2 opacity-80"></i> 
-              Uttar Pradesh, India
-            </li>
+          <h4 class="text-lg font-semibold mb-4 text-primary">Resources</h4>
+          <ul class="space-y-3">
+            <li><a href="python-libraries.html" class="opacity-80 hover:opacity-100 hover:text-primary transition flex items-center group">
+              <i class="fab fa-python text-green-400 mr-2"></i>
+              Python Libraries
+            </a></li>
+            <li><a href="pyfusion.html" class="opacity-80 hover:opacity-100 hover:text-primary transition flex items-center group">
+              <i class="fas fa-cube text-blue-400 mr-2"></i>
+              PyFusion
+            </a></li>
+            <li><a href="securekit.html" class="opacity-80 hover:opacity-100 hover:text-primary transition flex items-center group">
+              <i class="fas fa-shield-alt text-green-500 mr-2"></i>
+              SecureKit
+            </a></li>
+            <li><a href="library.html" class="opacity-80 hover:opacity-100 hover:text-primary transition flex items-center group">
+              <i class="fas fa-book-open text-purple-400 mr-2"></i>
+              Digital Library
+            </a></li>
           </ul>
         </div>
+        
         <div>
-          <h4 class="text-lg font-semibold mb-4">Follow My Journey</h4>
+          <h4 class="text-lg font-semibold mb-4 text-primary">Connect With Me</h4>
+          <p class="opacity-80 mb-6">Follow my journey and get in touch for collaborations</p>
           <div class="flex space-x-4">
-            <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition" aria-label="LinkedIn">
-              <i class="fab fa-linkedin-in text-white"></i>
+            <a href="https://www.linkedin.com/in/anshuman-singh-662183303" 
+               class="w-12 h-12 rounded-full bg-primary/20 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110"
+               aria-label="LinkedIn Profile">
+              <i class="fab fa-linkedin-in text-white text-lg"></i>
             </a>
-            <a href="https://www.github.com/anshuman365" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition" aria-label="GitHub">
-              <i class="fab fa-github text-white"></i>
+            <a href="https://www.github.com/anshuman365" 
+               class="w-12 h-12 rounded-full bg-primary/20 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110"
+               aria-label="GitHub Profile">
+              <i class="fab fa-github text-white text-lg"></i>
             </a>
-            <a href="https://www.instagram.com/anshumansingh.dev" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition" aria-label="Instagram">
-              <i class="fab fa-instagram text-white"></i>
+            <a href="https://www.instagram.com/anshumansingh.dev" 
+               class="w-12 h-12 rounded-full bg-primary/20 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110"
+               aria-label="Instagram Profile">
+              <i class="fab fa-instagram text-white text-lg"></i>
+            </a>
+            <a href="mailto:anshumansingh3697@gmail.com" 
+               class="w-12 h-12 rounded-full bg-primary/20 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110"
+               aria-label="Send Email">
+              <i class="fas fa-envelope text-white text-lg"></i>
             </a>
           </div>
         </div>
       </div>
-      <div class="border-t border-gray-700 mt-12 pt-8 text-center opacity-80">
-        <p>&copy; 2025 Anshuman Singh. Building the future with AI-powered development.</p>
-        <div class="mt-4 flex justify-center space-x-6 text-sm">
-          <a href="privacy.html" class="opacity-80 hover:opacity-100 transition">Privacy Policy</a>
-          <a href="terms.html" class="opacity-80 hover:opacity-100 transition">Terms of Service</a>
-          <a href="disclaimer.html" class="opacity-80 hover:opacity-100 transition">Disclaimer</a>
-          <a href="dmca.html" class="opacity-80 hover:opacity-100 transition">DMCA</a>
+      
+      <div class="border-t border-gray-700 pt-8 text-center">
+        <p class="opacity-80 mb-4">&copy; 2025 Anshuman Singh. Building the future, one AI-powered project at a time.</p>
+        <div class="flex justify-center space-x-8 text-sm opacity-70">
+          <a href="privacy.html" class="hover:text-primary transition hover:opacity-100">Privacy Policy</a>
+          <a href="terms.html" class="hover:text-primary transition hover:opacity-100">Terms of Service</a>
+          <a href="disclaimer.html" class="hover:text-primary transition hover:opacity-100">Disclaimer</a>
+          <a href="dmca.html" class="hover:text-primary transition hover:opacity-100">DMCA</a>
         </div>
       </div>
     </div>
   </footer>
+  
+  <!-- Dark Mode Floating Button -->
+  <button id="dark-mode-float" class="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full bg-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center">
+    <i class="fas fa-moon" id="dark-mode-float-icon"></i>
+  </button>
+
+  <!-- Chatbot Widget Structure -->
+  <div id="chatbot-widget" class="fixed bottom-4 right-4 z-50">
+    <!-- Chat Button -->
+    <button id="chatbot-toggle" class="bg-primary text-white p-4 rounded-full shadow-lg hover:bg-secondary transition animate-bounce">
+      <i class="fas fa-robot text-xl"></i>
+    </button>
+
+    <!-- Chat Window -->
+    <div id="chatbot-window" class="hidden absolute bottom-16 right-0 w-80 h-96 bg-white dark:bg-dark-card rounded-lg shadow-xl flex flex-col border border-gray-200 dark:border-gray-700">
+      <!-- Chat Header -->
+      <div class="bg-primary text-white p-4 rounded-t-lg flex justify-between items-center">
+        <div>
+          <h3 class="font-bold">AI Assistant</h3>
+          <p class="text-xs opacity-80">Powered by OpenRouter</p>
+        </div>
+        <button id="chatbot-close" class="text-white hover:text-gray-200">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Chat Messages -->
+      <div id="chatbot-messages" class="flex-1 p-4 overflow-y-auto space-y-4">
+        <div class="flex items-start space-x-2">
+          <div class="bg-primary text-white p-2 rounded-full">
+            <i class="fas fa-robot text-sm"></i>
+          </div>
+          <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-3 max-w-[80%]">
+            <p class="text-sm dark:text-gray-300">👋 Hi! I can help you explore blog articles, answer technical questions, or suggest reading materials based on your interests. What would you like to know?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input -->
+      <div class="p-4 border-t dark:border-gray-700">
+        <div class="flex space-x-2">
+          <input 
+            type="text" 
+            id="chatbot-input" 
+            placeholder="Ask about blog topics..." 
+            class="flex-1 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+            maxlength="500"
+          >
+          <button id="chatbot-send" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Using OpenRouter AI</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load chatbot as module -->
+  <script type="module" src="js/chatbot.js"></script>
+  
+  <!-- Dark Mode Script -->
+  <script src="js/dark-mode.js"></script>
 
   <script>
     // Mobile menu toggle
     document.getElementById('menu-toggle').addEventListener('click', function() {
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('hidden');
+    });
+
+    // Reading progress bar
+    window.addEventListener('scroll', function() {
+      const winHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.pageYOffset;
+      const trackLength = docHeight - winHeight;
+      const progress = Math.floor(scrollTop / trackLength * 100);
+      
+      document.getElementById('reading-progress').style.width = progress + '%';
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Animation on scroll for blog cards
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, observerOptions);
+
+    // Observe blog cards
+    const blogCards = document.querySelectorAll('.blog-card');
+    blogCards.forEach(card => {
+      observer.observe(card);
+    });
+
+    // Category filtering (basic implementation)
+    document.querySelectorAll('.category-badge').forEach(button => {
+      button.addEventListener('click', function() {
+        const category = this.textContent.trim();
+        // This would be implemented with actual filtering logic
+        console.log('Filtering by category:', category);
+      });
     });
   </script>
 </body>
