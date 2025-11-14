@@ -386,7 +386,7 @@ async function initiatePayment() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000);
         
-        const configResponse = await fetch('https://never-returned-gdp-courts.trycloudflare.com/api/config/razorpay', {
+        const configResponse = await fetch('https://nexoraindustries365.pythonanywhere.com/api/config/razorpay', {
             signal: controller.signal
         });
         clearTimeout(timeoutId);
@@ -405,7 +405,7 @@ async function initiatePayment() {
         const orderController = new AbortController();
         const orderTimeoutId = setTimeout(() => orderController.abort(), 10000);
         
-        const orderResponse = await fetch('https://never-returned-gdp-courts.trycloudflare.com/api/create-order', {
+        const orderResponse = await fetch('https://nexoraindustries365.pythonanywhere.com/api/create-order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -516,7 +516,7 @@ async function handlePaymentSuccess(paymentResponse) {
         const verifyController = new AbortController();
         const verifyTimeoutId = setTimeout(() => verifyController.abort(), 10000);
         
-        const verifyResponse = await fetch('https://never-returned-gdp-courts.trycloudflare.com/api/verify-payment', {
+        const verifyResponse = await fetch('https://nexoraindustries365.pythonanywhere.com/api/verify-payment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
