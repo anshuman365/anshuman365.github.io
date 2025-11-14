@@ -1,7 +1,7 @@
 // js/api.js
 import { logDebug } from './debug-utils.js';
 
-const BASE_URL = "https://serum-warranties-infant-speeds.trycloudflare.com";
+const BASE_URL = "https://poly-perspective-oil-circumstances.trycloudflare.com";
 const SESSION_KEY = 'portfolio_session_data';
 
 logDebug(`API Base URL: ${BASE_URL}`);

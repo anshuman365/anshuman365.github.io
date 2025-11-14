@@ -12,11 +12,12 @@
       page_location: window.location.href
     });
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897" crossorigin="anonymous"></script>
+  <script src="js/translator.js"></script>
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#2563EB">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <!-- Enhanced SEO Meta Tags -->
   <title>Services - Anshuman Singh | AI-Powered Development | Python Flask Expert</title>
@@ -97,8 +98,8 @@
   </script>
   
   <!-- Preload Critical Resources -->
-  <link rel="preload" href="assets/services-banner.jpg" as="image">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+  <link rel="preload" href="assets/services-banner.jpg" as="image" type="image/jpeg">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   
@@ -204,6 +205,16 @@
       transform: translateY(-5px);
     }
     
+    /* Package Card Styles */
+    .package-card {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .package-card.popular {
+      transform: scale(1.05);
+      border: 2px solid #2563EB;
+    }
+    
     /* Pricing Card Styles */
     .pricing-card {
       transition: all 0.3s ease;
@@ -238,172 +249,295 @@
     #chatbot-messages::-webkit-scrollbar-thumb:hover {
       background: #1d4ed8;
     }
+
+    /* Razorpay SVG fixes */
+    .razorpay-svg-fix svg {
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    .razorpay-container {
+      min-width: 100px;
+      min-height: 100px;
+    }
+
+    /* Notification styles */
+    .custom-notification {
+      z-index: 10000;
+    }
+
+    /* Loading overlay */
+    #loading-overlay {
+      z-index: 9999;
+    }
+
+    /* Custom checkbox styles */
+    .custom-checkbox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-checkbox.bg-primary {
+      border-color: #2563EB;
+    }
+
+    #order-summary, #customer-details {
+      animation: slideIn 0.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .package-card.transform.scale-105 {
+        transform: scale(1) !important;
+      }
+    }
   </style>
 </head>
 
 <body class="bg-light text-dark dark:bg-dark-bg dark:text-dark-text dark-mode-transition">
-  <!-- Navigation -->
-  <nav class="fixed w-full z-50 bg-white/95 dark:bg-dark-card/95 backdrop-blur-sm shadow-lg dark:shadow-gray-900/50">
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+    <div class="bg-white dark:bg-dark-card rounded-lg p-6 flex items-center space-x-3">
+      <i class="fas fa-spinner fa-spin text-primary text-xl"></i>
+      <span class="text-dark dark:text-white">Processing...</span>
+    </div>
+  </div>
+
+<!-- Navigation -->
+<nav class="fixed w-full z-50 bg-white/95 dark:bg-dark-card/95 backdrop-blur-sm shadow-lg dark:shadow-gray-900/50">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="text-xl font-bold text-primary dark:text-white flex items-center" aria-label="Anshuman Singh Home">
-        <span class="bg-primary text-white p-2 rounded-lg mr-2">AS</span>
-        Anshuman Singh
-      </a>
-      
-      <!-- Desktop Menu -->
-      <div class="hidden md:flex space-x-6 items-center">
-        <a href="index.html" class="font-medium hover:text-primary dark:hover:text-blue-300 transition flex items-center">
-          <i class="fas fa-home mr-2"></i>Home
-        </a>
-        <a href="projects.html" class="hover:text-primary dark:hover:text-blue-300 transition flex items-center">
-          <i class="fas fa-code mr-2"></i>Projects
-        </a>
-        <a href="journey.html" class="hover:text-primary dark:hover:text-blue-300 transition flex items-center">
-          <i class="fas fa-road mr-2"></i>Journey
-        </a>
-        <a href="services.html" class="font-medium text-primary dark:text-blue-300 flex items-center">
-          <i class="fas fa-cogs mr-2"></i>Services
+        <a href="index.html" class="text-xl font-bold text-primary dark:text-white flex items-center" aria-label="Anshuman Singh Home">
+            <span class="bg-primary text-white p-2 rounded-lg mr-2">AS</span>
+            Anshuman Singh
         </a>
         
-        <!-- Unified Resources Dropdown -->
-        <div class="relative group">
-          <button class="hover:text-primary dark:hover:text-blue-300 transition font-medium flex items-center">
-            <i class="fas fa-cube mr-2 text-primary dark:text-blue-300"></i>
-            Resources
-            <i class="fas fa-chevron-down ml-1 text-sm"></i>
-          </button>
-          <div class="absolute hidden group-hover:block bg-white dark:bg-dark-card shadow-xl rounded-lg mt-2 w-56 border border-gray-100 dark:border-gray-700 z-50">
-            <!-- Python Libraries Section -->
-            <div class="px-4 py-2 border-b border-gray-100 dark:border-gray-700">
-              <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Python Libraries</span>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-6 items-center">
+            <!-- Google Translate Dropdown -->
+            <div class="google-translate-wrapper relative group">
+                <button class="hover:text-primary dark:hover:text-blue-300 transition font-medium flex items-center" id="languageDropdown">
+                    <i class="fas fa-language mr-2 text-primary dark:text-blue-300"></i>
+                    English
+                    <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                </button>
+                <div class="absolute hidden group-hover:block bg-white dark:bg-dark-card shadow-xl rounded-lg mt-2 w-48 border border-gray-100 dark:border-gray-700 z-50">
+                    <a class="language-option block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700 text-gray-700 dark:text-gray-300" href="#" data-lang="en">
+                        <i class="fas fa-globe-americas mr-3 text-blue-500"></i>
+                        English
+                    </a>
+                    <a class="language-option block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700 text-gray-700 dark:text-gray-300" href="#" data-lang="hi">
+                        <i class="fas fa-flag mr-3 text-orange-500"></i>
+                        Hindi
+                    </a>
+                    <a class="language-option block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700 text-gray-700 dark:text-gray-300" href="#" data-lang="es">
+                        <i class="fas fa-flag mr-3 text-red-500"></i>
+                        Spanish
+                    </a>
+                    <a class="language-option block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700 text-gray-700 dark:text-gray-300" href="#" data-lang="fr">
+                        <i class="fas fa-flag mr-3 text-blue-400"></i>
+                        French
+                    </a>
+                    <a class="language-option block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition text-gray-700 dark:text-gray-300" href="#" data-lang="de">
+                        <i class="fas fa-flag mr-3 text-yellow-500"></i>
+                        German
+                    </a>
+                </div>
             </div>
-            <a href="python-libraries.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700">
-              <div class="flex items-center">
-                <i class="fab fa-python text-green-500 mr-3 text-lg"></i>
-                <div>
-                  <div class="font-semibold text-gray-800 dark:text-white">All Libraries</div>
-                  <div class="text-xs text-gray-500 dark:text-gray-400">Complete collection</div>
-                </div>
-              </div>
+
+            <a href="index.html" class="font-medium hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+                <i class="fas fa-home mr-2"></i>Home
             </a>
-            <a href="pyfusion.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700">
-              <div class="flex items-center">
-                <i class="fas fa-cube text-blue-500 mr-3 text-lg"></i>
-                <div>
-                  <div class="font-semibold text-gray-800 dark:text-white">PyFusion</div>
-                  <div class="text-xs text-gray-500 dark:text-gray-400">All-in-One Framework</div>
-                </div>
-              </div>
+            <a href="projects.html" class="hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+                <i class="fas fa-code mr-2"></i>Projects
             </a>
-            <a href="securekit.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700">
-              <div class="flex items-center">
-                <i class="fas fa-shield-alt text-green-600 mr-3 text-lg"></i>
-                <div>
-                  <div class="font-semibold text-gray-800 dark:text-white">SecureKit</div>
-                  <div class="text-xs text-gray-500 dark:text-gray-400">Cryptography Library</div>
-                </div>
-              </div>
+            <a href="journey.html" class="hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+                <i class="fas fa-road mr-2"></i>Journey
+            </a>
+            <a href="services.html" class="hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+                <i class="fas fa-cogs mr-2"></i>Services
             </a>
             
-            <!-- Digital Library Section -->
-            <div class="px-4 py-2 border-b border-gray-100 dark:border-gray-700">
-              <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Digital Resources</span>
-            </div>
-            <a href="library.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition">
-              <div class="flex items-center">
-                <i class="fas fa-book-open text-purple-500 mr-3 text-lg"></i>
-                <div>
-                  <div class="font-semibold text-gray-800 dark:text-white">Digital Library</div>
-                  <div class="text-xs text-gray-500 dark:text-gray-400">PDF Collection</div>
+            <!-- Unified Resources Dropdown -->
+            <div class="relative group">
+                <button class="hover:text-primary dark:hover:text-blue-300 transition font-medium flex items-center">
+                    <i class="fas fa-cube mr-2 text-primary dark:text-blue-300"></i>
+                    Resources
+                    <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                </button>
+                <div class="absolute hidden group-hover:block bg-white dark:bg-dark-card shadow-xl rounded-lg mt-2 w-56 border border-gray-100 dark:border-gray-700 z-50">
+                    <!-- Python Libraries Section -->
+                    <div class="px-4 py-2 border-b border-gray-100 dark:border-gray-700">
+                        <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Python Libraries</span>
+                    </div>
+                    <a href="python-libraries.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700">
+                        <div class="flex items-center">
+                            <i class="fab fa-python text-green-500 mr-3 text-lg"></i>
+                            <div>
+                                <div class="font-semibold text-gray-800 dark:text-white">All Libraries</div>
+                                <div class="text-xs text-gray-500 dark:text-gray-400">Complete collection</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="pyfusion.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700">
+                        <div class="flex items-center">
+                            <i class="fas fa-cube text-blue-500 mr-3 text-lg"></i>
+                            <div>
+                                <div class="font-semibold text-gray-800 dark:text-white">PyFusion</div>
+                                <div class="text-xs text-gray-500 dark:text-gray-400">All-in-One Framework</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="securekit.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition border-b border-gray-50 dark:border-gray-700">
+                        <div class="flex items-center">
+                            <i class="fas fa-shield-alt text-green-600 mr-3 text-lg"></i>
+                            <div>
+                                <div class="font-semibold text-gray-800 dark:text-white">SecureKit</div>
+                                <div class="text-xs text-gray-500 dark:text-gray-400">Cryptography Library</div>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Digital Library Section -->
+                    <div class="px-4 py-2 border-b border-gray-100 dark:border-gray-700">
+                        <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Digital Resources</span>
+                    </div>
+                    <a href="library.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-blue-900/30 transition">
+                        <div class="flex items-center">
+                            <i class="fas fa-book-open text-purple-500 mr-3 text-lg"></i>
+                            <div>
+                                <div class="font-semibold text-gray-800 dark:text-white">Digital Library</div>
+                                <div class="text-xs text-gray-500 dark:text-gray-400">PDF Collection</div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-              </div>
+            </div>
+
+            <a href="blog.html" class="hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+                <i class="fas fa-blog mr-2"></i>Blog
             </a>
-          </div>
+            <a href="contact.html" class="hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+                <i class="fas fa-envelope mr-2"></i>Contact
+            </a>
+            
+            <!-- Dark Mode Toggle for Desktop -->
+            <button id="dark-mode-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+                <i class="fas fa-moon text-gray-700 dark:text-yellow-400" id="dark-mode-icon"></i>
+            </button>
         </div>
 
-        <a href="blog.html" class="hover:text-primary dark:hover:text-blue-300 transition flex items-center">
-          <i class="fas fa-blog mr-2"></i>Blog
-        </a>
-        <a href="contact.html" class="hover:text-primary dark:hover:text-blue-300 transition flex items-center">
-          <i class="fas fa-envelope mr-2"></i>Contact
-        </a>
-        
-        <!-- Dark Mode Toggle for Desktop -->
-        <button id="dark-mode-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
-          <i class="fas fa-moon text-gray-700 dark:text-yellow-400" id="dark-mode-icon"></i>
-        </button>
-      </div>
-
-      <!-- Mobile Menu Toggle -->
-      <div class="flex items-center space-x-4 md:hidden">
-        <!-- Dark Mode Toggle for Mobile -->
-        <button id="dark-mode-toggle-mobile" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
-          <i class="fas fa-moon text-gray-700 dark:text-yellow-400" id="dark-mode-icon-mobile"></i>
-        </button>
-        
-        <button class="text-gray-600 dark:text-gray-300" id="menu-toggle" aria-label="Toggle menu">
-          <i class="fas fa-bars text-xl"></i>
-        </button>
-      </div>
+        <!-- Mobile Menu Toggle -->
+        <div class="flex items-center space-x-4 md:hidden">
+            <!-- Dark Mode Toggle for Mobile -->
+            <button id="dark-mode-toggle-mobile" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+                <i class="fas fa-moon text-gray-700 dark:text-yellow-400" id="dark-mode-icon-mobile"></i>
+            </button>
+            
+            <button class="text-gray-600 dark:text-gray-300" id="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
     </div>
     
     <!-- Mobile Menu -->
     <div class="md:hidden hidden bg-white dark:bg-dark-card px-4 py-6 shadow-lg dark:shadow-gray-900/50" id="mobile-menu">
-      <div class="flex flex-col space-y-4">
-        <a href="index.html" class="font-medium flex items-center dark:text-white">
-          <i class="fas fa-home mr-3"></i>Home
-        </a>
-        <a href="projects.html" class="flex items-center dark:text-gray-300">
-          <i class="fas fa-code mr-3"></i>Projects
-        </a>
-        <a href="journey.html" class="flex items-center dark:text-gray-300">
-          <i class="fas fa-road mr-3"></i>Journey
-        </a>
-        <a href="services.html" class="font-medium text-primary dark:text-blue-300 flex items-center">
-          <i class="fas fa-cogs mr-3"></i>Services
-        </a>
-        
-        <!-- Mobile Resources Section -->
-        <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-2">
-          <div class="font-semibold text-primary dark:text-blue-300 mb-2 flex items-center">
-            <i class="fas fa-cube mr-3"></i>
-            Resources
-          </div>
-          <div class="ml-4 space-y-3">
-            <div class="border-l-2 border-gray-200 dark:border-gray-600 pl-3">
-              <div class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">PYTHON LIBRARIES</div>
-              <a href="python-libraries.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center">
-                <i class="fab fa-python text-green-500 mr-3"></i>
-                All Libraries
-              </a>
-              <a href="pyfusion.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center ml-4">
-                <i class="fas fa-cube text-blue-500 mr-3"></i>
-                PyFusion
-              </a>
-              <a href="securekit.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center ml-4">
-                <i class="fas fa-shield-alt text-green-600 mr-3"></i>
-                SecureKit
-              </a>
+        <div class="flex flex-col space-y-4">
+            <!-- Mobile Google Translate -->
+            <div class="google-translate-wrapper border-b border-gray-200 dark:border-gray-700 pb-4">
+                <div class="font-semibold text-primary dark:text-blue-300 mb-2 flex items-center">
+                    <i class="fas fa-language mr-3"></i>
+                    Translate
+                </div>
+                <div class="ml-4 space-y-2">
+                    <a class="language-option block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center" href="#" data-lang="en">
+                        <i class="fas fa-globe-americas mr-3 text-blue-500"></i>
+                        English
+                    </a>
+                    <a class="language-option block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center" href="#" data-lang="hi">
+                        <i class="fas fa-flag mr-3 text-orange-500"></i>
+                        Hindi
+                    </a>
+                    <a class="language-option block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center" href="#" data-lang="es">
+                        <i class="fas fa-flag mr-3 text-red-500"></i>
+                        Spanish
+                    </a>
+                    <a class="language-option block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center" href="#" data-lang="fr">
+                        <i class="fas fa-flag mr-3 text-blue-400"></i>
+                        French
+                    </a>
+                    <a class="language-option block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center" href="#" data-lang="de">
+                        <i class="fas fa-flag mr-3 text-yellow-500"></i>
+                        German
+                    </a>
+                </div>
             </div>
-            <div class="border-l-2 border-gray-200 dark:border-gray-600 pl-3">
-              <div class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">DIGITAL RESOURCES</div>
-              <a href="library.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center">
-                <i class="fas fa-book-open text-purple-500 mr-3"></i>
-                Digital Library
-              </a>
+
+            <a href="index.html" class="font-medium flex items-center dark:text-white">
+                <i class="fas fa-home mr-3"></i>Home
+            </a>
+            <a href="projects.html" class="flex items-center dark:text-gray-300">
+                <i class="fas fa-code mr-3"></i>Projects
+            </a>
+            <a href="journey.html" class="flex items-center dark:text-gray-300">
+                <i class="fas fa-road mr-3"></i>Journey
+            </a>
+            <a href="services.html" class="flex items-center dark:text-gray-300">
+                <i class="fas fa-cogs mr-3"></i>Services
+            </a>
+            
+            <!-- Mobile Resources Section -->
+            <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-2">
+                <div class="font-semibold text-primary dark:text-blue-300 mb-2 flex items-center">
+                    <i class="fas fa-cube mr-3"></i>
+                    Resources
+                </div>
+                <div class="ml-4 space-y-3">
+                    <div class="border-l-2 border-gray-200 dark:border-gray-600 pl-3">
+                        <div class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">PYTHON LIBRARIES</div>
+                        <a href="python-libraries.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+                            <i class="fab fa-python text-green-500 mr-3"></i>
+                            All Libraries
+                        </a>
+                        <a href="pyfusion.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center ml-4">
+                            <i class="fas fa-cube text-blue-500 mr-3"></i>
+                            PyFusion
+                        </a>
+                        <a href="securekit.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center ml-4">
+                            <i class="fas fa-shield-alt text-green-600 mr-3"></i>
+                            SecureKit
+                        </a>
+                    </div>
+                    <div class="border-l-2 border-gray-200 dark:border-gray-600 pl-3">
+                        <div class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">DIGITAL RESOURCES</div>
+                        <a href="library.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-300 transition flex items-center">
+                            <i class="fas fa-book-open text-purple-500 mr-3"></i>
+                            Digital Library
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
+            
+            <a href="blog.html" class="flex items-center dark:text-gray-300">
+                <i class="fas fa-blog mr-3"></i>Blog
+            </a>
+            <a href="contact.html" class="flex items-center dark:text-gray-300">
+                <i class="fas fa-envelope mr-3"></i>Contact
+            </a>
         </div>
-        
-        <a href="blog.html" class="flex items-center dark:text-gray-300">
-          <i class="fas fa-blog mr-3"></i>Blog
-        </a>
-        <a href="contact.html" class="flex items-center dark:text-gray-300">
-          <i class="fas fa-envelope mr-3"></i>Contact
-        </a>
-      </div>
     </div>
-  </nav>
+</nav>
 
   <!-- Services Hero Section -->
   <section class="pt-24 pb-16 gradient-bg text-white">
@@ -430,231 +564,356 @@
     </div>
   </section>
 
-  <!-- Services Overview -->
-  <section class="py-16 bg-white dark:bg-dark-card">
+  <!-- Service Packages Section -->
+  <section class="py-16 bg-white dark:bg-dark-card" id="service-packages">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-dark dark:text-white">Comprehensive Development Solutions</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-dark dark:text-white">Professional Service Packages</h2>
         <p class="text-xl text-gray-600 dark:text-gray-300">
-          Leveraging AI-powered development approach to deliver high-quality, scalable solutions 
-          that solve real business problems.
+          Choose the perfect package for your needs. All packages include AI-powered development and quality assurance.
         </p>
       </div>
 
-      <!-- Main Services Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <!-- Package Selection Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         
-        <!-- Web Development Service -->
-        <div class="service-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 card-hover animate-zoom-in">
-          <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-            <i class="fas fa-globe text-blue-600 dark:text-blue-400 text-2xl"></i>
+        <!-- Basic Package -->
+        <div class="package-card bg-white dark:bg-dark-card rounded-xl shadow-lg border-2 border-gray-200 dark:border-gray-700 p-6 card-hover" data-package="basic">
+          <div class="text-center mb-6">
+            <div class="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-seedling text-green-600 dark:text-green-400 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-dark dark:text-white">Basic Package</h3>
+            <div class="text-3xl font-bold text-green-600 dark:text-green-400 mt-2">$25</div>
+            <p class="text-gray-600 dark:text-gray-300 mt-2">Starter Website Plan</p>
           </div>
-          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Web Application Development</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Full-stack web applications built with Python Flask, modern frontend technologies, and responsive design.
-          </p>
-          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Custom web applications
+          
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span>Website Development (Simple Layout)</span>
             </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              RESTful API development
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span>Basic SEO Setup</span>
             </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Database design & integration
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span>Free Hosting (GitHub Pages/Render)</span>
             </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Responsive UI/UX design
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span>24×7 Basic Support</span>
             </li>
           </ul>
-          <div class="flex items-center justify-between">
-            <span class="text-primary dark:text-blue-300 font-semibold">Starting at $499</span>
-            <a href="contact.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition text-sm">
-              Get Quote
-            </a>
+          
+          <div class="text-center">
+            <button class="select-package bg-green-600 text-white w-full py-3 rounded-lg hover:bg-green-700 transition font-semibold" data-package="basic">
+              Select Basic
+            </button>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Delivery: 2-4 days</p>
           </div>
         </div>
 
-        <!-- AI Integration Service -->
-        <div class="service-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 card-hover animate-zoom-in" style="animation-delay: 0.1s;">
-          <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mb-4">
-            <i class="fas fa-robot text-green-600 dark:text-green-400 text-2xl"></i>
+        <!-- Standard Package -->
+        <div class="package-card bg-white dark:bg-dark-card rounded-xl shadow-lg border-2 border-blue-500 dark:border-blue-400 p-6 card-hover transform scale-105" data-package="standard">
+          <div class="text-center mb-6">
+            <div class="absolute top-0 right-0 bg-blue-500 text-white px-4 py-1 rounded-bl-lg rounded-tr-lg font-semibold">
+              Most Popular
+            </div>
+            <div class="w-20 h-20 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-rocket text-blue-600 dark:text-blue-400 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-dark dark:text-white">Standard Package</h3>
+            <div class="text-3xl font-bold text-blue-600 dark:text-blue-400 mt-2">$60</div>
+            <p class="text-gray-600 dark:text-gray-300 mt-2">Growth Website Plan</p>
           </div>
-          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">AI Integration Services</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Smart AI features integration including chatbots, automation, and intelligent data processing.
-          </p>
-          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              AI chatbot integration
+          
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+              <span>Advanced Layout + UI/UX Design</span>
             </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Machine learning models
+            <li class="flex items-start">
+              <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+              <span>SEO + Keyword Optimization</span>
             </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Automation workflows
+            <li class="flex items-start">
+              <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+              <span>Personal Domain Setup Included</span>
             </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Data analysis & insights
+            <li class="flex items-start">
+              <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+              <span>SSL Certificate + Analytics</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+              <span>Priority 24×7 Support</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+              <span>Monthly Management Included</span>
             </li>
           </ul>
-          <div class="flex items-center justify-between">
-            <span class="text-primary dark:text-blue-300 font-semibold">Starting at $299</span>
-            <a href="contact.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition text-sm">
-              Get Quote
-            </a>
+          
+          <div class="text-center">
+            <button class="select-package bg-blue-600 text-white w-full py-3 rounded-lg hover:bg-blue-700 transition font-semibold" data-package="standard">
+              Select Standard
+            </button>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Delivery: 4-7 days</p>
           </div>
         </div>
 
-        <!-- E-commerce Development -->
-        <div class="service-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 card-hover animate-zoom-in" style="animation-delay: 0.2s;">
-          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-4">
-            <i class="fas fa-shopping-cart text-purple-600 dark:text-purple-400 text-2xl"></i>
+        <!-- Premium Package -->
+        <div class="package-card bg-white dark:bg-dark-card rounded-xl shadow-lg border-2 border-purple-500 dark:border-purple-400 p-6 card-hover" data-package="premium">
+          <div class="text-center mb-6">
+            <div class="w-20 h-20 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-crown text-purple-600 dark:text-purple-400 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-dark dark:text-white">Premium Package</h3>
+            <div class="text-3xl font-bold text-purple-600 dark:text-purple-400 mt-2">$120</div>
+            <p class="text-gray-600 dark:text-gray-300 mt-2">Business + SEO Pro</p>
           </div>
-          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">E-commerce Solutions</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Complete online stores with payment integration, inventory management, and order processing.
-          </p>
-          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Payment gateway integration
+          
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+              <span>Custom Flask App / CMS Integration</span>
             </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Inventory management
+            <li class="flex items-start">
+              <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+              <span>Advanced UI/UX + Full SEO</span>
             </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Order processing system
+            <li class="flex items-start">
+              <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+              <span>Personal Domain + Hosting</span>
             </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Customer management
+            <li class="flex items-start">
+              <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+              <span>Monthly Management + Reports</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+              <span>Direct Chat Support 24×7</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+              <span>Maintenance & Security Updates</span>
             </li>
           </ul>
-          <div class="flex items-center justify-between">
-            <span class="text-primary dark:text-blue-300 font-semibold">Starting at $799</span>
-            <a href="contact.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition text-sm">
-              Get Quote
-            </a>
-          </div>
-        </div>
-
-        <!-- API Development -->
-        <div class="service-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 card-hover animate-zoom-in" style="animation-delay: 0.3s;">
-          <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center mb-4">
-            <i class="fas fa-code text-orange-600 dark:text-orange-400 text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">API Development</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Robust RESTful APIs with proper documentation, authentication, and third-party integrations.
-          </p>
-          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              RESTful API design
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Authentication & security
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              API documentation
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Third-party integrations
-            </li>
-          </ul>
-          <div class="flex items-center justify-between">
-            <span class="text-primary dark:text-blue-300 font-semibold">Starting at $349</span>
-            <a href="contact.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition text-sm">
-              Get Quote
-            </a>
-          </div>
-        </div>
-
-        <!-- Custom Software -->
-        <div class="service-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 card-hover animate-zoom-in" style="animation-delay: 0.4s;">
-          <div class="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mb-4">
-            <i class="fas fa-laptop-code text-red-600 dark:text-red-400 text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Custom Software</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Tailored software solutions for specific business needs with scalable architecture.
-          </p>
-          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Business process automation
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Custom CRM systems
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Management systems
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Scalable architecture
-            </li>
-          </ul>
-          <div class="flex items-center justify-between">
-            <span class="text-primary dark:text-blue-300 font-semibold">Custom Pricing</span>
-            <a href="contact.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition text-sm">
-              Discuss Project
-            </a>
-          </div>
-        </div>
-
-        <!-- Maintenance & Support -->
-        <div class="service-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 card-hover animate-zoom-in" style="animation-delay: 0.5s;">
-          <div class="w-16 h-16 bg-teal-100 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
-            <i class="fas fa-tools text-teal-600 dark:text-teal-400 text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Maintenance & Support</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Ongoing maintenance, updates, and technical support to keep your applications running smoothly.
-          </p>
-          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Bug fixes & updates
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Performance optimization
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Security updates
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-green-500 mr-2"></i>
-              Technical support
-            </li>
-          </ul>
-          <div class="flex items-center justify-between">
-            <span class="text-primary dark:text-blue-300 font-semibold">From $99/month</span>
-            <a href="contact.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition text-sm">
-              Learn More
-            </a>
+          
+          <div class="text-center">
+            <button class="select-package bg-purple-600 text-white w-full py-3 rounded-lg hover:bg-purple-700 transition font-semibold" data-package="premium">
+              Select Premium
+            </button>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Delivery: 7-10 days</p>
           </div>
         </div>
 
       </div>
+
+      <!-- Add-ons Section -->
+      <div class="max-w-4xl mx-auto bg-gray-50 dark:bg-gray-800 rounded-xl p-8 mb-8">
+        <h3 class="text-2xl font-bold text-center mb-6 text-dark dark:text-white">Additional Services & Add-ons</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="addons-container">
+          <!-- Add-ons will be populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Custom Requirements Section -->
+      <div class="max-w-4xl mx-auto bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 mb-8">
+        <h3 class="text-2xl font-bold text-center mb-6 text-dark dark:text-white">Custom Requirements</h3>
+        <div class="space-y-4">
+          <textarea 
+            id="custom-requirements" 
+            placeholder="Tell us about any specific features or custom requirements you need..."
+            class="w-full h-32 px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+          ></textarea>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-600 dark:text-gray-300">We'll review and provide a custom quote</span>
+            <button id="add-custom-requirements" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-secondary transition">
+              Add to Quote
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="max-w-4xl mx-auto bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 mb-8 hidden" id="order-summary">
+        <h3 class="text-2xl font-bold text-center mb-6 text-dark dark:text-white">Your Order Summary</h3>
+        <div class="space-y-4" id="order-details">
+          <!-- Order details will be populated by JavaScript -->
+        </div>
+        <div class="border-t border-gray-200 dark:border-gray-600 pt-4 mt-6">
+          <div class="flex justify-between items-center text-xl font-bold">
+            <span>Total Amount:</span>
+            <span id="total-amount">$0</span>
+          </div>
+        </div>
+        <div class="text-center mt-8">
+          <button id="proceed-customer-details" class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition font-semibold text-lg">
+            <i class="fas fa-user mr-2"></i>Proceed to Customer Details
+          </button>
+        </div>
+      </div>
+
+      <!-- Customer Details Section -->
+      <div class="max-w-4xl mx-auto bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 mb-8 hidden" id="customer-details">
+        <h3 class="text-2xl font-bold text-center mb-6 text-dark dark:text-white">Customer Information</h3>
+        
+        <form id="customer-form" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="customer-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Full Name <span class="text-red-500">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="customer-name" 
+                name="customer_name"
+                required
+                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter your full name"
+              >
+            </div>
+            
+            <div>
+              <label for="customer-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Email Address <span class="text-red-500">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="customer-email" 
+                name="customer_email"
+                required
+                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter your email address"
+              >
+            </div>
+            
+            <div>
+              <label for="customer-phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Phone Number <span class="text-red-500">*</span>
+              </label>
+              <input 
+                type="tel" 
+                id="customer-phone" 
+                name="customer_phone"
+                required
+                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter your phone number"
+              >
+            </div>
+            
+            <div>
+              <label for="customer-company" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Company/Organization
+              </label>
+              <input 
+                type="text" 
+                id="customer-company" 
+                name="customer_company"
+                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter company name (optional)"
+              >
+            </div>
+          </div>
+          
+          <div>
+            <label for="customer-address" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Full Address <span class="text-red-500">*</span>
+            </label>
+            <textarea 
+              id="customer-address" 
+              name="customer_address"
+              required
+              rows="3"
+              class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+              placeholder="Enter your complete address including country"
+            ></textarea>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="customer-country" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Country <span class="text-red-500">*</span>
+              </label>
+              <select 
+                id="customer-country" 
+                name="customer_country"
+                required
+                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              >
+                <option value="">Select Country</option>
+                <option value="IN">India</option>
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="UK">United Kingdom</option>
+                <option value="AU">Australia</option>
+                <option value="DE">Germany</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="customer-tax-id" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Tax ID / GST Number (if applicable)
+              </label>
+              <input 
+                type="text" 
+                id="customer-tax-id" 
+                name="customer_tax_id"
+                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter tax identification number"
+              >
+            </div>
+          </div>
+          
+          <!-- Terms and Conditions -->
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
+            <div class="flex items-start space-x-3">
+              <input 
+                type="checkbox" 
+                id="terms-agreement" 
+                name="terms_agreement"
+                required
+                class="mt-1 w-4 h-4 text-primary focus:ring-primary border-gray-300 rounded"
+              >
+              <label for="terms-agreement" class="text-sm text-gray-700 dark:text-gray-300">
+                I agree to the <a href="terms.html" class="text-primary hover:underline">Terms of Service</a> and 
+                <a href="privacy.html" class="text-primary hover:underline">Privacy Policy</a>. I understand that this is a 
+                legally binding agreement for web development services and all payments are final once the project commences.
+              </label>
+            </div>
+          </div>
+<!-- Disclaimer -->
+<div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 mt-3">
+  <div class="flex items-start space-x-3">
+    <input 
+      type="checkbox" 
+      id="testing-disclaimer" 
+      name="testing_disclaimer"
+      required
+      class="mt-1 w-4 h-4 text-primary focus:ring-primary border-gray-300 rounded"
+    >
+    <label for="testing-disclaimer" class="text-sm text-gray-700 dark:text-gray-300">
+      ⚠️ This is a <strong>testing invoice</strong>. No real payment or money transfer will occur. 
+      This invoice is generated only for development and demonstration purposes and is 
+      <strong>not valid for any financial transactions</strong>.
+    </label>
+  </div>
+</div>
+          <div class="flex justify-between pt-4">
+            <button type="button" id="back-to-order" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition font-semibold">
+              <i class="fas fa-arrow-left mr-2"></i>Back to Order
+            </button>
+            <button type="submit" class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition font-semibold">
+              <i class="fas fa-lock mr-2"></i>Proceed to Secure Payment
+            </button>
+          </div>
+        </form>
+      </div>
+
     </div>
   </section>
 
@@ -973,11 +1232,16 @@
     </div>
   </div>
 
+  <!-- Load services JavaScript -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script type="module" src="js/services.js" defer></script>
+  
   <!-- Load chatbot as module -->
-  <script type="module" src="js/chatbot.js"></script>
+  <script type="module" src="js/chatbot.js" defer></script>
   
   <!-- Dark Mode Script -->
-  <script src="js/dark-mode.js"></script>
+  <script src="js/dark-mode.js" defer></script>
 
   <script>
     // Mobile menu toggle
@@ -1020,6 +1284,69 @@
         }
       });
     });
+
+    // Notification system
+    function showNotification(message, type = 'info') {
+      // Remove existing notifications
+      const existingNotification = document.querySelector('.custom-notification');
+      if (existingNotification) {
+        existingNotification.remove();
+      }
+
+      const notification = document.createElement('div');
+      notification.className = `custom-notification fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full ${
+        type === 'error' ? 'bg-red-500 text-white' :
+        type === 'success' ? 'bg-green-500 text-white' :
+        'bg-blue-500 text-white'
+      }`;
+      
+      notification.innerHTML = `
+        <div class="flex items-center">
+          <i class="fas ${
+            type === 'error' ? 'fa-exclamation-triangle' :
+            type === 'success' ? 'fa-check-circle' :
+            'fa-info-circle'
+          } mr-2"></i>
+          <span>${message}</span>
+        </div>
+      `;
+      
+      document.body.appendChild(notification);
+      
+      // Animate in
+      setTimeout(() => {
+        notification.classList.remove('translate-x-full');
+      }, 100);
+      
+      // Auto remove after 5 seconds
+      setTimeout(() => {
+        notification.classList.add('translate-x-full');
+        setTimeout(() => {
+          if (notification.parentNode) {
+            notification.remove();
+          }
+        }, 300);
+      }, 5000);
+      
+      // Allow manual close
+      notification.addEventListener('click', () => {
+        notification.classList.add('translate-x-full');
+        setTimeout(() => {
+          if (notification.parentNode) {
+            notification.remove();
+          }
+        }, 300);
+      });
+    }
+
+    // Loading overlay functions
+    function showLoading() {
+      document.getElementById('loading-overlay').classList.remove('hidden');
+    }
+
+    function hideLoading() {
+      document.getElementById('loading-overlay').classList.add('hidden');
+    }
   </script>
 </body>
 </html>

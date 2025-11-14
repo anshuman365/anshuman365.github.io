@@ -3,7 +3,8 @@ class Config {
     constructor() {
         this.values = {};
         this.isLoaded = false;
-        this.backendUrl = 'https://nexoraindustries365.pythonanywhere.com';
+        //this.backendUrl = 'https://nexoraindustries365.pythonanywhere.com';
+        this.backendUrl = 'https://poly-perspective-oil-circumstances.trycloudflare.com';
         this.loadConfig();
     }
 
