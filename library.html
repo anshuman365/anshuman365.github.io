@@ -1072,5 +1072,40 @@ document.addEventListener('contextmenu', (e) => {
       // For now, just log to console
     }
 </script>
+<!-- Ad Scripts -->
+<script type='text/javascript' src='//summonteacherjunction.com/2f/cb/90/2fcb90bb27c53aa983bb1c6d8af48745.js'></script>
+
+<!-- Smartlink Implementation -->
+<script>
+  // Smartlink for library page
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add smartlink to a hidden element that triggers on page interaction
+    var smartlinkTrigger = document.createElement('div');
+    smartlinkTrigger.innerHTML = '<a href="https://summonteacherjunction.com/u6f74fdqtn?key=5a6d299077e682298207845bab5886cb" id="smartlink-redirect" style="display: none;"></a>';
+    document.body.appendChild(smartlinkTrigger);
+    
+    // Trigger smartlink on user interaction
+    var interactionEvents = ['click', 'scroll', 'keydown', 'mousemove'];
+    var triggered = false;
+    
+    function triggerSmartlink() {
+      if (!triggered) {
+        triggered = true;
+        setTimeout(function() {
+          document.getElementById('smartlink-redirect').click();
+        }, 2000);
+        // Remove event listeners after triggering
+        interactionEvents.forEach(function(event) {
+          document.removeEventListener(event, triggerSmartlink);
+        });
+      }
+    }
+    
+    // Add event listeners for user interaction
+    interactionEvents.forEach(function(event) {
+      document.addEventListener(event, triggerSmartlink, { once: true });
+    });
+  });
+</script>
 </body>
 </html>
