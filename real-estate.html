@@ -20,7 +20,7 @@
   <meta property="og:url" content="https://anshuman365.github.io/real-estate.html">
   <meta property="og:title" content="Real Estate Services | Anshuman Singh | Property Expert">
   <meta property="og:description" content="Professional real estate services in Uttar Pradesh. Property buying, selling, investment consulting, and market analysis.">
-  <meta property="og:image" content="https://anshuman365.github.io/assets/real-estate-banner.jpg">
+  <meta property="og:image" content="https://anshuman365.github.io/assets/real-estate/real-estate-banner.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Anshuman Singh - Real Estate Services">
@@ -31,12 +31,18 @@
   <meta name="twitter:creator" content="@SarvarSing35025">
   <meta name="twitter:title" content="Real Estate Services | Anshuman Singh">
   <meta name="twitter:description" content="Professional real estate services in Uttar Pradesh. Find your dream home with expert guidance.">
-  <meta name="twitter:image" content="https://anshuman365.github.io/assets/real-estate-banner.jpg">
+  <meta name="twitter:image" content="https://anshuman365.github.io/assets/real-estate/real-estate-banner.jpg">
   
   <!-- Additional SEO Meta Tags -->
   <meta name="language" content="EN">
   <meta name="geo.region" content="IN-UP">
   <meta name="geo.placename" content="Uttar Pradesh">
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="assets/real-estate/real-estate-banner.jpg" as="image">
+  <link rel="preload" href="assets/real-estate/modern-villa.jpg" as="image">
+  <link rel="preload" href="assets/real-estate/luxury-apartment.jpg" as="image">
+  <link rel="preload" href="assets/real-estate/family-home.jpg" as="image">
   
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -46,8 +52,8 @@
     "name": "Anshuman Singh - Real Estate Services",
     "description": "Professional real estate services in Uttar Pradesh with expertise in property buying, selling, and investment consulting",
     "url": "https://anshuman365.github.io/real-estate.html",
-    "telephone": "+91-XXXXXXXXXX",
-    "email": "realestate@anshumansingh.com",
+    "telephone": "+91-6393741885",
+    "email": "anshumansingh3697@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "addressRegion": "Uttar Pradesh",
@@ -303,34 +309,36 @@
   <!-- Navigation Placeholder -->
   <div id="nav-placeholder"></div>
 
-  <!-- Real Estate Hero Section -->
-  <section class="pt-24 pb-16 realestate-hero-gradient text-white">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">Find Your Dream Property with Expert Guidance</h1>
-      <p class="text-xl max-w-2xl mx-auto opacity-90 mb-8">
-        Professional real estate services tailored to your unique needs - from first-time home buying to luxury property investments
-      </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="#contact" class="bg-white text-primary px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-          <i class="fas fa-calendar-alt mr-2"></i>Schedule Free Consultation
-        </a>
-        <a href="#properties" class="border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition backdrop-blur-sm">
-          <i class="fas fa-home mr-2"></i>Browse Properties
-        </a>
-      </div>
+<!-- Real Estate Hero Section with Background Image -->
+<section class="pt-24 pb-16 text-white relative overflow-hidden">
+  <div class="absolute inset-0 bg-black/40 z-0"></div>
+  <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('assets/real-estate/real-estate-banner.jpg')"></div>
+  <div class="container mx-auto px-4 text-center relative z-10">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">Find Your Dream Property with Expert Guidance</h1>
+    <p class="text-xl max-w-2xl mx-auto opacity-90 mb-8">
+      Professional real estate services tailored to your unique needs - from first-time home buying to luxury property investments
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="#contact" class="bg-white text-primary px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+        <i class="fas fa-calendar-alt mr-2"></i>Schedule Free Consultation
+      </a>
+      <a href="#properties" class="border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition backdrop-blur-sm">
+        <i class="fas fa-home mr-2"></i>Browse Properties
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- About Section -->
-  <section class="py-16 bg-white dark:bg-dark-card">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <div class="flex flex-col md:flex-row items-center gap-12">
-          <div class="md:w-2/5">
-            <div class="w-full h-64 bg-gradient-to-r from-primary to-secondary rounded-2xl shadow-lg flex items-center justify-center text-white text-6xl">
-              <i class="fas fa-user-tie"></i>
-            </div>
+<!-- About Section -->
+<section class="py-16 bg-white dark:bg-dark-card">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-2/5">
+          <div class="w-full h-64 bg-cover bg-center rounded-2xl shadow-lg" style="background-image: url('assets/real-estate/professional-agent.jpg')">
           </div>
+        </div>
+        <!-- Rest of about section content remains the same -->
           <div class="md:w-3/5">
             <h2 class="text-3xl md:text-4xl font-bold mb-6 text-dark dark:text-white">About My Real Estate Expertise</h2>
             <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
@@ -558,115 +566,143 @@
     </div>
   </section>
 
-  <!-- Featured Properties Section -->
-  <section class="py-16 bg-white dark:bg-dark-card" id="properties">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-dark dark:text-white">Featured Properties</h2>
-      <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">Explore our handpicked selection of exceptional properties</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="property-card bg-white dark:bg-dark-card rounded-xl shadow-md overflow-hidden">
-          <div class="property-image bg-gradient-to-r from-cyan-400 to-blue-500 relative">
-            <div class="property-price">$850,000</div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-dark dark:text-white">Modern Luxury Villa</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-3 flex items-center">
-              <i class="fas fa-map-marker-alt text-primary mr-2"></i>
-              Premium Residential Area
-            </p>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">Spacious 4-bedroom villa with premium finishes, private garden, and modern amenities</p>
-            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-              <div class="property-feature">
-                <i class="fas fa-bed"></i>
-                <span>4 Beds</span>
-              </div>
-              <div class="property-feature">
-                <i class="fas fa-bath"></i>
-                <span>3 Baths</span>
-              </div>
-              <div class="property-feature">
-                <i class="fas fa-ruler-combined"></i>
-                <span>2,800 sq ft</span>
-              </div>
-            </div>
-            <a href="#contact" class="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-cyan-700 transition font-semibold">
-              <i class="fas fa-eye mr-2"></i>Schedule Viewing
-            </a>
+<!-- Featured Properties Section -->
+<section class="py-16 bg-white dark:bg-dark-card" id="properties">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-dark dark:text-white">Featured Properties</h2>
+    <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">Explore our handpicked selection of exceptional properties</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Property 1: Modern Luxury Villa -->
+      <div class="property-card bg-white dark:bg-dark-card rounded-xl shadow-md overflow-hidden">
+        <div class="property-image bg-cover bg-center relative" style="background-image: url('assets/real-estate/modern-villa.jpg')">
+          <div class="property-price">$850,000</div>
+          <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Featured
           </div>
         </div>
-        
-        <div class="property-card bg-white dark:bg-dark-card rounded-xl shadow-md overflow-hidden">
-          <div class="property-image bg-gradient-to-r from-green-400 to-teal-500 relative">
-            <div class="property-price">$525,000</div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-dark dark:text-white">Downtown Luxury Apartment</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-3 flex items-center">
-              <i class="fas fa-map-marker-alt text-primary mr-2"></i>
-              City Center
-            </p>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">Luxurious 2-bedroom apartment with city views, modern kitchen, and building amenities</p>
-            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-              <div class="property-feature">
-                <i class="fas fa-bed"></i>
-                <span>2 Beds</span>
-              </div>
-              <div class="property-feature">
-                <i class="fas fa-bath"></i>
-                <span>2 Baths</span>
-              </div>
-              <div class="property-feature">
-                <i class="fas fa-ruler-combined"></i>
-                <span>1,200 sq ft</span>
-              </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-dark dark:text-white">Modern Luxury Villa</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-3 flex items-center">
+            <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+            Premium Residential Area
+          </p>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">Spacious 4-bedroom villa with premium finishes, private garden, and modern amenities</p>
+          <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+            <div class="property-feature">
+              <i class="fas fa-bed"></i>
+              <span>4 Beds</span>
             </div>
-            <a href="#contact" class="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-cyan-700 transition font-semibold">
-              <i class="fas fa-eye mr-2"></i>Schedule Viewing
-            </a>
-          </div>
-        </div>
-        
-        <div class="property-card bg-white dark:bg-dark-card rounded-xl shadow-md overflow-hidden">
-          <div class="property-image bg-gradient-to-r from-orange-400 to-red-500 relative">
-            <div class="property-price">$425,000</div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-dark dark:text-white">Family Suburban Home</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-3 flex items-center">
-              <i class="fas fa-map-marker-alt text-primary mr-2"></i>
-              Quiet Neighborhood
-            </p>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">Perfect family home with large backyard, updated kitchen, and excellent school district</p>
-            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-              <div class="property-feature">
-                <i class="fas fa-bed"></i>
-                <span>3 Beds</span>
-              </div>
-              <div class="property-feature">
-                <i class="fas fa-bath"></i>
-                <span>2 Baths</span>
-              </div>
-              <div class="property-feature">
-                <i class="fas fa-ruler-combined"></i>
-                <span>1,800 sq ft</span>
-              </div>
+            <div class="property-feature">
+              <i class="fas fa-bath"></i>
+              <span>3 Baths</span>
             </div>
-            <a href="#contact" class="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-cyan-700 transition font-semibold">
-              <i class="fas fa-eye mr-2"></i>Schedule Viewing
-            </a>
+            <div class="property-feature">
+              <i class="fas fa-ruler-combined"></i>
+              <span>2,800 sq ft</span>
+            </div>
           </div>
+          <a href="#contact" class="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-cyan-700 transition font-semibold">
+            <i class="fas fa-eye mr-2"></i>Schedule Viewing
+          </a>
         </div>
       </div>
       
-      <div class="text-center mt-12">
-        <p class="text-gray-600 dark:text-gray-300 mb-4">Don't see what you're looking for?</p>
-        <a href="#contact" class="text-primary font-semibold hover:underline">
-          Contact me for personalized property recommendations
-        </a>
+      <!-- Property 2: Downtown Luxury Apartment -->
+      <div class="property-card bg-white dark:bg-dark-card rounded-xl shadow-md overflow-hidden">
+        <div class="property-image bg-cover bg-center relative" style="background-image: url('assets/real-estate/luxury-apartment.jpg')">
+          <div class="property-price">$525,000</div>
+          <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+            New Listing
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-dark dark:text-white">Downtown Luxury Apartment</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-3 flex items-center">
+            <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+            City Center
+          </p>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">Luxurious 2-bedroom apartment with city views, modern kitchen, and building amenities</p>
+          <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+            <div class="property-feature">
+              <i class="fas fa-bed"></i>
+              <span>2 Beds</span>
+            </div>
+            <div class="property-feature">
+              <i class="fas fa-bath"></i>
+              <span>2 Baths</span>
+            </div>
+            <div class="property-feature">
+              <i class="fas fa-ruler-combined"></i>
+              <span>1,200 sq ft</span>
+            </div>
+          </div>
+          <a href="#contact" class="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-cyan-700 transition font-semibold">
+            <i class="fas fa-eye mr-2"></i>Schedule Viewing
+          </a>
+        </div>
+      </div>
+      
+      <!-- Property 3: Family Suburban Home -->
+      <div class="property-card bg-white dark:bg-dark-card rounded-xl shadow-md overflow-hidden">
+        <div class="property-image bg-cover bg-center relative" style="background-image: url('assets/real-estate/family-home.jpg')">
+          <div class="property-price">$425,000</div>
+          <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+            Family Favorite
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2 text-dark dark:text-white">Family Suburban Home</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-3 flex items-center">
+            <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+            Quiet Neighborhood
+          </p>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">Perfect family home with large backyard, updated kitchen, and excellent school district</p>
+          <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+            <div class="property-feature">
+              <i class="fas fa-bed"></i>
+              <span>3 Beds</span>
+            </div>
+            <div class="property-feature">
+              <i class="fas fa-bath"></i>
+              <span>2 Baths</span>
+            </div>
+            <div class="property-feature">
+              <i class="fas fa-ruler-combined"></i>
+              <span>1,800 sq ft</span>
+            </div>
+          </div>
+          <a href="#contact" class="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-cyan-700 transition font-semibold">
+            <i class="fas fa-eye mr-2"></i>Schedule Viewing
+          </a>
+        </div>
       </div>
     </div>
-  </section>
+    
+    <!-- Additional Property Images -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+      <div class="rounded-lg overflow-hidden shadow-md">
+        <img src="assets/real-estate/property-interior-1.jpg" alt="Modern Kitchen" class="w-full h-32 object-cover hover:scale-105 transition duration-300">
+      </div>
+      <div class="rounded-lg overflow-hidden shadow-md">
+        <img src="assets/real-estate/property-interior-2.jpg" alt="Luxury Bathroom" class="w-full h-32 object-cover hover:scale-105 transition duration-300">
+      </div>
+      <div class="rounded-lg overflow-hidden shadow-md">
+        <img src="assets/real-estate/property-exterior-1.jpg" alt="Swimming Pool" class="w-full h-32 object-cover hover:scale-105 transition duration-300">
+      </div>
+      <div class="rounded-lg overflow-hidden shadow-md">
+        <img src="assets/real-estate/property-exterior-2.jpg" alt="Garden Area" class="w-full h-32 object-cover hover:scale-105 transition duration-300">
+      </div>
+    </div>
+    
+    <div class="text-center mt-12">
+      <p class="text-gray-600 dark:text-gray-300 mb-4">Don't see what you're looking for?</p>
+      <a href="#contact" class="text-primary font-semibold hover:underline">
+        Contact me for personalized property recommendations
+      </a>
+    </div>
+  </div>
+</section>
 
   <!-- Testimonials Section -->
   <section class="py-16 bg-gray-50 dark:bg-gray-900">
@@ -776,7 +812,7 @@
                 </div>
                 <div>
                   <h4 class="font-bold text-dark dark:text-white">Phone</h4>
-                  <p class="text-gray-600 dark:text-gray-300">+91 XXXXX XXXXX</p>
+                  <p class="text-gray-600 dark:text-gray-300">+91 6393741885</p>
                 </div>
               </div>
               
@@ -786,7 +822,7 @@
                 </div>
                 <div>
                   <h4 class="font-bold text-dark dark:text-white">Email</h4>
-                  <p class="text-gray-600 dark:text-gray-300">realestate@anshumansingh.com</p>
+                  <p class="text-gray-600 dark:text-gray-300">anshumansingh3697@gmail.com</p>
                 </div>
               </div>
               
@@ -887,10 +923,10 @@
         <h3 class="text-2xl font-bold mb-4 text-dark dark:text-white">Ready to Take the Next Step?</h3>
         <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">Contact me today for personalized property recommendations and expert guidance throughout your real estate journey.</p>
         <div class="flex flex-wrap justify-center gap-4">
-          <a href="tel:+91XXXXXXXXXX" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-cyan-700 transition font-semibold">
+          <a href="tel:+916393741885" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-cyan-700 transition font-semibold">
             <i class="fas fa-phone mr-2"></i>Call Now
           </a>
-          <a href="mailto:realestate@anshumansingh.com" class="border-2 border-primary text-primary dark:text-blue-300 px-8 py-3 rounded-lg hover:bg-cyan-50 dark:hover:bg-cyan-900/20 transition font-semibold">
+          <a href="mailto:anshumansingh3697@gmail.com" class="border-2 border-primary text-primary dark:text-blue-300 px-8 py-3 rounded-lg hover:bg-cyan-50 dark:hover:bg-cyan-900/20 transition font-semibold">
             <i class="fas fa-envelope mr-2"></i>Email Me
           </a>
         </div>
