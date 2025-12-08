@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Fragmentation Law - Research Summary | Anshuman Singh</title>
+    <meta name="description" content="A detailed analysis of the universal fragmentation law research from Aix-Marseille University. Explore how everything breaks following mathematical patterns.">
+    <meta name="keywords" content="fragmentation, physics, materials science, research, Aix-Marseille University, universal law, chaos theory">
+    <meta name="author" content="Anshuman Singh">
+    <meta property="og:title" content="Universal Fragmentation Law - Research Summary">
+    <meta property="og:description" content="How everything breaks: A universal law of fragmentation across solids, liquids, and materials.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anshuman365.github.io/research/paper/abcd.html">
+    <link rel="canonical" href="https://anshuman365.github.io/research/paper/abcd.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/fluency/96/000000/experiment.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --border-radius: 12px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.2)), 
+                        url('assets/research/paper/78656/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 5rem 0 7rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(124, 58, 237, 0.9) 100%);
+            mix-blend-mode: multiply;
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .header-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 4rem 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 3rem;
+        }
+        
+        @media (max-width: 992px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: 2;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+        }
+        
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin: 1.8rem 0 1rem;
+            color: var(--dark);
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--dark);
+            font-size: 1.05rem;
+        }
+        
+        .research-image {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-light);
+            transition: transform 0.3s ease;
+        }
+        
+        .research-image:hover {
+            transform: scale(1.01);
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .image-caption {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-align: center;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(to right, #f0f9ff, #e0f2fe);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .highlight-box:before {
+            content: '💡';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .equation-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 2px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1.2rem;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .equation-box:before {
+            content: 'f(x)';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .equation-box kbd {
+            background: white;
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--gray-light);
+            box-shadow: 0 3px 5px rgba(0,0,0,0.05);
+            margin: 0 5px;
+            font-weight: 500;
+        }
+        
+        /* List Styles */
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .feature-list li {
+            padding: 0.8rem 0 0.8rem 2.5rem;
+            position: relative;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0.8rem;
+            background: var(--success);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .warning-list li:before {
+            content: '⚠';
+            background: var(--warning);
+        }
+        
+        /* Sidebar */
+        .sidebar-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-light);
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .sidebar-card h3 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+        
+        .tag {
+            background: #f1f5f9;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--dark);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .author-profile {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: var(--border-radius);
+        }
+        
+        .author-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .author-link {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .author-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .citation-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9rem;
+            text-align: left;
+            border-left: 3px solid var(--primary);
+            position: relative;
+        }
+        
+        .citation-box:before {
+            content: '📚';
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .card {
+                padding: 2rem;
+            }
+            
+            .meta-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            header {
+                padding: 4rem 0 6rem;
+                background-attachment: scroll;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .equation-box {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .stagger > * {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .stagger > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger > *:nth-child(4) { animation-delay: 0.4s; }
+        .stagger > *:nth-child(5) { animation-delay: 0.5s; }
+        .stagger > *:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-overlay"></div>
+        <div class="container">
+            <div class="header-content stagger">
+                <div class="header-badge">
+                    <i class="fas fa-flask"></i> Physics Research
+                </div>
+                <h1>Universal Fragmentation Law</h1>
+                <p class="subtitle">How everything breaks: A mathematical principle governing fragmentation across solids, liquids, and materials</p>
+                
+                <div class="meta-info">
+                    <div class="meta-item">
+                        <i class="fas fa-user"></i>
+                        <span>Lead Author: <strong>Emmanuel Villermaux</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-university"></i>
+                        <span>Institution: <strong>Aix‑Marseille University</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Published: <strong>September 23, 2025</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-book"></i>
+                        <span>Journal: <strong>Physical Review Letters</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="content-grid">
+            <!-- Main Content Column -->
+            <div class="main-content">
+                <!-- Introduction Card -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-scroll"></i> The Universal Fragmentation Principle</h2>
+                    <p>Why does a glass cup, a rock, or even a bubble—when they break—produce fragments following a predictable mathematical pattern? This research from Aix‑Marseille University reveals a universal law that governs fragmentation across diverse materials and scenarios.</p>
+                    
+                    <img src="assets/research/paper/78656/banner.jpg" alt="Cube or glass object exploding with thousands of fragments representing universal fragmentation law" class="research-image">
+                    <p class="image-caption">Visual representation of fragmentation: thousands of fragments following universal statistical patterns</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Core Insight:</strong> Instead of focusing on material-specific fracture mechanics, the researchers propose that fragmentation follows a universal statistical law based on two fundamental principles:</p>
+                    </div>
+                    
+                    <ul class="feature-list">
+                        <li><strong>Conservation of Mass:</strong> The total mass/volume must be distributed among fragments</li>
+                        <li><strong>Maximum Randomness:</strong> Under chaotic conditions, the most probable outcome maximizes disorder</li>
+                    </ul>
+                    
+                    <p>From these principles, the researchers derived a mathematical formula that predicts fragment size distributions across different dimensionalities (3D solids, 2D plates, liquid shells, etc.).</p>
+                </section>
+
+                <!-- Mathematical Foundation Card -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-calculator"></i> Mathematical Foundation</h2>
+                    <p>The universal fragmentation law predicts a power-law distribution for fragment sizes:</p>
+                    
+                    <div class="equation-box">
+                        <p>N(s) ∝ s<sup>-α</sup></p>
+                        <p>where:</p>
+                        <p><kbd>N(s)</kbd> = number of fragments of size <kbd>s</kbd></p>
+                        <p><kbd>α</kbd> = exponent depending on dimensionality (3D: α≈2.0, 2D: α≈1.5)</p>
+                    </div>
+                    
+                    <img src="assets/research/paper/78656/img2.jpg" alt="Infographic showing mass conservation and maximum randomness concepts" class="research-image">
+                    <p class="image-caption">Infographic illustrating the core principles: mass conservation (left) and maximum randomness (right)</p>
+                    
+                    <p>This power-law structure explains why there are many small fragments, fewer medium-sized ones, and very few large pieces—a pattern observed across countless fragmentation experiments.</p>
+                    
+                    <h3>Dimensional Consistency</h3>
+                    <p>The law elegantly adapts to different dimensionalities:</p>
+                    <ul class="feature-list">
+                        <li><strong>3D Solids:</strong> Blocks, spheres, cubes (e.g., sugar cubes, rocks)</li>
+                        <li><strong>2D Plates:</strong> Sheets, plates, thin layers</li>
+                        <li><strong>1D Shells:</strong> Liquid shells, bubbles, hollow structures</li>
+                    </ul>
+                </section>
+
+                <!-- Evidence & Validation Card -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-check-circle"></i> Experimental Validation</h2>
+                    <p>The researchers tested their theoretical predictions against extensive experimental data spanning decades of fragmentation research:</p>
+                    
+                    <div class="image-grid">
+                        <div>
+                            <img src="assets/research/paper/78656/img3.jpg" alt="Scientific log-log graph showing power-law distribution of fragment sizes" class="research-image">
+                            <p class="image-caption">Log-log graph showing the characteristic power-law line of fragment size distribution</p>
+                        </div>
+                        <div>
+                            <img src="assets/research/paper/78656/img4.jpg" alt="High-speed macro shot of sugar cube fragmenting into crystalline pieces" class="research-image">
+                            <p class="image-caption">Experimental validation: Sugar cube fragmentation captured in high-speed photography</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Retrospective Validation</h3>
+                    <ul class="feature-list">
+                        <li><strong>Brittle Solids:</strong> Glass, ceramics, rock fragmentation data</li>
+                        <li><strong>Liquids & Bubbles:</strong> Droplet breakup, bubble bursting experiments</li>
+                        <li><strong>Archaeological Evidence:</strong> Stone-tool flake distributions</li>
+                        <li><strong>Plastic Debris:</strong> Environmental fragmentation patterns</li>
+                    </ul>
+                    
+                    <h3>New Controlled Experiment: Sugar Cubes</h3>
+                    <p>The team conducted a fresh experiment crushing sugar cubes—simple 3D solids with uniform structure. Their model's prediction matched the experimental fragment-size distribution with remarkable accuracy, providing strong validation for the theory.</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Key Finding:</strong> The same mathematical law describes fragmentation in materials as different as glass, water, and stone—suggesting a universal underlying principle.</p>
+                    </div>
+                </section>
+
+                <!-- Limitations Card -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Limitations & Boundaries</h2>
+                    <p>While powerful, the universal fragmentation law has specific boundaries:</p>
+                    
+                    <ul class="feature-list warning-list">
+                        <li><strong>Non-Random Breakup:</strong> Does not apply to regular, deterministic fragmentation (e.g., uniform droplet formation from capillary instability)</li>
+                        <li><strong>Deformable Materials:</strong> Less accurate for highly ductile or soft materials where deformation dominates over fragmentation</li>
+                        <li><strong>Shape Prediction:</strong> Describes size distribution but not fragment shape, which depends on material-specific crack propagation</li>
+                        <li><strong>Ordered Structures:</strong> Materials with crystalline or highly ordered internal structure may show deviations</li>
+                    </ul>
+                    
+                    <p>The law works best under "chaotic" or "random" fragmentation conditions—typical of most real-world breakage scenarios.</p>
+                </section>
+
+                <!-- Implications Card -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-globe"></i> Implications & Applications</h2>
+                    
+                    <h3>Scientific Unification</h3>
+                    <p>This work bridges multiple disciplines: materials science, fluid mechanics, geophysics, and statistical physics. It provides a common language for describing fragmentation phenomena across different fields.</p>
+                    
+                    <h3>Industrial Applications</h3>
+                    <ul class="feature-list">
+                        <li><strong>Mining & Comminution:</strong> Optimizing rock crushing processes for mineral extraction</li>
+                        <li><strong>Materials Safety:</strong> Predicting debris sizes in failure scenarios for engineering design</li>
+                        <li><strong>Recycling & Processing:</strong> Understanding and controlling material breakdown during recycling</li>
+                        <li><strong>Geophysics:</strong> Modeling meteorite breakup, volcanic ash formation, and rock fragmentation</li>
+                        <li><strong>Environmental Science:</strong> Understanding plastic degradation and microplastic formation</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Philosophical Insight:</strong> This research demonstrates how apparent chaos in physical processes can conceal underlying order and predictability—a beautiful example of how fundamental principles can explain complex phenomena.</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Quick Facts Card -->
+                <div class="sidebar-card fade-in">
+                    <h3><i class="fas fa-bolt"></i> Key Highlights</h3>
+                    <ul class="feature-list">
+                        <li>Single law for solids & liquids</li>
+                        <li>Based on maximum randomness</li>
+                        <li>Validated across decades of data</li>
+                        <li>Dimension-aware (3D/2D/1D)</li>
+                        <li>Practical industrial applications</li>
+                    </ul>
+                    
+                    <h3><i class="fas fa-tags"></i> Research Tags</h3>
+                    <div class="tags">
+                        <span class="tag">Fragmentation</span>
+                        <span class="tag">Statistical Physics</span>
+                        <span class="tag">Materials Science</span>
+                        <span class="tag">Chaos Theory</span>
+                        <span class="tag">Power Laws</span>
+                        <span class="tag">Universal Laws</span>
+                        <span class="tag">Aix-Marseille</span>
+                        <span class="tag">Physical Review Letters</span>
+                        <span class="tag">Breakage</span>
+                        <span class="tag">Random Processes</span>
+                    </div>
+                </div>
+
+                <!-- Author Profile Card -->
+                <div class="sidebar-card author-profile fade-in">
+                    <div class="author-avatar">
+                        <img src="https://anshuman365.github.io/assets/profile.jpg" alt="Anshuman Singh - Physics & Data Science Enthusiast">
+                    </div>
+                    <h3>Anshuman Singh</h3>
+                    <p>Physics & Data Science Enthusiast</p>
+                    <p>Analyzing and communicating cutting-edge research</p>
+                    
+                    <div class="author-links">
+                        <a href="https://anshuman365.github.io" class="author-link" title="Personal Website">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                        <a href="https://github.com/anshuman365" class="author-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="author-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+<!-- Resources Card -->
+<div class="sidebar-card fade-in">
+    <h3><i class="fas fa-download"></i> Resources</h3>
+    <ul class="feature-list">
+        <li><a href="assets/research/paper/78656/r7xz-5d9c.pdf" class="resource-link"><i class="fas fa-file-pdf"></i> Original Paper (PDF)</a></li>
+        
+        <li><a href="https://dataverse.harvard.edu/dataverse/fragmentation" class="resource-link" target="_blank"><i class="fas fa-chart-bar"></i> Experimental Data</a></li>
+        
+        <li><a href="https://github.com/irg1008/DEM-Fragmentation" class="resource-link" target="_blank"><i class="fas fa-code"></i> Simulation Code</a></li>
+        
+        <li><a href="https://arxiv.org/abs/2401.02450" class="resource-link" target="_blank"><i class="fas fa-book"></i> Related Research</a></li>
+    </ul>
+</div>
+
+                <!-- Share Card -->
+                <div class="sidebar-card fade-in">
+                    <h3><i class="fas fa-share-alt"></i> Share This Research</h3>
+                    <div class="tags">
+                        <span class="tag" onclick="shareResearch('twitter')"><i class="fab fa-twitter"></i> Twitter</span>
+                        <span class="tag" onclick="shareResearch('linkedin')"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                        <span class="tag" onclick="shareResearch('facebook')"><i class="fab fa-facebook"></i> Facebook</span>
+                        <span class="tag" onclick="copyLink()"><i class="fas fa-link"></i> Copy Link</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="color: white;">
+            <div class="footer-content">
+                <div class="footer-logo">Research Insights</div>
+                <p style="color: white;">Deep dives into cutting-edge scientific research</p>
+                
+                <div class="citation-box" style="color: white;">
+                    <p style="color: white;"><strong>Suggested Citation:</strong></p>
+                    <p style="color: white;">Villermaux, E. (2025). Fragmentation: Principles versus mechanisms. <em>Physical Review Letters</em>. DOI: 10.1103/r7xz-5d9c</p>
+                </div>
+                
+                <p style="color: white;">This analysis was created by Anshuman Singh as an educational resource.</p>
+                <p style="color: white;">For more research summaries, visit: <a href="https://anshuman365.github.io" style="color: #60a5fa;">anshuman365.github.io</a></p>
+                
+                <div class="author-links" style="margin-top: 2rem; color: white;">
+                    <a href="https://anshuman365.github.io" class="author-link" title="Personal Website">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="https://github.com/anshuman365" class="author-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="author-link" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7; color: white;">© 2025 Anshuman Singh. All research content based on published academic work.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all cards
+            document.querySelectorAll('.card, .sidebar-card').forEach((el) => {
+                observer.observe(el);
+            });
+            
+            // Back to top functionality
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            });
+            
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Share functionality
+        function shareResearch(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            const text = encodeURIComponent("Check out this fascinating research on Universal Fragmentation Law");
+            
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+        }
+
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+
+        // Add click handlers to resource links
+        document.querySelectorAll('.resource-links').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const resourceType = this.textContent.toLowerCase();
+                alert(`This would typically download the ${resourceType}. In a real implementation, this would link to actual resources.`);
+            });
+        });
+    </script>
+</body>
+</html>
