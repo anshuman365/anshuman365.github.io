@@ -684,6 +684,7 @@ async function generateAndDownloadInvoice(paymentResponse) {
     const fromDetails = [
         'Anshuman Singh - AI Developer',
         'Uttar Pradesh, India',
+        'Company: Nexora Global Pvt. Ltd.',
         'Email: anshumansingh3697@gmail.com',
         'Website: anshuman365.github.io'
     ];
