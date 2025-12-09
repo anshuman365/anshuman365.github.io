@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Shadows: A New Window Into Hidden Physics | Anshuman Singh</title>
+    <meta name="description" content="How the shape of black hole shadows could reveal new forces, extra dimensions, and physics beyond Einstein's theory of General Relativity.">
+    <meta name="keywords" content="black hole shadows, Einstein theory, general relativity, new physics, EHT, Event Horizon Telescope, quantum gravity, dark matter, extra dimensions">
+    <meta name="author" content="Anshuman Singh">
+    <meta property="og:title" content="Black Hole Shadows: A New Window Into Hidden Physics">
+    <meta property="og:description" content="How black hole shadows can reveal physics beyond Einstein's theory - dark matter, extra dimensions, and quantum gravity effects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anshuman365.github.io/research/paper/black_hole_shadows_new_physics.html">
+    <meta property="og:image" content="https://anshuman365.github.io/research/paper/assets/research/paper/97567/banner.jpg">
+    <link rel="canonical" href="https://anshuman365.github.io/research/paper/black_hole_shadows_new_physics.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/fluency/96/000000/black-hole.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&family=Playfair+Display:wght@700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #059669;
+            --cosmic-blue: #0f172a;
+            --cosmic-purple: #4c1d95;
+            --cosmic-pink: #831843;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --border-radius: 12px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background: linear-gradient(135deg, var(--cosmic-blue) 0%, #1e1b4b 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(5, 150, 105, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.85)), 
+                        url('assets/research/paper/97567/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 5rem 0 7rem;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid var(--cosmic-purple);
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(76, 29, 149, 0.7) 0%, rgba(37, 99, 235, 0.7) 100%);
+            mix-blend-mode: multiply;
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .header-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: float 3s ease-in-out infinite;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to right, #60a5fa, #c4b5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+            color: #cbd5e1;
+        }
+        
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+        
+        .meta-item i {
+            color: #60a5fa;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 4rem 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 3rem;
+        }
+        
+        @media (max-width: 992px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: 2;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+        }
+        
+        .card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            box-shadow: 0 0 30px rgba(96, 165, 250, 0.2);
+            transform: translateY(-5px);
+            border-color: rgba(96, 165, 250, 0.3);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #f1f5f9;
+            position: relative;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, #60a5fa, #8b5cf6);
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin: 1.8rem 0 1rem;
+            color: #f1f5f9;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            color: #cbd5e1;
+            font-size: 1.05rem;
+        }
+        
+        .research-image {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .research-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .image-caption {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(to right, rgba(30, 58, 138, 0.3), rgba(30, 58, 138, 0.5));
+            border-left: 4px solid #60a5fa;
+            padding: 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .highlight-box:before {
+            content: '✨';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(30, 41, 59, 0.9);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            border: 2px solid #60a5fa;
+        }
+        
+        .equation-box {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1.2rem;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .equation-box:before {
+            content: 'E = mc²';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: linear-gradient(135deg, #60a5fa, #8b5cf6);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .equation-box kbd {
+            background: rgba(30, 41, 59, 0.9);
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+            margin: 0 5px;
+            font-weight: 500;
+            color: #60a5fa;
+        }
+        
+        /* List Styles */
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .feature-list li {
+            padding: 0.8rem 0 0.8rem 2.5rem;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0.8rem;
+            background: var(--accent);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .warning-list li:before {
+            content: '⚠';
+            background: #f59e0b;
+        }
+        
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, #1e40af, #3730a3);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: rgba(30, 41, 59, 0.5);
+        }
+        
+        .comparison-table tr:hover {
+            background: rgba(96, 165, 250, 0.1);
+        }
+        
+        /* Sidebar */
+        .sidebar-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .sidebar-card h3 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+        
+        .tag {
+            background: rgba(96, 165, 250, 0.1);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #60a5fa;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+        }
+        
+        .tag:hover {
+            background: rgba(96, 165, 250, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(96, 165, 250, 0.2);
+        }
+        
+        .author-profile {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border-radius: var(--border-radius);
+        }
+        
+        .author-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 4px solid rgba(96, 165, 250, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .author-link {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(96, 165, 250, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #60a5fa;
+            transition: var(--transition);
+            text-decoration: none;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+        }
+        
+        .author-link:hover {
+            background: rgba(96, 165, 250, 0.3);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(96, 165, 250, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.9);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 3px solid var(--cosmic-purple);
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #60a5fa, #8b5cf6);
+        }
+        
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #60a5fa, #c4b5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .citation-box {
+            background: rgba(96, 165, 250, 0.1);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9rem;
+            text-align: left;
+            border-left: 3px solid #60a5fa;
+            position: relative;
+        }
+        
+        .citation-box:before {
+            content: '📚';
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(96, 165, 250, 0.9);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .card {
+                padding: 2rem;
+            }
+            
+            .meta-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            header {
+                padding: 4rem 0 6rem;
+                background-attachment: scroll;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .equation-box {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .stagger > * {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .stagger > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger > *:nth-child(4) { animation-delay: 0.4s; }
+        .stagger > *:nth-child(5) { animation-delay: 0.5s; }
+        .stagger > *:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #60a5fa, #8b5cf6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: linear-gradient(135deg, #3b82f6, #7c3aed);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(96, 165, 250, 0.4);
+        }
+        
+        /* Cosmic Elements */
+        .cosmic-dot {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            animation: twinkle 5s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        /* Quote Box */
+        .quote-box {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.3), rgba(76, 29, 149, 0.3));
+            border-left: 4px solid #8b5cf6;
+            padding: 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin: 2rem 0;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .quote-box:before {
+            content: '"';
+            position: absolute;
+            left: -25px;
+            top: -15px;
+            font-size: 4rem;
+            color: #8b5cf6;
+            opacity: 0.5;
+            font-family: serif;
+        }
+
+        /* Section Divider with Background Image */
+        .cosmic-divider {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('assets/research/paper/97567/img4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 4rem 0;
+            margin: 3rem 0;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Create cosmic dots -->
+    <div id="cosmic-dots"></div>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-overlay"></div>
+        <div class="container">
+            <div class="header-content stagger">
+                <div class="header-badge">
+                    <i class="fas fa-meteor"></i> Astrophysics Research
+                </div>
+                <h1>Black Hole Shadows</h1>
+                <p class="subtitle">How cosmic X-rays of black hole shadows could reveal new forces, extra dimensions, and physics beyond Einstein's theory</p>
+                
+                <div class="meta-info">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Published: <strong>November 2025</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-journal-whills"></i>
+                        <span>Journal: <strong>Science Advances</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-user-astronaut"></i>
+                        <span>Field: <strong>Theoretical Astrophysics</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-satellite"></i>
+                        <span>Telescope: <strong>Event Horizon Telescope</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="content-grid">
+            <!-- Main Content Column -->
+            <div class="main-content">
+                <!-- Introduction Card -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-eye"></i> The Cosmic X-Ray: Black Hole Shadows</h2>
+                    
+                    <div class="quote-box">
+                        <p>"Just as a doctor uses X-rays to see inside the human body, scientists can use black hole shadows to X-ray the hidden physics of the universe."</p>
+                    </div>
+                    
+                    <p>In 2019, the Event Horizon Telescope (EHT) captured humanity's first image of a black hole shadow — the dark region at the center of the glowing accretion disk around M87*. That blurry orange donut made history. But what if that shadow could tell us more than just "black holes exist"?</p>
+                    
+                    <img src="assets/research/paper/97567/banner.jpg" alt="Glowing black hole shadow with cosmic background" class="research-image">
+                    <p class="image-caption">A glowing black hole shadow surrounded by accretion disk and cosmic background - Presented by Anshuman Singh</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Core Discovery:</strong> Recent research shows that the exact shape and size of black hole shadows could reveal physics beyond Einstein's General Relativity — including extra dimensions, quantum gravity effects, and dark matter interactions.</p>
+                    </div>
+                    
+                    <p>When light passes too close to a black hole, it gets trapped forever. The boundary between trapped and escaping light creates a "shadow" — a dark region surrounded by bright emission. Einstein's theory predicts this shadow should be nearly circular. But if there's new physics at play, the shadow could be distorted in tell-tale ways.</p>
+                </section>
+
+                <!-- What is a Black Hole Shadow? -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-circle-notch"></i> What Exactly is a Black Hole Shadow?</h2>
+                    
+                    <div class="image-grid">
+                        <div>
+                            <img src="assets/research/paper/97567/img2.jpg" alt="Scientific diagram explaining black hole shadow, photon ring, and event horizon" class="research-image">
+                            <p class="image-caption">Scientific diagram explaining the black hole shadow, photon ring, and event horizon</p>
+                        </div>
+                        <div>
+                            <img src="assets/research/paper/97567/img3.jpg" alt="Visualization of spacetime with extra dimensions modifying gravity" class="research-image">
+                            <p class="image-caption">How spacetime might look if extra dimensions or new physics modify Einstein's gravity</p>
+                        </div>
+                    </div>
+                    
+                    <h3>The Physics Behind the Shadow</h3>
+                    <ul class="feature-list">
+                        <li><strong>Photon Sphere:</strong> A region where light orbits the black hole multiple times before escaping</li>
+                        <li><strong>Event Horizon:</strong> The point of no return - boundary from which nothing can escape</li>
+                        <li><strong>Accretion Disk:</strong> Superheated matter swirling into the black hole, emitting intense radiation</li>
+                        <li><strong>Shadow Boundary:</strong> The edge between light that escapes and light that gets trapped forever</li>
+                    </ul>
+                    
+                    <div class="equation-box">
+                        <p>Shadow Size ≈ <kbd>R<sub>shadow</sub></kbd> = <kbd>3√3 GM / c²</kbd> ≈ <kbd>2.6 R<sub>s</sub></kbd></p>
+                        <p>where <kbd>R<sub>s</sub></kbd> = Schwarzschild radius (for non-rotating black hole)</p>
+                    </div>
+                    
+                    <p>This simple formula assumes a perfect Schwarzschild black hole. But real black holes rotate, have accretion disks, and exist in complex environments — all of which can modify the shadow.</p>
+                </section>
+
+                <!-- The EHT Revolution -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-satellite-dish"></i> The EHT Revolution & M87*</h2>
+                    
+                    <p>The Event Horizon Telescope isn't one telescope — it's a global network of radio telescopes synchronized to create an Earth-sized virtual telescope. This gives it unprecedented angular resolution, capable of seeing details as fine as a doughnut on the Moon!</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Key EHT Finding:</strong> The M87* shadow is indeed circular, consistent with Einstein's predictions within current measurement uncertainties. But the precision needed to detect deviations is just now becoming possible.</p>
+                    </div>
+                    
+                    <h3>Why M87* Was Perfect</h3>
+                    <ul class="feature-list">
+                        <li><strong>Supermassive:</strong> 6.5 billion times the Sun's mass - large enough to image from Earth</li>
+                        <li><strong>Relatively Close:</strong> "Only" 55 million light-years away in cosmic terms</li>
+                        <li><strong>Active Galaxy:</strong> Powerful jet of particles provides contrast for the shadow</li>
+                        <li><strong>Face-On View:</strong> We see the accretion disk nearly face-on, ideal for shadow imaging</li>
+                    </ul>
+                </section>
+
+                <!-- New Physics Signatures -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-atom"></i> How Shadows Reveal New Physics</h2>
+                    
+                    <p>Here's where it gets exciting: Different types of "new physics" create distinct, recognizable distortions in the shadow shape:</p>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>New Physics</th>
+                                <th>Shadow Distortion</th>
+                                <th>What It Reveals</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Extra Dimensions</strong></td>
+                                <td>Elliptical stretching</td>
+                                <td>Hidden spatial dimensions predicted by string theory</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quantum Gravity</strong></td>
+                                <td>Fuzzy or "quantum hair" edges</td>
+                                <td>Quantum effects near event horizon</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dark Matter Halo</strong></td>
+                                <td>Enlarged, asymmetric shadow</td>
+                                <td>Dark matter distribution around black hole</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Modified Gravity</strong></td>
+                                <td>Peanut-shaped distortion</td>
+                                <td>Deviations from Einstein's field equations</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Exotic Matter</strong></td>
+                                <td>Irregular, lumpy edges</td>
+                                <td>New particles or fields around black hole</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>The Mathematical Bridge</h3>
+                    <p>Researchers use a technique called "gravitational lensing backward calculation." They start with different theoretical models (extra dimensions, modified gravity, etc.), calculate the expected shadow shape, then compare with observations.</p>
+                    
+                    <div class="equation-box">
+                        <p>For extra dimensions: <kbd>R<sub>shadow</sub></kbd> = <kbd>R<sub>GR</sub></kbd> × <kbd>(1 + εD)</kbd></p>
+                        <p>where <kbd>εD</kbd> represents extra-dimensional corrections</p>
+                    </div>
+
+                    <!-- Cosmic Divider with Background Image -->
+                    <div class="cosmic-divider fade-in">
+                        <h3 style="color: white; margin-bottom: 1rem;">The Universe's Laboratory</h3>
+                        <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto;">Black holes serve as natural laboratories where extreme physics becomes observable. Unlike particle accelerators, these cosmic giants test fundamental laws under conditions impossible to recreate on Earth.</p>
+                    </div>
+                </section>
+
+                <!-- Future Telescopes -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-telescope"></i> Future Telescopes: The Next Generation</h2>
+                    
+                    <p>Current telescopes like EHT are just the beginning. Next-generation observatories will provide the precision needed to detect these subtle distortions:</p>
+                    
+                    <img src="assets/research/paper/97567/img4.jpg" alt="Cosmic background showing stars and galaxies" class="research-image">
+                    <p class="image-caption">The cosmic canvas where future telescopes will reveal new physics through black hole shadows</p>
+                    
+                    <h3>Upcoming Observatories</h3>
+                    <ul class="feature-list">
+                        <li><strong>EHT 2.0:</strong> More telescopes, higher frequencies, better resolution</li>
+                        <li><strong>Space VLBI:</strong> Radio telescopes in space for even larger baselines</li>
+                        <li><strong>BlackHoleCam:</strong> European project focusing on Sagittarius A*</li>
+                        <li><strong>Millimeter Arrays:</strong> New ground arrays in optimal locations</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Precision Goal:</strong> Future telescopes aim for 2-5% measurement precision on shadow shape. At this level, deviations from Einstein's predictions could become detectable if they exist.</p>
+                    </div>
+                </section>
+
+                <!-- Implications & Conclusion -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-infinity"></i> Cosmic Implications</h2>
+                    
+                    <h3>Why This Matters Beyond Black Holes</h3>
+                    <p>Black hole shadows serve as natural laboratories for extreme physics. Unlike particle accelerators that smash particles together, black holes test gravity in its most intense form — where spacetime curvature is extreme and quantum gravity effects might become noticeable.</p>
+                    
+                    <div class="quote-box">
+                        <p>"Black holes are the simplest objects in the universe — described only by mass, spin, and charge. Yet they may hold the keys to the most complex physics we've ever imagined."</p>
+                    </div>
+                    
+                    <h3>The Big Picture</h3>
+                    <ul class="feature-list">
+                        <li><strong>Unified Physics:</strong> Could bridge quantum mechanics and general relativity</li>
+                        <li><strong>Dark Matter:</strong> Might explain the nature of 85% of the universe's matter</li>
+                        <li><strong>Extra Dimensions:</strong> Could validate string theory predictions</li>
+                        <li><strong>Fundamental Constants:</strong> Might reveal if physical "constants" vary in extreme conditions</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Timeline:</strong> Within the next 10-15 years, as next-generation telescopes come online, we may have answers to whether Einstein's theory needs modification, and what new physics governs the most extreme regions of our universe.</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Quick Facts Card -->
+                <div class="sidebar-card fade-in">
+                    <h3><i class="fas fa-bolt"></i> Key Discoveries</h3>
+                    <ul class="feature-list">
+                        <li>Shadows reveal hidden physics</li>
+                        <li>Shape distortions = new forces</li>
+                        <li>Extra dimensions possible</li>
+                        <li>Quantum gravity testable</li>
+                        <li>Dark matter detectable</li>
+                    </ul>
+                    
+                    <h3><i class="fas fa-tags"></i> Research Tags</h3>
+                    <div class="tags">
+                        <span class="tag">Black Holes</span>
+                        <span class="tag">General Relativity</span>
+                        <span class="tag">Event Horizon Telescope</span>
+                        <span class="tag">Quantum Gravity</span>
+                        <span class="tag">Extra Dimensions</span>
+                        <span class="tag">Dark Matter</span>
+                        <span class="tag">Astrophysics</span>
+                        <span class="tag">Cosmology</span>
+                        <span class="tag">String Theory</span>
+                        <span class="tag">Gravitational Lensing</span>
+                    </div>
+                </div>
+
+                <!-- Author Profile Card -->
+                <div class="sidebar-card author-profile fade-in">
+                    <div class="author-avatar">
+                        <img src="https://anshuman365.github.io/assets/profile.jpg" alt="Anshuman Singh - Physics & Astrophysics Enthusiast">
+                    </div>
+                    <h3>Anshuman Singh</h3>
+                    <p>Physics & Astrophysics Enthusiast</p>
+                    <p>Making cutting-edge research accessible and engaging</p>
+                    
+                    <div class="author-links">
+                        <a href="https://anshuman365.github.io" class="author-link" title="Personal Website">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                        <a href="https://github.com/anshuman365" class="author-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="author-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- References Card -->
+                <div class="sidebar-card fade-in">
+                    <h3><i class="fas fa-book"></i> Key References</h3>
+                    <ul class="feature-list">
+                        <li><a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Original Paper (Science Advances)</a></li>
+                        <li><a href="https://eventhorizontelescope.org/" target="_blank" class="resource-link"><i class="fas fa-satellite"></i> EHT Official Site</a></li>
+                        <li><a href="#" class="resource-link"><i class="fas fa-chart-bar"></i> Shadow Shape Analysis</a></li>
+                        <li><a href="#" class="resource-link"><i class="fas fa-code"></i> Simulation Code</a></li>
+                    </ul>
+                </div>
+
+                <!-- Share Card -->
+                <div class="sidebar-card fade-in">
+                    <h3><i class="fas fa-share-alt"></i> Share This Research</h3>
+                    <div class="tags">
+                        <span class="tag" onclick="shareResearch('twitter')"><i class="fab fa-twitter"></i> Twitter</span>
+                        <span class="tag" onclick="shareResearch('linkedin')"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                        <span class="tag" onclick="shareResearch('facebook')"><i class="fab fa-facebook"></i> Facebook</span>
+                        <span class="tag" onclick="copyLink()"><i class="fas fa-link"></i> Copy Link</span>
+                    </div>
+                </div>
+
+                <!-- Related Posts -->
+                <div class="sidebar-card fade-in">
+                    <h3><i class="fas fa-paperclip"></i> Related Research</h3>
+                    <ul class="feature-list">
+                        <li><a href="universal_law_of_fragmentation.html" class="resource-link"><i class="fas fa-flask"></i> Universal Fragmentation Law</a></li>
+                        <li><a href="#" class="resource-link"><i class="fas fa-atom"></i> Quantum Entanglement in Space</a></li>
+                        <li><a href="#" class="resource-link"><i class="fas fa-star"></i> Neutron Star Mergers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Cosmic Research Insights</div>
+                <p>Exploring the frontiers of astrophysics and fundamental physics</p>
+                
+                <div class="citation-box">
+                    <p><strong>Suggested Citation:</strong></p>
+                    <p>Recent studies (2023-2025) on black hole shadows as probes of new physics. Based on analysis of EHT data and theoretical models predicting shadow distortions from extra dimensions, modified gravity, and quantum effects.</p>
+                </div>
+                
+                <p>This analysis was created by Anshuman Singh as an educational resource to make cutting-edge astrophysics research accessible.</p>
+                <p>For more research summaries, visit: <a href="https://anshuman365.github.io/research.html" style="color: #60a5fa;">anshuman365.github.io/research</a></p>
+                
+                <div class="author-links" style="margin-top: 2rem;">
+                    <a href="https://anshuman365.github.io" class="author-link" title="Personal Website">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="https://github.com/anshuman365" class="author-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="author-link" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">© 2025 Anshuman Singh. All research content based on published academic work and theoretical models.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create cosmic background effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const cosmicContainer = document.getElementById('cosmic-dots');
+            const starCount = 150;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('cosmic-dot');
+                
+                // Random position
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+                
+                // Random size
+                const size = 0.5 + Math.random() * 2;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Random brightness
+                star.style.opacity = 0.1 + Math.random() * 0.3;
+                
+                // Random animation delay
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                star.style.animationDuration = `${3 + Math.random() * 7}s`;
+                
+                cosmicContainer.appendChild(star);
+            }
+            
+            // Simple animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all cards
+            document.querySelectorAll('.card, .sidebar-card').forEach((el) => {
+                observer.observe(el);
+            });
+            
+            // Back to top functionality
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            });
+            
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Share functionality
+        function shareResearch(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            const text = encodeURIComponent("Check out this fascinating research on how black hole shadows could reveal physics beyond Einstein's theory!");
+            
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}&hashtags=BlackHoles,Physics,Astrophysics`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+        }
+
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+
+        // Add click handlers to resource links
+        document.querySelectorAll('.resource-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    alert('In a real implementation, this would link to the actual research paper or resource.');
+                }
+            });
+        });
+
+        // Add subtle parallax effect to background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const stars = document.querySelectorAll('.cosmic-dot');
+            
+            stars.forEach(star => {
+                const speed = parseFloat(star.style.width) * 0.1;
+                const yPos = -(scrolled * speed * 0.01);
+                star.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
