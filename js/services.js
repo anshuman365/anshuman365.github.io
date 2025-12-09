@@ -628,6 +628,7 @@ async function generateAndDownloadInvoice(paymentResponse) {
     doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
     doc.text('AI-Powered Development Services', 105, currentY + 8, { align: 'center' });
+    doc.text('Nexora Global Pvt. Ltd.', 105, currentY + 8, { align: 'center' });
     
     currentY += 25;
     
