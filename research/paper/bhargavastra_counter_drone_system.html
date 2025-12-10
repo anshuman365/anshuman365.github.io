@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Enhanced Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4X0M6RM0F6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4X0M6RM0F6', {
+      page_title: document.title,
+      page_location: window.location.href
+    });
+  </script>
+  <script async src="https://pagead2.googletagmation.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897" crossorigin="anonymous"></script> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhargavastra Counter-Drone System - Technical Analysis | Anshuman Singh</title>
+    <meta name="description" content="Technical analysis of India's Bhargavastra counter-drone system: modular layered defense against UAV swarms with AI integration.">
+    <meta name="keywords" content="Bhargavastra, counter-drone, anti-UAV, defence technology, India defence, Solar Defence, DRDO, drone swarms, military tech">
+    <meta name="author" content="Anshuman Singh">
+<meta property="og:title" content="Bhargavastra Counter-Drone System - Technical Analysis">
+<meta property="og:description" content="India's modular counter-UAV system for asymmetric warfare against drone swarms.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://anshuman365.github.io/research/paper/bhargavastra_counter_drone_system.html">
+<meta property="og:image" content="https://anshuman365.github.io/research/paper/assets/research/paper/36947/hero.jpg">
+<link rel="canonical" href="https://anshuman365.github.io/research/paper/bhargavastra_counter_drone_system.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/fluency/96/000000/drone.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --military: #059669;
+            --border-radius: 12px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.2)), 
+                        url('assets/research/paper/36947/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 5rem 0 7rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
+            mix-blend-mode: multiply;
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .header-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: white;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 4rem 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 3rem;
+        }
+        
+        @media (max-width: 992px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: 2;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+        }
+        
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--military);
+            position: relative;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--military), var(--primary));
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin: 1.8rem 0 1rem;
+            color: var(--dark);
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--dark);
+            font-size: 1.05rem;
+        }
+        
+        .research-image {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-light);
+            transition: transform 0.3s ease;
+        }
+        
+        .research-image:hover {
+            transform: scale(1.01);
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .image-caption {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-align: center;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(to right, #f0f9ff, #e0f2fe);
+            border-left: 4px solid var(--military);
+            padding: 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .highlight-box:before {
+            content: '⚡';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tech-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 2px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1.1rem;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .tech-box:before {
+            content: 'Tech Specs';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--military);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .tech-box kbd {
+            background: white;
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--gray-light);
+            box-shadow: 0 3px 5px rgba(0,0,0,0.05);
+            margin: 0 5px;
+            font-weight: 500;
+        }
+        
+        /* List Styles */
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .feature-list li {
+            padding: 0.8rem 0 0.8rem 2.5rem;
+            position: relative;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0.8rem;
+            background: var(--military);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .warning-list li:before {
+            content: '⚠';
+            background: var(--warning);
+        }
+        
+        /* Sidebar */
+        .sidebar-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-light);
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .sidebar-card h3 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            color: var(--military);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+        
+        .tag {
+            background: #f1f5f9;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--dark);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .tag:hover {
+            background: var(--military);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .author-profile {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: var(--border-radius);
+        }
+        
+        .author-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .author-link {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .author-link:hover {
+            background: var(--military);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--military), var(--primary));
+        }
+        
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #059669, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .citation-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9rem;
+            text-align: left;
+            border-left: 3px solid var(--military);
+            position: relative;
+        }
+        
+        .citation-box:before {
+            content: '📡';
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--military);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .card {
+                padding: 2rem;
+            }
+            
+            .meta-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            header {
+                padding: 4rem 0 6rem;
+                background-attachment: scroll;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .tech-box {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .stagger > * {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .stagger > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger > *:nth-child(4) { animation-delay: 0.4s; }
+        .stagger > *:nth-child(5) { animation-delay: 0.5s; }
+        .stagger > *:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--military);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Military Specific */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .spec-table th, .spec-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .spec-table th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .spec-table tr:hover {
+            background: #f8fafc;
+        }
+        
+        .layer-indicator {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .layer-1 { background: #dcfce7; color: #166534; }
+        .layer-2 { background: #dbeafe; color: #1e40af; }
+        .layer-3 { background: #fef3c7; color: #92400e; }
+    </style>
+</head>
+<body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-overlay"></div>
+        <div class="container">
+            <div class="header-content stagger">
+                <div class="header-badge">
+                    <i class="fas fa-shield-alt"></i> Defence Technology
+                </div>
+                <h1>Bhargavastra Counter-Drone System</h1>
+                <p class="subtitle">India's modular hard-kill defense against drone swarms: A technical analysis of layered counter-UAV technology</p>
+                
+                <div class="meta-info">
+                    <div class="meta-item">
+                        <i class="fas fa-industry"></i>
+                        <span>Developer: <strong>Solar Defence & Aerospace Limited (SDAL)</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Tested: <strong>Seaward Firing Range, Gopalpur, Odisha</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Test Date: <strong>May 14, 2025</strong></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-satellite-dish"></i>
+                        <span>Type: <strong>Hard-Kill Counter-Drone System</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="content-grid">
+            <!-- Main Content Column -->
+            <div class="main-content">
+                <!-- Introduction Card -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-crosshairs"></i> System Overview</h2>
+                    <p>Bhargavastra represents India's indigenous response to the growing global threat of drone swarms in asymmetric warfare scenarios. Developed by Solar Defence and Aerospace Limited (SDAL), this modular counter-drone system employs a multi-layered defense approach.</p>
+                    
+                    <img src="assets/research/paper/36947/banner.jpg" alt="Bhargavastra vehicle-mounted counter-drone system firing micro-missiles" class="research-image">
+                    <p class="image-caption">Bhargavastra counter-drone system during field trials at Gopalpur test range</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Core Concept:</strong> Bhargavastra uses a "hard-kill" approach with two distinct layers of defense—unguided rockets for swarm saturation and guided micro-missiles for precision targeting of high-value drones.</p>
+                    </div>
+                    
+                    <h3>The Drone Threat Landscape</h3>
+                    <p>Modern asymmetric warfare has seen a proliferation of cheap, commercial drones being weaponized. Swarm tactics—where multiple drones coordinate attacks—present unique challenges to traditional air defense systems designed for larger, slower targets.</p>
+                    
+                    <div class="image-grid">
+                        <div>
+                            <img src="assets/research/paper/36947/img2.jpg" alt="Drone swarm threat visualization" class="research-image">
+                            <p class="image-caption">Drone swarm formations pose unique challenges to air defense</p>
+                        </div>
+                        <div>
+                            <img src="assets/research/paper/36947/img3.jpg" alt="Counter-drone system schematic" class="research-image">
+                            <p class="image-caption">Multi-layered defense architecture schematic</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Technical Specifications Card -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-microchip"></i> Technical Specifications</h2>
+                    
+                    <div class="tech-box">
+                        <table class="spec-table">
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Specification</th>
+                            </tr>
+                            <tr>
+                                <td>Detection Range</td>
+                                <td>Up to 2.5 km for small drones (0.1 m² RCS)</td>
+                            </tr>
+                            <tr>
+                                <td>Engagement Range</td>
+                                <td>Layer 1: 1-2 km; Layer 2: Up to 3 km</td>
+                            </tr>
+                            <tr>
+                                <td>Lethal Radius</td>
+                                <td>~20 m for unguided rocket salvo</td>
+                            </tr>
+                            <tr>
+                                <td>Response Time</td>
+                                <td>< 5 seconds from detection to engagement</td>
+                            </tr>
+                            <tr>
+                                <td>System Mobility</td>
+                                <td>Vehicle-mounted, rapid deployment</td>
+                            </tr>
+                            <tr>
+                                <td>Salvo Rate</td>
+                                <td>2 rockets within 2 seconds</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h3>Sensor Suite</h3>
+                    <ul class="feature-list">
+                        <li><strong>Radar:</strong> Primary detection and tracking (X-band for small targets)</li>
+                        <li><strong>EO/IR Camera:</strong> Electro-optical/Infrared for visual confirmation</li>
+                        <li><strong>RF Detector:</strong> Radio frequency detection of drone communication links</li>
+                        <li><strong>Multi-sensor Fusion:</strong> AI-driven data integration for target classification</li>
+                    </ul>
+                    
+                    <h3>Weapon Systems</h3>
+                    <p>The system employs two distinct weapon types:</p>
+                    <div class="image-grid">
+                        <div>
+                            <span class="layer-indicator layer-1">Layer 1</span>
+                            <strong>Unguided Micro-rockets:</strong> For swarm saturation (20m lethal radius)
+                        </div>
+                        <div>
+                            <span class="layer-indicator layer-2">Layer 2</span>
+                            <strong>Guided Micro-missiles:</strong> For precision engagement of high-value targets
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Operational Concept Card -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-chess-board"></i> Operational Concept & Testing</h2>
+                    
+                    <img src="assets/research/paper/36947/img4.jpg" alt="Bhargavastra test firing sequence" class="research-image">
+                    <p class="image-caption">Test firing sequence showing salvo mode (two rockets in two seconds)</p>
+                    
+                    <h3>May 2025 Test Series</h3>
+                    <p>The system underwent comprehensive testing at the Seaward Firing Range in Gopalpur, Odisha:</p>
+                    
+                    <ul class="feature-list">
+                        <li><strong>Single-rocket firings:</strong> Validated guidance and propulsion systems</li>
+                        <li><strong>Salvo mode testing:</strong> Two rockets fired within two seconds for swarm engagement</li>
+                        <li><strong>All-weather testing:</strong> Performance validation under various environmental conditions</li>
+                        <li><strong>Integration testing:</strong> Sensor-shooter coordination and network integration</li>
+                    </ul>
+                    
+                    <h3>Layered Defense Strategy</h3>
+                    <div class="highlight-box">
+                        <p><strong>Cost-Effective Engagement:</strong> The two-layer approach allows using cheaper unguided rockets against swarm drones while reserving more expensive guided missiles for high-value targets.</p>
+                    </div>
+                    
+                    <ol class="feature-list">
+                        <li><strong>Detection & Tracking:</strong> Radar detects incoming drones at 2.5 km range</li>
+                        <li><strong>Classification:</strong> AI algorithms classify targets as swarm or high-value</li>
+                        <li><strong>Weapon Selection:</strong> System automatically selects appropriate countermeasure</li>
+                        <li><strong>Engagement:</strong> Unguided rockets for swarms, guided missiles for priority targets</li>
+                        <li><strong>Assessment:</strong> Battle damage assessment and re-engagement if needed</li>
+                    </ol>
+                </section>
+
+                <!-- AI & Network Integration Card -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-brain"></i> AI & Network Integration</h2>
+                    
+                    <p>Bhargavastra is designed for network-centric warfare environments:</p>
+                    
+                    <h3>AI Capabilities</h3>
+                    <ul class="feature-list">
+                        <li><strong>Target Classification:</strong> Machine learning algorithms distinguish between different drone types</li>
+                        <li><strong>Swarm Pattern Recognition:</strong> Identifies coordinated attack patterns</li>
+                        <li><strong>Predictive Tracking:</strong> Anticipates drone movements based on behavior patterns</li>
+                        <li><strong>Sensor Fusion:</strong> Combines data from multiple sensors for accurate tracking</li>
+                    </ul>
+                    
+                    <h3>Network Integration</h3>
+                    <div class="tech-box">
+                        <p><kbd>Bhargavastra</kbd> ↔ <kbd>Command Center</kbd> ↔ <kbd>Other Assets</kbd></p>
+                        <p>Real-time data sharing with other defense systems</p>
+                    </div>
+                    
+                    <p>The system can integrate with:</p>
+                    <ul class="feature-list">
+                        <li><strong>National Command Networks:</strong> For strategic coordination</li>
+                        <li><strong>Other Counter-Drone Systems:</strong> For layered area defense</li>
+                        <li><strong>Air Defense Grids:</strong> As part of integrated air defense</li>
+                        <li><strong>Soft-Kill Systems:</strong> Jamming and spoofing capabilities</li>
+                    </ul>
+                </section>
+
+                <!-- Strategic Significance Card -->
+                <section class="card fade-in">
+                    <h2><i class="fas fa-flag"></i> Strategic Significance</h2>
+                    
+                    <h3>For India's Defense Ecosystem</h3>
+                    <ul class="feature-list">
+                        <li><strong>Indigenous Development:</strong> Reduces dependency on foreign systems</li>
+                        <li><strong>Cost-Effective:</strong> Lower cost per engagement than traditional missiles</li>
+                        <li><strong>Scalable:</strong> Modular design allows for various configurations</li>
+                        <li><strong>Export Potential:</strong> Competitive solution for global market</li>
+                    </ul>
+                    
+                    <h3>Global Counter-Drone Trends</h3>
+                    <p>Bhargavastra aligns with global trends in counter-drone technology:</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Future Warfare:</strong> As drones become cheaper and more accessible, cost-effective countermeasures like Bhargavastra will be crucial for protecting critical infrastructure and military assets.</p>
+                    </div>
+                    
+                    <h3>Comparison with Global Systems</h3>
+                    <table class="spec-table">
+                        <tr>
+                            <th>System</th>
+                            <th>Country</th>
+                            <th>Approach</th>
+                            <th>Key Feature</th>
+                        </tr>
+                        <tr>
+                            <td>Bhargavastra</td>
+                            <td>India</td>
+                            <td>Hard-kill + Modular</td>
+                            <td>Two-layer, cost-effective</td>
+                        </tr>
+                        <tr>
+                            <td>Drone Dome</td>
+                            <td>Israel</td>
+                            <td>Laser + RF</td>
+                            <td>Energy-based, silent</td>
+                        </tr>
+                        <tr>
+                            <td>AUDS</td>
+                            <td>UK</td>
+                            <td>RF Jamming</td>
+                            <td>Soft-kill, non-kinetic</td>
+                        </tr>
+                    </table>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Quick Facts Card -->
+                <div class="sidebar-card fade-in">
+                    <h3><i class="fas fa-bolt"></i> Key Features</h3>
+                    <ul class="feature-list">
+                        <li>Two-layer defense system</li>
+                        <li>Modular & vehicle-mounted</li>
+                        <li>2.5 km detection range</li>
+                        <li>AI-powered target classification</li>
+                        <li>Network-centric warfare ready</li>
+                        <li>Cost-effective swarm defense</li>
+                    </ul>
+                    
+                    <h3><i class="fas fa-tags"></i> Research Tags</h3>
+                    <div class="tags">
+                        <span class="tag">Counter-Drone</span>
+                        <span class="tag">Bhargavastra</span>
+                        <span class="tag">Defence Tech</span>
+                        <span class="tag">Anti-UAV</span>
+                        <span class="tag">India Defence</span>
+                        <span class="tag">SDAL</span>
+                        <span class="tag">Drone Swarms</span>
+                        <span class="tag">Hard-Kill</span>
+                        <span class="tag">Military AI</span>
+                        <span class="tag">Asymmetric Warfare</span>
+                    </div>
+                </div>
+
+                <!-- Author Profile Card -->
+                <div class="sidebar-card author-profile fade-in">
+                    <div class="author-avatar">
+                        <img src="https://anshuman365.github.io/assets/profile.jpg" alt="Anshuman Singh - AI & Defence Tech Analyst">
+                    </div>
+                    <h3>Anshuman Singh</h3>
+                    <p>AI & Defence Tech Analyst</p>
+                    <p>Analyzing cutting-edge military technology and AI integration</p>
+                    
+                    <div class="author-links">
+                        <a href="https://anshuman365.github.io" class="author-link" title="Personal Website">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                        <a href="https://github.com/anshuman365" class="author-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="author-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Resources Card -->
+                <div class="sidebar-card fade-in">
+                    <h3><i class="fas fa-download"></i> Resources</h3>
+                    <ul class="feature-list">
+                        <li><a href="https://www.spslandforces.com/experts-speak/?id=1232&h=Bhargavastra-Pinaka-III-and-Golden-Eagle" class="resource-link" target="_blank"><i class="fas fa-file-alt"></i> Official Press Release</a></li>
+                        
+                        <li><a href="https://en.wikipedia.org/wiki/Bhargavastra_%28counter_drone_system%29?wprov=sfla1" class="resource-link" target="_blank"><i class="fas fa-chart-bar"></i> Technical Data Analysis</a></li>
+                        
+                        <li><a href="https://defencenewsindia.in/bhargavastra-multi-layer-counter-drone-system/" class="resource-link" target="_blank"><i class="fas fa-newspaper"></i> Media Reports</a></li>
+                        
+                        <li><a href="https://www-thehindu-com.cdn.ampproject.org/v/s/www.thehindu.com/news/national/indias-homegrown-bhargavastra-counter-swarm-drone-system-test-fired-successfully/article69575021.ece/amp/?amp_gsa=1&amp_js_v=a9&usqp=mq331AQIUAKwASCAAgM%3D#amp_tf=From%20%251%24s&aoh=17653386804875&referrer=https%3A%2F%2Fwww.google.com&ampshare=https%3A%2F%2Fwww.thehindu.com%2Fnews%2Fnational%2Findias-homegrown-bhargavastra-counter-swarm-drone-system-test-fired-successfully%2Farticle69575021.ece" class="resource-link" target="_blank"><i class="fas fa-newspaper"></i> Media Reports (The Hindu)</a></li>
+                        
+                        <li><a href="https://solargroup.com/defence.html" class="resource-link" target="_blank"><i class="fas fa-industry"></i> SDAL Product Page</a></li>
+                    </ul>
+                </div>
+
+                <!-- Share Card -->
+                <div class="sidebar-card fade-in">
+                    <h3><i class="fas fa-share-alt"></i> Share This Analysis</h3>
+                    <div class="tags">
+                        <span class="tag" onclick="shareResearch('twitter')"><i class="fab fa-twitter"></i> Twitter</span>
+                        <span class="tag" onclick="shareResearch('linkedin')"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                        <span class="tag" onclick="shareResearch('facebook')"><i class="fab fa-facebook"></i> Facebook</span>
+                        <span class="tag" onclick="copyLink()"><i class="fas fa-link"></i> Copy Link</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="color: white;">
+            <div class="footer-content">
+                <div class="footer-logo">Defence Tech Analysis</div>
+                <p style="color: white;">Technical analysis of cutting-edge military technology</p>
+                
+                <div class="citation-box" style="color: white;">
+                    <p style="color: white;"><strong>Source References:</strong></p>
+                    <p style="color: white;">Solar Defence & Aerospace Limited. (2025). Bhargavastra Counter-Drone System Technical Specifications. SDAL Press Release.</p>
+                    <p style="color: white;">DRDO. (2025). Counter-Drone Technology Development Report. Ministry of Defence, India.</p>
+                </div>
+                
+                <p style="color: white;">This technical analysis was created by Anshuman Singh as an educational resource.</p>
+                <p style="color: white;">For more defence technology analyses, visit: <a href="https://anshuman365.github.io" style="color: #60a5fa;">anshuman365.github.io</a></p>
+                
+                <div class="author-links" style="margin-top: 2rem; color: white;">
+                    <a href="https://anshuman365.github.io" class="author-link" title="Personal Website">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="https://github.com/anshuman365" class="author-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/anshuman-singh-662183303" class="author-link" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7; color: white;">© 2025 Anshuman Singh. Analysis based on publicly available technical data and reports.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all cards
+            document.querySelectorAll('.card, .sidebar-card').forEach((el) => {
+                observer.observe(el);
+            });
+            
+            // Back to top functionality
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            });
+            
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Share functionality
+        function shareResearch(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            const text = encodeURIComponent("Check out this technical analysis of India's Bhargavastra counter-drone system");
+            
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+        }
+
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>
