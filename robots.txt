@@ -3,7 +3,22 @@ Allow: /
 Sitemap: https://anshuman365.github.io/sitemap.xml
 Sitemap: https://anshuman365.github.io/sitemap-static.xml
 Sitemap: https://anshuman365.github.io/sitemap-blog.xml
+Sitemap: https://anshuman365.github.io/sitemap-research.xml
 
 # Google AdsBot
 User-agent: AdsBot-Google
 Allow: /
+
+# Crawl-delay for all bots (5 seconds between requests)
+Crawl-delay: 5
+
+# Disallow access to config files and sensitive directories
+Disallow: /config/
+Disallow: /js/env-config.js
+Disallow: /js/config.js
+Disallow: /assets/pdf/encrypted/
+Disallow: /assets/pdf/encryption_key.js
+
+# Allow bots to access PDF resources
+Allow: /assets/pdf/free/
+Allow: /assets/pdf/cover_img/
