@@ -9,7 +9,7 @@
     gtag('js', new Date());
     gtag('config', 'G-4X0M6RM0F6');
   </script>
-  <script async src="https://pagead2.googletagmation.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897" crossorigin="anonymous"></script> 
+  <script async src="https://pagead2.googletagmanager.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897" crossorigin="anonymous"></script>
   <meta name="google-adsense-account" content="ca-pub-2633513915753897">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,6 +70,20 @@
       }
     }
   </script>
+  <!-- Preload Critical Scripts -->
+  <link rel="preload" href="js/include.js" as="script">
+  <link rel="preload" href="js/nav.js" as="script">
+  
+  <!-- Load All Scripts with Defer -->
+  <script src="js/include.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/dark-mode.js" defer></script>
+  <script src="js/translator.js" defer></script>
+  <script type="module" src="js/chatbot.js" defer></script>
+  
+  <!-- Page Specific Scripts -->
+  <script src="js/page-specific.js" defer></script>
+  
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
