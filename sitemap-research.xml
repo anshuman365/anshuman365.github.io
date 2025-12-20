@@ -33,4 +33,11 @@
       <changefreq>yearly</changefreq>
       <priority>0.5</priority>
    </url>
+   <!-- Add this new URL entry -->
+   <url>
+     <loc>https://anshuman365.github.io/fatman_littleboy.html</loc>
+     <lastmod>2024-01-15</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.7</priority>
+   </url>
 </urlset>
