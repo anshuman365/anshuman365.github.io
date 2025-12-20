@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" itemscope itemtype="https://schema.org/WebPage">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4X0M6RM0F6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4X0M6RM0F6', {
+      page_title: document.title,
+      page_location: window.location.href
+    });
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897" crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-2633513915753897">
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2563EB">
+  
+  <!-- SEO Meta Tags -->
+  <title>Numerical Methods in Physics: Computational Techniques for Complex Systems | Anshuman Singh</title>
+  <meta name="description" content="Comprehensive analysis of numerical methods in physics: Advanced computational techniques for solving complex physical systems using Python and modern numerical libraries.">
+  <meta name="keywords" content="numerical methods, computational physics, Python simulation, finite difference, Monte Carlo, numerical integration, PDE solving, physics simulation">
+  <meta name="author" content="Anshuman Singh">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://anshuman365.github.io/research/paper/numerical_methods_physics.html">
+  <meta property="og:title" content="Numerical Methods in Physics: Computational Techniques">
+  <meta property="og:description" content="Advanced computational techniques for solving complex physical systems using Python and modern numerical libraries">
+  <meta property="og:image" content="https://anshuman365.github.io/research/paper/assets/numerical-methods/numerical-methods-banner.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@SarvarSing35025">
+  <meta name="twitter:creator" content="@SarvarSing35025">
+  <meta name="twitter:title" content="Numerical Methods in Physics Research">
+  <meta name="twitter:description" content="Computational techniques for complex physical systems">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Numerical Methods in Physics: Computational Techniques for Complex Systems",
+    "description": "Comprehensive analysis of numerical methods in physics including finite difference, Monte Carlo, and PDE solving techniques",
+    "image": "https://anshuman365.github.io/research/paper/assets/numerical-methods/numerical-methods-banner.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Anshuman Singh"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Anshuman Singh"
+    },
+    "datePublished": "2024-03-15",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://anshuman365.github.io/research/paper/numerical_methods_physics.html"
+    }
+  }
+  </script>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            secondary: '#7C3AED',
+            accent: '#10B981',
+            dark: '#1E293B',
+            light: '#F8FAFC',
+            'dark-bg': '#0f172a',
+            'dark-card': '#1e293b',
+            'dark-text': '#f1f5f9',
+            'code-bg': '#1e1e1e',
+            'python-blue': '#3776AB',
+            'numpy-green': '#4DABCF',
+            'scipy-orange': '#8C510A'
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'fade-in': 'fadeIn 0.5s ease-in',
+            'pulse-slow': 'pulse 3s ease-in-out infinite',
+            'glow': 'glow 2s ease-in-out infinite',
+            'slide-in': 'slideIn 0.6s ease-out'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            glow: {
+              '0%, 100%': { boxShadow: '0 0 20px #2563EB' },
+              '50%': { boxShadow: '0 0 40px #7C3AED' }
+            },
+            slideIn: {
+              '0%': { transform: 'translateX(-20px)', opacity: '0' },
+              '100%': { transform: 'translateX(0)', opacity: '1' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Highlight.js for code syntax highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap');
+    body { 
+      font-family: 'Inter', sans-serif; 
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      scroll-behavior: smooth;
+    }
+    .code-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .gradient-bg { 
+      background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); 
+    }
+    .python-gradient {
+      background: linear-gradient(135deg, #3776AB 0%, #4DABCF 50%, #FFD43B 100%);
+    }
+    .numpy-gradient {
+      background: linear-gradient(135deg, #4DABCF 0%, #013243 100%);
+    }
+    .scipy-gradient {
+      background: linear-gradient(135deg, #8C510A 0%, #DFC27D 100%);
+    }
+    .card-hover { 
+      transition: all 0.3s ease; 
+    }
+    .card-hover:hover { 
+      transform: translateY(-5px); 
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .python-text {
+      background: linear-gradient(135deg, #3776AB, #FFD43B);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .dark-mode-transition {
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    
+    /* Code block styles */
+    .code-block {
+      background: #1e1e1e;
+      border-radius: 8px;
+      padding: 1.5rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-left: 4px solid #2563EB;
+      position: relative;
+    }
+    .code-block:before {
+      content: 'python';
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: #2563EB;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    /* Equation styling */
+    .equation {
+      font-family: 'Cambria Math', serif;
+      font-size: 1.2rem;
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+    }
+    .dark .equation {
+      background: #1e293b;
+      border: 1px solid #374151;
+    }
+    
+    /* Algorithm steps */
+    .algorithm-step {
+      counter-increment: step-counter;
+      padding: 1rem;
+      margin: 1rem 0;
+      background: #f0f9ff;
+      border-radius: 8px;
+      border-left: 4px solid #2563EB;
+      position: relative;
+    }
+    .algorithm-step:before {
+      content: counter(step-counter);
+      position: absolute;
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #2563EB;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    /* Visualization grid */
+    .visualization-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    /* Comparison table */
+    .method-comparison {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .method-comparison th {
+      background: linear-gradient(135deg, #2563EB, #7C3AED);
+      color: white;
+      font-weight: 600;
+      padding: 16px;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    .method-comparison td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 0.9rem;
+    }
+    .method-comparison tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+    .dark .method-comparison tr:nth-child(even) {
+      background-color: #374151;
+    }
+    .dark .method-comparison td {
+      border-bottom: 1px solid #4b5563;
+    }
+    
+    /* Badge styles */
+    .method-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 2px;
+    }
+    .fdm-badge { background: #3B82F6; color: white; }
+    .fem-badge { background: #10B981; color: white; }
+    .monte-badge { background: #8B5CF6; color: white; }
+    .fft-badge { background: #F59E0B; color: white; }
+    
+    /* Image hover effects */
+    .image-zoom {
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+    .image-zoom:hover {
+      transform: scale(1.02);
+    }
+    
+    /* Section animations */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Python icon animation */
+    @keyframes python-spin {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.1); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+    .python-spin {
+      animation: python-spin 4s linear infinite;
+    }
+    
+    /* Interactive code playground */
+    .code-playground {
+      background: #1e1e1e;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .playground-header {
+      background: #252526;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+    .playground-content {
+      padding: 1.5rem;
+    }
+    .run-button {
+      background: #10B981;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .run-button:hover {
+      background: #059669;
+    }
+  </style>
+</head>
+
+<body class="bg-light text-dark dark:bg-dark-bg dark:text-dark-text dark-mode-transition">
+<!-- Navigation -->
+<div id="nav-placeholder"></div>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-12 gradient-bg text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <!-- Banner Image -->
+        <div class="mb-8 rounded-2xl overflow-hidden shadow-2xl image-zoom">
+          <img src="research/paper/assets/numerical-methods/numerical-methods-banner.jpg" 
+               alt="Numerical Methods in Physics - Computational Simulations and Algorithms"
+               class="w-full h-64 md:h-96 object-cover"
+               loading="eager"
+               width="1200"
+               height="600">
+        </div>
+        
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3">
+            <div class="flex items-center mb-4">
+              <span class="bg-purple-100/20 backdrop-blur-sm text-white px-4 py-2 rounded-full font-bold mr-4">
+                <i class="fas fa-flask mr-2"></i>Research Paper
+              </span>
+              <span class="text-sm opacity-80">
+                <i class="far fa-calendar-alt mr-1"></i> March 2024
+              </span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+              <span class="text-gradient">Numerical Methods in Physics</span>
+            </h1>
+            <p class="text-xl opacity-90 mb-8 leading-relaxed">
+              Advanced computational techniques for solving complex physical systems using Python and modern numerical libraries.
+              A comprehensive guide to finite difference, Monte Carlo, spectral methods, and more.
+            </p>
+            
+            <div class="flex flex-wrap gap-3 mb-8">
+              <span class="method-badge fdm-badge">Finite Difference</span>
+              <span class="method-badge fem-badge">Finite Element</span>
+              <span class="method-badge monte-badge">Monte Carlo</span>
+              <span class="method-badge fft-badge">FFT Methods</span>
+              <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-bold">
+                <i class="fab fa-python mr-1"></i>Python
+              </span>
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+              <a href="#methods-overview" class="bg-accent text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition shadow-lg flex items-center">
+                <i class="fas fa-calculator mr-2"></i>Methods Overview
+              </a>
+              <a href="#python-implementation" class="bg-python-blue text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition shadow-lg flex items-center">
+                <i class="fab fa-python mr-2"></i>Python Code
+              </a>
+              <a href="#case-studies" class="border-2 border-white text-white px-6 py-3 rounded-lg font-bold hover:bg-white/10 transition flex items-center">
+                <i class="fas fa-chart-line mr-2"></i>Case Studies
+              </a>
+              <a href="#downloads" class="bg-secondary text-white px-6 py-3 rounded-lg font-bold hover:bg-purple-700 transition shadow-lg flex items-center">
+                <i class="fas fa-download mr-2"></i>Code Downloads
+              </a>
+            </div>
+          </div>
+          <div class="md:w-1/3">
+            <div class="relative animate-float">
+              <div class="w-64 h-64 mx-auto python-gradient rounded-full flex items-center justify-center shadow-2xl animate-glow">
+                <i class="fab fa-python text-8xl text-white opacity-90 python-spin"></i>
+              </div>
+              <div class="absolute -top-2 -right-2 bg-green-600 text-white p-4 rounded-full shadow-lg animate-pulse-slow">
+                <i class="fas fa-code text-xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Stats -->
+  <section class="py-8 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="text-3xl font-bold text-green-400 mb-2">12+</div>
+          <div class="text-sm opacity-80">Numerical Methods</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-blue-400 mb-2">50+</div>
+          <div class="text-sm opacity-80">Python Code Examples</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-purple-400 mb-2">8</div>
+          <div class="text-sm opacity-80">Case Studies</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-yellow-400 mb-2">6</div>
+          <div class="text-sm opacity-80">Python Libraries</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract & Introduction -->
+  <section id="abstract" class="py-16 bg-white dark:bg-dark-card fade-in-section">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-dark dark:text-white">
+          <i class="fas fa-scroll mr-3"></i>Abstract & Introduction
+        </h2>
+        
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 mb-8 card-hover">
+          <h3 class="text-2xl font-bold mb-4 text-primary dark:text-blue-300">Research Focus</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-6">
+            This research paper presents a comprehensive analysis of numerical methods for solving complex physical systems. 
+            We explore the implementation, accuracy, stability, and computational efficiency of various numerical techniques 
+            using modern Python libraries including NumPy, SciPy, SymPy, and specialized physics packages.
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h4 class="font-bold mb-3 text-dark dark:text-white flex items-center">
+                <i class="fas fa-bullseye mr-2 text-green-500"></i>Primary Objectives
+              </h4>
+              <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+                <li>Compare numerical method performance</li>
+                <li>Implement Python-based solvers</li>
+                <li>Analyze stability and convergence</li>
+                <li>Benchmark computational efficiency</li>
+              </ul>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+              <h4 class="font-bold mb-3 text-dark dark:text-white flex items-center">
+                <i class="fas fa-chart-bar mr-2 text-blue-500"></i>Key Contributions
+              </h4>
+              <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+                <li>Unified Python framework for comparisons</li>
+                <li>Detailed error analysis for each method</li>
+                <li>Performance optimization strategies</li>
+                <li>Real-world physics applications</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 card-hover">
+          <h3 class="text-2xl font-bold mb-4 text-accent dark:text-green-300">Why Numerical Methods?</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Most physical phenomena are described by differential equations that cannot be solved analytically. 
+            Numerical methods provide approximate solutions that are essential for:
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <div class="text-center p-4">
+              <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-atom text-2xl text-blue-600 dark:text-blue-300"></i>
+              </div>
+              <h4 class="font-bold text-dark dark:text-white">Quantum Systems</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-300">Schrödinger equation solutions</p>
+            </div>
+            
+            <div class="text-center p-4">
+              <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-wind text-2xl text-green-600 dark:text-green-300"></i>
+              </div>
+              <h4 class="font-bold text-dark dark:text-white">Fluid Dynamics</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-300">Navier-Stokes equations</p>
+            </div>
+            
+            <div class="text-center p-4">
+              <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-bolt text-2xl text-purple-600 dark:text-purple-300"></i>
+              </div>
+              <h4 class="font-bold text-dark dark:text-white">Electromagnetism</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-300">Maxwell's equations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numerical Methods Overview -->
+  <section id="methods-overview" class="py-16 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 fade-in-section">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-dark dark:text-white">
+        <i class="fas fa-cogs mr-3"></i>Numerical Methods Overview
+      </h2>
+      
+      <div class="max-w-6xl mx-auto">
+        <!-- Method Comparison Table -->
+        <div class="bg-white dark:bg-dark-card rounded-2xl shadow-xl p-6 mb-8">
+          <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Method Comparison & Applications</h3>
+          
+          <div class="overflow-x-auto">
+            <table class="method-comparison">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Type</th>
+                  <th>Accuracy</th>
+                  <th>Stability</th>
+                  <th>Best For</th>
+                  <th>Python Library</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Finite Difference</strong></td>
+                  <td>Grid-based</td>
+                  <td>Medium-High</td>
+                  <td>Conditional</td>
+                  <td>PDEs, Heat Eq.</td>
+                  <td><span class="python-text font-bold">NumPy</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Finite Element</strong></td>
+                  <td>Mesh-based</td>
+                  <td>High</td>
+                  <td>Good</td>
+                  <td>Complex geometries</td>
+                  <td><span class="text-orange-600 font-bold">FEniCS</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Monte Carlo</strong></td>
+                  <td>Stochastic</td>
+                  <td>Low-Medium</td>
+                  <td>Excellent</td>
+                  <td>High-dimensional</td>
+                  <td><span class="python-text font-bold">NumPy</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Spectral Methods</strong></td>
+                  <td>Global</td>
+                  <td>Very High</td>
+                  <td>Good</td>
+                  <td>Smooth solutions</td>
+                  <td><span class="text-blue-600 font-bold">SciPy</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Runge-Kutta</strong></td>
+                  <td>ODE Solver</td>
+                  <td>High</td>
+                  <td>Excellent</td>
+                  <td>Time integration</td>
+                  <td><span class="text-blue-600 font-bold">SciPy</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Verlet Integration</strong></td>
+                  <td>Molecular Dynamics</td>
+                  <td>Medium</td>
+                  <td>Good</td>
+                  <td>N-body problems</td>
+                  <td><span class="text-green-600 font-bold">ASE</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- Method Details Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Finite Difference Method -->
+          <div class="bg-white dark:bg-dark-card rounded-xl p-6 card-hover border-l-4 border-blue-500">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-th text-blue-600 dark:text-blue-300"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold text-dark dark:text-white">Finite Difference</h4>
+                <span class="text-sm text-gray-500 dark:text-gray-400">Grid-based approximation</span>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Approximates derivatives using finite differences on a grid. Simple implementation but limited to regular geometries.
+            </p>
+            <div class="text-sm">
+              <span class="font-medium text-blue-600 dark:text-blue-300">Applications:</span>
+              <span class="text-gray-500 dark:text-gray-400 ml-2">Heat equation, Wave equation, Poisson equation</span>
+            </div>
+          </div>
+          
+          <!-- Finite Element Method -->
+          <div class="bg-white dark:bg-dark-card rounded-xl p-6 card-hover border-l-4 border-green-500">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-project-diagram text-green-600 dark:text-green-300"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold text-dark dark:text-white">Finite Element</h4>
+                <span class="text-sm text-gray-500 dark:text-gray-400">Mesh-based variational</span>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Uses variational formulation and basis functions. Excellent for complex geometries but computationally intensive.
+            </p>
+            <div class="text-sm">
+              <span class="font-medium text-green-600 dark:text-green-300">Applications:</span>
+              <span class="text-gray-500 dark:text-gray-400 ml-2">Structural mechanics, Electromagnetics, Fluid flow</span>
+            </div>
+          </div>
+          
+          <!-- Monte Carlo Method -->
+          <div class="bg-white dark:bg-dark-card rounded-xl p-6 card-hover border-l-4 border-purple-500">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-dice text-purple-600 dark:text-purple-300"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold text-dark dark:text-white">Monte Carlo</h4>
+                <span class="text-sm text-gray-500 dark:text-gray-400">Stochastic sampling</span>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Uses random sampling to estimate solutions. Excellent for high-dimensional problems but slow convergence.
+            </p>
+            <div class="text-sm">
+              <span class="font-medium text-purple-600 dark:text-purple-300">Applications:</span>
+              <span class="text-gray-500 dark:text-gray-400 ml-2">Quantum mechanics, Statistical physics, Integration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Python Implementation -->
+  <section id="python-implementation" class="py-16 bg-white dark:bg-dark-card fade-in-section">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-dark dark:text-white">
+        <i class="fab fa-python mr-3"></i>Python Implementation Examples
+      </h2>
+      
+      <div class="max-w-6xl mx-auto">
+        <!-- Finite Difference Code Example -->
+        <div class="mb-12">
+          <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white flex items-center">
+            <i class="fas fa-code mr-3 text-blue-500"></i>Finite Difference: 1D Heat Equation
+          </h3>
+          
+          <div class="code-playground">
+            <div class="playground-header">
+              <div class="flex items-center">
+                <i class="fab fa-python text-green-400 mr-2"></i>
+                <span class="text-white font-medium">heat_equation_fd.py</span>
+              </div>
+              <button class="run-button" onclick="runCode('fd-code')">
+                <i class="fas fa-play mr-2"></i>Run Simulation
+              </button>
+            </div>
+            <div class="playground-content">
+              <pre id="fd-code"><code class="python">import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+def solve_heat_equation_fd(L=1.0, T=0.5, alpha=0.01, nx=101, nt=1000):
+    """
+    Solve 1D heat equation: ∂u/∂t = α ∂²u/∂x²
+    using finite difference method
+    """
+    # Spatial grid
+    x = np.linspace(0, L, nx)
+    dx = x[1] - x[0]
+    
+    # Time stepping
+    dt = T / nt
+    
+    # Stability condition
+    r = alpha * dt / dx**2
+    if r > 0.5:
+        print(f"Warning: Unstable for r={r:.3f} > 0.5")
+    
+    # Initial condition (Gaussian pulse)
+    u = np.exp(-100 * (x - 0.5)**2)
+    
+    # Boundary conditions (Dirichlet: u=0 at ends)
+    u[0] = u[-1] = 0.0
+    
+    # Store solutions for animation
+    solutions = [u.copy()]
+    
+    # Finite difference scheme (explicit)
+    for n in range(nt):
+        u_new = u.copy()
+        for i in range(1, nx-1):
+            u_new[i] = u[i] + r * (u[i+1] - 2*u[i] + u[i-1])
+        
+        u = u_new
+        if n % 100 == 0:  # Store every 100th step
+            solutions.append(u.copy())
+    
+    return x, solutions, dt
+
+# Run simulation
+x, solutions, dt = solve_heat_equation_fd()
+
+# Create animation
+fig, ax = plt.subplots(figsize=(10, 6))
+line, = ax.plot(x, solutions[0], 'b-', linewidth=2)
+ax.set_xlim(0, 1)
+ax.set_ylim(0, 1)
+ax.set_xlabel('Position (x)', fontsize=12)
+ax.set_ylabel('Temperature (u)', fontsize=12)
+ax.set_title('1D Heat Equation - Finite Difference Solution', fontsize=14)
+ax.grid(True, alpha=0.3)
+
+def animate(i):
+    line.set_ydata(solutions[i])
+    ax.set_title(f'Time: {i*100*dt:.3f} s')
+    return line,
+
+ani = FuncAnimation(fig, animate, frames=len(solutions), interval=100)
+plt.tight_layout()
+plt.show()</code></pre>
+            </div>
+          </div>
+          
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+              <h4 class="font-bold mb-3 text-blue-700 dark:text-blue-300">Algorithm Steps:</h4>
+              <ol class="list-decimal pl-5 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <li>Discretize spatial domain with Δx</li>
+                <li>Choose time step Δt ensuring stability</li>
+                <li>Initialize temperature distribution</li>
+                <li>Apply finite difference formula</li>
+                <li>Iterate through time steps</li>
+                <li>Store results for visualization</li>
+              </ol>
+            </div>
+            
+            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+              <h4 class="font-bold mb-3 text-green-700 dark:text-green-300">Key Parameters:</h4>
+              <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                <li><strong>α:</strong> Thermal diffusivity (0.01 m²/s)</li>
+                <li><strong>Δx:</strong> Spatial resolution (0.01 m)</li>
+                <li><strong>Δt:</strong> Time step (0.0005 s)</li>
+                <li><strong>r:</strong> Stability parameter (must be ≤ 0.5)</li>
+                <li><strong>Boundary:</strong> Dirichlet (u=0 at boundaries)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Monte Carlo Integration Example -->
+        <div>
+          <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white flex items-center">
+            <i class="fas fa-dice mr-3 text-purple-500"></i>Monte Carlo: High-Dimensional Integration
+          </h3>
+          
+          <div class="code-playground">
+            <div class="playground-header">
+              <div class="flex items-center">
+                <i class="fab fa-python text-green-400 mr-2"></i>
+                <span class="text-white font-medium">monte_carlo_integration.py</span>
+              </div>
+              <button class="run-button" onclick="runCode('mc-code')">
+                <i class="fas fa-play mr-2"></i>Run Integration
+              </button>
+            </div>
+            <div class="playground-content">
+              <pre id="mc-code"><code class="python">import numpy as np
+import matplotlib.pyplot as plt
+from scipy import integrate
+import time
+
+def monte_carlo_integrate(func, dim, n_samples=100000):
+    """
+    Monte Carlo integration in arbitrary dimensions
+    ∫ f(x) dx over [0,1]^dim
+    """
+    # Generate random samples
+    samples = np.random.random((n_samples, dim))
+    
+    # Evaluate function at sample points
+    values = func(samples)
+    
+    # Calculate Monte Carlo estimate
+    volume = 1.0  # Volume of [0,1]^dim
+    integral_estimate = volume * np.mean(values)
+    
+    # Estimate error (standard deviation of mean)
+    error_estimate = volume * np.std(values) / np.sqrt(n_samples)
+    
+    return integral_estimate, error_estimate
+
+def example_function_6d(x):
+    """
+    6-dimensional example function: 
+    f(x) = exp(-∑ (x_i - 0.5)^2)
+    """
+    r_squared = np.sum((x - 0.5)**2, axis=1)
+    return np.exp(-10 * r_squared)
+
+# Compare Monte Carlo with other methods
+def compare_integration_methods():
+    dim = 6
+    n_samples = 100000
+    
+    print(f"Integrating 6-dimensional function")
+    print(f"Monte Carlo samples: {n_samples:,}")
+    print("-" * 50)
+    
+    # Monte Carlo integration
+    start_time = time.time()
+    mc_integral, mc_error = monte_carlo_integrate(
+        example_function_6d, dim, n_samples
+    )
+    mc_time = time.time() - start_time
+    
+    # Quadrature (only works for low dimensions)
+    if dim <= 3:
+        start_time = time.time()
+        quad_result = integrate.nquad(
+            lambda *args: example_function_6d(np.array([args]).T),
+            [[0,1]]*dim
+        )[0]
+        quad_time = time.time() - start_time
+    
+    print(f"Monte Carlo Result: {mc_integral:.6f} ± {mc_error:.6f}")
+    print(f"Monte Carlo Time: {mc_time:.3f} seconds")
+    print(f"Monte Carlo Efficiency: {n_samples/mc_time:.0f} samples/sec")
+    
+    if dim <= 3:
+        print(f"\nQuadrature Result: {quad_result:.6f}")
+        print(f"Quadrature Time: {quad_time:.3f} seconds")
+        print(f"Speedup: {quad_time/mc_time:.1f}x faster")
+    
+    # Error convergence analysis
+    print("\n" + "-" * 50)
+    print("Monte Carlo Error Convergence (1/√N):")
+    
+    sample_sizes = [1000, 5000, 20000, 50000, 100000, 500000]
+    errors = []
+    
+    for n in sample_sizes:
+        _, error = monte_carlo_integrate(example_function_6d, dim, n)
+        errors.append(error)
+    
+    # Plot convergence
+    plt.figure(figsize=(10, 6))
+    plt.loglog(sample_sizes, errors, 'bo-', linewidth=2, markersize=8)
+    plt.loglog(sample_sizes, 1/np.sqrt(sample_sizes), 'r--', 
+               linewidth=2, label='1/√N reference')
+    plt.xlabel('Number of Samples (N)', fontsize=12)
+    plt.ylabel('Error Estimate', fontsize=12)
+    plt.title('Monte Carlo Error Convergence (6D Integration)', fontsize=14)
+    plt.grid(True, alpha=0.3)
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+
+# Run comparison
+if __name__ == "__main__":
+    compare_integration_methods()</code></pre>
+            </div>
+          </div>
+          
+          <div class="mt-6 p-6 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-900 rounded-xl">
+            <h4 class="text-xl font-bold mb-4 text-purple-700 dark:text-purple-300">Monte Carlo Advantages:</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="text-center p-4">
+                <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <i class="fas fa-chart-line text-purple-600 dark:text-purple-300"></i>
+                </div>
+                <p class="font-medium text-dark dark:text-white">Dimensional Independence</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Error ~ 1/√N regardless of dimension</p>
+              </div>
+              
+              <div class="text-center p-4">
+                <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <i class="fas fa-bolt text-green-600 dark:text-green-300"></i>
+                </div>
+                <p class="font-medium text-dark dark:text-white">Parallel Friendly</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Embarrassingly parallel computation</p>
+              </div>
+              
+              <div class="text-center p-4">
+                <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <i class="fas fa-shapes text-blue-600 dark:text-blue-300"></i>
+                </div>
+                <p class="font-medium text-dark dark:text-white">Complex Domains</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Works with arbitrary integration regions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section id="case-studies" class="py-16 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 fade-in-section">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-dark dark:text-white">
+        <i class="fas fa-microscope mr-3"></i>Physics Case Studies
+      </h2>
+      
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Quantum Harmonic Oscillator -->
+          <div class="bg-white dark:bg-dark-card rounded-2xl p-6 card-hover">
+            <div class="flex items-center mb-6">
+              <div class="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-atom text-2xl text-indigo-600 dark:text-indigo-300"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-dark dark:text-white">Quantum Harmonic Oscillator</h3>
+                <span class="text-sm text-gray-500 dark:text-gray-400">Finite Difference Schrödinger Equation</span>
+              </div>
+            </div>
+            
+            <div class="equation">
+              -ħ²/2m ∂²ψ/∂x² + ½ mω²x² ψ = E ψ
+            </div>
+            
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Solving the time-independent Schrödinger equation using finite differences to find energy eigenvalues and eigenfunctions.
+            </p>
+            
+            <div class="code-block">
+              <pre><code class="python"># Simplified implementation
+import numpy as np
+from scipy.sparse import diags
+from scipy.sparse.linalg import eigs
+
+def solve_quantum_oscillator(n=1000, levels=5):
+    x = np.linspace(-10, 10, n)
+    dx = x[1] - x[0]
+    
+    # Construct Hamiltonian matrix
+    T = diags([1, -2, 1], [-1, 0, 1], shape=(n, n)) / dx**2
+    V = diags(0.5 * x**2, 0)
+    H = -0.5 * T + V
+    
+    # Find eigenvalues (energies)
+    eigenvalues, eigenvectors = eigs(H, k=levels, which='SR')
+    
+    return np.real(eigenvalues), eigenvectors</code></pre>
+            </div>
+            
+            <div class="mt-4 flex items-center text-sm text-gray-500 dark:text-gray-400">
+              <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+              <span>Result: Energy eigenvalues Eₙ = (n + ½)ħω verified to high precision</span>
+            </div>
+          </div>
+          
+          <!-- Fluid Flow Simulation -->
+          <div class="bg-white dark:bg-dark-card rounded-2xl p-6 card-hover">
+            <div class="flex items-center mb-6">
+              <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-water text-2xl text-blue-600 dark:text-blue-300"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-dark dark:text-white">Navier-Stokes Fluid Flow</h3>
+                <span class="text-sm text-gray-500 dark:text-gray-400">Finite Volume Method</span>
+              </div>
+            </div>
+            
+            <div class="equation">
+              ∂u/∂t + (u·∇)u = -∇p/ρ + ν∇²u + f
+            </div>
+            
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Implementing the incompressible Navier-Stokes equations using finite volume method with SIMPLE algorithm for pressure-velocity coupling.
+            </p>
+            
+            <div class="code-block">
+              <pre><code class="python"># Core Navier-Stokes solver
+def solve_navier_stokes(u, v, p, dt, dx, dy, nu, rho):
+    # Predictor step (momentum without pressure)
+    u_star = u + dt * (
+        -convective(u, v, dx, dy) + 
+        nu * laplacian(u, dx, dy)
+    )
+    
+    # Pressure Poisson equation
+    p = solve_pressure_poisson(u_star, v_star, dx, dy, dt, rho)
+    
+    # Corrector step
+    u = u_star - dt * gradient(p, dx) / rho
+    v = v_star - dt * gradient(p, dy) / rho
+    
+    return u, v, p</code></pre>
+            </div>
+            
+            <div class="mt-4 flex items-center text-sm text-gray-500 dark:text-gray-400">
+              <i class="fas fa-wind text-green-500 mr-2"></i>
+              <span>Simulates laminar flow, vortex shedding, and turbulence transitions</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Case Studies -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white dark:bg-dark-card p-6 rounded-xl card-hover">
+            <h4 class="font-bold mb-3 text-dark dark:text-white flex items-center">
+              <i class="fas fa-magnet mr-2 text-red-500"></i>Electrostatics
+            </h4>
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              Poisson equation solver for charge distributions using multigrid methods
+            </p>
+            <div class="mt-3">
+              <span class="bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300 px-2 py-1 rounded text-xs">
+                Poisson Solver
+              </span>
+            </div>
+          </div>
+          
+          <div class="bg-white dark:bg-dark-card p-6 rounded-xl card-hover">
+            <h4 class="font-bold mb-3 text-dark dark:text-white flex items-center">
+              <i class="fas fa-satellite mr-2 text-green-500"></i>Orbital Mechanics
+            </h4>
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              N-body simulations using Runge-Kutta and symplectic integrators
+            </p>
+            <div class="mt-3">
+              <span class="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 px-2 py-1 rounded text-xs">
+                RK4/Verlet
+              </span>
+            </div>
+          </div>
+          
+          <div class="bg-white dark:bg-dark-card p-6 rounded-xl card-hover">
+            <h4 class="font-bold mb-3 text-dark dark:text-white flex items-center">
+              <i class="fas fa-temperature-high mr-2 text-orange-500"></i>Heat Transfer
+            </h4>
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              3D transient heat conduction with complex boundary conditions
+            </p>
+            <div class="mt-3">
+              <span class="bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300 px-2 py-1 rounded text-xs">
+                Implicit Scheme
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Analysis -->
+  <section class="py-16 bg-white dark:bg-dark-card fade-in-section">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-dark dark:text-white">
+        <i class="fas fa-tachometer-alt mr-3"></i>Performance Analysis & Benchmarks
+      </h2>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-gradient-to-r from-blue-50 to-green-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 mb-8">
+          <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Computational Efficiency Comparison</h3>
+          
+          <div class="overflow-x-auto">
+            <table class="method-comparison">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Time Complexity</th>
+                  <th>Memory Usage</th>
+                  <th>Parallel Scaling</th>
+                  <th>Accuracy/Step</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Explicit FD</strong></td>
+                  <td>O(N·M)</td>
+                  <td>Low</td>
+                  <td>Good</td>
+                  <td>1st-2nd order</td>
+                </tr>
+                <tr>
+                  <td><strong>Implicit FD</strong></td>
+                  <td>O(N³)</td>
+                  <td>High</td>
+                  <td>Poor</td>
+                  <td>2nd-4th order</td>
+                </tr>
+                <tr>
+                  <td><strong>Finite Element</strong></td>
+                  <td>O(N³)</td>
+                  <td>High</td>
+                  <td>Medium</td>
+                  <td>High order</td>
+                </tr>
+                <tr>
+                  <td><strong>Monte Carlo</strong></td>
+                  <td>O(N)</td>
+                  <td>Low</td>
+                  <td>Excellent</td>
+                  <td>O(1/√N)</td>
+                </tr>
+                <tr>
+                  <td><strong>Spectral</strong></td>
+                  <td>O(N log N)</td>
+                  <td>Medium</td>
+                  <td>Good</td>
+                  <td>Exponential</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+            <h4 class="font-bold mb-4 text-dark dark:text-white">Optimization Strategies</h4>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                <span><strong>Vectorization:</strong> Use NumPy array operations instead of loops</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                <span><strong>Sparse Matrices:</strong> Leverage SciPy sparse formats for large systems</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                <span><strong>Just-in-Time:</strong> Use Numba for CPU-intensive loops</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                <span><strong>GPU Acceleration:</strong> Utilize CuPy for NVIDIA GPU computations</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+            <h4 class="font-bold mb-4 text-dark dark:text-white">Accuracy Considerations</h4>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-3"></i>
+                <span><strong>Round-off Error:</strong> Use double precision (float64) for stability</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-3"></i>
+                <span><strong>Truncation Error:</strong> Higher-order methods reduce error but increase complexity</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-3"></i>
+                <span><strong>Convergence:</strong> Always verify solution converges with mesh refinement</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-3"></i>
+                <span><strong>Stability:</strong> Check CFL condition for explicit time-stepping</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Python Libraries Showcase -->
+  <section class="py-16 bg-gradient-to-br from-gray-900 to-dark-bg text-white fade-in-section">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+        <i class="fas fa-toolbox mr-3"></i>Essential Python Libraries
+      </h2>
+      
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- NumPy -->
+          <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 card-hover border border-gray-700">
+            <div class="flex items-center mb-4">
+              <div class="w-14 h-14 numpy-gradient rounded-lg flex items-center justify-center mr-4">
+                <span class="text-white font-bold text-xl">NP</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">NumPy</h3>
+                <p class="text-sm text-gray-300">Numerical Computing</p>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-4">
+              Foundation for numerical computing in Python. Provides N-dimensional arrays, linear algebra, and random number generation.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-blue-900/50 text-blue-300 px-3 py-1 rounded text-sm">Arrays</span>
+              <span class="bg-blue-900/50 text-blue-300 px-3 py-1 rounded text-sm">Linear Algebra</span>
+              <span class="bg-blue-900/50 text-blue-300 px-3 py-1 rounded text-sm">FFT</span>
+            </div>
+          </div>
+          
+          <!-- SciPy -->
+          <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 card-hover border border-gray-700">
+            <div class="flex items-center mb-4">
+              <div class="w-14 h-14 scipy-gradient rounded-lg flex items-center justify-center mr-4">
+                <span class="text-white font-bold text-xl">SP</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">SciPy</h3>
+                <p class="text-sm text-gray-300">Scientific Computing</p>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-4">
+              Advanced scientific computing modules: integration, optimization, interpolation, ODE solving, and signal processing.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-orange-900/50 text-orange-300 px-3 py-1 rounded text-sm">Integration</span>
+              <span class="bg-orange-900/50 text-orange-300 px-3 py-1 rounded text-sm">ODE Solvers</span>
+              <span class="bg-orange-900/50 text-orange-300 px-3 py-1 rounded text-sm">Optimization</span>
+            </div>
+          </div>
+          
+          <!-- SymPy -->
+          <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 card-hover border border-gray-700">
+            <div class="flex items-center mb-4">
+              <div class="w-14 h-14 bg-green-700 rounded-lg flex items-center justify-center mr-4">
+                <span class="text-white font-bold text-xl">SY</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">SymPy</h3>
+                <p class="text-sm text-gray-300">Symbolic Mathematics</p>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-4">
+              Symbolic computation library for algebra, calculus, discrete math, and physics. Useful for deriving equations analytically.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-green-900/50 text-green-300 px-3 py-1 rounded text-sm">Symbolic</span>
+              <span class="bg-green-900/50 text-green-300 px-3 py-1 rounded text-sm">Calculus</span>
+              <span class="bg-green-900/50 text-green-300 px-3 py-1 rounded text-sm">Physics</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Libraries -->
+        <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="text-center p-4">
+            <div class="w-12 h-12 bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-3">
+              <i class="fab fa-python text-blue-300"></i>
+            </div>
+            <p class="font-medium text-white">Matplotlib</p>
+            <p class="text-sm text-gray-300">2D/3D Plotting</p>
+          </div>
+          
+          <div class="text-center p-4">
+            <div class="w-12 h-12 bg-purple-900/50 rounded-full flex items-center justify-center mx-auto mb-3">
+              <i class="fas fa-bolt text-purple-300"></i>
+            </div>
+            <p class="font-medium text-white">Numba</p>
+            <p class="text-sm text-gray-300">JIT Compilation</p>
+          </div>
+          
+          <div class="text-center p-4">
+            <div class="w-12 h-12 bg-red-900/50 rounded-full flex items-center justify-center mx-auto mb-3">
+              <i class="fas fa-cube text-red-300"></i>
+            </div>
+            <p class="font-medium text-white">FEniCS</p>
+            <p class="text-sm text-gray-300">FEM Solving</p>
+          </div>
+          
+          <div class="text-center p-4">
+            <div class="w-12 h-12 bg-yellow-900/50 rounded-full flex items-center justify-center mx-auto mb-3">
+              <i class="fas fa-robot text-yellow-300"></i>
+            </div>
+            <p class="font-medium text-white">PyTorch</p>
+            <p class="text-sm text-gray-300">ML/Autodiff</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Downloads & Resources -->
+  <section id="downloads" class="py-16 bg-white dark:bg-dark-card fade-in-section">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-dark dark:text-white">
+        <i class="fas fa-download mr-3"></i>Code Downloads & Resources
+      </h2>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Code Downloads -->
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8">
+            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Download Complete Code</h3>
+            
+            <div class="space-y-4">
+              <a href="#" class="block bg-white dark:bg-gray-800 p-4 rounded-lg hover:shadow-lg transition group">
+                <div class="flex items-center">
+                  <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-4">
+                    <i class="fas fa-file-code text-blue-600 dark:text-blue-300 text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-dark dark:text-white group-hover:text-primary">Complete Code Package</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">All Python scripts + Jupyter notebooks</p>
+                  </div>
+                  <div class="ml-auto">
+                    <i class="fas fa-download text-gray-400"></i>
+                  </div>
+                </div>
+              </a>
+              
+              <a href="#" class="block bg-white dark:bg-gray-800 p-4 rounded-lg hover:shadow-lg transition group">
+                <div class="flex items-center">
+                  <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-4">
+                    <i class="fas fa-book text-green-600 dark:text-green-300 text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-dark dark:text-white group-hover:text-primary">Comprehensive Guide PDF</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Detailed explanations + derivations</p>
+                  </div>
+                  <div class="ml-auto">
+                    <i class="fas fa-download text-gray-400"></i>
+                  </div>
+                </div>
+              </a>
+              
+              <a href="#" class="block bg-white dark:bg-gray-800 p-4 rounded-lg hover:shadow-lg transition group">
+                <div class="flex items-center">
+                  <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-4">
+                    <i class="fas fa-database text-purple-600 dark:text-purple-300 text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-dark dark:text-white group-hover:text-primary">Benchmark Dataset</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Pre-computed results for comparison</p>
+                  </div>
+                  <div class="ml-auto">
+                    <i class="fas fa-download text-gray-400"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <!-- GitHub Repository -->
+          <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8">
+            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">GitHub Repository</h3>
+            
+            <div class="bg-gray-800 text-white p-6 rounded-xl mb-6">
+              <div class="flex items-center mb-4">
+                <i class="fab fa-github text-2xl mr-3"></i>
+                <div>
+                  <h4 class="font-bold text-lg">anshuman365/numerical-physics</h4>
+                  <p class="text-gray-300 text-sm">Public repository with all code</p>
+                </div>
+              </div>
+              
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center">
+                  <i class="fas fa-star text-yellow-400 mr-2"></i>
+                  <span class="font-medium">42 stars</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-code-branch text-blue-400 mr-2"></i>
+                  <span class="font-medium">18 forks</span>
+                </div>
+              </div>
+              
+              <a href="https://github.com/anshuman365/numerical-physics" class="block w-full bg-gray-900 hover:bg-black text-white text-center py-3 rounded-lg font-bold transition">
+                <i class="fab fa-github mr-2"></i>View on GitHub
+              </a>
+            </div>
+            
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+              <h4 class="font-bold mb-2 text-blue-700 dark:text-blue-300">Installation Instructions:</h4>
+              <pre class="bg-gray-800 text-white p-3 rounded text-sm overflow-x-auto">
+pip install numpy scipy sympy matplotlib
+pip install jupyter notebook
+pip install numba fenics  # Optional</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conclusion & Future Work -->
+  <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Conclusion & Future Directions</h2>
+        
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
+          <h3 class="text-2xl font-bold mb-6">Key Findings</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <h4 class="font-bold mb-3 text-blue-200">Strengths Identified:</h4>
+              <ul class="list-disc pl-5 space-y-2 text-gray-200">
+                <li>Python provides excellent balance of performance and readability</li>
+                <li>Modern libraries make implementation accessible</li>
+                <li>Good agreement between different numerical methods</li>
+                <li>Scalable solutions for various problem sizes</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 class="font-bold mb-3 text-blue-200">Limitations:</h4>
+              <ul class="list-disc pl-5 space-y-2 text-gray-200">
+                <li>Python overhead for extremely large problems</li>
+                <li>Memory constraints for 3D high-resolution simulations</li>
+                <li>Limited to standard geometries in some methods</li>
+                <li>Real-time visualization requires optimization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+          <h3 class="text-2xl font-bold mb-6">Future Research Directions</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="text-center p-4">
+              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-brain text-xl"></i>
+              </div>
+              <h4 class="font-bold mb-2">Machine Learning Integration</h4>
+              <p class="text-sm text-gray-200">Using neural networks as PDE solvers</p>
+            </div>
+            
+            <div class="text-center p-4">
+              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-server text-xl"></i>
+              </div>
+              <h4 class="font-bold mb-2">High-Performance Computing</h4>
+              <p class="text-sm text-gray-200">GPU acceleration and parallel computing</p>
+            </div>
+            
+            <div class="text-center p-4">
+              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-infinity text-xl"></i>
+              </div>
+              <h4 class="font-bold mb-2">Quantum Algorithms</h4>
+              <p class="text-sm text-gray-200">Quantum computing for numerical methods</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-white dark:bg-dark-card">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-dark dark:text-white">Explore More Research</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+        Interested in computational physics, AI research, or materials science? 
+        Check out my other research papers and projects.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="research.html" class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-blue-700 transition shadow-lg hover:shadow-xl flex items-center">
+          <i class="fas fa-book-open mr-2"></i>All Research Papers
+        </a>
+        <a href="projects.html" class="border-2 border-primary text-primary dark:text-blue-300 px-8 py-3 rounded-full font-bold hover:bg-primary/10 transition flex items-center">
+          <i class="fas fa-code mr-2"></i>Technical Projects
+        </a>
+        <a href="contact.html" class="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-3 rounded-full font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition flex items-center">
+          <i class="fas fa-envelope mr-2"></i>Collaborate
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="js/include.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/dark-mode.js" defer></script>
+  
+  <script>
+    // Intersection Observer for animations
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fade in sections
+      const fadeSections = document.querySelectorAll('.fade-in-section');
+      
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      fadeSections.forEach(section => {
+        fadeObserver.observe(section);
+      });
+      
+      // Run code button functionality
+      window.runCode = function(codeId) {
+        const codeElement = document.getElementById(codeId);
+        if (codeElement) {
+          const code = codeElement.textContent;
+          
+          // Create a popup with run simulation message
+          alert('In a live environment, this would execute the Python code.\n\nFor now, you can copy the code and run it in your local Python environment with NumPy, SciPy, and Matplotlib installed.');
+          
+          // Optional: Copy code to clipboard
+          navigator.clipboard.writeText(code).then(() => {
+            console.log('Code copied to clipboard');
+          });
+        }
+      };
+      
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href !== '#') {
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+              e.preventDefault();
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+              });
+            }
+          }
+        });
+      });
+      
+      // Table row highlighting
+      const tableRows = document.querySelectorAll('.method-comparison tr');
+      tableRows.forEach(row => {
+        row.addEventListener('mouseenter', () => {
+          row.style.backgroundColor = window.matchMedia('(prefers-color-scheme: dark)').matches 
+            ? '#4b5563' 
+            : '#f3f4f6';
+          row.style.transition = 'background-color 0.2s ease';
+        });
+        row.addEventListener('mouseleave', () => {
+          row.style.backgroundColor = '';
+        });
+      });
+      
+      // Image zoom functionality
+      const images = document.querySelectorAll('.image-zoom');
+      images.forEach(img => {
+        img.addEventListener('click', function() {
+          if (this.classList.contains('zoomed')) {
+            this.classList.remove('zoomed');
+            this.style.transform = 'scale(1)';
+            this.style.cursor = 'zoom-in';
+            this.style.zIndex = '';
+          } else {
+            this.classList.add('zoomed');
+            this.style.transform = 'scale(1.5)';
+            this.style.cursor = 'zoom-out';
+            this.style.zIndex = '1000';
+            this.style.position = 'relative';
+          }
+        });
+        
+        // Close zoom when clicking elsewhere
+        document.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('image-zoom')) {
+            images.forEach(img => {
+              if (img.classList.contains('zoomed')) {
+                img.classList.remove('zoomed');
+                img.style.transform = 'scale(1)';
+                img.style.cursor = 'zoom-in';
+                img.style.zIndex = '';
+              }
+            });
+          }
+        });
+      });
+      
+      // Add copy year dynamically
+      const currentYear = new Date().getFullYear();
+      const yearElements = document.querySelectorAll('.current-year');
+      yearElements.forEach(el => {
+        el.textContent = currentYear;
+      });
+    });
+    
+    // Syntax highlighting for code blocks
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightElement(block);
+      });
+    });
+  </script>
+</body>
+</html>
