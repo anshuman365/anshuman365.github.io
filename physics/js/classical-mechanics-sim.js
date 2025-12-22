@@ -2,6 +2,7 @@
 class ClassicalMechanicsSimulations {
     constructor() {
         this.initSimulations();
+        this.initSpringMassSystem();
     }
 
     initSimulations() {
@@ -11,6 +12,7 @@ class ClassicalMechanicsSimulations {
         this.initRocketSimulation();
         this.initProjectileSimulation();
         this.initPendulumSimulation();
+        this.initSpringMassSystem(); // Add this
     }
 
     initParticleAnimation() {
@@ -180,7 +182,7 @@ class ClassicalMechanicsSimulations {
         }
 
         // Push button event
-        document.getElementById('push-object').addEventListener('click', () => {
+        document.getElementById('push-object')?.addEventListener('click', () => {
             object.velocity = pushForce;
             object.moving = true;
         });
@@ -215,7 +217,7 @@ class ClassicalMechanicsSimulations {
 
         function updateCalculations() {
             acceleration = force / mass;
-            accelerationDisplay.textContent = `${acceleration.toFixed(1)} m/s²`;
+            if (accelerationDisplay) accelerationDisplay.textContent = `${acceleration.toFixed(1)} m/s²`;
         }
 
         function drawObject() {
@@ -295,24 +297,13 @@ class ClassicalMechanicsSimulations {
         }
 
         // Force slider event
-        forceSlider.addEventListener('input', () => {
-            force = parseInt(forceSlider.value);
-            forceValue.textContent = force;
-            updateCalculations();
-        });
-
-        // Mass adjustment buttons
-        document.querySelectorAll('.mass-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (btn.classList.contains('increase')) {
-                    mass = Math.min(20, mass + 1);
-                } else {
-                    mass = Math.max(1, mass - 1);
-                }
-                massDisplay.textContent = `${mass} kg`;
+        if (forceSlider) {
+            forceSlider.addEventListener('input', () => {
+                force = parseInt(forceSlider.value);
+                if (forceValue) forceValue.textContent = force;
                 updateCalculations();
             });
-        });
+        }
 
         // Initialize canvas
         canvas.width = canvas.offsetWidth;
@@ -447,7 +438,7 @@ class ClassicalMechanicsSimulations {
         }
 
         // Launch button event
-        document.getElementById('launch-rocket').addEventListener('click', () => {
+        document.getElementById('launch-rocket')?.addEventListener('click', () => {
             if (rocket.fuel > 0) {
                 rocket.thrust = 2;
             }
@@ -505,9 +496,9 @@ class ClassicalMechanicsSimulations {
 
         function updateDisplay(v0, angle) {
             const { flightTime, maxHeight, range } = calculateTrajectory(v0, angle);
-            maxHeightEl.textContent = `${maxHeight.toFixed(1)} m`;
-            rangeEl.textContent = `${range.toFixed(1)} m`;
-            flightTimeEl.textContent = `${flightTime.toFixed(1)} s`;
+            if (maxHeightEl) maxHeightEl.textContent = `${maxHeight.toFixed(1)} m`;
+            if (rangeEl) rangeEl.textContent = `${range.toFixed(1)} m`;
+            if (flightTimeEl) flightTimeEl.textContent = `${flightTime.toFixed(1)} s`;
         }
 
         function drawProjectile() {
@@ -586,26 +577,32 @@ class ClassicalMechanicsSimulations {
         // Initialize
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
-        updateDisplay(velocitySlider.value, angleSlider.value);
+        if (velocitySlider && angleSlider) {
+            updateDisplay(velocitySlider.value, angleSlider.value);
+        }
         drawProjectile();
         animate();
 
         // Event listeners
-        velocitySlider.addEventListener('input', () => {
-            const v0 = parseInt(velocitySlider.value);
-            const angle = parseInt(angleSlider.value);
-            velocityValue.textContent = v0;
-            updateDisplay(v0, angle);
-        });
+        if (velocitySlider && velocityValue) {
+            velocitySlider.addEventListener('input', () => {
+                const v0 = parseInt(velocitySlider.value);
+                const angle = parseInt(angleSlider.value);
+                velocityValue.textContent = v0;
+                updateDisplay(v0, angle);
+            });
+        }
 
-        angleSlider.addEventListener('input', () => {
-            const v0 = parseInt(velocitySlider.value);
-            const angle = parseInt(angleSlider.value);
-            angleValue.textContent = angle;
-            updateDisplay(v0, angle);
-        });
+        if (angleSlider && angleValue) {
+            angleSlider.addEventListener('input', () => {
+                const v0 = parseInt(velocitySlider.value);
+                const angle = parseInt(angleSlider.value);
+                angleValue.textContent = angle;
+                updateDisplay(v0, angle);
+            });
+        }
 
-        document.getElementById('fire-projectile').addEventListener('click', () => {
+        document.getElementById('fire-projectile')?.addEventListener('click', () => {
             const v0 = parseInt(velocitySlider.value);
             const angle = parseInt(angleSlider.value);
             const angleRad = angle * Math.PI / 180;
@@ -619,7 +616,7 @@ class ClassicalMechanicsSimulations {
             time = 0;
         });
 
-        document.getElementById('reset-projectile').addEventListener('click', () => {
+        document.getElementById('reset-projectile')?.addEventListener('click', () => {
             projectile.x = 50;
             projectile.y = canvas.height - 100;
             projectile.launched = false;
@@ -663,8 +660,8 @@ class ClassicalMechanicsSimulations {
             const period = 2 * Math.PI * Math.sqrt(pendulum.length / g);
             const frequency = 1 / period;
             
-            periodDisplay.textContent = `${period.toFixed(2)} s`;
-            frequencyDisplay.textContent = `${frequency.toFixed(2)} Hz`;
+            if (periodDisplay) periodDisplay.textContent = `${period.toFixed(2)} s`;
+            if (frequencyDisplay) frequencyDisplay.textContent = `${frequency.toFixed(2)} Hz`;
         }
 
         function updatePendulum() {
@@ -760,22 +757,26 @@ class ClassicalMechanicsSimulations {
         drawPendulum();
 
         // Event listeners
-        lengthSlider.addEventListener('input', () => {
-            pendulum.length = parseFloat(lengthSlider.value);
-            lengthValue.textContent = pendulum.length;
-            calculatePendulum();
-            updatePendulum();
-            drawPendulum();
-        });
+        if (lengthSlider && lengthValue) {
+            lengthSlider.addEventListener('input', () => {
+                pendulum.length = parseFloat(lengthSlider.value);
+                lengthValue.textContent = pendulum.length;
+                calculatePendulum();
+                updatePendulum();
+                drawPendulum();
+            });
+        }
 
-        angleSlider.addEventListener('input', () => {
-            pendulum.angle = parseFloat(angleSlider.value) * Math.PI / 180;
-            angleValue.textContent = angleSlider.value;
-            updatePendulum();
-            drawPendulum();
-        });
+        if (angleSlider && angleValue) {
+            angleSlider.addEventListener('input', () => {
+                pendulum.angle = parseFloat(angleSlider.value) * Math.PI / 180;
+                angleValue.textContent = angleSlider.value;
+                updatePendulum();
+                drawPendulum();
+            });
+        }
 
-        document.getElementById('start-pendulum').addEventListener('click', () => {
+        document.getElementById('start-pendulum')?.addEventListener('click', () => {
             if (!pendulum.animating) {
                 pendulum.animating = true;
                 pendulum.startTime = 0;
@@ -783,7 +784,7 @@ class ClassicalMechanicsSimulations {
             }
         });
 
-        document.getElementById('stop-pendulum').addEventListener('click', () => {
+        document.getElementById('stop-pendulum')?.addEventListener('click', () => {
             pendulum.animating = false;
             pendulum.angularVelocity = 0;
         });
@@ -793,6 +794,241 @@ class ClassicalMechanicsSimulations {
             canvas.height = canvas.offsetHeight;
             updatePendulum();
             drawPendulum();
+        });
+    }
+
+    // NEW: Spring-Mass System Simulation
+    initSpringMassSystem() {
+        const canvas = document.getElementById('spring-canvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let spring = {
+            x: canvas.width / 2,
+            y: 100,
+            length: 150,
+            bob: { x: canvas.width / 2, y: 250, radius: 20 },
+            mass: 1,
+            k: 100,
+            damping: 0.1,
+            velocity: 0,
+            displacement: 0,
+            equilibrium: 250,
+            animating: false
+        };
+
+        const kSlider = document.getElementById('spring-k-slider');
+        const massSlider = document.getElementById('spring-mass-slider');
+        const dampingSlider = document.getElementById('spring-damping-slider');
+        const kValue = document.getElementById('spring-k');
+        const massValue = document.getElementById('spring-mass');
+        const dampingValue = document.getElementById('spring-damping');
+
+        // Update display values
+        function updateSpringValues() {
+            if (kValue) kValue.textContent = spring.k;
+            if (massValue) massValue.textContent = spring.mass;
+            if (dampingValue) dampingValue.textContent = spring.damping.toFixed(2);
+        }
+
+        // Calculate period and frequency
+        function calculateSpringProperties() {
+            const period = 2 * Math.PI * Math.sqrt(spring.mass / spring.k);
+            const frequency = 1 / period;
+            
+            // Update display if elements exist
+            const periodEl = document.getElementById('spring-period');
+            const freqEl = document.getElementById('spring-frequency');
+            const amplitudeEl = document.getElementById('spring-amplitude');
+            
+            if (periodEl) periodEl.textContent = `${period.toFixed(2)} s`;
+            if (freqEl) freqEl.textContent = `${frequency.toFixed(2)} Hz`;
+            if (amplitudeEl) amplitudeEl.textContent = `${Math.abs(spring.displacement).toFixed(2)} m`;
+        }
+
+        // Draw spring-mass system
+        function drawSpringMass() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw ceiling
+            ctx.fillStyle = '#4b5563';
+            ctx.fillRect(0, 0, canvas.width, 40);
+
+            // Draw equilibrium line
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.moveTo(50, spring.equilibrium);
+            ctx.lineTo(canvas.width - 50, spring.equilibrium);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Draw spring
+            const coils = 15;
+            const coilHeight = (spring.bob.y - spring.y) / coils;
+            
+            ctx.strokeStyle = '#60a5fa';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(spring.x, spring.y);
+            
+            for (let i = 0; i < coils; i++) {
+                const x1 = spring.x + (i % 2 === 0 ? 20 : -20);
+                const y1 = spring.y + i * coilHeight;
+                const x2 = spring.x + ((i + 1) % 2 === 0 ? 20 : -20);
+                const y2 = spring.y + (i + 1) * coilHeight;
+                
+                ctx.quadraticCurveTo(x1, y1 + coilHeight/2, x2, y2);
+            }
+            
+            ctx.lineTo(spring.bob.x, spring.bob.y - spring.bob.radius);
+            ctx.stroke();
+
+            // Draw mass
+            ctx.fillStyle = '#8b5cf6';
+            ctx.beginPath();
+            ctx.arc(spring.bob.x, spring.bob.y, spring.bob.radius, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw mass label
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '14px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText(`${spring.mass} kg`, spring.bob.x, spring.bob.y + 30);
+
+            // Draw force arrows
+            if (spring.animating) {
+                // Spring force (Hooke's Law: F = -k * x)
+                const springForce = -spring.k * spring.displacement;
+                const arrowLength = Math.min(Math.abs(springForce) * 0.5, 100);
+                
+                // Spring force arrow
+                ctx.strokeStyle = '#ef4444';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(spring.bob.x - 60, spring.bob.y);
+                ctx.lineTo(spring.bob.x - 60 - (springForce > 0 ? arrowLength : -arrowLength), spring.bob.y);
+                
+                // Arrowhead
+                ctx.moveTo(spring.bob.x - 60 - (springForce > 0 ? arrowLength : -arrowLength), spring.bob.y);
+                ctx.lineTo(spring.bob.x - 60 - (springForce > 0 ? arrowLength : -arrowLength) + (springForce > 0 ? 10 : -10), spring.bob.y - 5);
+                ctx.moveTo(spring.bob.x - 60 - (springForce > 0 ? arrowLength : -arrowLength), spring.bob.y);
+                ctx.lineTo(spring.bob.x - 60 - (springForce > 0 ? arrowLength : -arrowLength) + (springForce > 0 ? 10 : -10), spring.bob.y + 5);
+                ctx.stroke();
+
+                // Spring force label
+                ctx.fillStyle = '#ef4444';
+                ctx.fillText(`F_spring = ${springForce.toFixed(1)} N`, spring.bob.x - 60, spring.bob.y - 20);
+
+                // Weight force (F = mg)
+                const weightForce = spring.mass * 9.8;
+                const weightLength = Math.min(weightForce * 2, 100);
+                
+                // Weight force arrow
+                ctx.strokeStyle = '#10b981';
+                ctx.beginPath();
+                ctx.moveTo(spring.bob.x + 60, spring.bob.y);
+                ctx.lineTo(spring.bob.x + 60, spring.bob.y + weightLength);
+                
+                // Arrowhead
+                ctx.moveTo(spring.bob.x + 60, spring.bob.y + weightLength);
+                ctx.lineTo(spring.bob.x + 60 - 5, spring.bob.y + weightLength - 10);
+                ctx.moveTo(spring.bob.x + 60, spring.bob.y + weightLength);
+                ctx.lineTo(spring.bob.x + 60 + 5, spring.bob.y + weightLength - 10);
+                ctx.stroke();
+
+                // Weight force label
+                ctx.fillStyle = '#10b981';
+                ctx.fillText(`F_weight = ${weightForce.toFixed(1)} N`, spring.bob.x + 60, spring.bob.y + weightLength + 20);
+            }
+        }
+
+        // Animation loop
+        function animateSpring(timestamp) {
+            if (!spring.animating) return;
+
+            // Calculate forces
+            const springForce = -spring.k * spring.displacement;
+            const dampingForce = -spring.damping * spring.velocity;
+            const totalForce = springForce + dampingForce;
+
+            // Calculate acceleration (F = ma)
+            const acceleration = totalForce / spring.mass;
+
+            // Update velocity and position
+            spring.velocity += acceleration * 0.016; // Assuming 60fps
+            spring.displacement += spring.velocity * 0.016;
+
+            // Update bob position
+            spring.bob.y = spring.equilibrium + spring.displacement;
+
+            // Boundary check
+            if (spring.bob.y < spring.y + 50) {
+                spring.bob.y = spring.y + 50;
+                spring.velocity *= -0.5; // Bounce
+            }
+
+            drawSpringMass();
+            requestAnimationFrame(animateSpring);
+        }
+
+        // Initialize canvas
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        spring.x = canvas.width / 2;
+        spring.bob.x = canvas.width / 2;
+        updateSpringValues();
+        calculateSpringProperties();
+        drawSpringMass();
+
+        // Event listeners
+        if (kSlider && kValue) {
+            kSlider.addEventListener('input', () => {
+                spring.k = parseFloat(kSlider.value);
+                kValue.textContent = spring.k;
+                calculateSpringProperties();
+            });
+        }
+
+        if (massSlider && massValue) {
+            massSlider.addEventListener('input', () => {
+                spring.mass = parseFloat(massSlider.value);
+                massValue.textContent = spring.mass;
+                calculateSpringProperties();
+            });
+        }
+
+        if (dampingSlider && dampingValue) {
+            dampingSlider.addEventListener('input', () => {
+                spring.damping = parseFloat(dampingSlider.value);
+                dampingValue.textContent = spring.damping.toFixed(2);
+            });
+        }
+
+        document.getElementById('start-spring')?.addEventListener('click', () => {
+            if (!spring.animating) {
+                spring.animating = true;
+                spring.displacement = 1; // Initial displacement
+                spring.velocity = 0;
+                animateSpring();
+            }
+        });
+
+        document.getElementById('reset-spring')?.addEventListener('click', () => {
+            spring.animating = false;
+            spring.displacement = 0;
+            spring.velocity = 0;
+            spring.bob.y = spring.equilibrium;
+            drawSpringMass();
+        });
+
+        window.addEventListener('resize', () => {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            spring.x = canvas.width / 2;
+            spring.bob.x = canvas.width / 2;
+            drawSpringMass();
         });
     }
 }

@@ -1,0 +1,2419 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newton's Laws of Motion | Complete Guide with Interactive Physics Simulations</title>
+    <meta name="description" content="Master Newton's 3 Laws of Motion with interactive simulations, detailed explanations, and real-world applications. Understand inertia, F=ma, and action-reaction principles with hands-on physics demonstrations.">
+    <meta name="keywords" content="Newton's Laws of Motion, physics, classical mechanics, inertia, F=ma, action-reaction, force, motion, physics simulations, Newtonian mechanics, educational physics">
+    <meta name="author" content="Anshuman Singh">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anshuman365.github.io/physics/classical_mechanics/newtons_laws_of_motion.html">
+    <meta property="og:title" content="Newton's Laws of Motion | Complete Guide with Interactive Simulations">
+    <meta property="og:description" content="Interactive guide to Newton's 3 Laws of Motion with physics simulations, detailed explanations, and real-world applications.">
+    <meta property="og:image" content="https://anshuman365.github.io/physics/assets/newtons-laws-og.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://anshuman365.github.io/physics/classical_mechanics/newtons_laws_of_motion.html">
+    <meta property="twitter:title" content="Newton's Laws of Motion | Complete Guide with Interactive Simulations">
+    <meta property="twitter:description" content="Interactive guide to Newton's 3 Laws of Motion with physics simulations, detailed explanations, and real-world applications.">
+    <meta property="twitter:image" content="https://anshuman365.github.io/physics/assets/newtons-laws-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://anshuman365.github.io/physics/classical_mechanics/newtons_laws_of_motion.html">
+    
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Newton's Laws of Motion: Complete Interactive Guide",
+        "description": "Comprehensive educational resource covering Newton's Three Laws of Motion with interactive simulations and detailed explanations",
+        "educationalLevel": "HighSchool",
+        "learningResourceType": "Interactive Simulation",
+        "author": {
+            "@type": "Person",
+            "name": "Anshuman Singh"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "Classical Mechanics"
+        },
+        "keywords": ["physics", "Newton's Laws", "classical mechanics", "motion", "force"],
+        "timeRequired": "PT30M",
+        "datePublished": "2025-01-15",
+        "inLanguage": "en",
+        "typicalAgeRange": "14-22"
+    }
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4X0M6RM0F6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4X0M6RM0F6');
+    </script>
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://anshuman365.github.io/"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Physics",
+            "item": "https://anshuman365.github.io/physics.html"
+        },{
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Classical Mechanics",
+            "item": "https://anshuman365.github.io/physics/classical-mechanics.html"
+        },{
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Newton's Laws of Motion"
+        }]
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f59e0b',
+                        secondary: '#d97706',
+                        accent: '#dc2626',
+                        'law-1': '#3b82f6',
+                        'law-2': '#ef4444',
+                        'law-3': '#10b981',
+                        dark: '#1e293b',
+                        light: '#f8fafc',
+                        'dark-bg': '#0f172a',
+                        'dark-card': '#1e293b',
+                        'dark-text': '#f1f5f9'
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'slide-up': 'slide-up 0.5s ease-out',
+                        'fade-in': 'fade-in 0.3s ease-in',
+                        'spin-slow': 'spin 3s linear infinite',
+                        'wave': 'wave 2s ease-in-out infinite',
+                        'shake': 'shake 0.5s ease-in-out'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { 
+                                boxShadow: '0 0 20px rgba(245, 158, 11, 0.3)' 
+                            },
+                            '50%': { 
+                                boxShadow: '0 0 40px rgba(245, 158, 11, 0.6)' 
+                            }
+                        },
+                        'slide-up': {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        'fade-in': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        wave: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' }
+                        },
+                        shake: {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-5px)' },
+                            '20%, 40%, 60%, 80%': { transform: 'translateX(5px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+        
+        /* Sidebar adjustment */
+        @media (min-width: 1024px) {
+            main {
+                margin-left: 256px;
+            }
+        }
+        
+        .physics-formula {
+            font-family: 'Cambria Math', serif;
+            font-size: 1.25rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .dark .physics-formula {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-left: 4px solid #fbbf24;
+        }
+        
+        .physics-formula:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .dark .physics-formula:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .law-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .dark .law-card {
+            background: #1e293b;
+        }
+        
+        .law-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .law-1-card::before { background: #3b82f6; }
+        .law-2-card::before { background: #ef4444; }
+        .law-3-card::before { background: #10b981; }
+        
+        .law-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .law-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .interactive-simulation {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .sidebar-link.active {
+            background-color: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid #f59e0b;
+            font-weight: bold;
+        }
+        
+        .dark .sidebar-link.active {
+            background-color: rgba(251, 191, 36, 0.2);
+        }
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+            z-index: 100;
+        }
+        
+        .concept-diagram {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .dark .concept-diagram {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+        
+        .prerequisite-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            color: #f59e0b;
+            margin: 0.25rem;
+        }
+        
+        .dark .prerequisite-tag {
+            background: rgba(251, 191, 36, 0.2);
+            border-color: rgba(251, 191, 36, 0.4);
+        }
+        
+        .quiz-question {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #0ea5e9;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .dark .quiz-question {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 100%);
+            border-left: 4px solid #38bdf8;
+        }
+        
+        .particle-background {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .particle-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 30%);
+            z-index: -1;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .animated-particle {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .law-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .law-1-icon {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            color: #1d4ed8;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .dark .law-1-icon {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            color: #93c5fd;
+        }
+        
+        .law-2-icon {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            color: #dc2626;
+            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+        }
+        
+        .dark .law-2-icon {
+            background: linear-gradient(135deg, #7f1d1d, #991b1b);
+            color: #fca5a5;
+        }
+        
+        .law-3-icon {
+            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+            color: #16a34a;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+        
+        .dark .law-3-icon {
+            background: linear-gradient(135deg, #166534, #15803d);
+            color: #86efac;
+        }
+        
+        .timeline-marker {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 4px solid white;
+            position: absolute;
+            left: -10px;
+            top: 0;
+            z-index: 2;
+        }
+        
+        .dark .timeline-marker {
+            border-color: #1e293b;
+        }
+        
+        .law-1-marker { background: #3b82f6; }
+        .law-2-marker { background: #ef4444; }
+        .law-3-marker { background: #10b981; }
+        
+        .real-world-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .real-world-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .interactive-canvas {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .breadcrumb {
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb a {
+            color: #6b7280;
+            transition: color 0.2s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #f59e0b;
+        }
+        
+        .breadcrumb .current {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+        
+        .table-of-contents {
+            position: sticky;
+            top: 100px;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+        }
+        
+        .table-of-contents a {
+            display: block;
+            padding: 0.5rem 1rem;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .table-of-contents a:hover {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid #f59e0b;
+        }
+        
+        .table-of-contents a.active {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid #f59e0b;
+            font-weight: 600;
+            color: #f59e0b;
+        }
+        
+        .seo-keywords {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-light text-gray-800 dark:bg-dark-bg dark:text-dark-text transition-colors duration-300">
+    
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-dark-card/90 backdrop-blur-sm shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="../../../index.html" class="text-xl font-bold text-primary dark:text-yellow-300 flex items-center">
+                <i class="fas fa-arrow-left mr-3"></i>
+                Anshuman Singh
+            </a>
+            
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="../../physics.html" class="font-medium hover:text-primary dark:hover:text-yellow-300 transition">
+                    <i class="fas fa-atom mr-2"></i>Physics Home
+                </a>
+                
+                <!-- Physics Topics Dropdown -->
+                <div class="relative group">
+                    <button class="hover:text-primary dark:hover:text-yellow-300 transition font-medium flex items-center">
+                        <i class="fas fa-book-open mr-2 text-primary dark:text-yellow-300"></i>
+                        Physics Topics
+                        <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-white dark:bg-dark-card shadow-xl rounded-lg mt-2 w-64 border border-gray-200 dark:border-gray-700 z-50">
+                        
+                        <!-- Classical Mechanics -->
+                        <a href="../classical-mechanics.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-yellow-900/30 transition border-b border-gray-100 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-apple-alt text-amber-600 dark:text-amber-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Classical Mechanics</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Newton's Laws, Motion, Energy</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Newton's Laws (Active) -->
+                        <a href="newtons_laws_of_motion.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-yellow-900/30 transition border-b border-gray-100 dark:border-gray-700 bg-blue-50 dark:bg-blue-900/20">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-balance-scale text-blue-600 dark:text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Newton's Laws</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">3 Laws of Motion</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Other topics -->
+                        <a href="../../electromagnetism/electromagnetism.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-yellow-900/30 transition border-b border-gray-100 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-bolt text-blue-600 dark:text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Electromagnetism</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Maxwell's Eqs, EM Waves</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Thermodynamics -->
+                        <a href="../../thermodynamics/thermodynamics.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-yellow-900/30 transition border-b border-gray-100 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-temperature-high text-red-600 dark:text-red-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Thermodynamics</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Heat, Energy, Entropy</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Optics -->
+                        <a href="../../optics/optics.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-yellow-900/30 transition border-b border-gray-100 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-eye text-cyan-600 dark:text-cyan-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Optics</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Light, Lenses, Waves</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="dark-mode-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+                    <i class="fas fa-moon text-gray-700 dark:text-yellow-400"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-gray-600 dark:text-gray-300" id="menu-toggle">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white dark:bg-dark-card px-4 py-6 shadow-lg" id="mobile-menu">
+            <a href="../../physics.html" class="block py-3 font-medium dark:text-white">
+                <i class="fas fa-atom mr-3"></i>Physics Home
+            </a>
+            
+            <!-- Mobile Physics Topics -->
+            <div class="py-3">
+                <button class="mobile-physics-toggle flex items-center justify-between w-full font-semibold text-primary dark:text-yellow-300 mb-2">
+                    <div class="flex items-center">
+                        <i class="fas fa-book-open mr-3"></i>
+                        Physics Topics
+                    </div>
+                    <i class="fas fa-chevron-down text-sm transition-transform duration-300"></i>
+                </button>
+                <div class="mobile-physics-submenu ml-4 space-y-2 hidden">
+                    <a href="../classical-mechanics.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-yellow-300 transition">
+                        <i class="fas fa-apple-alt text-amber-500 mr-3"></i>Classical Mechanics
+                    </a>
+                    <a href="newtons_laws_of_motion.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-yellow-300 transition bg-blue-50 dark:bg-blue-900/30">
+                        <i class="fas fa-balance-scale text-blue-500 mr-3"></i>Newton's Laws
+                    </a>
+                    <a href="../../electromagnetism/electromagnetism.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-yellow-300 transition">
+                        <i class="fas fa-bolt text-blue-500 mr-3"></i>Electromagnetism
+                    </a>
+                    <a href="../../thermodynamics/thermodynamics.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-yellow-300 transition">
+                        <i class="fas fa-temperature-high text-red-500 mr-3"></i>Thermodynamics
+                    </a>
+                </div>
+            </div>
+            
+            <button id="dark-mode-toggle-mobile" class="w-full text-left py-3 text-gray-700 dark:text-gray-300 flex items-center">
+                <i class="fas fa-moon mr-3"></i>Dark Mode
+            </button>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="pt-24 pb-6 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="../../../index.html" class="inline-flex items-center">
+                            <i class="fas fa-home mr-2"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right mx-2 text-gray-400"></i>
+                            <a href="../../physics.html" class="ml-1">
+                                Physics
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right mx-2 text-gray-400"></i>
+                            <a href="../classical-mechanics.html" class="ml-1">
+                                Classical Mechanics
+                            </a>
+                        </div>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right mx-2 text-gray-400"></i>
+                            <span class="ml-1 current">
+                                Newton's Laws of Motion
+                            </span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Sidebar for Table of Contents (Desktop) -->
+    <div class="hidden lg:block fixed left-0 top-24 h-[calc(100vh-6rem)] w-64 bg-white dark:bg-dark-card border-r border-gray-200 dark:border-gray-700 overflow-y-auto z-40">
+        <div class="p-6">
+            <h3 class="text-lg font-bold mb-6 text-primary dark:text-yellow-300 flex items-center">
+                <i class="fas fa-book mr-3"></i>
+                Table of Contents
+            </h3>
+            
+            <div class="table-of-contents">
+                <a href="#hero" class="sidebar-link active">Overview</a>
+                <a href="#introduction" class="sidebar-link">Introduction</a>
+                <a href="#law-1" class="sidebar-link">First Law: Inertia</a>
+                <a href="#law-2" class="sidebar-link">Second Law: F=ma</a>
+                <a href="#law-3" class="sidebar-link">Third Law: Action-Reaction</a>
+                <a href="#simulations" class="sidebar-link">Interactive Simulations</a>
+                <a href="#applications" class="sidebar-link">Real-World Applications</a>
+                <a href="#history" class="sidebar-link">Historical Context</a>
+                <a href="#problems" class="sidebar-link">Practice Problems</a>
+                <a href="#quiz" class="sidebar-link">Test Your Knowledge</a>
+                <a href="#resources" class="sidebar-link">Further Resources</a>
+            </div>
+            
+            <!-- Prerequisites -->
+            <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">PREREQUISITES</h4>
+                <div class="flex flex-wrap gap-1">
+                    <span class="prerequisite-tag">Basic Algebra</span>
+                    <span class="prerequisite-tag">Vectors</span>
+                    <span class="prerequisite-tag">Trigonometry</span>
+                    <span class="prerequisite-tag">Calculus Basics</span>
+                </div>
+            </div>
+            
+            <!-- Time to Complete -->
+            <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">TIME TO COMPLETE</h4>
+                <div class="flex items-center text-gray-600 dark:text-gray-400">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>30-45 minutes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section id="hero" class="pt-8 pb-16 bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 text-white relative overflow-hidden particle-background">
+            <!-- Animated Background Elements -->
+            <div class="animated-particle" style="top: 20%; left: 10%; animation: float 5s ease-in-out infinite; animation-delay: 0s;">
+                <i class="fas fa-circle text-white/20 text-4xl"></i>
+            </div>
+            <div class="animated-particle" style="top: 60%; right: 15%; animation: float 7s ease-in-out infinite; animation-delay: 1s;">
+                <i class="fas fa-circle text-white/15 text-6xl"></i>
+            </div>
+            <div class="animated-particle" style="bottom: 30%; left: 20%; animation: float 6s ease-in-out infinite; animation-delay: 2s;">
+                <i class="fas fa-circle text-white/10 text-3xl"></i>
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm mb-6 animate-fade-in">
+                            <i class="fas fa-graduation-cap mr-2"></i>
+                            <span class="text-sm font-medium">Classical Mechanics</span>
+                        </div>
+                        
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-slide-up">
+                            Newton's <span class="text-yellow-200">Laws of Motion</span>
+                        </h1>
+                        
+                        <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in" style="animation-delay: 0.2s;">
+                            The fundamental principles that describe the relationship between motion and forces. 
+                            Discover how objects move, accelerate, and interact through interactive simulations 
+                            and detailed explanations.
+                        </p>
+                        
+                        <!-- Quick Stats -->
+                        <div class="grid grid-cols-3 gap-6 max-w-2xl mx-auto mb-8 animate-fade-in" style="animation-delay: 0.4s;">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-yellow-300 mb-2">1687</div>
+                                <div class="text-sm opacity-80">Published</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-yellow-300 mb-2">3</div>
+                                <div class="text-sm opacity-80">Fundamental Laws</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-yellow-300 mb-2">∞</div>
+                                <div class="text-sm opacity-80">Applications</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Navigation -->
+                        <div class="flex flex-wrap justify-center gap-4 animate-fade-in" style="animation-delay: 0.6s;">
+                            <a href="#law-1" class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold hover:bg-blue-50 transition shadow-lg hover:shadow-xl flex items-center">
+                                <i class="fas fa-balance-scale mr-3"></i>First Law
+                            </a>
+                            <a href="#law-2" class="bg-white text-red-600 px-6 py-3 rounded-full font-bold hover:bg-red-50 transition shadow-lg hover:shadow-xl flex items-center">
+                                <i class="fas fa-bolt mr-3"></i>Second Law
+                            </a>
+                            <a href="#law-3" class="bg-white text-green-600 px-6 py-3 rounded-full font-bold hover:bg-green-50 transition shadow-lg hover:shadow-xl flex items-center">
+                                <i class="fas fa-exchange-alt mr-3"></i>Third Law
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="introduction" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            <span class="text-primary dark:text-yellow-300">Understanding</span> Newton's Laws
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Sir Isaac Newton's three laws of motion form the foundation of classical mechanics, 
+                            describing how objects move under the influence of forces.
+                        </p>
+                    </div>
+                    
+                    <!-- Key Concepts -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                        <div class="text-center p-6 rounded-xl bg-blue-50 dark:bg-blue-900/20">
+                            <div class="law-1-icon mx-auto">
+                                <i class="fas fa-couch"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-blue-700 dark:text-blue-300">Inertia</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Objects resist changes to their state of motion
+                            </p>
+                        </div>
+                        
+                        <div class="text-center p-6 rounded-xl bg-red-50 dark:bg-red-900/20">
+                            <div class="law-2-icon mx-auto">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-red-700 dark:text-red-300">Force & Acceleration</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Force causes acceleration proportional to mass
+                            </p>
+                        </div>
+                        
+                        <div class="text-center p-6 rounded-xl bg-green-50 dark:bg-green-900/20">
+                            <div class="law-3-icon mx-auto">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-green-700 dark:text-green-300">Action-Reaction</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Every action has an equal and opposite reaction
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Historical Context -->
+                    <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 mb-12">
+                        <h3 class="text-2xl font-bold mb-4 text-dark dark:text-white flex items-center">
+                            <i class="fas fa-history mr-3 text-primary"></i>
+                            Historical Significance
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            Published in 1687 in Newton's seminal work "Philosophiæ Naturalis Principia Mathematica", 
+                            these laws revolutionized our understanding of motion and laid the foundation for classical 
+                            mechanics that would dominate physics for over two centuries.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300 rounded-full text-sm">
+                                1687 Publication
+                            </span>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300 rounded-full text-sm">
+                                Principia Mathematica
+                            </span>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300 rounded-full text-sm">
+                                Scientific Revolution
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Mathematical Foundation -->
+                    <div class="physics-formula text-center text-2xl font-bold mb-6">
+                        \( \sum \vec{F} = m\vec{a} \)
+                    </div>
+                    
+                    <p class="text-gray-700 dark:text-gray-300 text-center">
+                        This fundamental equation connects force, mass, and acceleration, serving as the 
+                        cornerstone of Newtonian mechanics and countless engineering applications.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- First Law: Law of Inertia -->
+        <section id="law-1" class="py-16 bg-gradient-to-b from-blue-50 to-white dark:from-blue-900/10 dark:to-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Law Header -->
+                    <div class="flex items-center mb-12">
+                        <div class="w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">1</span>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">
+                                First Law: <span class="text-blue-600 dark:text-blue-400">Law of Inertia</span>
+                            </h2>
+                            <p class="text-gray-600 dark:text-gray-300 mt-2">
+                                "An object at rest stays at rest, and an object in motion stays in motion with 
+                                the same speed and in the same direction unless acted upon by an unbalanced force."
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <!-- Explanation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Understanding Inertia</h3>
+                            
+                            <p class="text-gray-700 dark:text-gray-300 mb-6">
+                                Inertia is the tendency of objects to resist changes in their state of motion. 
+                                This property depends on the object's mass - the greater the mass, the greater the inertia.
+                            </p>
+                            
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-check text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>At Rest:</strong> Objects naturally remain stationary unless pushed or pulled
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-check text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>In Motion:</strong> Moving objects continue moving at constant velocity unless forces act
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-check text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Mass Matters:</strong> Heavier objects have more inertia and resist changes more
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Mathematical Form -->
+                            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl mb-6">
+                                <h4 class="font-bold mb-2 text-blue-800 dark:text-blue-300">Mathematical Statement</h4>
+                                <div class="physics-formula text-center">
+                                    \( \sum \vec{F} = 0 \Rightarrow \vec{v} = \text{constant} \)
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm">
+                                    When the net force on an object is zero, its velocity remains constant.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Interactive Simulation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Interactive Simulation</h3>
+                            
+                            <div class="law-1-card law-card p-6">
+                                <div class="interactive-canvas mb-6">
+                                    <canvas id="inertia-canvas" class="w-full h-full"></canvas>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Object Mass: <span id="mass-value">10</span> kg
+                                        </label>
+                                        <input type="range" min="1" max="20" value="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="mass-slider">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Friction Coefficient: <span id="friction-value">0.1</span>
+                                        </label>
+                                        <input type="range" min="0" max="0.5" value="0.1" step="0.01" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="friction-slider">
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <button id="push-object" class="bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition flex items-center justify-center">
+                                            <i class="fas fa-hand-paper mr-2"></i>Apply Force
+                                        </button>
+                                        <button id="reset-inertia" class="bg-gray-200 text-gray-800 py-3 rounded-lg font-bold hover:bg-gray-300 transition dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600">
+                                            <i class="fas fa-redo mr-2"></i>Reset
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                    <h4 class="font-bold mb-2 text-blue-800 dark:text-blue-300">Observations</h4>
+                                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-arrow-right text-blue-500 mr-2"></i>
+                                            Heavy objects are harder to start moving
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-arrow-right text-blue-500 mr-2"></i>
+                                            Moving objects slow down due to friction
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-arrow-right text-blue-500 mr-2"></i>
+                                            Without friction, objects would move forever
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Real World Examples -->
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Real-World Examples</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="real-world-card bg-white dark:bg-dark-card p-6 rounded-xl shadow-lg">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-car text-blue-600 dark:text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold mb-2 text-dark dark:text-white">Car Safety</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                    Seat belts keep passengers from continuing forward when a car suddenly stops.
+                                </p>
+                            </div>
+                            
+                            <div class="real-world-card bg-white dark:bg-dark-card p-6 rounded-xl shadow-lg">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-table-tennis text-blue-600 dark:text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold mb-2 text-dark dark:text-white">Sports</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                    A soccer ball continues moving until friction and air resistance slow it down.
+                                </p>
+                            </div>
+                            
+                            <div class="real-world-card bg-white dark:bg-dark-card p-6 rounded-xl shadow-lg">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-space-shuttle text-blue-600 dark:text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold mb-2 text-dark dark:text-white">Space Travel</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                    Spacecraft continue moving in space with minimal force due to vacuum.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Second Law: F=ma -->
+        <section id="law-2" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Law Header -->
+                    <div class="flex items-center mb-12">
+                        <div class="w-14 h-14 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-red-600 dark:text-red-400">2</span>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">
+                                Second Law: <span class="text-red-600 dark:text-red-400">F = ma</span>
+                            </h2>
+                            <p class="text-gray-600 dark:text-gray-300 mt-2">
+                                "The acceleration of an object is directly proportional to the net force acting on it 
+                                and inversely proportional to its mass."
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <!-- Explanation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Force, Mass & Acceleration</h3>
+                            
+                            <p class="text-gray-700 dark:text-gray-300 mb-6">
+                                This law quantifies how forces affect motion. The same force produces different 
+                                accelerations depending on the object's mass.
+                            </p>
+                            
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-times text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Direct Proportion:</strong> \( a \propto F \) (More force = More acceleration)
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-divide text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Inverse Proportion:</strong> \( a \propto \frac{1}{m} \) (More mass = Less acceleration)
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-arrows-alt-h text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Vector Nature:</strong> Acceleration is in the same direction as net force
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Mathematical Form -->
+                            <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl mb-6">
+                                <h4 class="font-bold mb-2 text-red-800 dark:text-red-300">Mathematical Statement</h4>
+                                <div class="physics-formula text-center text-2xl">
+                                    \( \vec{F} = m\vec{a} \)
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm">
+                                    Where \( \vec{F} \) is net force (N), \( m \) is mass (kg), and \( \vec{a} \) is acceleration (m/s²).
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Interactive Simulation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Interactive Simulation</h3>
+                            
+                            <div class="law-2-card law-card p-6">
+                                <div class="interactive-canvas mb-6">
+                                    <canvas id="fma-canvas" class="w-full h-full"></canvas>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-4 mb-6">
+                                    <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                        <div class="text-2xl font-bold text-red-600 dark:text-red-400" id="force-display">10 N</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Applied Force</div>
+                                    </div>
+                                    <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                        <div class="text-2xl font-bold text-red-600 dark:text-red-400" id="acceleration-display">2 m/s²</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Acceleration</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Force: <span id="force-value-fma">10</span> N
+                                        </label>
+                                        <input type="range" min="1" max="50" value="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="force-slider-fma">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Mass: <span id="mass-value-fma">5</span> kg
+                                        </label>
+                                        <input type="range" min="1" max="20" value="5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="mass-slider-fma">
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6 p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                                    <h4 class="font-bold mb-2 text-red-800 dark:text-red-300">Key Relationships</h4>
+                                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-chart-line text-red-500 mr-2"></i>
+                                            Double force = Double acceleration (constant mass)
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-weight text-red-500 mr-2"></i>
+                                            Double mass = Half acceleration (constant force)
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-calculator text-red-500 mr-2"></i>
+                                            Calculate: \( a = \frac{F}{m} \)
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Applications -->
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Applications in Engineering</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/10 dark:to-orange-900/10 p-6 rounded-xl">
+                                <h4 class="font-bold mb-4 text-dark dark:text-white flex items-center">
+                                    <i class="fas fa-car-crash mr-3 text-red-500"></i>
+                                    Vehicle Design
+                                </h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-700 dark:text-gray-300">
+                                            Engine power calculated using \( F = ma \) for acceleration
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-700 dark:text-gray-300">
+                                            Braking systems designed using deceleration calculations
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-700 dark:text-gray-300">
+                                            Safety features based on impact force calculations
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/10 dark:to-orange-900/10 p-6 rounded-xl">
+                                <h4 class="font-bold mb-4 text-dark dark:text-white flex items-center">
+                                    <i class="fas fa-rocket mr-3 text-red-500"></i>
+                                    Aerospace Engineering
+                                </h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-700 dark:text-gray-300">
+                                            Rocket thrust calculations using \( F = ma \)
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-700 dark:text-gray-300">
+                                            Orbital mechanics based on gravitational forces
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span class="text-gray-700 dark:text-gray-300">
+                                            Aircraft lift and drag force calculations
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Third Law: Action-Reaction -->
+        <section id="law-3" class="py-16 bg-gradient-to-b from-green-50 to-white dark:from-green-900/10 dark:to-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Law Header -->
+                    <div class="flex items-center mb-12">
+                        <div class="w-14 h-14 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-green-600 dark:text-green-400">3</span>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">
+                                Third Law: <span class="text-green-600 dark:text-green-400">Action-Reaction</span>
+                            </h2>
+                            <p class="text-gray-600 dark:text-gray-300 mt-2">
+                                "For every action, there is an equal and opposite reaction."
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <!-- Explanation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Pairs of Forces</h3>
+                            
+                            <p class="text-gray-700 dark:text-gray-300 mb-6">
+                                Forces always occur in pairs. When one object exerts a force on another, 
+                                the second object exerts an equal and opposite force on the first.
+                            </p>
+                            
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-equals text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Equal Magnitude:</strong> Both forces have exactly the same strength
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-arrows-alt-h text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Opposite Direction:</strong> Forces act in exactly opposite directions
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-box text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Different Objects:</strong> Each force acts on a different object
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Mathematical Form -->
+                            <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl mb-6">
+                                <h4 class="font-bold mb-2 text-green-800 dark:text-green-300">Mathematical Statement</h4>
+                                <div class="physics-formula text-center">
+                                    \( \vec{F}_{AB} = -\vec{F}_{BA} \)
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm">
+                                    The force object A exerts on B equals the negative of the force B exerts on A.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Interactive Simulation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Interactive Simulation</h3>
+                            
+                            <div class="law-3-card law-card p-6">
+                                <div class="interactive-canvas mb-6">
+                                    <canvas id="action-reaction-canvas" class="w-full h-full"></canvas>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="text-center">
+                                            <div class="text-lg font-bold text-green-600 dark:text-green-400 mb-2">Object A</div>
+                                            <div class="flex items-center justify-center space-x-2">
+                                                <span class="text-sm">Mass:</span>
+                                                <span class="font-bold" id="mass-a">5 kg</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-lg font-bold text-green-600 dark:text-green-400 mb-2">Object B</div>
+                                            <div class="flex items-center justify-center space-x-2">
+                                                <span class="text-sm">Mass:</span>
+                                                <span class="font-bold" id="mass-b">10 kg</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <button id="push-a" class="bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition flex items-center justify-center">
+                                            <i class="fas fa-hand-point-right mr-2"></i>A Pushes B
+                                        </button>
+                                        <button id="push-b" class="bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition flex items-center justify-center">
+                                            <i class="fas fa-hand-point-left mr-2"></i>B Pushes A
+                                        </button>
+                                    </div>
+                                    
+                                    <button id="collide-objects" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition flex items-center justify-center">
+                                        <i class="fas fa-bolt mr-2"></i>Simulate Collision
+                                    </button>
+                                </div>
+                                
+                                <div class="mt-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                                    <h4 class="font-bold mb-2 text-green-800 dark:text-green-300">Observations</h4>
+                                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-exchange-alt text-green-500 mr-2"></i>
+                                            Forces are equal but objects move differently due to mass
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-arrows-alt-h text-green-500 mr-2"></i>
+                                            Lighter objects accelerate more from the same force
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-handshake text-green-500 mr-2"></i>
+                                            Both objects experience force simultaneously
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Real World Examples -->
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Everyday Examples</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-lg">
+                                <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4 mx-auto">
+                                    <i class="fas fa-walking text-green-600 dark:text-green-400"></i>
+                                </div>
+                                <h4 class="font-bold mb-2 text-dark dark:text-white text-center">Walking</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm text-center">
+                                    Your foot pushes backward on ground, ground pushes you forward
+                                </p>
+                            </div>
+                            
+                            <div class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-lg">
+                                <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4 mx-auto">
+                                    <i class="fas fa-swimmer text-green-600 dark:text-green-400"></i>
+                                </div>
+                                <h4 class="font-bold mb-2 text-dark dark:text-white text-center">Swimming</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm text-center">
+                                    You push water backward, water pushes you forward
+                                </p>
+                            </div>
+                            
+                            <div class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-lg">
+                                <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4 mx-auto">
+                                    <i class="fas fa-rocket text-green-600 dark:text-green-400"></i>
+                                </div>
+                                <h4 class="font-bold mb-2 text-dark dark:text-white text-center">Rockets</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm text-center">
+                                    Rocket pushes exhaust down, exhaust pushes rocket up
+                                </p>
+                            </div>
+                            
+                            <div class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-lg">
+                                <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4 mx-auto">
+                                    <i class="fas fa-fish text-green-600 dark:text-green-400"></i>
+                                </div>
+                                <h4 class="font-bold mb-2 text-dark dark:text-white text-center">Fishing</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm text-center">
+                                    You pull fish toward you, fish pulls you toward water
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Combined Simulations -->
+        <section id="simulations" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Interactive <span class="text-primary dark:text-yellow-300">Simulations</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Explore Newton's Laws through hands-on simulations that demonstrate real physics principles
+                        </p>
+                    </div>
+                    
+                    <!-- Simulation Cards -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Rocket Launch Simulation -->
+                        <div class="bg-gradient-to-br from-gray-900 to-dark dark:from-dark-card dark:to-gray-900 rounded-2xl shadow-xl overflow-hidden">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-4 text-white flex items-center">
+                                    <i class="fas fa-rocket mr-3 text-orange-400"></i>
+                                    Rocket Launch Simulation
+                                </h3>
+                                <p class="text-gray-300 mb-6">
+                                    Simulate a rocket launch demonstrating Newton's Third Law in action.
+                                </p>
+                                
+                                <div class="space-y-6">
+                                    <!-- Canvas Container -->
+                                    <div class="interactive-simulation">
+                                        <canvas id="rocket-canvas" class="w-full h-full"></canvas>
+                                    </div>
+                                    
+                                    <!-- Controls -->
+                                    <div class="space-y-4">
+                                        <div>
+                                            <div class="flex justify-between mb-2">
+                                                <label class="text-white">Thrust: <span id="thrust-value">5000</span> N</label>
+                                                <span class="text-gray-400">Range: 15000-30000 N</span>
+                                            </div>
+                                            <input type="range" min="10000" max="30000" value="15000" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="thrust-slider">
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-2">
+                                                <label class="text-white">Fuel Mass: <span id="fuel-value">1000</span> kg</label>
+                                                <span class="text-gray-400">Range: 500-2000 kg</span>
+                                            </div>
+                                            <input type="range" min="500" max="2000" value="1000" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="fuel-slider">
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <button id="launch-rocket" class="bg-orange-600 text-white py-3 rounded-lg font-bold hover:bg-orange-700 transition flex items-center justify-center">
+                                                <i class="fas fa-play mr-2"></i>Launch Rocket
+                                            </button>
+                                            <button id="reset-rocket" class="bg-gray-700 text-white py-3 rounded-lg font-bold hover:bg-gray-600 transition flex items-center justify-center">
+                                                <i class="fas fa-redo mr-2"></i>Reset
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Results Display -->
+                                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-700">
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-orange-400" id="rocket-height">0 m</div>
+                                            <div class="text-sm text-gray-400">Altitude</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-orange-400" id="rocket-velocity">0 m/s</div>
+                                            <div class="text-sm text-gray-400">Velocity</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-orange-400" id="rocket-acceleration">0 m/s²</div>
+                                            <div class="text-sm text-gray-400">Acceleration</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Collision Simulation -->
+                        <div class="bg-gradient-to-br from-gray-900 to-dark dark:from-dark-card dark:to-gray-900 rounded-2xl shadow-xl overflow-hidden">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-4 text-white flex items-center">
+                                    <i class="fas fa-car-crash mr-3 text-red-400"></i>
+                                    Collision Simulation
+                                </h3>
+                                <p class="text-gray-300 mb-6">
+                                    Explore momentum conservation and Newton's Third Law in collisions.
+                                </p>
+                                
+                                <div class="space-y-6">
+                                    <!-- Canvas Container -->
+                                    <div class="interactive-simulation">
+                                        <canvas id="collision-canvas" class="w-full h-full"></canvas>
+                                    </div>
+                                    
+                                    <!-- Controls -->
+                                    <div class="space-y-4">
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <div class="flex justify-between mb-2">
+                                                    <label class="text-white">Mass 1: <span id="collision-mass1">5</span> kg</label>
+                                                </div>
+                                                <input type="range" min="1" max="20" value="5" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="mass1-slider">
+                                            </div>
+                                            
+                                            <div>
+                                                <div class="flex justify-between mb-2">
+                                                    <label class="text-white">Mass 2: <span id="collision-mass2">10</span> kg</label>
+                                                </div>
+                                                <input type="range" min="1" max="20" value="10" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="mass2-slider">
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-2">
+                                                <label class="text-white">Velocity: <span id="collision-velocity">10</span> m/s</label>
+                                            </div>
+                                            <input type="range" min="1" max="20" value="10" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="velocity-slider">
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <button id="start-collision" class="bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition flex items-center justify-center">
+                                                <i class="fas fa-play mr-2"></i>Start Collision
+                                            </button>
+                                            <button id="reset-collision" class="bg-gray-700 text-white py-3 rounded-lg font-bold hover:bg-gray-600 transition flex items-center justify-center">
+                                                <i class="fas fa-redo mr-2"></i>Reset
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Results Display -->
+                                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-gray-700">
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-red-400" id="momentum-before">50 kg·m/s</div>
+                                            <div class="text-sm text-gray-400">Momentum Before</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-red-400" id="momentum-after">50 kg·m/s</div>
+                                            <div class="text-sm text-gray-400">Momentum After</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+        <section id="applications" class="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Real-World <span class="text-primary dark:text-yellow-300">Applications</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Newton's Laws are fundamental to modern technology and everyday life
+                        </p>
+                    </div>
+                    
+                    <!-- Applications Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Transportation -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl shadow-lg p-6">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                                <i class="fas fa-car text-blue-600 dark:text-blue-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Transportation</h3>
+                            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Vehicle acceleration calculations
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Braking system design
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Airplane lift and drag
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Ship buoyancy and propulsion
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Sports Engineering -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl shadow-lg p-6">
+                            <div class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mb-4">
+                                <i class="fas fa-running text-red-600 dark:text-red-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Sports Engineering</h3>
+                            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Golf ball aerodynamics
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Baseball bat sweet spot
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Running shoe design
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Bicycle frame optimization
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Aerospace -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl shadow-lg p-6">
+                            <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                                <i class="fas fa-rocket text-purple-600 dark:text-purple-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Aerospace</h3>
+                            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Rocket propulsion systems
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Satellite orbital mechanics
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Aircraft stability and control
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Re-entry vehicle dynamics
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Engineering Case Study -->
+                    <div class="mt-12 bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Engineering Case Study: Bridge Design</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    Newton's Laws are essential in civil engineering, particularly in bridge design. 
+                                    Engineers must account for:
+                                </p>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-weight-hanging text-primary mr-2"></i>
+                                        <span>Static loads (First Law - equilibrium)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-wind text-primary mr-2"></i>
+                                        <span>Dynamic forces from wind and traffic (Second Law)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-exchange-alt text-primary mr-2"></i>
+                                        <span>Reaction forces at supports (Third Law)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="text-4xl font-bold text-primary mb-2">\( \sum F = 0 \)</div>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        Bridge equilibrium condition
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historical Context -->
+        <section id="history" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Historical <span class="text-primary dark:text-yellow-300">Context</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            The development and impact of Newton's Laws on science and society
+                        </p>
+                    </div>
+                    
+                    <!-- Timeline -->
+                    <div class="relative">
+                        <!-- Timeline Line -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200 dark:bg-gray-700"></div>
+                        
+                        <!-- Timeline Items -->
+                        <div class="space-y-12">
+                            <!-- Aristotle -->
+                            <div class="flex items-center">
+                                <div class="w-1/2 pr-8 text-right">
+                                    <div class="inline-block">
+                                        <div class="timeline-marker law-1-marker"></div>
+                                        <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-xl">
+                                            <h4 class="font-bold text-lg mb-2 text-dark dark:text-white">350 BC - Aristotle</h4>
+                                            <p class="text-gray-600 dark:text-gray-300">
+                                                Proposed that objects move toward their natural places and 
+                                                require continuous force to maintain motion.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/2 pl-8">
+                                    <!-- Empty for spacing -->
+                                </div>
+                            </div>
+                            
+                            <!-- Galileo -->
+                            <div class="flex items-center">
+                                <div class="w-1/2 pr-8">
+                                    <!-- Empty for spacing -->
+                                </div>
+                                <div class="w-1/2 pl-8">
+                                    <div class="inline-block">
+                                        <div class="timeline-marker law-2-marker" style="left: -10px;"></div>
+                                        <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-xl">
+                                            <h4 class="font-bold text-lg mb-2 text-dark dark:text-white">1638 - Galileo Galilei</h4>
+                                            <p class="text-gray-600 dark:text-gray-300">
+                                                Discovered inertia and established that all objects fall 
+                                                at the same rate regardless of mass.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Newton -->
+                            <div class="flex items-center">
+                                <div class="w-1/2 pr-8 text-right">
+                                    <div class="inline-block">
+                                        <div class="timeline-marker law-3-marker"></div>
+                                        <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-xl">
+                                            <h4 class="font-bold text-lg mb-2 text-dark dark:text-white">1687 - Isaac Newton</h4>
+                                            <p class="text-gray-600 dark:text-gray-300">
+                                                Published "Philosophiæ Naturalis Principia Mathematica" 
+                                                containing the Three Laws of Motion and Universal Gravitation.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-1/2 pl-8">
+                                    <!-- Empty for spacing -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Newton's Legacy -->
+                    <div class="mt-12 bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/10 dark:to-yellow-900/10 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white flex items-center">
+                            <i class="fas fa-crown mr-3 text-amber-600"></i>
+                            Newton's Legacy
+                        </h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    Newton's Laws revolutionized physics and formed the foundation for:
+                                </p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Classical mechanics for 200+ years</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Industrial Revolution technologies</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Space exploration and orbital mechanics</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Modern engineering and design principles</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+                                    <h4 class="font-bold mb-4 text-dark dark:text-white">Newton's Famous Quote</h4>
+                                    <blockquote class="text-gray-600 dark:text-gray-300 italic border-l-4 border-amber-500 pl-4 py-2">
+                                        "If I have seen further it is by standing on the shoulders of Giants."
+                                    </blockquote>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                                        — Isaac Newton, in a letter to Robert Hooke, 1676
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Problems -->
+        <section id="problems" class="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Practice <span class="text-primary dark:text-yellow-300">Problems</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Test your understanding with these challenging problems
+                        </p>
+                    </div>
+                    
+                    <!-- Problems -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Problem 1 -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl shadow-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-3">
+                                    <span class="font-bold text-blue-600 dark:text-blue-400">1</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-dark dark:text-white">Inertia Problem</h3>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                A 50 kg crate rests on a horizontal floor. What horizontal force is required 
+                                to just start the crate moving if the coefficient of static friction is 0.4?
+                            </p>
+                            <div class="space-y-3">
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem1" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">20 N</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem1" class="mr-3" data-correct="true">
+                                    <span class="text-gray-700 dark:text-gray-300">196 N</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem1" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">125 N</span>
+                                </label>
+                            </div>
+                            <button class="show-solution mt-4 text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+                                Show Solution
+                            </button>
+                            <div class="solution mt-3 hidden text-sm text-gray-600 dark:text-gray-400">
+                                <p><strong>Solution:</strong> \( F = \mu_s \times m \times g = 0.4 \times 50 \times 9.8 = 196 \, \text{N} \)</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Problem 2 -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl shadow-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mr-3">
+                                    <span class="font-bold text-red-600 dark:text-red-400">2</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-dark dark:text-white">F=ma Problem</h3>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                A 1000 kg car accelerates from 0 to 27 m/s (60 mph) in 10 seconds. 
+                                What is the average net force acting on the car?
+                            </p>
+                            <div class="space-y-3">
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem2" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">2700 N</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem2" class="mr-3" data-correct="true">
+                                    <span class="text-gray-700 dark:text-gray-300">2700 N</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem2" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">10000 N</span>
+                                </label>
+                            </div>
+                            <button class="show-solution mt-4 text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+                                Show Solution
+                            </button>
+                            <div class="solution mt-3 hidden text-sm text-gray-600 dark:text-gray-400">
+                                <p><strong>Solution:</strong> \( a = \frac{\Delta v}{\Delta t} = \frac{27}{10} = 2.7 \, \text{m/s}^2 \)</p>
+                                <p>\( F = m \times a = 1000 \times 2.7 = 2700 \, \text{N} \)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Problem Generator -->
+                    <div class="mt-12 bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Interactive Problem Generator</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                        Problem Type
+                                    </label>
+                                    <select id="problem-type" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800">
+                                        <option value="inertia">First Law (Inertia)</option>
+                                        <option value="fma">Second Law (F=ma)</option>
+                                        <option value="action-reaction">Third Law (Action-Reaction)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                        Difficulty Level
+                                    </label>
+                                    <select id="difficulty" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800">
+                                        <option value="easy">Easy</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="hard">Hard</option>
+                                    </select>
+                                </div>
+                                
+                                <button id="generate-problem" class="w-full bg-primary text-white py-3 rounded-lg font-bold hover:bg-secondary transition">
+                                    Generate New Problem
+                                </button>
+                            </div>
+                            
+                            <div>
+                                <div id="generated-problem" class="bg-white dark:bg-gray-800 p-6 rounded-lg">
+                                    <h4 class="font-bold mb-4 text-dark dark:text-white">Generated Problem Will Appear Here</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        Click "Generate New Problem" to create a random physics problem based on Newton's Laws.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Test Your <span class="text-primary dark:text-yellow-300">Knowledge</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Take this quiz to check your understanding of Newton's Laws
+                        </p>
+                    </div>
+                    
+                    <!-- Quiz Questions -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <!-- Question 1 -->
+                        <div class="quiz-question">
+                            <h3 class="text-lg font-bold mb-3 text-dark dark:text-white">Question 1</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                According to Newton's First Law, what happens to an object in motion when no net force acts on it?
+                            </p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="q1" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">It slows down and stops</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q1" class="mr-3" data-correct="true">
+                                    <span class="text-gray-700 dark:text-gray-300">It continues moving at constant velocity</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q1" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">It accelerates</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 2 -->
+                        <div class="quiz-question">
+                            <h3 class="text-lg font-bold mb-3 text-dark dark:text-white">Question 2</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                If you double the net force acting on an object while keeping mass constant, what happens to acceleration?
+                            </p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="q2" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">It halves</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q2" class="mr-3" data-correct="true">
+                                    <span class="text-gray-700 dark:text-gray-300">It doubles</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q2" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">It stays the same</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button id="check-answers" class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition shadow-lg hover:shadow-xl">
+                            <i class="fas fa-check-circle mr-2"></i>Check Answers
+                        </button>
+                    </div>
+                    
+                    <!-- Results -->
+                    <div id="quiz-results" class="mt-8 hidden">
+                        <div class="bg-green-50 dark:bg-green-900/20 rounded-xl p-6">
+                            <h3 class="text-xl font-bold mb-4 text-green-800 dark:text-green-300">Quiz Results</h3>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-gray-700 dark:text-gray-300">Score:</span>
+                                <span class="text-2xl font-bold text-green-600" id="quiz-score">0/2</span>
+                            </div>
+                            <button id="retry-quiz" class="text-green-600 dark:text-green-400 hover:underline font-medium">
+                                <i class="fas fa-redo mr-2"></i>Retry Quiz
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Further Resources -->
+        <section id="resources" class="py-16 bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Further <span class="text-primary dark:text-yellow-300">Resources</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Continue your exploration of classical mechanics and physics
+                        </p>
+                    </div>
+                    
+                    <!-- Resource Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Related Topics -->
+                        <a href="../classical-mechanics.html" class="group">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div class="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-atom text-amber-600 dark:text-amber-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-dark dark:text-white group-hover:text-primary dark:group-hover:text-yellow-300 transition">
+                                    Classical Mechanics Hub
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Explore other topics in classical mechanics including energy, momentum, and rotational motion.
+                                </p>
+                            </div>
+                        </a>
+                        
+                        <!-- Numerical Methods -->
+                        <a href="../../../numerical_methods_physics.html" class="group">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-calculator text-green-600 dark:text-green-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-dark dark:text-white group-hover:text-primary dark:group-hover:text-yellow-300 transition">
+                                    Numerical Methods
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Learn computational approaches to solving physics problems using programming.
+                                </p>
+                            </div>
+                        </a>
+                        
+                        <!-- Physics Researches -->
+                        <a href="../../../research.html" class="group">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-book-open text-purple-600 dark:text-purple-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-dark dark:text-white group-hover:text-primary dark:group-hover:text-yellow-300 transition">
+                                    Physics Researches 
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Access research, research papers, and study materials for deeper learning.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Download Section -->
+                    <div class="mt-12 bg-white dark:bg-dark-card rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Download Study Materials</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <a href="#" class="flex items-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                                <i class="fas fa-file-pdf text-red-500 text-xl mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Cheat Sheet</div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">PDF, 150 KB</div>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                                <i class="fas fa-file-alt text-blue-500 text-xl mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Practice Problems</div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">PDF, 250 KB</div>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                                <i class="fas fa-play-circle text-green-500 text-xl mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Video Tutorials</div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">YouTube Playlist</div>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                                <i class="fas fa-code text-purple-500 text-xl mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Simulation Code</div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">JavaScript</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SEO Keywords (Hidden) -->
+        <div class="seo-keywords">
+            Newton's Laws of Motion, physics education, classical mechanics, inertia, F=ma, action-reaction, 
+            force and motion, Newtonian physics, physics simulations, interactive physics, educational physics, 
+            Sir Isaac Newton, physics tutorials, mechanics problems, physics applications, engineering physics, 
+            motion equations, force calculations, acceleration physics, mass and acceleration, physics principles, 
+            science education, STEM learning, physics demonstrations, Newton's First Law, Newton's Second Law, 
+            Newton's Third Law, physics for students, physics concepts, motion physics, force physics
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-atom mr-3 text-primary"></i>
+                        Physics Portal
+                    </h3>
+                    <p class="opacity-80">Interactive learning platform for physics concepts</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="../../../index.html" class="opacity-80 hover:opacity-100 hover:text-primary transition">
+                        Portfolio Home
+                    </a>
+                    <a href="../../../contact.html" class="opacity-80 hover:opacity-100 hover:text-primary transition">
+                        Contact
+                    </a>
+                    <a href="https://github.com/anshuman365" class="opacity-80 hover:opacity-100 hover:text-primary transition">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center opacity-70 text-sm">
+                <p>&copy; 2025 Anshuman Singh. Educational content for physics learning.</p>
+                <p class="mt-2">This page provides comprehensive coverage of Newton's Laws of Motion with interactive simulations.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Navigation Toggle
+        document.getElementById('menu-toggle')?.addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Dark Mode Toggles
+        const darkModeToggle = () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('physics-theme', 
+                document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+            );
+        };
+        
+        document.getElementById('dark-mode-toggle')?.addEventListener('click', darkModeToggle);
+        document.getElementById('dark-mode-toggle-mobile')?.addEventListener('click', darkModeToggle);
+        
+        // Mobile Physics Topics Toggle
+        document.querySelector('.mobile-physics-toggle')?.addEventListener('click', function() {
+            const submenu = this.nextElementSibling;
+            submenu.classList.toggle('hidden');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('rotate-180');
+        });
+        
+        // Initialize MathJax
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            svg: {
+                fontCache: 'global'
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                includeHtmlTags: {
+                    br: '\n',
+                    wbr: '',
+                    '#comment': ''
+                }
+            }
+        };
+        
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scroll-progress').style.width = scrolled + '%';
+        });
+        
+        // Section Tracking for Sidebar Highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        function highlightCurrentSection() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightCurrentSection);
+        highlightCurrentSection(); // Initial call
+        
+        // Formula Copy Functionality
+        document.querySelectorAll('.physics-formula').forEach(formula => {
+            formula.addEventListener('click', function() {
+                const text = this.textContent || this.innerText;
+                navigator.clipboard.writeText(text.trim()).then(() => {
+                    const original = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+                    setTimeout(() => {
+                        this.innerHTML = original;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+            });
+        });
+        
+        // Quiz Functionality
+        document.getElementById('check-answers')?.addEventListener('click', function() {
+            let score = 0;
+            const totalQuestions = 2;
+            
+            document.querySelectorAll('.quiz-question input[type="radio"]').forEach(radio => {
+                const parent = radio.parentElement;
+                parent.classList.remove('text-green-600', 'font-bold', 'text-red-600');
+                
+                if (radio.checked) {
+                    if (radio.hasAttribute('data-correct')) {
+                        parent.classList.add('text-green-600', 'font-bold');
+                        score++;
+                    } else {
+                        parent.classList.add('text-red-600', 'font-bold');
+                    }
+                }
+            });
+            
+            // Show correct answers
+            document.querySelectorAll('input[data-correct="true"]').forEach(correctRadio => {
+                correctRadio.parentElement.classList.add('text-green-600', 'font-bold');
+            });
+            
+            // Show results
+            document.getElementById('quiz-score').textContent = `${score}/${totalQuestions}`;
+            document.getElementById('quiz-results').classList.remove('hidden');
+        });
+        
+        document.getElementById('retry-quiz')?.addEventListener('click', function() {
+            document.querySelectorAll('.quiz-question input[type="radio"]').forEach(radio => {
+                radio.checked = false;
+                radio.parentElement.classList.remove('text-green-600', 'font-bold', 'text-red-600');
+            });
+            document.getElementById('quiz-results').classList.add('hidden');
+        });
+        
+        // Show Solution Buttons
+        document.querySelectorAll('.show-solution').forEach(button => {
+            button.addEventListener('click', function() {
+                const solution = this.nextElementSibling;
+                solution.classList.toggle('hidden');
+                this.textContent = solution.classList.contains('hidden') ? 'Show Solution' : 'Hide Solution';
+            });
+        });
+        
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Problem Generator
+        document.getElementById('generate-problem')?.addEventListener('click', function() {
+            const type = document.getElementById('problem-type').value;
+            const difficulty = document.getElementById('difficulty').value;
+            
+            const problems = {
+                inertia: {
+                    easy: "A 10 kg box sits on a frictionless surface. What force is needed to accelerate it at 2 m/s²?",
+                    medium: "A 50 kg crate requires 150 N to start moving on a horizontal surface. What's the coefficient of static friction?",
+                    hard: "A 1000 kg car moving at 20 m/s requires what braking force to stop in 50 meters?"
+                },
+                fma: {
+                    easy: "Calculate the acceleration of a 5 kg mass when a 20 N force is applied.",
+                    medium: "A rocket with mass 5000 kg produces 100,000 N of thrust. What's its acceleration?",
+                    hard: "Two masses (5 kg and 10 kg) are connected by a string over a pulley. Find the acceleration."
+                },
+                'action-reaction': {
+                    easy: "If you push a wall with 50 N force, what force does the wall exert on you?",
+                    medium: "A 60 kg person jumps off a 100 kg boat. If the person jumps with 300 N force, what's the boat's acceleration?",
+                    hard: "Two ice skaters (70 kg and 50 kg) push off each other with 200 N force. Find their accelerations."
+                }
+            };
+            
+            const problemText = problems[type][difficulty];
+            document.getElementById('generated-problem').innerHTML = `
+                <h4 class="font-bold mb-4 text-dark dark:text-white">Generated Problem (${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)})</h4>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">${problemText}</p>
+                <div class="space-y-2">
+                    <label class="flex items-center">
+                        <input type="radio" name="generated" class="mr-3">
+                        <span class="text-gray-700 dark:text-gray-300">Option A</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="generated" class="mr-3">
+                        <span class="text-gray-700 dark:text-gray-300">Option B</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="generated" class="mr-3">
+                        <span class="text-gray-700 dark:text-gray-300">Option C</span>
+                    </label>
+                </div>
+            `;
+        });
+        
+        // Initialize theme
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('physics-theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+            
+            // Initialize simulations
+            initSimulations();
+        });
+        
+        // Simulation Initialization
+        function initSimulations() {
+            console.log('Initializing Newton\'s Laws simulations...');
+            // Simulations will be loaded from external JS file
+        }
+        
+    </script>
+    
+    <!-- External JavaScript Files -->
+    <script src="/physics/js/physics-common.js" defer></script>
+    <script src="/physics/js/physics-utils.js" defer></script>
+    <script src="newtons-laws-sim.js" defer></script>
+</body>
+</html>
