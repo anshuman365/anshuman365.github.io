@@ -1,0 +1,2499 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classical Mechanics | Complete Guide to Newton's Laws, Motion & Energy</title>
+    <meta name="description" content="Comprehensive guide to Classical Mechanics covering Newton's Laws, Lagrangian & Hamiltonian formulations, orbital mechanics, oscillations, and continuum mechanics with interactive simulations.">
+    <meta name="keywords" content="classical mechanics, newton's laws, physics, motion, Lagrangian mechanics, Hamiltonian mechanics, orbital mechanics, oscillations, waves, continuum mechanics">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4X0M6RM0F6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4X0M6RM0F6');
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f59e0b',
+                        secondary: '#d97706',
+                        accent: '#dc2626',
+                        'mechanics-blue': '#3b82f6',
+                        'mechanics-green': '#10b981',
+                        'mechanics-purple': '#8b5cf6',
+                        dark: '#1e293b',
+                        light: '#f8fafc',
+                        'dark-bg': '#0f172a',
+                        'dark-card': '#1e293b',
+                        'dark-text': '#f1f5f9'
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                        'orbit': 'orbit 20s linear infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'slide-up': 'slide-up 0.5s ease-out',
+                        'fade-in': 'fade-in 0.3s ease-in',
+                        'spin-slow': 'spin 3s linear infinite',
+                        'wave': 'wave 2s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { 
+                                boxShadow: '0 0 20px rgba(245, 158, 11, 0.3)' 
+                            },
+                            '50%': { 
+                                boxShadow: '0 0 40px rgba(245, 158, 11, 0.6)' 
+                            }
+                        },
+                        orbit: {
+                            '0%': { transform: 'rotate(0deg) translateX(100px) rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg) translateX(100px) rotate(-360deg)' }
+                        },
+                        'slide-up': {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        'fade-in': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        wave: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+        
+        /* Sidebar adjustment */
+        @media (min-width: 1024px) {
+            main {
+                margin-left: 256px;
+            }
+        }
+        
+        .physics-formula {
+            font-family: 'Cambria Math', serif;
+            font-size: 1.25rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .dark .physics-formula {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-left: 4px solid #fbbf24;
+        }
+        
+        .physics-formula:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .dark .physics-formula:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .section-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .dark .section-card {
+            background: linear-gradient(135deg, rgba(30,41,59,0.7) 0%, rgba(15,23,42,0.7) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .section-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: #f59e0b;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #f59e0b;
+            z-index: 2;
+        }
+        
+        .dark .timeline-item::before {
+            border: 4px solid #1e293b;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 32px;
+            width: 2px;
+            height: calc(100% + 20px);
+            background: #e5e7eb;
+            z-index: 1;
+        }
+        
+        .dark .timeline-item::after {
+            background: #475569;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .animated-particle {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .interactive-simulation {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .sidebar-link.active {
+            background-color: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid #f59e0b;
+            font-weight: bold;
+        }
+        
+        .dark .sidebar-link.active {
+            background-color: rgba(251, 191, 36, 0.2);
+        }
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+            z-index: 100;
+        }
+        
+        .concept-diagram {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .dark .concept-diagram {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+        
+        .knowledge-level {
+            height: 8px;
+            border-radius: 4px;
+            background: #e5e7eb;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .dark .knowledge-level {
+            background: #475569;
+        }
+        
+        .knowledge-level::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+            animation: fillProgress 2s ease-out forwards;
+        }
+        
+        @keyframes fillProgress {
+            from { width: 0%; }
+        }
+        
+        .prerequisite-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            color: #f59e0b;
+            margin: 0.25rem;
+        }
+        
+        .dark .prerequisite-tag {
+            background: rgba(251, 191, 36, 0.2);
+            border-color: rgba(251, 191, 36, 0.4);
+        }
+        
+        .quiz-question {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #0ea5e9;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .dark .quiz-question {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 100%);
+            border-left: 4px solid #38bdf8;
+        }
+    </style>
+</head>
+
+<body class="bg-light text-gray-800 dark:bg-dark-bg dark:text-dark-text transition-colors duration-300">
+    
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-dark-card/90 backdrop-blur-sm shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="../../index.html" class="text-xl font-bold text-primary dark:text-yellow-300 flex items-center">
+                <i class="fas fa-arrow-left mr-3"></i>
+                Anshuman Singh
+            </a>
+            
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="../../physics.html" class="font-medium hover:text-primary dark:hover:text-yellow-300 transition">
+                    <i class="fas fa-atom mr-2"></i>Physics Home
+                </a>
+                
+                <!-- Physics Topics Dropdown -->
+                <div class="relative group">
+                    <button class="hover:text-primary dark:hover:text-yellow-300 transition font-medium flex items-center">
+                        <i class="fas fa-book-open mr-2 text-primary dark:text-yellow-300"></i>
+                        Physics Topics
+                        <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-white dark:bg-dark-card shadow-xl rounded-lg mt-2 w-64 border border-gray-200 dark:border-gray-700 z-50">
+                        
+                        <!-- Classical Mechanics (Active) -->
+                        <a href="classical-mechanics.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-yellow-900/30 transition border-b border-gray-100 dark:border-gray-700 bg-amber-50 dark:bg-amber-900/20">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-apple-alt text-amber-600 dark:text-amber-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Classical Mechanics</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Newton's Laws, Motion, Energy</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Electromagnetism -->
+                        <a href="../electromagnetism/electromagnetism.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-yellow-900/30 transition border-b border-gray-100 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-bolt text-blue-600 dark:text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Electromagnetism</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Maxwell's Eqs, EM Waves</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Thermodynamics & Statistical Mechanics -->
+                        <a href="../thermodynamics/thermodynamics.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-yellow-900/30 transition border-b border-gray-100 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-temperature-high text-red-600 dark:text-red-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Thermodynamics</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Heat, Energy, Entropy</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Optics -->
+                        <a href="../optics/optics.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-yellow-900/30 transition border-b border-gray-100 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-eye text-cyan-600 dark:text-cyan-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Optics</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Light, Lenses, Waves</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Special & General Relativity -->
+                        <a href="../relativity/relativity.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-yellow-900/30 transition border-b border-gray-100 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-globe-americas text-green-600 dark:text-green-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Relativity</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Spacetime, Gravity</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Quantum Mechanics -->
+                        <a href="../quantum_mechanics/quantum-mechanics.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-yellow-900/30 transition">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-atom text-purple-600 dark:text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Quantum Mechanics</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Wave-particle, Uncertainty</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="dark-mode-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+                    <i class="fas fa-moon text-gray-700 dark:text-yellow-400"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-gray-600 dark:text-gray-300" id="menu-toggle">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white dark:bg-dark-card px-4 py-6 shadow-lg" id="mobile-menu">
+            <a href="../../physics.html" class="block py-3 font-medium dark:text-white">
+                <i class="fas fa-atom mr-3"></i>Physics Home
+            </a>
+            
+            <!-- Mobile Physics Topics -->
+            <div class="py-3">
+                <button class="mobile-physics-toggle flex items-center justify-between w-full font-semibold text-primary dark:text-yellow-300 mb-2">
+                    <div class="flex items-center">
+                        <i class="fas fa-book-open mr-3"></i>
+                        Physics Topics
+                    </div>
+                    <i class="fas fa-chevron-down text-sm transition-transform duration-300"></i>
+                </button>
+                <div class="mobile-physics-submenu ml-4 space-y-2 hidden">
+                    <a href="../electromagnetism/electromagnetism.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-yellow-300 transition">
+                        <i class="fas fa-bolt text-blue-500 mr-3"></i>Electromagnetism
+                    </a>
+                    <a href="../thermodynamics/thermodynamics.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-yellow-300 transition">
+                        <i class="fas fa-temperature-high text-red-500 mr-3"></i>Thermodynamics
+                    </a>
+                    <a href="../optics/optics.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-yellow-300 transition">
+                        <i class="fas fa-eye text-cyan-500 mr-3"></i>Optics
+                    </a>
+                    <a href="../quantum_mechanics/quantum-mechanics.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-yellow-300 transition">
+                        <i class="fas fa-atom text-purple-500 mr-3"></i>Quantum Mechanics
+                    </a>
+                    <a href="../relativity/relativity.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-yellow-300 transition">
+                        <i class="fas fa-globe-americas text-green-500 mr-3"></i>Relativity
+                    </a>
+                </div>
+            </div>
+            
+            <button id="dark-mode-toggle-mobile" class="w-full text-left py-3 text-gray-700 dark:text-gray-300 flex items-center">
+                <i class="fas fa-moon mr-3"></i>Dark Mode
+            </button>
+        </div>
+    </nav>
+
+    <!-- Physics Topics Sidebar (Desktop) -->
+    <div class="hidden lg:block fixed left-0 top-24 h-[calc(100vh-6rem)] w-64 bg-white dark:bg-dark-card border-r border-gray-200 dark:border-gray-700 overflow-y-auto z-40">
+        <div class="p-6">
+            <h3 class="text-lg font-bold mb-6 text-primary dark:text-yellow-300 flex items-center">
+                <i class="fas fa-atom mr-3"></i>
+                Classical Mechanics
+            </h3>
+            
+            <!-- Table of Contents -->
+            <div class="mb-8">
+                <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">TABLE OF CONTENTS</h4>
+                <div class="space-y-1">
+                    <a href="#overview" class="sidebar-link block py-2 px-3 text-sm rounded hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition">
+                        <i class="fas fa-book mr-2 text-primary"></i>
+                        Overview
+                    </a>
+                    <a href="#newtonian" class="sidebar-link block py-2 px-3 text-sm rounded hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition">
+                        <i class="fas fa-apple-alt mr-2 text-amber-500"></i>
+                        Newtonian Mechanics
+                    </a>
+                    <a href="#oscillations" class="sidebar-link block py-2 px-3 text-sm rounded hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition">
+                        <i class="fas fa-wave-square mr-2 text-blue-500"></i>
+                        Oscillations & Waves
+                    </a>
+                    <a href="#lagrangian" class="sidebar-link block py-2 px-3 text-sm rounded hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition">
+                        <i class="fas fa-infinity mr-2 text-purple-500"></i>
+                        Lagrangian Mechanics
+                    </a>
+                    <a href="#hamiltonian" class="sidebar-link block py-2 px-3 text-sm rounded hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition">
+                        <i class="fas fa-sync-alt mr-2 text-green-500"></i>
+                        Hamiltonian Mechanics
+                    </a>
+                    <a href="#orbital" class="sidebar-link block py-2 px-3 text-sm rounded hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition">
+                        <i class="fas fa-satellite mr-2 text-cyan-500"></i>
+                        Orbital Mechanics
+                    </a>
+                    <a href="#non-inertial" class="sidebar-link block py-2 px-3 text-sm rounded hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition">
+                        <i class="fas fa-compass mr-2 text-red-500"></i>
+                        Non-Inertial Frames
+                    </a>
+                    <a href="#continuum" class="sidebar-link block py-2 px-3 text-sm rounded hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition">
+                        <i class="fas fa-water mr-2 text-indigo-500"></i>
+                        Continuum Mechanics
+                    </a>
+                    <a href="#applications" class="sidebar-link block py-2 px-3 text-sm rounded hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition">
+                        <i class="fas fa-rocket mr-2 text-orange-500"></i>
+                        Applications
+                    </a>
+                    <a href="#history" class="sidebar-link block py-2 px-3 text-sm rounded hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition">
+                        <i class="fas fa-history mr-2 text-yellow-500"></i>
+                        History & Timeline
+                    </a>
+                    <a href="#simulations" class="sidebar-link block py-2 px-3 text-sm rounded hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition">
+                        <i class="fas fa-gamepad mr-2 text-pink-500"></i>
+                        Interactive Simulations
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Difficulty Guide -->
+            <div class="mb-8">
+                <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">DIFFICULTY LEVEL</h4>
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-xs text-gray-600 dark:text-gray-400">Beginner</span>
+                            <span class="text-xs text-primary dark:text-yellow-300">40%</span>
+                        </div>
+                        <div class="knowledge-level" style="--width: 40%"></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-xs text-gray-600 dark:text-gray-400">Intermediate</span>
+                            <span class="text-xs text-primary dark:text-yellow-300">70%</span>
+                        </div>
+                        <div class="knowledge-level" style="--width: 70%"></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-xs text-gray-600 dark:text-gray-400">Advanced</span>
+                            <span class="text-xs text-primary dark:text-yellow-300">90%</span>
+                        </div>
+                        <div class="knowledge-level" style="--width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Prerequisites -->
+            <div class="mb-8">
+                <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">PREREQUISITES</h4>
+                <div class="flex flex-wrap gap-1">
+                    <span class="prerequisite-tag">Calculus</span>
+                    <span class="prerequisite-tag">Algebra</span>
+                    <span class="prerequisite-tag">Vectors</span>
+                    <span class="prerequisite-tag">Trigonometry</span>
+                    <span class="prerequisite-tag">Basic Physics</span>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">QUICK LINKS</h4>
+                <div class="space-y-2">
+                    <a href="../../numerical_methods_physics.html" class="flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-yellow-300 transition">
+                        <i class="fas fa-calculator mr-3"></i>
+                        Numerical Methods
+                    </a>
+                    <a href="../../research.html" class="flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-yellow-300 transition">
+                        <i class="fas fa-flask mr-3"></i>
+                        Research Papers
+                    </a>
+                    <a href="../../library.html" class="flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-yellow-300 transition">
+                        <i class="fas fa-book-open mr-3"></i>
+                        Physics Library
+                    </a>
+                    <a href="../../python-libraries.html" class="flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-yellow-300 transition">
+                        <i class="fab fa-python mr-3"></i>
+                        Python Tools
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Physics Drawer -->
+    <div id="mobile-physics-drawer" class="lg:hidden fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/50" onclick="closeMobileDrawer()"></div>
+        <div class="absolute left-0 top-0 h-full w-80 bg-white dark:bg-dark-card shadow-xl overflow-y-auto">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-xl font-bold text-primary dark:text-yellow-300">Physics Topics</h3>
+                    <button onclick="closeMobileDrawer()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Mobile Physics Topics List -->
+                <div class="space-y-4">
+                    <a href="classical-mechanics.html" class="flex items-center p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700">
+                        <div class="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-apple-alt text-amber-600 dark:text-amber-400"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-amber-700 dark:text-amber-300">Classical Mechanics</div>
+                            <div class="text-sm text-amber-600 dark:text-amber-400">Newton's Laws, Motion</div>
+                        </div>
+                    </a>
+                    
+                    <a href="../electromagnetism/electromagnetism.html" class="flex items-center p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition border border-gray-100 dark:border-gray-700">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-bolt text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800 dark:text-white">Electromagnetism</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Maxwell's Equations</div>
+                        </div>
+                    </a>
+                    
+                    <a href="../thermodynamics/thermodynamics.html" class="flex items-center p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition border border-gray-100 dark:border-gray-700">
+                        <div class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-temperature-high text-red-600 dark:text-red-400"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800 dark:text-white">Thermodynamics</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Heat, Energy, Entropy</div>
+                        </div>
+                    </a>
+                    
+                    <a href="../optics/optics.html" class="flex items-center p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition border border-gray-100 dark:border-gray-700">
+                        <div class="w-12 h-12 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-eye text-cyan-600 dark:text-cyan-400"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800 dark:text-white">Optics</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Light, Lenses, Waves</div>
+                        </div>
+                    </a>
+                    
+                    <a href="../relativity/relativity.html" class="flex items-center p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition border border-gray-100 dark:border-gray-700">
+                        <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-globe-americas text-green-600 dark:text-green-400"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800 dark:text-white">Relativity</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Spacetime, Gravity</div>
+                        </div>
+                    </a>
+                    
+                    <a href="../quantum_mechanics/quantum-mechanics.html" class="flex items-center p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition border border-gray-100 dark:border-gray-700">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-4">
+                            <i class="fas fa-atom text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800 dark:text-white">Quantum Mechanics</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Wave-particle duality</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Mobile Table of Contents -->
+                <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                    <h4 class="font-bold text-gray-800 dark:text-white mb-4">Table of Contents</h4>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="#overview" class="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-amber-50 dark:hover:bg-amber-900/20 transition">
+                            <i class="fas fa-book text-amber-500 text-lg mb-2"></i>
+                            <div class="text-xs font-medium">Overview</div>
+                        </a>
+                        <a href="#newtonian" class="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-amber-50 dark:hover:bg-amber-900/20 transition">
+                            <i class="fas fa-apple-alt text-amber-500 text-lg mb-2"></i>
+                            <div class="text-xs font-medium">Newtonian</div>
+                        </a>
+                        <a href="#oscillations" class="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition">
+                            <i class="fas fa-wave-square text-blue-500 text-lg mb-2"></i>
+                            <div class="text-xs font-medium">Oscillations</div>
+                        </a>
+                        <a href="#lagrangian" class="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition">
+                            <i class="fas fa-infinity text-purple-500 text-lg mb-2"></i>
+                            <div class="text-xs font-medium">Lagrangian</div>
+                        </a>
+                        <a href="#hamiltonian" class="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-green-50 dark:hover:bg-green-900/20 transition">
+                            <i class="fas fa-sync-alt text-green-500 text-lg mb-2"></i>
+                            <div class="text-xs font-medium">Hamiltonian</div>
+                        </a>
+                        <a href="#simulations" class="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-pink-50 dark:hover:bg-pink-900/20 transition">
+                            <i class="fas fa-gamepad text-pink-500 text-lg mb-2"></i>
+                            <div class="text-xs font-medium">Simulations</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Drawer Toggle Button -->
+    <button onclick="openMobileDrawer()" class="lg:hidden fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center">
+        <i class="fas fa-atom text-xl"></i>
+    </button>
+
+    <!-- Main Content -->
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section id="overview" class="pt-24 pb-20 bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 text-white relative overflow-hidden">
+            <!-- Animated Background Elements -->
+            <div class="animated-particle" style="top: 20%; left: 10%; animation: float 5s ease-in-out infinite; animation-delay: 0s;">
+                <i class="fas fa-circle text-white/20 text-4xl"></i>
+            </div>
+            <div class="animated-particle" style="top: 60%; right: 15%; animation: float 7s ease-in-out infinite; animation-delay: 1s;">
+                <i class="fas fa-circle text-white/15 text-6xl"></i>
+            </div>
+            <div class="animated-particle" style="bottom: 30%; left: 20%; animation: float 6s ease-in-out infinite; animation-delay: 2s;">
+                <i class="fas fa-circle text-white/10 text-3xl"></i>
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-6xl mx-auto">
+                    <div class="flex flex-col lg:flex-row items-center justify-between">
+                        <div class="lg:w-2/3 mb-10 lg:mb-0">
+                            <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm mb-6 animate-fade-in">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                <span class="text-sm font-medium">Complete Guide</span>
+                            </div>
+                            
+                            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-slide-up">
+                                Classical <span class="text-yellow-200">Mechanics</span>
+                            </h1>
+                            
+                            <p class="text-xl opacity-90 mb-8 max-w-2xl leading-relaxed animate-fade-in" style="animation-delay: 0.2s;">
+                                The fundamental theory describing the motion of macroscopic objects under forces. 
+                                From falling apples to planetary orbits, understand the principles that govern motion 
+                                in our universe through mathematical rigor and interactive exploration.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-4 animate-fade-in" style="animation-delay: 0.4s;">
+                                <a href="#newtonian" class="bg-white text-amber-600 px-6 py-3 rounded-full font-bold hover:bg-amber-50 transition shadow-lg hover:shadow-xl flex items-center">
+                                    <i class="fas fa-apple-alt mr-3"></i>Newton's Laws
+                                </a>
+                                <a href="#simulations" class="border-2 border-white text-white px-6 py-3 rounded-full font-bold hover:bg-white/10 transition flex items-center">
+                                    <i class="fas fa-play-circle mr-3"></i>Interactive Sims
+                                </a>
+                                <a href="#history" class="border-2 border-white text-white px-6 py-3 rounded-full font-bold hover:bg-white/10 transition flex items-center">
+                                    <i class="fas fa-history mr-3"></i>Historical Timeline
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-1/3 flex justify-center relative">
+                            <!-- Animated Mechanics Diagram -->
+                            <div class="relative w-64 h-64">
+                                <div class="absolute inset-0 rounded-full border-2 border-amber-300/30 animate-spin-slow"></div>
+                                
+                                <!-- Center Mass -->
+                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full shadow-lg animate-pulse-glow">
+                                    <i class="fas fa-apple-alt text-white text-2xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                                </div>
+                                
+                                <!-- Orbiting Masses -->
+                                <div class="orbit-path" style="width: 200px; height: 200px; animation-duration: 15s;">
+                                    <div class="absolute w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-full">
+                                        <i class="fas fa-satellite text-white text-xs absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="orbit-path" style="width: 280px; height: 280px; animation-duration: 25s; animation-delay: -5s;">
+                                    <div class="absolute w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-300 rounded-full">
+                                        <i class="fas fa-moon text-white text-sm absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                <div class="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+                    <div class="w-1 h-3 bg-white/70 rounded-full mt-2 animate-bounce"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Stats -->
+        <section class="py-8 bg-white dark:bg-dark-card">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary dark:text-yellow-300 mb-2">7</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Core Topics</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary dark:text-yellow-300 mb-2">1687</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">First Published</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary dark:text-yellow-300 mb-2">3</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Fundamental Laws</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary dark:text-yellow-300 mb-2">∞</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Applications</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newtonian Mechanics Section -->
+        <section id="newtonian" class="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="flex items-center mb-12">
+                        <div class="w-14 h-14 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mr-6">
+                            <i class="fas fa-apple-alt text-amber-600 dark:text-amber-400 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">Newtonian Mechanics</h2>
+                            <p class="text-gray-600 dark:text-gray-300 mt-2">The foundation of classical physics based on Newton's three laws</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Newton's Three Laws -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold mb-8 text-dark dark:text-white flex items-center">
+                            <i class="fas fa-balance-scale mr-3 text-amber-500"></i>
+                            Newton's Three Laws of Motion
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                            <!-- Law 1 -->
+                            <div class="section-card p-6">
+                                <div class="text-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mx-auto mb-4">
+                                        <span class="text-2xl font-bold text-amber-600 dark:text-amber-400">1</span>
+                                    </div>
+                                    <h4 class="text-xl font-bold text-dark dark:text-white mb-2">Law of Inertia</h4>
+                                    <div class="text-sm text-primary dark:text-yellow-300 font-medium mb-3">1687</div>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    An object at rest stays at rest, and an object in motion stays in motion 
+                                    with constant velocity, unless acted upon by a net external force.
+                                </p>
+                                <div class="physics-formula text-sm">
+                                    \( \sum \vec{F} = 0 \Rightarrow \vec{v} = \text{constant} \)
+                                </div>
+                                <div class="mt-4">
+                                    <span class="inline-block px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full text-sm mr-2">
+                                        <i class="fas fa-car mr-1"></i> Seatbelts
+                                    </span>
+                                    <span class="inline-block px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full text-sm">
+                                        <i class="fas fa-hockey-puck mr-1"></i> Ice Hockey
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Law 2 -->
+                            <div class="section-card p-6">
+                                <div class="text-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mx-auto mb-4">
+                                        <span class="text-2xl font-bold text-red-600 dark:text-red-400">2</span>
+                                    </div>
+                                    <h4 class="text-xl font-bold text-dark dark:text-white mb-2">F = ma</h4>
+                                    <div class="text-sm text-primary dark:text-yellow-300 font-medium mb-3">Fundamental Equation</div>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    The acceleration of an object is directly proportional to the net force 
+                                    acting on it and inversely proportional to its mass.
+                                </p>
+                                <div class="physics-formula text-base">
+                                    \( \sum \vec{F} = m\vec{a} \)
+                                </div>
+                                <div class="mt-4">
+                                    <span class="inline-block px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 rounded-full text-sm mr-2">
+                                        <i class="fas fa-rocket mr-1"></i> Rocket Launch
+                                    </span>
+                                    <span class="inline-block px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 rounded-full text-sm">
+                                        <i class="fas fa-car-crash mr-1"></i> Car Crashes
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Law 3 -->
+                            <div class="section-card p-6">
+                                <div class="text-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mx-auto mb-4">
+                                        <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">3</span>
+                                    </div>
+                                    <h4 class="text-xl font-bold text-dark dark:text-white mb-2">Action-Reaction</h4>
+                                    <div class="text-sm text-primary dark:text-yellow-300 font-medium mb-3">Equal & Opposite</div>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    For every action, there is an equal and opposite reaction. Forces always 
+                                    occur in pairs between two interacting bodies.
+                                </p>
+                                <div class="physics-formula text-sm">
+                                    \( \vec{F}_{AB} = -\vec{F}_{BA} \)
+                                </div>
+                                <div class="mt-4">
+                                    <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm mr-2">
+                                        <i class="fas fa-walking mr-1"></i> Walking
+                                    </span>
+                                    <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm">
+                                        <i class="fas fa-rocket mr-1"></i> Rocket Propulsion
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Conservation Laws -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold mb-8 text-dark dark:text-white flex items-center">
+                            <i class="fas fa-shield-alt mr-3 text-green-500"></i>
+                            Conservation Laws
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Energy Conservation -->
+                            <div class="section-card p-6">
+                                <h4 class="text-xl font-bold mb-4 text-dark dark:text-white flex items-center">
+                                    <i class="fas fa-bolt text-green-500 mr-3"></i>
+                                    Conservation of Energy
+                                </h4>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    In a closed system, the total energy remains constant over time. 
+                                    Energy can neither be created nor destroyed, only transformed.
+                                </p>
+                                <div class="physics-formula">
+                                    \( E_{\text{total}} = T + V = \text{constant} \)
+                                </div>
+                                <div class="mt-4">
+                                    <h5 class="font-bold text-dark dark:text-white mb-2">Types of Energy:</h5>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-running text-amber-500 mr-3"></i>
+                                            <span class="text-gray-700 dark:text-gray-300">Kinetic Energy: \( T = \frac{1}{2}mv^2 \)</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-mountain text-blue-500 mr-3"></i>
+                                            <span class="text-gray-700 dark:text-gray-300">Potential Energy: \( V = mgh \)</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-fire text-red-500 mr-3"></i>
+                                            <span class="text-gray-700 dark:text-gray-300">Thermal Energy</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Momentum Conservation -->
+                            <div class="section-card p-6">
+                                <h4 class="text-xl font-bold mb-4 text-dark dark:text-white flex items-center">
+                                    <i class="fas fa-forward text-purple-500 mr-3"></i>
+                                    Conservation of Momentum
+                                </h4>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    In the absence of external forces, the total momentum of a system 
+                                    remains constant. This applies to both linear and angular momentum.
+                                </p>
+                                <div class="physics-formula">
+                                    \( \sum \vec{p} = \sum m\vec{v} = \text{constant} \)
+                                </div>
+                                <div class="mt-4">
+                                    <h5 class="font-bold text-dark dark:text-white mb-2">Applications:</h5>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-billiard text-green-500 mr-3"></i>
+                                            <span class="text-gray-700 dark:text-gray-300">Collision Analysis</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-satellite text-blue-500 mr-3"></i>
+                                            <span class="text-gray-700 dark:text-gray-300">Rocket Equations</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-rotate text-purple-500 mr-3"></i>
+                                            <span class="text-gray-700 dark:text-gray-300">Rotational Systems</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Work-Energy Theorem -->
+                    <div class="section-card p-8 mb-12">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white flex items-center">
+                            <i class="fas fa-cogs mr-3 text-orange-500"></i>
+                            Work-Energy Theorem
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-6">
+                                    The work done by all forces acting on a particle equals the change 
+                                    in the particle's kinetic energy. This provides a powerful alternative 
+                                    to Newton's second law for solving mechanics problems.
+                                </p>
+                                <div class="physics-formula text-center text-xl">
+                                    \( W = \Delta T = T_f - T_i \)
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold mb-4 text-dark dark:text-white">Work Calculation</h4>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                        <span class="text-gray-700 dark:text-gray-300">Constant Force:</span>
+                                        <span class="font-mono text-primary dark:text-yellow-300">\( W = \vec{F} \cdot \vec{d} \)</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                        <span class="text-gray-700 dark:text-gray-300">Variable Force:</span>
+                                        <span class="font-mono text-primary dark:text-yellow-300">\( W = \int \vec{F} \cdot d\vec{r} \)</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                        <span class="text-gray-700 dark:text-gray-300">Power:</span>
+                                        <span class="font-mono text-primary dark:text-yellow-300">\( P = \frac{dW}{dt} \)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Oscillations & Waves Section -->
+        <section id="oscillations" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="flex items-center mb-12">
+                        <div class="w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-6">
+                            <i class="fas fa-wave-square text-blue-600 dark:text-blue-400 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">Oscillations & Waves</h2>
+                            <p class="text-gray-600 dark:text-gray-300 mt-2">Periodic motion and wave phenomena in classical systems</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Simple Harmonic Motion -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold mb-8 text-dark dark:text-white flex items-center">
+                            <i class="fas fa-weight-hanging mr-3 text-blue-500"></i>
+                            Simple Harmonic Motion (SHM)
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+                            <div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-6">
+                                    SHM occurs when the restoring force is directly proportional to the 
+                                    displacement and acts in the direction opposite to that of displacement. 
+                                    This leads to sinusoidal motion.
+                                </p>
+                                
+                                <div class="space-y-4">
+                                    <div class="physics-formula">
+                                        \( x(t) = A\cos(\omega t + \phi) \)
+                                    </div>
+                                    <div class="physics-formula">
+                                        \( v(t) = -A\omega\sin(\omega t + \phi) \)
+                                    </div>
+                                    <div class="physics-formula">
+                                        \( a(t) = -A\omega^2\cos(\omega t + \phi) \)
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-bold mb-4 text-dark dark:text-white">Key Parameters</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-expand-alt text-blue-500 mr-3"></i>
+                                            <span>Amplitude (A)</span>
+                                        </div>
+                                        <span class="font-bold text-blue-600 dark:text-blue-400">Maximum displacement</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-tachometer-alt text-blue-500 mr-3"></i>
+                                            <span>Angular Frequency (ω)</span>
+                                        </div>
+                                        <span class="font-bold text-blue-600 dark:text-blue-400">\( \omega = 2\pi f \)</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-clock text-blue-500 mr-3"></i>
+                                            <span>Period (T)</span>
+                                        </div>
+                                        <span class="font-bold text-blue-600 dark:text-blue-400">\( T = \frac{2\pi}{\omega} \)</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-waveform text-blue-500 mr-3"></i>
+                                            <span>Phase Constant (φ)</span>
+                                        </div>
+                                        <span class="font-bold text-blue-600 dark:text-blue-400">Initial phase</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Types of Oscillations -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold mb-8 text-dark dark:text-white">Types of Oscillations</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Undamped -->
+                            <div class="section-card p-6">
+                                <div class="text-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-infinity text-green-600 dark:text-green-400"></i>
+                                    </div>
+                                    <h4 class="text-xl font-bold text-dark dark:text-white mb-2">Undamped</h4>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    Perfect harmonic motion with constant amplitude. No energy loss to surroundings.
+                                </p>
+                                <div class="physics-formula text-sm">
+                                    \( \ddot{x} + \omega_0^2 x = 0 \)
+                                </div>
+                                <div class="mt-4">
+                                    <span class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full text-sm">
+                                        Ideal Spring
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Damped -->
+                            <div class="section-card p-6">
+                                <div class="text-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-tint text-yellow-600 dark:text-yellow-400"></i>
+                                    </div>
+                                    <h4 class="text-xl font-bold text-dark dark:text-white mb-2">Damped</h4>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    Energy dissipates due to friction or resistance. Amplitude decreases exponentially.
+                                </p>
+                                <div class="physics-formula text-sm">
+                                    \( \ddot{x} + 2\beta\dot{x} + \omega_0^2 x = 0 \)
+                                </div>
+                                <div class="mt-4">
+                                    <span class="inline-block px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 rounded-full text-sm">
+                                        Shock Absorbers
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Forced -->
+                            <div class="section-card p-6">
+                                <div class="text-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-hand-paper text-red-600 dark:text-red-400"></i>
+                                    </div>
+                                    <h4 class="text-xl font-bold text-dark dark:text-white mb-2">Forced</h4>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    External periodic force drives the system. Can lead to resonance.
+                                </p>
+                                <div class="physics-formula text-sm">
+                                    \( \ddot{x} + 2\beta\dot{x} + \omega_0^2 x = F_0\cos(\omega t) \)
+                                </div>
+                                <div class="mt-4">
+                                    <span class="inline-block px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 rounded-full text-sm">
+                                        Tuning Forks
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Wave Properties -->
+                    <div class="section-card p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white flex items-center">
+                            <i class="fas fa-water mr-3 text-cyan-500"></i>
+                            Wave Properties
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="text-lg font-bold mb-4 text-dark dark:text-white">Wave Equation</h4>
+                                <div class="physics-formula mb-6">
+                                    \( \frac{\partial^2 y}{\partial t^2} = v^2 \frac{\partial^2 y}{\partial x^2} \)
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-ruler-horizontal text-cyan-500 mr-3"></i>
+                                        <div>
+                                            <div class="font-bold text-dark dark:text-white">Wavelength (λ)</div>
+                                            <div class="text-sm text-gray-600 dark:text-gray-400">Distance between successive crests</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-tachometer-alt text-cyan-500 mr-3"></i>
+                                        <div>
+                                            <div class="font-bold text-dark dark:text-white">Frequency (f)</div>
+                                            <div class="text-sm text-gray-600 dark:text-gray-400">Oscillations per second (Hz)</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-bolt text-cyan-500 mr-3"></i>
+                                        <div>
+                                            <div class="font-bold text-dark dark:text-white">Wave Speed (v)</div>
+                                            <div class="text-sm text-gray-600 dark:text-gray-400">\( v = f\lambda \)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-bold mb-4 text-dark dark:text-white">Wave Types</h4>
+                                <div class="space-y-4">
+                                    <div class="p-4 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
+                                        <div class="flex items-center mb-2">
+                                            <i class="fas fa-soundcloud text-cyan-600 dark:text-cyan-400 mr-3"></i>
+                                            <h5 class="font-bold text-dark dark:text-white">Longitudinal Waves</h5>
+                                        </div>
+                                        <p class="text-sm text-gray-700 dark:text-gray-300">
+                                            Particle displacement parallel to wave direction. Example: Sound waves.
+                                        </p>
+                                    </div>
+                                    <div class="p-4 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
+                                        <div class="flex items-center mb-2">
+                                            <i class="fas fa-water text-cyan-600 dark:text-cyan-400 mr-3"></i>
+                                            <h5 class="font-bold text-dark dark:text-white">Transverse Waves</h5>
+                                        </div>
+                                        <p class="text-sm text-gray-700 dark:text-gray-300">
+                                            Particle displacement perpendicular to wave direction. Example: Light waves.
+                                        </p>
+                                    </div>
+                                    <div class="p-4 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
+                                        <div class="flex items-center mb-2">
+                                            <i class="fas fa-wave-square text-cyan-600 dark:text-cyan-400 mr-3"></i>
+                                            <h5 class="font-bold text-dark dark:text-white">Standing Waves</h5>
+                                        </div>
+                                        <p class="text-sm text-gray-700 dark:text-gray-300">
+                                            Result from interference of two identical waves traveling in opposite directions.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lagrangian Mechanics Section -->
+        <section id="lagrangian" class="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="flex items-center mb-12">
+                        <div class="w-14 h-14 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-6">
+                            <i class="fas fa-infinity text-purple-600 dark:text-purple-400 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">Lagrangian Mechanics</h2>
+                            <p class="text-gray-600 dark:text-gray-300 mt-2">Generalized coordinates and the principle of least action</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Lagrangian Formulation -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold mb-8 text-dark dark:text-white">Lagrangian Formulation</h3>
+                        
+                        <div class="section-card p-8 mb-10">
+                            <div class="text-center mb-8">
+                                <div class="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-4">
+                                    \( \mathcal{L} = T - V \)
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 text-lg">
+                                    Lagrangian = Kinetic Energy - Potential Energy
+                                </p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div>
+                                    <h4 class="text-xl font-bold mb-4 text-dark dark:text-white">Euler-Lagrange Equation</h4>
+                                    <div class="physics-formula text-center text-2xl mb-6">
+                                        \[ \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{q}_i}\right) = \frac{\partial \mathcal{L}}{\partial q_i} \]
+                                    </div>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                            <span class="text-gray-700 dark:text-gray-300">Works with any coordinate system</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                            <span class="text-gray-700 dark:text-gray-300">Automatically handles constraints</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                            <span class="text-gray-700 dark:text-gray-300">Connection to symmetries via Noether's theorem</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="text-xl font-bold mb-4 text-dark dark:text-white">Generalized Coordinates</h4>
+                                    <div class="space-y-4">
+                                        <div class="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                                            <div class="font-mono text-purple-600 dark:text-purple-400 mb-1">qᵢ</div>
+                                            <div class="text-sm text-gray-700 dark:text-gray-300">Generalized position coordinates</div>
+                                        </div>
+                                        <div class="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                                            <div class="font-mono text-purple-600 dark:text-purple-400 mb-1">\dot{q}_i</div>
+                                            <div class="text-sm text-gray-700 dark:text-gray-300">Generalized velocity coordinates</div>
+                                        </div>
+                                        <div class="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                                            <div class="font-mono text-purple-600 dark:text-purple-400 mb-1">n degrees</div>
+                                            <div class="text-sm text-gray-700 dark:text-gray-300">Number of independent coordinates</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-6">
+                                        <h5 class="font-bold text-dark dark:text-white mb-2">Applications</h5>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 rounded-full text-sm">
+                                                Double Pendulum
+                                            </span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 rounded-full text-sm">
+                                                Atwood Machine
+                                            </span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 rounded-full text-sm">
+                                                Central Forces
+                                            </span>
+                                            <span class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 rounded-full text-sm">
+                                                Field Theory
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Principle of Least Action -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold mb-8 text-dark dark:text-white">Principle of Least Action</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="section-card p-6">
+                                <h4 class="text-xl font-bold mb-4 text-dark dark:text-white flex items-center">
+                                    <i class="fas fa-bullseye mr-3 text-red-500"></i>
+                                    Action Functional
+                                </h4>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    The action is defined as the time integral of the Lagrangian along 
+                                    a path between two points in configuration space.
+                                </p>
+                                <div class="physics-formula">
+                                    \( S = \int_{t_1}^{t_2} \mathcal{L}(q, \dot{q}, t) \, dt \)
+                                </div>
+                                <div class="mt-4">
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                                        The actual path taken by the system is the one that minimizes 
+                                        (or makes stationary) the action.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="section-card p-6">
+                                <h4 class="text-xl font-bold mb-4 text-dark dark:text-white flex items-center">
+                                    <i class="fas fa-route mr-3 text-green-500"></i>
+                                    Variational Principle
+                                </h4>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    Among all possible paths connecting initial and final configurations, 
+                                    the actual path makes the action stationary: δS = 0.
+                                </p>
+                                <div class="bg-gray-800 dark:bg-gray-900 p-4 rounded-lg">
+                                    <code class="text-green-400 text-sm">
+                                        δS = δ∫ L dt = ∫ (∂L/∂q δq + ∂L/∂\dot{q} δ\dot{q}) dt = 0
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Noether's Theorem -->
+                    <div class="section-card p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white flex items-center">
+                            <i class="fas fa-project-diagram mr-3 text-indigo-500"></i>
+                            Noether's Theorem
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-6">
+                                    For every continuous symmetry of the Lagrangian, there exists a 
+                                    corresponding conserved quantity. This fundamental theorem connects 
+                                    symmetries with conservation laws.
+                                </p>
+                                
+                                <div class="space-y-4">
+                                    <div class="p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
+                                        <div class="flex items-center mb-2">
+                                            <i class="fas fa-language text-indigo-500 mr-3"></i>
+                                            <h5 class="font-bold text-dark dark:text-white">Translation Symmetry</h5>
+                                        </div>
+                                        <p class="text-sm text-gray-700 dark:text-gray-300">
+                                            Homogeneity of space → Conservation of linear momentum
+                                        </p>
+                                    </div>
+                                    <div class="p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
+                                        <div class="flex items-center mb-2">
+                                            <i class="fas fa-redo text-indigo-500 mr-3"></i>
+                                            <h5 class="font-bold text-dark dark:text-white">Rotation Symmetry</h5>
+                                        </div>
+                                        <p class="text-sm text-gray-700 dark:text-gray-300">
+                                            Isotropy of space → Conservation of angular momentum
+                                        </p>
+                                    </div>
+                                    <div class="p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
+                                        <div class="flex items-center mb-2">
+                                            <i class="fas fa-clock text-indigo-500 mr-3"></i>
+                                            <h5 class="font-bold text-dark dark:text-white">Time Translation</h5>
+                                        </div>
+                                        <p class="text-sm text-gray-700 dark:text-gray-300">
+                                            Homogeneity of time → Conservation of energy
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-bold mb-4 text-dark dark:text-white">Mathematical Formulation</h4>
+                                <div class="physics-formula text-sm mb-4">
+                                    \[ \text{Symmetry: } \mathcal{L}(q, \dot{q}) \rightarrow \mathcal{L}(q', \dot{q}') \]
+                                </div>
+                                <div class="physics-formula text-sm mb-6">
+                                    \[ \text{Conserved: } Q = \sum_i \frac{\partial \mathcal{L}}{\partial \dot{q}_i} \frac{dq_i}{d\epsilon} \]
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                                    <h5 class="font-bold text-dark dark:text-white mb-2">Example: Time Invariance</h5>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">
+                                        If Lagrangian doesn't depend explicitly on time (∂L/∂t = 0), 
+                                        then the Hamiltonian H = Σ pᵢ\dot{q}_ᵢ - L is conserved.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hamiltonian Mechanics Section -->
+        <section id="hamiltonian" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="flex items-center mb-12">
+                        <div class="w-14 h-14 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mr-6">
+                            <i class="fas fa-sync-alt text-green-600 dark:text-green-400 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">Hamiltonian Mechanics</h2>
+                            <p class="text-gray-600 dark:text-gray-300 mt-2">Phase space formulation and symplectic structure</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hamiltonian Formulation -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold mb-8 text-dark dark:text-white">Hamiltonian Formulation</h3>
+                        
+                        <div class="section-card p-8 mb-10">
+                            <div class="text-center mb-8">
+                                <div class="text-4xl font-bold text-green-600 dark:text-green-400 mb-4">
+                                    \( H = \sum_i p_i \dot{q}_i - \mathcal{L} \)
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 text-lg">
+                                    Hamiltonian = Legendre Transform of Lagrangian
+                                </p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div>
+                                    <h4 class="text-xl font-bold mb-4 text-dark dark:text-white">Hamilton's Equations</h4>
+                                    <div class="space-y-4 mb-6">
+                                        <div class="physics-formula">
+                                            \( \dot{q}_i = \frac{\partial H}{\partial p_i} \)
+                                        </div>
+                                        <div class="physics-formula">
+                                            \( \dot{p}_i = -\frac{\partial H}{\partial q_i} \)
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                            <span class="text-gray-700 dark:text-gray-300">First-order differential equations</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                            <span class="text-gray-700 dark:text-gray-300">Phase space formulation</span>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                            <span class="text-gray-700 dark:text-gray-300">Natural for quantum mechanics</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="text-xl font-bold mb-4 text-dark dark:text-white">Phase Space</h4>
+                                    <div class="space-y-4">
+                                        <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                                            <div class="font-mono text-green-600 dark:text-green-400 mb-1">(qᵢ, pᵢ)</div>
+                                            <div class="text-sm text-gray-700 dark:text-gray-300">Phase space coordinates</div>
+                                        </div>
+                                        <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                                            <div class="font-mono text-green-600 dark:text-green-400 mb-1">2n dimensions</div>
+                                            <div class="text-sm text-gray-700 dark:text-gray-300">Twice the configuration space</div>
+                                        </div>
+                                        <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                                            <div class="font-mono text-green-600 dark:text-green-400 mb-1">Symplectic Structure</div>
+                                            <div class="text-sm text-gray-700 dark:text-gray-300">Geometric structure preserved</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-6">
+                                        <h5 class="font-bold text-dark dark:text-white mb-2">Poisson Brackets</h5>
+                                        <div class="physics-formula text-sm">
+                                            \( \{f, g\} = \sum_i \left( \frac{\partial f}{\partial q_i} \frac{\partial g}{\partial p_i} - \frac{\partial f}{\partial p_i} \frac{\partial g}{\partial q_i} \right) \)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Comparison Table -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold mb-8 text-dark dark:text-white">Lagrangian vs Hamiltonian</h3>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full bg-white dark:bg-dark-card rounded-lg overflow-hidden">
+                                <thead class="bg-primary/10 dark:bg-primary/20">
+                                    <tr>
+                                        <th class="py-3 px-4 text-left font-bold text-dark dark:text-white">Aspect</th>
+                                        <th class="py-3 px-4 text-left font-bold text-dark dark:text-white">Lagrangian</th>
+                                        <th class="py-3 px-4 text-left font-bold text-dark dark:text-white">Hamiltonian</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                                        <td class="py-3 px-4 font-medium text-dark dark:text-white">Variables</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300">(q, \dot{q})</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300">(q, p)</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                                        <td class="py-3 px-4 font-medium text-dark dark:text-white">Equations</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300">Second-order (n equations)</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300">First-order (2n equations)</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                                        <td class="py-3 px-4 font-medium text-dark dark:text-white">Formulation</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300">Variational principle</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300">Phase space flow</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                                        <td class="py-3 px-4 font-medium text-dark dark:text-white">Conserved</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300">Energy if ∂L/∂t = 0</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300">H if ∂H/∂t = 0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 px-4 font-medium text-dark dark:text-white">Quantum Version</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300">Path integral</td>
+                                        <td class="py-3 px-4 text-gray-700 dark:text-gray-300">Schrödinger equation</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Orbital Mechanics Section -->
+        <section id="orbital" class="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="flex items-center mb-12">
+                        <div class="w-14 h-14 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center mr-6">
+                            <i class="fas fa-satellite text-cyan-600 dark:text-cyan-400 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">Orbital Mechanics</h2>
+                            <p class="text-gray-600 dark:text-gray-300 mt-2">Central forces, Kepler's laws, and gravitational systems</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Kepler's Laws -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold mb-8 text-dark dark:text-white">Kepler's Laws of Planetary Motion</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                            <!-- Law 1 -->
+                            <div class="section-card p-6">
+                                <div class="text-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-ellipsis-h text-cyan-600 dark:text-cyan-400"></i>
+                                    </div>
+                                    <h4 class="text-xl font-bold text-dark dark:text-white mb-2">First Law</h4>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    Planets move in elliptical orbits with the Sun at one focus.
+                                </p>
+                                <div class="physics-formula text-sm">
+                                    \( r = \frac{a(1-e^2)}{1+e\cos\theta} \)
+                                </div>
+                                <div class="mt-4">
+                                    <div class="flex items-center text-sm text-cyan-600 dark:text-cyan-400">
+                                        <i class="fas fa-long-arrow-alt-right mr-2"></i>
+                                        <span>Elliptical orbits</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Law 2 -->
+                            <div class="section-card p-6">
+                                <div class="text-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-chart-area text-cyan-600 dark:text-cyan-400"></i>
+                                    </div>
+                                    <h4 class="text-xl font-bold text-dark dark:text-white mb-2">Second Law</h4>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    A line joining a planet and the Sun sweeps out equal areas in equal times.
+                                </p>
+                                <div class="physics-formula text-sm">
+                                    \( \frac{dA}{dt} = \text{constant} \)
+                                </div>
+                                <div class="mt-4">
+                                    <div class="flex items-center text-sm text-cyan-600 dark:text-cyan-400">
+                                        <i class="fas fa-tachometer-alt mr-2"></i>
+                                        <span>Angular momentum conservation</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Law 3 -->
+                            <div class="section-card p-6">
+                                <div class="text-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-cube text-cyan-600 dark:text-cyan-400"></i>
+                                    </div>
+                                    <h4 class="text-xl font-bold text-dark dark:text-white mb-2">Third Law</h4>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    The square of the orbital period is proportional to the cube of the semi-major axis.
+                                </p>
+                                <div class="physics-formula text-sm">
+                                    \( T^2 \propto a^3 \)
+                                </div>
+                                <div class="mt-4">
+                                    <div class="flex items-center text-sm text-cyan-600 dark:text-cyan-400">
+                                        <i class="fas fa-balance-scale mr-2"></i>
+                                        <span>Gravitational constant relation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Newton's Law of Gravitation -->
+                    <div class="section-card p-8 mb-12">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Newton's Law of Universal Gravitation</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <div class="text-center mb-6">
+                                    <div class="text-3xl font-bold text-cyan-600 dark:text-cyan-400 mb-2">
+                                        \( F = G\frac{m_1 m_2}{r^2} \)
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        Every particle attracts every other particle with a force proportional to the product of their masses and inversely proportional to the square of the distance between them.
+                                    </p>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between p-3 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
+                                        <span class="text-gray-700 dark:text-gray-300">Gravitational Constant</span>
+                                        <span class="font-bold text-cyan-600 dark:text-cyan-400">G ≈ 6.674×10⁻¹¹ N·m²/kg²</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
+                                        <span class="text-gray-700 dark:text-gray-300">Earth's Surface</span>
+                                        <span class="font-bold text-cyan-600 dark:text-cyan-400">g ≈ 9.8 m/s²</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
+                                        <span class="text-gray-700 dark:text-gray-300">Escape Velocity</span>
+                                        <span class="font-bold text-cyan-600 dark:text-cyan-400">vₑ = √(2GM/R)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-bold mb-4 text-dark dark:text-white">Gravitational Potential</h4>
+                                <div class="space-y-4">
+                                    <div class="physics-formula">
+                                        \( V(r) = -\frac{GM}{r} \)
+                                    </div>
+                                    <div class="physics-formula">
+                                        \( \vec{g} = -\nabla V \)
+                                    </div>
+                                    
+                                    <div class="mt-6">
+                                        <h5 class="font-bold text-dark dark:text-white mb-2">Orbital Parameters</h5>
+                                        <div class="grid grid-cols-2 gap-3">
+                                            <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                                <div class="text-sm text-gray-600 dark:text-gray-400">Semi-major Axis</div>
+                                                <div class="font-bold text-dark dark:text-white">a</div>
+                                            </div>
+                                            <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                                <div class="text-sm text-gray-600 dark:text-gray-400">Eccentricity</div>
+                                                <div class="font-bold text-dark dark:text-white">e</div>
+                                            </div>
+                                            <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                                <div class="text-sm text-gray-600 dark:text-gray-400">Orbital Energy</div>
+                                                <div class="font-bold text-dark dark:text-white">E = -GMm/2a</div>
+                                            </div>
+                                            <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                                <div class="text-sm text-gray-600 dark:text-gray-400">Orbital Period</div>
+                                                <div class="font-bold text-dark dark:text-white">T = 2π√(a³/GM)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Simulations Section -->
+        <section id="simulations" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Interactive <span class="text-primary dark:text-yellow-300">Simulations</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Explore classical mechanics principles through interactive simulations. Adjust parameters and observe real-time effects.
+                        </p>
+                    </div>
+                    
+                    <!-- Simulation Cards -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Projectile Motion -->
+                        <div class="bg-gradient-to-br from-gray-900 to-dark dark:from-dark-card dark:to-gray-900 rounded-2xl shadow-xl overflow-hidden">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-4 text-white flex items-center">
+                                    <i class="fas fa-basketball-ball mr-3 text-orange-400"></i>
+                                    Projectile Motion
+                                </h3>
+                                <p class="text-gray-300 mb-6">
+                                    Explore how initial velocity and launch angle affect the trajectory of a projectile under gravity.
+                                </p>
+                                
+                                <div class="space-y-6">
+                                    <!-- Canvas Container -->
+                                    <div class="interactive-simulation">
+                                        <canvas id="projectile-canvas" class="w-full h-full"></canvas>
+                                    </div>
+                                    
+                                    <!-- Controls -->
+                                    <div class="space-y-4">
+                                        <div>
+                                            <div class="flex justify-between mb-2">
+                                                <label class="text-white">Velocity: <span id="proj-velocity">20</span> m/s</label>
+                                                <span class="text-gray-400">Range: 5-50 m/s</span>
+                                            </div>
+                                            <input type="range" min="5" max="50" value="20" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="proj-velocity-slider">
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-2">
+                                                <label class="text-white">Angle: <span id="proj-angle">45</span>°</label>
+                                                <span class="text-gray-400">Range: 10-80°</span>
+                                            </div>
+                                            <input type="range" min="10" max="80" value="45" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="proj-angle-slider">
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <button id="fire-projectile" class="bg-primary text-white py-3 rounded-lg font-bold hover:bg-secondary transition flex items-center justify-center">
+                                                <i class="fas fa-play mr-2"></i>Launch
+                                            </button>
+                                            <button id="reset-projectile" class="bg-gray-700 text-white py-3 rounded-lg font-bold hover:bg-gray-600 transition flex items-center justify-center">
+                                                <i class="fas fa-redo mr-2"></i>Reset
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Results Display -->
+                                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-700">
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-primary dark:text-yellow-300" id="max-height">10.2 m</div>
+                                            <div class="text-sm text-gray-400">Max Height</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-primary dark:text-yellow-300" id="range">40.8 m</div>
+                                            <div class="text-sm text-gray-400">Range</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-primary dark:text-yellow-300" id="flight-time">2.9 s</div>
+                                            <div class="text-sm text-gray-400">Flight Time</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Simple Pendulum -->
+                        <div class="bg-gradient-to-br from-gray-900 to-dark dark:from-dark-card dark:to-gray-900 rounded-2xl shadow-xl overflow-hidden">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-4 text-white flex items-center">
+                                    <i class="fas fa-weight-hanging mr-3 text-green-400"></i>
+                                    Simple Pendulum
+                                </h3>
+                                <p class="text-gray-300 mb-6">
+                                    Investigate how length, mass, and amplitude affect the period of a simple pendulum.
+                                </p>
+                                
+                                <div class="space-y-6">
+                                    <!-- Canvas Container -->
+                                    <div class="interactive-simulation">
+                                        <canvas id="pendulum-canvas" class="w-full h-full"></canvas>
+                                    </div>
+                                    
+                                    <!-- Controls -->
+                                    <div class="space-y-4">
+                                        <div>
+                                            <div class="flex justify-between mb-2">
+                                                <label class="text-white">Length: <span id="pend-length">2</span> m</label>
+                                                <span class="text-gray-400">Range: 0.5-5 m</span>
+                                            </div>
+                                            <input type="range" min="0.5" max="5" value="2" step="0.1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="pend-length-slider">
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-2">
+                                                <label class="text-white">Angle: <span id="pend-angle">30</span>°</label>
+                                                <span class="text-gray-400">Range: 5-80°</span>
+                                            </div>
+                                            <input type="range" min="5" max="80" value="30" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="pend-angle-slider">
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <button id="start-pendulum" class="bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition flex items-center justify-center">
+                                                <i class="fas fa-play mr-2"></i>Start
+                                            </button>
+                                            <button id="stop-pendulum" class="bg-gray-700 text-white py-3 rounded-lg font-bold hover:bg-gray-600 transition flex items-center justify-center">
+                                                <i class="fas fa-pause mr-2"></i>Pause
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Results Display -->
+                                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-gray-700">
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-green-400" id="period-display">2.84 s</div>
+                                            <div class="text-sm text-gray-400">Period</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-green-400" id="frequency-display">0.35 Hz</div>
+                                            <div class="text-sm text-gray-400">Frequency</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History & Timeline Section -->
+        <section id="history" class="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Historical <span class="text-primary dark:text-yellow-300">Timeline</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            The evolution of classical mechanics from ancient times to modern formulations
+                        </p>
+                    </div>
+                    
+                    <!-- Timeline -->
+                    <div class="relative">
+                        <!-- Ancient Greece -->
+                        <div class="timeline-item">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mr-4">
+                                        <i class="fas fa-users text-amber-600 dark:text-amber-400"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-dark dark:text-white">Ancient Greece (4th Century BC)</h4>
+                                        <div class="text-sm text-primary dark:text-yellow-300">Aristotle, Archimedes</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    Aristotle's physics: Natural motion vs violent motion. Objects fall at speeds proportional to their weight.
+                                    Archimedes' principle of buoyancy and levers. "Give me a lever long enough and a fulcrum on which to place it, and I shall move the world."
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300 rounded-full text-sm">
+                                        Natural Philosophy
+                                    </span>
+                                    <span class="px-3 py-1 bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300 rounded-full text-sm">
+                                        Levers & Buoyancy
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Galileo -->
+                        <div class="timeline-item">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mr-4">
+                                        <i class="fas fa-user-astronaut text-green-600 dark:text-green-400"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-dark dark:text-white">1632-1638</h4>
+                                        <div class="text-sm text-primary dark:text-yellow-300">Galileo Galilei</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    "Dialogues Concerning Two New Sciences" - Established the law of falling bodies.
+                                    All objects fall at the same rate regardless of mass (ignoring air resistance).
+                                    Introduced the concept of inertia and the principle of relativity.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 rounded-full text-sm">
+                                        Law of Falling Bodies
+                                    </span>
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 rounded-full text-sm">
+                                        Inertia Principle
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Newton -->
+                        <div class="timeline-item">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mr-4">
+                                        <i class="fas fa-apple-alt text-red-600 dark:text-red-400"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-dark dark:text-white">1687</h4>
+                                        <div class="text-sm text-primary dark:text-yellow-300">Isaac Newton</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    Publication of "Philosophiæ Naturalis Principia Mathematica" containing:
+                                    • Newton's three laws of motion
+                                    • Law of universal gravitation
+                                    • Calculus (fluxions)
+                                    • Derivation of Kepler's laws from gravitation
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300 rounded-full text-sm">
+                                        Three Laws
+                                    </span>
+                                    <span class="px-3 py-1 bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300 rounded-full text-sm">
+                                        Universal Gravitation
+                                    </span>
+                                    <span class="px-3 py-1 bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300 rounded-full text-sm">
+                                        Calculus
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Lagrange -->
+                        <div class="timeline-item">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-4">
+                                        <i class="fas fa-infinity text-purple-600 dark:text-purple-400"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-dark dark:text-white">1788</h4>
+                                        <div class="text-sm text-primary dark:text-yellow-300">Joseph-Louis Lagrange</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    "Mécanique Analytique" - Reformulated Newtonian mechanics using variational principles.
+                                    Introduced Lagrangian mechanics: \( \mathcal{L} = T - V \)
+                                    Euler-Lagrange equations provide a more general formulation.
+                                    "No diagrams" - pure analytical methods.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 rounded-full text-sm">
+                                        Lagrangian Mechanics
+                                    </span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 rounded-full text-sm">
+                                        Variational Principles
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Hamilton -->
+                        <div class="timeline-item">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-4">
+                                        <i class="fas fa-brain text-blue-600 dark:text-blue-400"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-dark dark:text-white">1834-1835</h4>
+                                        <div class="text-sm text-primary dark:text-yellow-300">William Rowan Hamilton</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    Formulation of Hamiltonian mechanics: \( H = \sum p_i \dot{q}_i - \mathcal{L} \)
+                                    Hamilton's equations provide first-order formulation.
+                                    Phase space approach, Poisson brackets.
+                                    Foundation for quantum mechanics and statistical mechanics.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 rounded-full text-sm">
+                                        Hamiltonian Mechanics
+                                    </span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 rounded-full text-sm">
+                                        Phase Space
+                                    </span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 rounded-full text-sm">
+                                        Quantum Foundation
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+        <section id="applications" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Real-World <span class="text-primary dark:text-yellow-300">Applications</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Classical mechanics forms the foundation for numerous technologies and engineering applications
+                        </p>
+                    </div>
+                    
+                    <!-- Applications Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Aerospace -->
+                        <div class="section-card p-6">
+                            <div class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mb-4">
+                                <i class="fas fa-rocket text-red-600 dark:text-red-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Aerospace Engineering</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                Rocket trajectory calculations, orbital mechanics, satellite deployment, 
+                                and re-entry vehicle dynamics.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300 rounded-full text-sm">
+                                    Orbital Dynamics
+                                </span>
+                                <span class="px-3 py-1 bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300 rounded-full text-sm">
+                                    Rocket Equations
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Automotive -->
+                        <div class="section-card p-6">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                                <i class="fas fa-car text-blue-600 dark:text-blue-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Automotive Design</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                Vehicle dynamics, crash testing, suspension systems, braking systems, 
+                                and fuel efficiency optimization.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 rounded-full text-sm">
+                                    Crash Dynamics
+                                </span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 rounded-full text-sm">
+                                    Suspension Design
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Civil Engineering -->
+                        <div class="section-card p-6">
+                            <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
+                                <i class="fas fa-building text-green-600 dark:text-green-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Civil Engineering</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                Structural analysis, bridge design, earthquake engineering, 
+                                and foundation mechanics.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 rounded-full text-sm">
+                                    Structural Analysis
+                                </span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 rounded-full text-sm">
+                                    Earthquake Engineering
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Sports -->
+                        <div class="section-card p-6">
+                            <div class="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center mb-4">
+                                <i class="fas fa-basketball-ball text-yellow-600 dark:text-yellow-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Sports Science</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                Projectile motion in sports, angular momentum in gymnastics, 
+                                impact forces, and equipment design.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300 rounded-full text-sm">
+                                    Projectile Motion
+                                </span>
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300 rounded-full text-sm">
+                                    Angular Momentum
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Robotics -->
+                        <div class="section-card p-6">
+                            <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                                <i class="fas fa-robot text-purple-600 dark:text-purple-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Robotics</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                Kinematics, dynamics of robotic arms, motion planning, 
+                                and control systems.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 rounded-full text-sm">
+                                    Kinematics
+                                </span>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 rounded-full text-sm">
+                                    Dynamics
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Astronomy -->
+                        <div class="section-card p-6">
+                            <div class="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mb-4">
+                                <i class="fas fa-satellite text-indigo-600 dark:text-indigo-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Astronomy & Astrophysics</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                Celestial mechanics, planetary orbits, satellite tracking, 
+                                and gravitational interactions.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300 rounded-full text-sm">
+                                    Celestial Mechanics
+                                </span>
+                                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300 rounded-full text-sm">
+                                    Orbital Prediction
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="py-16 bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Test Your <span class="text-primary dark:text-yellow-300">Knowledge</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Check your understanding of classical mechanics concepts
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="quiz-question">
+                            <h3 class="text-lg font-bold mb-3 text-dark dark:text-white">Question 1: Newton's First Law</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                A hockey puck slides across ice at constant velocity. According to Newton's first law, what can we conclude about the forces acting on the puck?
+                            </p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="q1" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">No forces are acting on the puck</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q1" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">The net force on the puck is zero</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q1" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">Only gravitational force is acting</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question">
+                            <h3 class="text-lg font-bold mb-3 text-dark dark:text-white">Question 2: Energy Conservation</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                A pendulum swings from its highest point to its lowest point. Which statement is true about energy conservation?
+                            </p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="q2" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">Kinetic energy is maximum at highest point</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q2" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">Potential energy is maximum at lowest point</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q2" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">Total mechanical energy remains constant</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-8">
+                        <button class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition shadow-lg hover:shadow-xl">
+                            <i class="fas fa-check-circle mr-2"></i>Check Answers
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Further Learning -->
+        <section class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Continue Your <span class="text-primary dark:text-yellow-300">Journey</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Explore related topics and deepen your understanding of classical mechanics
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <a href="../electromagnetism/electromagnetism.html" class="group">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-bolt text-blue-600 dark:text-blue-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-dark dark:text-white group-hover:text-primary dark:group-hover:text-yellow-300 transition">
+                                    Electromagnetism
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Maxwell's equations, electric and magnetic fields, electromagnetic waves.
+                                </p>
+                            </div>
+                        </a>
+                        
+                        <a href="../../numerical_methods_physics.html" class="group">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-calculator text-green-600 dark:text-green-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-dark dark:text-white group-hover:text-primary dark:group-hover:text-yellow-300 transition">
+                                    Numerical Methods
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Computational approaches to solving physics problems numerically.
+                                </p>
+                            </div>
+                        </a>
+                        
+                        <a href="../../library.html" class="group">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-book-open text-purple-600 dark:text-purple-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-dark dark:text-white group-hover:text-primary dark:group-hover:text-yellow-300 transition">
+                                    Physics Library
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Download PDFs, research papers, and study materials on physics topics.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-atom mr-3 text-primary"></i>
+                        Physics Portal
+                    </h3>
+                    <p class="opacity-80">Interactive learning platform for physics concepts</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="../../index.html" class="opacity-80 hover:opacity-100 hover:text-primary transition">
+                        Portfolio Home
+                    </a>
+                    <a href="../../contact.html" class="opacity-80 hover:opacity-100 hover:text-primary transition">
+                        Contact
+                    </a>
+                    <a href="https://github.com/anshuman365" class="opacity-80 hover:opacity-100 hover:text-primary transition">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center opacity-70 text-sm">
+                <p>&copy; 2025 Anshuman Singh. Educational content for physics learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/physics-common.js" defer></script>
+    <script src="../js/classical-mechanics-sim.js" defer></script>
+    
+    <script>
+        // Initialize MathJax
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+        
+        // Navigation Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Dark Mode Toggles
+        document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('physics-theme', 
+                document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+            );
+        });
+        
+        document.getElementById('dark-mode-toggle-mobile').addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('physics-theme', 
+                document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+            );
+        });
+        
+        // Mobile Physics Topics Toggle
+        document.querySelector('.mobile-physics-toggle')?.addEventListener('click', function() {
+            const submenu = this.nextElementSibling;
+            submenu.classList.toggle('hidden');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('rotate-180');
+        });
+        
+        // Mobile Drawer Functions
+        function openMobileDrawer() {
+            document.getElementById('mobile-physics-drawer').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileDrawer() {
+            document.getElementById('mobile-physics-drawer').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scroll-progress').style.width = scrolled + '%';
+        });
+        
+        // Section Tracking for Sidebar Highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        function highlightCurrentSection() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightCurrentSection);
+        highlightCurrentSection(); // Initial call
+        
+        // Formula Copy Functionality
+        document.querySelectorAll('.physics-formula').forEach(formula => {
+            formula.addEventListener('click', function() {
+                const text = this.textContent || this.innerText;
+                navigator.clipboard.writeText(text.trim()).then(() => {
+                    const original = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+                    setTimeout(() => {
+                        this.innerHTML = original;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+            });
+        });
+        
+        // Quiz Functionality
+        document.querySelectorAll('.quiz-question input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const question = this.closest('.quiz-question');
+                const allRadios = question.querySelectorAll('input[type="radio"]');
+                allRadios.forEach(r => {
+                    r.parentElement.classList.remove('text-green-600', 'font-bold');
+                });
+                
+                if (this.value === 'correct') {
+                    this.parentElement.classList.add('text-green-600', 'font-bold');
+                }
+            });
+        });
+        
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile drawer if open
+                    closeMobileDrawer();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Concepts | Interactive Theories & Visualizations</title>
+  <meta name="description" content="Explore physics concepts with interactive simulations, visual explanations, and mathematical proofs. From classical mechanics to quantum physics.">
+  <meta name="keywords" content="physics, classical mechanics, quantum physics, relativity, electromagnetism, interactive physics, physics simulations">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            secondary: '#7C3AED',
+            accent: '#059669',
+            dark: '#1E293B',
+            light: '#F8FAFC',
+            'dark-bg': '#0f172a',
+            'dark-card': '#1e293b',
+            'dark-text': '#f1f5f9'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body { 
+      font-family: 'Inter', sans-serif; 
+      line-height: 1.6;
+    }
+    
+    .theory-card {
+      transition: all 0.3s ease;
+      background: linear-gradient(145deg, #ffffff, #f0f0f0);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    
+    .dark .theory-card {
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+    }
+    
+    .theory-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .dark .theory-card:hover {
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    
+    .particle-animation {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .particle-animation::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: floatParticles 20s linear infinite;
+      z-index: 0;
+    }
+    
+    @keyframes floatParticles {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-50px, -50px); }
+    }
+    
+    .interactive-canvas {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .physics-equation {
+      font-family: 'Times New Roman', serif;
+      font-size: 1.5rem;
+      padding: 1rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .dark .physics-equation {
+      background: rgba(0,0,0,0.2);
+    }
+    
+    .animated-wave {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      background-size: 200% 100%;
+      animation: wave 2s linear infinite;
+    }
+    
+    @keyframes wave {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+  </style>
+</head>
+
+<body class="bg-light text-dark dark:bg-dark-bg dark:text-dark-text transition-colors duration-300">
+  
+  <!-- Navigation -->
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-16 bg-gradient-to-br from-blue-600 to-purple-700 text-white particle-animation">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+          <i class="fas fa-atom mr-4"></i>Physics Concepts
+        </h1>
+        <p class="text-xl opacity-90 mb-8 leading-relaxed">
+          Interactive visualizations and detailed explanations of fundamental physics concepts. 
+          From Newton's laws to quantum mechanics - explore the universe through interactive simulations.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#theories" class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-lg hover:shadow-xl">
+            <i class="fas fa-book-open mr-2"></i>Explore Theories
+          </a>
+          <a href="#simulations" class="border-2 border-white text-white px-6 py-3 rounded-full font-bold hover:bg-white/10 transition">
+            <i class="fas fa-play-circle mr-2"></i>Interactive Sims
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Physics Theories Grid -->
+  <section id="theories" class="py-16 bg-white dark:bg-dark-bg">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-dark dark:text-white">
+        Fundamental Physics Theories
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">
+        Click on any theory to explore detailed explanations, mathematical proofs, and visual demonstrations.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Classical Mechanics -->
+        <a href="physics/classical-mechanics.html" class="theory-card group">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mr-4">
+                <i class="fas fa-apple-alt text-orange-600 dark:text-orange-400 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-dark dark:text-white">Classical Mechanics</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Newton's laws of motion, conservation laws, Lagrangian and Hamiltonian mechanics with interactive simulations.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300 px-3 py-1 rounded-full text-sm">
+                Newton's Laws
+              </span>
+              <span class="bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300 px-3 py-1 rounded-full text-sm">
+                Conservation
+              </span>
+            </div>
+          </div>
+          <div class="h-2 bg-gradient-to-r from-orange-500 to-red-500 animated-wave"></div>
+        </a>
+        
+        <!-- Electromagnetism -->
+        <a href="physics/electromagnetism.html" class="theory-card group">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-4">
+                <i class="fas fa-bolt text-blue-600 dark:text-blue-400 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-dark dark:text-white">Electromagnetism</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Maxwell's equations, electromagnetic waves, circuits, and field theory with vector field visualizations.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">
+                Maxwell's Eqs
+              </span>
+              <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">
+                EM Waves
+              </span>
+            </div>
+          </div>
+          <div class="h-2 bg-gradient-to-r from-blue-500 to-cyan-500 animated-wave"></div>
+        </a>
+        
+        <!-- Thermodynamics -->
+        <a href="physics/thermodynamics.html" class="theory-card group">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mr-4">
+                <i class="fas fa-temperature-high text-red-600 dark:text-red-400 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-dark dark:text-white">Thermodynamics</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Laws of thermodynamics, heat engines, entropy, statistical mechanics with real-time simulations.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300 px-3 py-1 rounded-full text-sm">
+                4 Laws
+              </span>
+              <span class="bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300 px-3 py-1 rounded-full text-sm">
+                Entropy
+              </span>
+            </div>
+          </div>
+          <div class="h-2 bg-gradient-to-r from-red-500 to-pink-500 animated-wave"></div>
+        </a>
+        
+        <!-- Quantum Mechanics -->
+        <a href="physics/quantum-mechanics.html" class="theory-card group">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-4">
+                <i class="fas fa-atom text-purple-600 dark:text-purple-400 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-dark dark:text-white">Quantum Mechanics</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Wave-particle duality, Schrödinger equation, quantum states, entanglement with probability visualizations.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 px-3 py-1 rounded-full text-sm">
+                Schrödinger
+              </span>
+              <span class="bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 px-3 py-1 rounded-full text-sm">
+                Superposition
+              </span>
+            </div>
+          </div>
+          <div class="h-2 bg-gradient-to-r from-purple-500 to-indigo-500 animated-wave"></div>
+        </a>
+        
+        <!-- Relativity -->
+        <a href="physics/relativity.html" class="theory-card group">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mr-4">
+                <i class="fas fa-globe-americas text-green-600 dark:text-green-400 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-dark dark:text-white">Relativity</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Special and general relativity, spacetime curvature, black holes, gravitational waves with spacetime diagrams.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 px-3 py-1 rounded-full text-sm">
+                Spacetime
+              </span>
+              <span class="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 px-3 py-1 rounded-full text-sm">
+                Black Holes
+              </span>
+            </div>
+          </div>
+          <div class="h-2 bg-gradient-to-r from-green-500 to-emerald-500 animated-wave"></div>
+        </a>
+        
+        <!-- Optics -->
+        <a href="physics/optics.html" class="theory-card group">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center mr-4">
+                <i class="fas fa-eye text-cyan-600 dark:text-cyan-400 text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-dark dark:text-white">Optics</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Reflection, refraction, lenses, wave optics, polarization, and optical instruments with ray tracing.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300 px-3 py-1 rounded-full text-sm">
+                Ray Optics
+              </span>
+              <span class="bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300 px-3 py-1 rounded-full text-sm">
+                Wave Optics
+              </span>
+            </div>
+          </div>
+          <div class="h-2 bg-gradient-to-r from-cyan-500 to-teal-500 animated-wave"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Simulations -->
+  <section id="simulations" class="py-16 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-dark dark:text-white">
+        Interactive Physics Simulations
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">
+        Real-time simulations that help visualize complex physics concepts. Adjust parameters and see instant results.
+      </p>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        
+        <!-- Simulation 1: Projectile Motion -->
+        <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg overflow-hidden">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-4 text-dark dark:text-white flex items-center">
+              <i class="fas fa-basketball-ball mr-3 text-orange-500"></i>
+              Projectile Motion Simulator
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Adjust initial velocity and angle to see how a projectile moves under gravity. Perfect for understanding kinematics.
+            </p>
+            
+            <!-- Interactive Canvas -->
+            <div class="interactive-canvas mb-6" id="projectileCanvas">
+              <canvas class="w-full h-full" id="projectileMotion"></canvas>
+            </div>
+            
+            <!-- Controls -->
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Initial Velocity: <span id="velocityValue">20</span> m/s
+                </label>
+                <input type="range" min="5" max="50" value="20" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="velocitySlider">
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Launch Angle: <span id="angleValue">45</span>°
+                </label>
+                <input type="range" min="10" max="80" value="45" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="angleSlider">
+              </div>
+              
+              <button class="w-full bg-primary text-white py-3 rounded-lg font-bold hover:bg-secondary transition" id="launchProjectile">
+                <i class="fas fa-play mr-2"></i>Launch Projectile
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Simulation 2: Wave Interference -->
+        <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg overflow-hidden">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-4 text-dark dark:text-white flex items-center">
+              <i class="fas fa-water mr-3 text-blue-500"></i>
+              Wave Interference Pattern
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Visualize constructive and destructive interference patterns from two coherent wave sources.
+            </p>
+            
+            <!-- Interactive Canvas -->
+            <div class="interactive-canvas mb-6" id="waveCanvas">
+              <canvas class="w-full h-full" id="waveInterference"></canvas>
+            </div>
+            
+            <!-- Controls -->
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Wavelength: <span id="wavelengthValue">50</span> cm
+                </label>
+                <input type="range" min="20" max="100" value="50" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="wavelengthSlider">
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Source Separation: <span id="separationValue">150</span> cm
+                </label>
+                <input type="range" min="50" max="300" value="150" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="separationSlider">
+              </div>
+              
+              <div class="flex space-x-4">
+                <button class="flex-1 bg-blue-500 text-white py-3 rounded-lg font-bold hover:bg-blue-600 transition" id="startWaves">
+                  <i class="fas fa-play mr-2"></i>Start Waves
+                </button>
+                <button class="flex-1 bg-gray-500 text-white py-3 rounded-lg font-bold hover:bg-gray-600 transition" id="resetWaves">
+                  <i class="fas fa-redo mr-2"></i>Reset
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Physics Equations Showcase -->
+  <section class="py-16 bg-white dark:bg-dark-card">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-dark dark:text-white">
+        Iconic Physics Equations
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        
+        <!-- Newton's Second Law -->
+        <div class="text-center p-6 bg-gradient-to-br from-orange-50 to-red-50 dark:from-gray-800 dark:to-gray-900 rounded-xl">
+          <div class="w-16 h-16 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-car text-orange-600 dark:text-orange-400 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-dark dark:text-white">Newton's Second Law</h3>
+          <div class="physics-equation mb-4">
+            F = m × a
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">
+            Force equals mass times acceleration. The foundation of classical mechanics.
+          </p>
+        </div>
+        
+        <!-- Einstein's Mass-Energy -->
+        <div class="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-900 rounded-xl">
+          <div class="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-star text-green-600 dark:text-green-400 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-dark dark:text-white">Mass-Energy Equivalence</h3>
+          <div class="physics-equation mb-4">
+            E = mc²
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">
+            Energy equals mass times the speed of light squared. From special relativity.
+          </p>
+        </div>
+        
+        <!-- Schrödinger Equation -->
+        <div class="text-center p-6 bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-xl">
+          <div class="w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-atom text-purple-600 dark:text-purple-400 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-dark dark:text-white">Schrödinger Equation</h3>
+          <div class="physics-equation mb-4">
+            iħ∂ψ/∂t = Ĥψ
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">
+            Fundamental equation of quantum mechanics describing how quantum states evolve.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Want More Physics Content?</h2>
+      <p class="text-xl opacity-90 max-w-2xl mx-auto mb-8">
+        Subscribe to get notified about new physics simulations, detailed theory explanations, and interactive learning modules.
+      </p>
+      <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+        <input type="email" placeholder="Your email address" 
+               class="flex-1 px-6 py-3 rounded-full text-dark focus:outline-none focus:ring-2 focus:ring-white">
+        <button type="submit" class="bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-lg">
+          <i class="fas fa-paper-plane mr-2"></i>Subscribe
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JavaScript for Simulations -->
+  <script>
+    // Navigation include
+    fetch('templates/nav.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+      });
+    
+    // Footer include
+    fetch('templates/footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+    
+    // Projectile Motion Simulation
+    const velocitySlider = document.getElementById('velocitySlider');
+    const angleSlider = document.getElementById('angleSlider');
+    const velocityValue = document.getElementById('velocityValue');
+    const angleValue = document.getElementById('angleValue');
+    const launchBtn = document.getElementById('launchProjectile');
+    
+    velocitySlider.addEventListener('input', () => {
+      velocityValue.textContent = velocitySlider.value;
+    });
+    
+    angleSlider.addEventListener('input', () => {
+      angleValue.textContent = angleSlider.value;
+    });
+    
+    launchBtn.addEventListener('click', () => {
+      // Simple animation effect
+      launchBtn.innerHTML = '<i class="fas fa-rocket mr-2"></i>Launching...';
+      launchBtn.disabled = true;
+      
+      setTimeout(() => {
+        launchBtn.innerHTML = '<i class="fas fa-play mr-2"></i>Launch Again';
+        launchBtn.disabled = false;
+        
+        // Show success message
+        const canvas = document.getElementById('projectileCanvas');
+        const msg = document.createElement('div');
+        msg.className = 'absolute inset-0 flex items-center justify-center bg-black/50 text-white font-bold text-xl';
+        msg.textContent = 'Projectile Launched!';
+        canvas.appendChild(msg);
+        
+        setTimeout(() => {
+          canvas.removeChild(msg);
+        }, 1500);
+      }, 1000);
+    });
+    
+    // Wave Interference Simulation
+    const wavelengthSlider = document.getElementById('wavelengthSlider');
+    const separationSlider = document.getElementById('separationSlider');
+    const wavelengthValue = document.getElementById('wavelengthValue');
+    const separationValue = document.getElementById('separationValue');
+    const startWavesBtn = document.getElementById('startWaves');
+    const resetWavesBtn = document.getElementById('resetWaves');
+    
+    wavelengthSlider.addEventListener('input', () => {
+      wavelengthValue.textContent = wavelengthSlider.value;
+    });
+    
+    separationSlider.addEventListener('input', () => {
+      separationValue.textContent = separationSlider.value;
+    });
+    
+    startWavesBtn.addEventListener('click', () => {
+      startWavesBtn.innerHTML = '<i class="fas fa-wave-square mr-2"></i>Waves Generating...';
+      startWavesBtn.disabled = true;
+      
+      setTimeout(() => {
+        startWavesBtn.innerHTML = '<i class="fas fa-pause mr-2"></i>Stop Waves';
+        startWavesBtn.disabled = false;
+        
+        // Change to stop functionality
+        startWavesBtn.onclick = () => {
+          startWavesBtn.innerHTML = '<i class="fas fa-play mr-2"></i>Start Waves';
+          startWavesBtn.onclick = startWavesBtn.originalClick;
+        };
+      }, 800);
+    });
+    
+    // Store original click handler
+    startWavesBtn.originalClick = startWavesBtn.onclick;
+    
+    resetWavesBtn.addEventListener('click', () => {
+      startWavesBtn.innerHTML = '<i class="fas fa-play mr-2"></i>Start Waves';
+      startWavesBtn.onclick = startWavesBtn.originalClick;
+      startWavesBtn.disabled = false;
+      
+      // Reset sliders to default
+      wavelengthSlider.value = 50;
+      separationSlider.value = 150;
+      wavelengthValue.textContent = '50';
+      separationValue.textContent = '150';
+    });
+    
+    // Dark mode compatibility
+    if (localStorage.getItem('dark-mode') === 'true') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>
