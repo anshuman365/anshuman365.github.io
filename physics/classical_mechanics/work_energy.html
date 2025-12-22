@@ -1,0 +1,2738 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work, Energy & Power | Complete Guide with Physics Simulations</title>
+    <meta name="description" content="Master the concepts of Work, Energy, and Power in physics with interactive simulations, detailed explanations, and real-world applications. Understand kinetic energy, potential energy, conservation of energy, and power calculations.">
+    <meta name="keywords" content="Work Energy Power, physics, classical mechanics, kinetic energy, potential energy, conservation of energy, mechanical energy, physics simulations, educational physics">
+    <meta name="author" content="Anshuman Singh">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anshuman365.github.io/physics/classical_mechanics/work_energy_power.html">
+    <meta property="og:title" content="Work, Energy & Power | Complete Guide with Interactive Simulations">
+    <meta property="og:description" content="Interactive guide to Work, Energy, and Power with physics simulations, detailed explanations, and real-world applications.">
+    <meta property="og:image" content="https://anshuman365.github.io/physics/assets/work-energy-og.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://anshuman365.github.io/physics/classical_mechanics/work_energy_power.html">
+    <meta property="twitter:title" content="Work, Energy & Power | Complete Guide with Interactive Simulations">
+    <meta property="twitter:description" content="Interactive guide to Work, Energy, and Power with physics simulations, detailed explanations, and real-world applications.">
+    <meta property="twitter:image" content="https://anshuman365.github.io/physics/assets/work-energy-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://anshuman365.github.io/physics/classical_mechanics/work_energy_power.html">
+    
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "Work, Energy and Power: Complete Interactive Guide",
+        "description": "Comprehensive educational resource covering Work, Energy, and Power with interactive simulations and detailed explanations",
+        "educationalLevel": "HighSchool",
+        "learningResourceType": "Interactive Simulation",
+        "author": {
+            "@type": "Person",
+            "name": "Anshuman Singh"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "Classical Mechanics"
+        },
+        "keywords": ["physics", "work", "energy", "power", "classical mechanics"],
+        "timeRequired": "PT40M",
+        "datePublished": "2025-01-15",
+        "inLanguage": "en",
+        "typicalAgeRange": "14-22"
+    }
+    </script>
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://anshuman365.github.io/"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Physics",
+            "item": "https://anshuman365.github.io/physics.html"
+        },{
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Classical Mechanics",
+            "item": "https://anshuman365.github.io/physics/classical-mechanics.html"
+        },{
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Work, Energy & Power"
+        }]
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981',
+                        secondary: '#059669',
+                        accent: '#f59e0b',
+                        'work': '#3b82f6',
+                        'energy': '#ef4444',
+                        'power': '#8b5cf6',
+                        dark: '#1e293b',
+                        light: '#f8fafc',
+                        'dark-bg': '#0f172a',
+                        'dark-card': '#1e293b',
+                        'dark-text': '#f1f5f9'
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'slide-up': 'slide-up 0.5s ease-out',
+                        'fade-in': 'fade-in 0.3s ease-in',
+                        'spin-slow': 'spin 3s linear infinite',
+                        'wave': 'wave 2s ease-in-out infinite',
+                        'shake': 'shake 0.5s ease-in-out'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { 
+                                boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)' 
+                            },
+                            '50%': { 
+                                boxShadow: '0 0 40px rgba(16, 185, 129, 0.6)' 
+                            }
+                        },
+                        'slide-up': {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        'fade-in': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        wave: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' }
+                        },
+                        shake: {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-5px)' },
+                            '20%, 40%, 60%, 80%': { transform: 'translateX(5px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+        
+        /* Sidebar adjustment */
+        @media (min-width: 1024px) {
+            main {
+                margin-left: 256px;
+            }
+        }
+        
+        .physics-formula {
+            font-family: 'Cambria Math', serif;
+            font-size: 1.25rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border-left: 4px solid #10b981;
+            border-radius: 8px;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .dark .physics-formula {
+            background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+            border-left: 4px solid #10b981;
+        }
+        
+        .physics-formula:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .dark .physics-formula:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .concept-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .dark .concept-card {
+            background: #1e293b;
+        }
+        
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .work-card::before { background: #3b82f6; }
+        .energy-card::before { background: #ef4444; }
+        .power-card::before { background: #8b5cf6; }
+        
+        .concept-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .concept-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .interactive-simulation {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .sidebar-link.active {
+            background-color: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid #10b981;
+            font-weight: bold;
+        }
+        
+        .dark .sidebar-link.active {
+            background-color: rgba(16, 185, 129, 0.2);
+        }
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #10b981, #059669);
+            z-index: 100;
+        }
+        
+        .concept-diagram {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .dark .concept-diagram {
+            background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+        }
+        
+        .prerequisite-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            color: #10b981;
+            margin: 0.25rem;
+        }
+        
+        .dark .prerequisite-tag {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+        
+        .quiz-question {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #0ea5e9;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .dark .quiz-question {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 100%);
+            border-left: 4px solid #38bdf8;
+        }
+        
+        .particle-background {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .particle-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 40% 40%, rgba(239, 68, 68, 0.1) 0%, transparent 30%);
+            z-index: -1;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .animated-particle {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .concept-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .work-icon {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            color: #1d4ed8;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .dark .work-icon {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            color: #93c5fd;
+        }
+        
+        .energy-icon {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            color: #dc2626;
+            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+        }
+        
+        .dark .energy-icon {
+            background: linear-gradient(135deg, #7f1d1d, #991b1b);
+            color: #fca5a5;
+        }
+        
+        .power-icon {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            color: #7c3aed;
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+        
+        .dark .power-icon {
+            background: linear-gradient(135deg, #4c1d95, #5b21b6);
+            color: #c4b5fd;
+        }
+        
+        .timeline-marker {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 4px solid white;
+            position: absolute;
+            left: -10px;
+            top: 0;
+            z-index: 2;
+        }
+        
+        .dark .timeline-marker {
+            border-color: #1e293b;
+        }
+        
+        .work-marker { background: #3b82f6; }
+        .energy-marker { background: #ef4444; }
+        .power-marker { background: #8b5cf6; }
+        
+        .real-world-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .real-world-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .interactive-canvas {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .breadcrumb {
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb a {
+            color: #6b7280;
+            transition: color 0.2s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #10b981;
+        }
+        
+        .breadcrumb .current {
+            color: #10b981;
+            font-weight: 600;
+        }
+        
+        .table-of-contents {
+            position: sticky;
+            top: 100px;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+        }
+        
+        .table-of-contents a {
+            display: block;
+            padding: 0.5rem 1rem;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .table-of-contents a:hover {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 3px solid #10b981;
+        }
+        
+        .table-of-contents a.active {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 3px solid #10b981;
+            font-weight: 600;
+            color: #10b981;
+        }
+        
+        .seo-keywords {
+            display: none;
+        }
+        
+        .energy-bar {
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #e5e7eb;
+            position: relative;
+        }
+        
+        .dark .energy-bar {
+            background: #374151;
+        }
+        
+        .energy-fill {
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+        
+        .kinetic-fill {
+            background: linear-gradient(90deg, #ef4444, #f87171);
+        }
+        
+        .potential-fill {
+            background: linear-gradient(90deg, #10b981, #34d399);
+        }
+        
+        .thermal-fill {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+        }
+    </style>
+</head>
+
+<body class="bg-light text-gray-800 dark:bg-dark-bg dark:text-dark-text transition-colors duration-300">
+    
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-dark-card/90 backdrop-blur-sm shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="../../../index.html" class="text-xl font-bold text-primary dark:text-emerald-300 flex items-center">
+                <i class="fas fa-arrow-left mr-3"></i>
+                Anshuman Singh
+            </a>
+            
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="../../physics.html" class="font-medium hover:text-primary dark:hover:text-emerald-300 transition">
+                    <i class="fas fa-atom mr-2"></i>Physics Home
+                </a>
+                
+                <!-- Physics Topics Dropdown -->
+                <div class="relative group">
+                    <button class="hover:text-primary dark:hover:text-emerald-300 transition font-medium flex items-center">
+                        <i class="fas fa-book-open mr-2 text-primary dark:text-emerald-300"></i>
+                        Physics Topics
+                        <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-white dark:bg-dark-card shadow-xl rounded-lg mt-2 w-64 border border-gray-200 dark:border-gray-700 z-50">
+                        
+                        <!-- Classical Mechanics -->
+                        <a href="../classical-mechanics.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-emerald-900/30 transition border-b border-gray-100 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-apple-alt text-emerald-600 dark:text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Classical Mechanics</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Newton's Laws, Motion, Energy</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Newton's Laws -->
+                        <a href="newtons_laws_of_motion.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-emerald-900/30 transition border-b border-gray-100 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-balance-scale text-blue-600 dark:text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Newton's Laws</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">3 Laws of Motion</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Work & Energy (Active) -->
+                        <a href="work_energy_power.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-emerald-900/30 transition border-b border-gray-100 dark:border-gray-700 bg-emerald-50 dark:bg-emerald-900/20">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-bolt text-emerald-600 dark:text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Work & Energy</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Energy Conservation, Power</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Other topics -->
+                        <a href="../../electromagnetism/electromagnetism.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-emerald-900/30 transition border-b border-gray-100 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-bolt text-blue-600 dark:text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Electromagnetism</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Maxwell's Eqs, EM Waves</div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Thermodynamics -->
+                        <a href="../../thermodynamics/thermodynamics.html" class="block px-4 py-3 hover:bg-primary/5 dark:hover:bg-emerald-900/30 transition border-b border-gray-100 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mr-3">
+                                    <i class="fas fa-temperature-high text-red-600 dark:text-red-400"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-800 dark:text-white">Thermodynamics</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Heat, Energy, Entropy</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="dark-mode-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+                    <i class="fas fa-moon text-gray-700 dark:text-emerald-400"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-gray-600 dark:text-gray-300" id="menu-toggle">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white dark:bg-dark-card px-4 py-6 shadow-lg" id="mobile-menu">
+            <a href="../../physics.html" class="block py-3 font-medium dark:text-white">
+                <i class="fas fa-atom mr-3"></i>Physics Home
+            </a>
+            
+            <!-- Mobile Physics Topics -->
+            <div class="py-3">
+                <button class="mobile-physics-toggle flex items-center justify-between w-full font-semibold text-primary dark:text-emerald-300 mb-2">
+                    <div class="flex items-center">
+                        <i class="fas fa-book-open mr-3"></i>
+                        Physics Topics
+                    </div>
+                    <i class="fas fa-chevron-down text-sm transition-transform duration-300"></i>
+                </button>
+                <div class="mobile-physics-submenu ml-4 space-y-2 hidden">
+                    <a href="../classical-mechanics.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-emerald-300 transition">
+                        <i class="fas fa-apple-alt text-emerald-500 mr-3"></i>Classical Mechanics
+                    </a>
+                    <a href="newtons_laws_of_motion.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-emerald-300 transition">
+                        <i class="fas fa-balance-scale text-blue-500 mr-3"></i>Newton's Laws
+                    </a>
+                    <a href="work_energy_power.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-emerald-300 transition bg-emerald-50 dark:bg-emerald-900/30">
+                        <i class="fas fa-bolt text-emerald-500 mr-3"></i>Work & Energy
+                    </a>
+                    <a href="../../electromagnetism/electromagnetism.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-emerald-300 transition">
+                        <i class="fas fa-bolt text-blue-500 mr-3"></i>Electromagnetism
+                    </a>
+                    <a href="../../thermodynamics/thermodynamics.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-emerald-300 transition">
+                        <i class="fas fa-temperature-high text-red-500 mr-3"></i>Thermodynamics
+                    </a>
+                </div>
+            </div>
+            
+            <button id="dark-mode-toggle-mobile" class="w-full text-left py-3 text-gray-700 dark:text-gray-300 flex items-center">
+                <i class="fas fa-moon mr-3"></i>Dark Mode
+            </button>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="pt-24 pb-6 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="../../../index.html" class="inline-flex items-center">
+                            <i class="fas fa-home mr-2"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right mx-2 text-gray-400"></i>
+                            <a href="../../physics.html" class="ml-1">
+                                Physics
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right mx-2 text-gray-400"></i>
+                            <a href="../classical-mechanics.html" class="ml-1">
+                                Classical Mechanics
+                            </a>
+                        </div>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right mx-2 text-gray-400"></i>
+                            <span class="ml-1 current">
+                                Work, Energy & Power
+                            </span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Sidebar for Table of Contents (Desktop) -->
+    <div class="hidden lg:block fixed left-0 top-24 h-[calc(100vh-6rem)] w-64 bg-white dark:bg-dark-card border-r border-gray-200 dark:border-gray-700 overflow-y-auto z-40">
+        <div class="p-6">
+            <h3 class="text-lg font-bold mb-6 text-primary dark:text-emerald-300 flex items-center">
+                <i class="fas fa-book mr-3"></i>
+                Table of Contents
+            </h3>
+            
+            <div class="table-of-contents">
+                <a href="#hero" class="sidebar-link active">Overview</a>
+                <a href="#introduction" class="sidebar-link">Introduction</a>
+                <a href="#work" class="sidebar-link">Work</a>
+                <a href="#kinetic-energy" class="sidebar-link">Kinetic Energy</a>
+                <a href="#potential-energy" class="sidebar-link">Potential Energy</a>
+                <a href="#conservation" class="sidebar-link">Energy Conservation</a>
+                <a href="#power" class="sidebar-link">Power</a>
+                <a href="#simulations" class="sidebar-link">Interactive Simulations</a>
+                <a href="#applications" class="sidebar-link">Applications</a>
+                <a href="#problems" class="sidebar-link">Practice Problems</a>
+                <a href="#quiz" class="sidebar-link">Test Your Knowledge</a>
+                <a href="#resources" class="sidebar-link">Further Resources</a>
+            </div>
+            
+            <!-- Prerequisites -->
+            <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">PREREQUISITES</h4>
+                <div class="flex flex-wrap gap-1">
+                    <span class="prerequisite-tag">Newton's Laws</span>
+                    <span class="prerequisite-tag">Vectors</span>
+                    <span class="prerequisite-tag">Calculus Basics</span>
+                    <span class="prerequisite-tag">Trigonometry</span>
+                </div>
+            </div>
+            
+            <!-- Time to Complete -->
+            <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">TIME TO COMPLETE</h4>
+                <div class="flex items-center text-gray-600 dark:text-gray-400">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>40-60 minutes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section id="hero" class="pt-8 pb-16 bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-600 text-white relative overflow-hidden particle-background">
+            <!-- Animated Background Elements -->
+            <div class="animated-particle" style="top: 20%; left: 10%; animation: float 5s ease-in-out infinite; animation-delay: 0s;">
+                <i class="fas fa-circle text-white/20 text-4xl"></i>
+            </div>
+            <div class="animated-particle" style="top: 60%; right: 15%; animation: float 7s ease-in-out infinite; animation-delay: 1s;">
+                <i class="fas fa-circle text-white/15 text-6xl"></i>
+            </div>
+            <div class="animated-particle" style="bottom: 30%; left: 20%; animation: float 6s ease-in-out infinite; animation-delay: 2s;">
+                <i class="fas fa-circle text-white/10 text-3xl"></i>
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm mb-6 animate-fade-in">
+                            <i class="fas fa-graduation-cap mr-2"></i>
+                            <span class="text-sm font-medium">Classical Mechanics</span>
+                        </div>
+                        
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-slide-up">
+                            Work, <span class="text-emerald-200">Energy & Power</span>
+                        </h1>
+                        
+                        <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in" style="animation-delay: 0.2s;">
+                            Discover how energy transforms, transfers, and conserves in physical systems. 
+                            Understand the fundamental concepts that govern energy flow in the universe 
+                            through interactive simulations and practical examples.
+                        </p>
+                        
+                        <!-- Quick Stats -->
+                        <div class="grid grid-cols-3 gap-6 max-w-2xl mx-auto mb-8 animate-fade-in" style="animation-delay: 0.4s;">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-emerald-300 mb-2">W = F·d</div>
+                                <div class="text-sm opacity-80">Work Formula</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-emerald-300 mb-2">½mv²</div>
+                                <div class="text-sm opacity-80">Kinetic Energy</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-emerald-300 mb-2">P = W/t</div>
+                                <div class="text-sm opacity-80">Power Formula</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Navigation -->
+                        <div class="flex flex-wrap justify-center gap-4 animate-fade-in" style="animation-delay: 0.6s;">
+                            <a href="#work" class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold hover:bg-blue-50 transition shadow-lg hover:shadow-xl flex items-center">
+                                <i class="fas fa-hard-hat mr-3"></i>Work
+                            </a>
+                            <a href="#kinetic-energy" class="bg-white text-red-600 px-6 py-3 rounded-full font-bold hover:bg-red-50 transition shadow-lg hover:shadow-xl flex items-center">
+                                <i class="fas fa-running mr-3"></i>Energy
+                            </a>
+                            <a href="#power" class="bg-white text-purple-600 px-6 py-3 rounded-full font-bold hover:bg-purple-50 transition shadow-lg hover:shadow-xl flex items-center">
+                                <i class="fas fa-tachometer-alt mr-3"></i>Power
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="introduction" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            <span class="text-primary dark:text-emerald-300">Energy</span> - The Currency of Physics
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Energy is the capacity to do work, and work is how energy transfers between systems. 
+                            Understanding these concepts unlocks the secrets of motion, transformation, and conservation.
+                        </p>
+                    </div>
+                    
+                    <!-- Key Concepts -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                        <div class="text-center p-6 rounded-xl bg-blue-50 dark:bg-blue-900/20">
+                            <div class="work-icon mx-auto">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-blue-700 dark:text-blue-300">Work</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Energy transfer when force causes displacement
+                            </p>
+                        </div>
+                        
+                        <div class="text-center p-6 rounded-xl bg-red-50 dark:bg-red-900/20">
+                            <div class="energy-icon mx-auto">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-red-700 dark:text-red-300">Energy</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Capacity to do work, exists in multiple forms
+                            </p>
+                        </div>
+                        
+                        <div class="text-center p-6 rounded-xl bg-purple-50 dark:bg-purple-900/20">
+                            <div class="power-icon mx-auto">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-purple-700 dark:text-purple-300">Power</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Rate of energy transfer or work done
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Historical Context -->
+                    <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 mb-12">
+                        <h3 class="text-2xl font-bold mb-4 text-dark dark:text-white flex items-center">
+                            <i class="fas fa-history mr-3 text-primary"></i>
+                            Historical Significance
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            The concept of energy evolved through centuries of scientific discovery. 
+                            From Gottfried Leibniz's "vis viva" in the 17th century to James Prescott Joule's 
+                            experiments in the 19th century, our understanding of energy transformed physics.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 rounded-full text-sm">
+                                Conservation Laws
+                            </span>
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 rounded-full text-sm">
+                                Industrial Revolution
+                            </span>
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 rounded-full text-sm">
+                                Thermodynamics
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Fundamental Principle -->
+                    <div class="physics-formula text-center text-2xl font-bold mb-6">
+                        \( \text{Work-Energy Theorem: } W = \Delta KE \)
+                    </div>
+                    
+                    <p class="text-gray-700 dark:text-gray-300 text-center">
+                        This fundamental theorem connects work done on an object to its change in kinetic energy, 
+                        providing a powerful tool for solving motion problems without detailed force analysis.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section id="work" class="py-16 bg-gradient-to-b from-blue-50 to-white dark:from-blue-900/10 dark:to-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="flex items-center mb-12">
+                        <div class="w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">W</span>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">
+                                Work: <span class="text-blue-600 dark:text-blue-400">Force × Displacement</span>
+                            </h2>
+                            <p class="text-gray-600 dark:text-gray-300 mt-2">
+                                "Work is done when a force causes displacement in the direction of the force."
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <!-- Explanation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Understanding Work</h3>
+                            
+                            <p class="text-gray-700 dark:text-gray-300 mb-6">
+                                In physics, work has a specific meaning different from everyday usage. 
+                                Work is only done when:
+                            </p>
+                            
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-check text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Force Applied:</strong> A force must act on an object
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-check text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Displacement Occurs:</strong> Object must move
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-check text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Component in Direction:</strong> Force component must be in displacement direction
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Mathematical Form -->
+                            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl mb-6">
+                                <h4 class="font-bold mb-2 text-blue-800 dark:text-blue-300">Mathematical Definition</h4>
+                                <div class="physics-formula text-center">
+                                    \( W = \vec{F} \cdot \vec{d} = Fd\cos\theta \)
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm">
+                                    Where \( W \) is work (Joules), \( F \) is force magnitude (Newtons), 
+                                    \( d \) is displacement magnitude (meters), and \( \theta \) is angle between force and displacement.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Interactive Simulation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Interactive Simulation</h3>
+                            
+                            <div class="work-card concept-card p-6">
+                                <div class="interactive-canvas mb-6">
+                                    <canvas id="work-canvas" class="w-full h-full"></canvas>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Force: <span id="force-value-work">50</span> N
+                                        </label>
+                                        <input type="range" min="10" max="200" value="50" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="force-slider-work">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Angle: <span id="angle-value-work">0</span>°
+                                        </label>
+                                        <input type="range" min="0" max="90" value="0" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="angle-slider-work">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Distance: <span id="distance-value-work">10</span> m
+                                        </label>
+                                        <input type="range" min="1" max="20" value="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="distance-slider-work">
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <button id="calculate-work" class="bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition flex items-center justify-center">
+                                            <i class="fas fa-calculator mr-2"></i>Calculate Work
+                                        </button>
+                                        <button id="reset-work" class="bg-gray-200 text-gray-800 py-3 rounded-lg font-bold hover:bg-gray-300 transition dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600">
+                                            <i class="fas fa-redo mr-2"></i>Reset
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Results -->
+                                <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                    <h4 class="font-bold mb-2 text-blue-800 dark:text-blue-300">Results</h4>
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600 dark:text-gray-300">Work Done:</span>
+                                            <span class="font-bold text-blue-600 dark:text-blue-400" id="work-result">0 J</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600 dark:text-gray-300">Force Component:</span>
+                                            <span class="font-bold text-blue-600 dark:text-blue-400" id="force-component">0 N</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600 dark:text-gray-300">Effectiveness:</span>
+                                            <span class="font-bold text-blue-600 dark:text-blue-400" id="effectiveness">100%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Special Cases -->
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Special Cases of Work</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-lg">
+                                <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-arrow-up text-green-600 dark:text-green-400"></i>
+                                </div>
+                                <h4 class="font-bold mb-2 text-dark dark:text-white">Maximum Work</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
+                                    \( \theta = 0° \), Force parallel to displacement
+                                </p>
+                                <div class="physics-formula text-center text-sm">
+                                    \( W_{max} = Fd \)
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-lg">
+                                <div class="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-arrow-right text-yellow-600 dark:text-yellow-400"></i>
+                                </div>
+                                <h4 class="font-bold mb-2 text-dark dark:text-white">Zero Work</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
+                                    \( \theta = 90° \), Force perpendicular to displacement
+                                </p>
+                                <div class="physics-formula text-center text-sm">
+                                    \( W = 0 \)
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-lg">
+                                <div class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-arrow-down text-red-600 dark:text-red-400"></i>
+                                </div>
+                                <h4 class="font-bold mb-2 text-dark dark:text-white">Negative Work</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">
+                                    \( \theta > 90° \), Force opposes displacement
+                                </p>
+                                <div class="physics-formula text-center text-sm">
+                                    \( W = -Fd\cos\theta \)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kinetic Energy Section -->
+        <section id="kinetic-energy" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="flex items-center mb-12">
+                        <div class="w-14 h-14 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-red-600 dark:text-red-400">KE</span>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">
+                                Kinetic Energy: <span class="text-red-600 dark:text-red-400">Energy of Motion</span>
+                            </h2>
+                            <p class="text-gray-600 dark:text-gray-300 mt-2">
+                                "Kinetic energy is the energy possessed by an object due to its motion."
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <!-- Explanation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">The Energy of Motion</h3>
+                            
+                            <p class="text-gray-700 dark:text-gray-300 mb-6">
+                                Any moving object possesses kinetic energy. The amount depends on:
+                            </p>
+                            
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-weight text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Mass (m):</strong> \( KE \propto m \) (Direct proportion)
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-tachometer-alt text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Velocity (v):</strong> \( KE \propto v^2 \) (Square proportion - most important!)
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-arrows-alt-h text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Scalar Quantity:</strong> Kinetic energy has magnitude but no direction
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Mathematical Form -->
+                            <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl mb-6">
+                                <h4 class="font-bold mb-2 text-red-800 dark:text-red-300">Mathematical Definition</h4>
+                                <div class="physics-formula text-center text-2xl">
+                                    \( KE = \frac{1}{2}mv^2 \)
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm">
+                                    Where \( KE \) is kinetic energy (Joules), \( m \) is mass (kg), and \( v \) is velocity (m/s).
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Interactive Simulation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Interactive Simulation</h3>
+                            
+                            <div class="energy-card concept-card p-6">
+                                <div class="interactive-canvas mb-6">
+                                    <canvas id="kinetic-energy-canvas" class="w-full h-full"></canvas>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-4 mb-6">
+                                    <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                        <div class="text-2xl font-bold text-red-600 dark:text-red-400" id="ke-display">0 J</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Kinetic Energy</div>
+                                    </div>
+                                    <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                        <div class="text-2xl font-bold text-red-600 dark:text-red-400" id="velocity-display">0 m/s</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Velocity</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Mass: <span id="mass-value-ke">5</span> kg
+                                        </label>
+                                        <input type="range" min="1" max="20" value="5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="mass-slider-ke">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Velocity: <span id="velocity-value-ke">0</span> m/s
+                                        </label>
+                                        <input type="range" min="0" max="20" value="0" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="velocity-slider-ke">
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <button id="accelerate-object" class="bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition flex items-center justify-center">
+                                            <i class="fas fa-rocket mr-2"></i>Accelerate
+                                        </button>
+                                        <button id="brake-object" class="bg-gray-600 text-white py-3 rounded-lg font-bold hover:bg-gray-700 transition flex items-center justify-center">
+                                            <i class="fas fa-stop-circle mr-2"></i>Brake
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6 p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                                    <h4 class="font-bold mb-2 text-red-800 dark:text-red-300">Key Observations</h4>
+                                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-chart-line text-red-500 mr-2"></i>
+                                            Double velocity = Quadruple kinetic energy
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-weight text-red-500 mr-2"></i>
+                                            Double mass = Double kinetic energy
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-calculator text-red-500 mr-2"></i>
+                                            Calculate: \( KE = \frac{1}{2}mv^2 \)
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Work-Energy Theorem -->
+                    <div class="mt-12 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/10 dark:to-orange-900/10 p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white flex items-center">
+                            <i class="fas fa-link mr-3 text-red-500"></i>
+                            Work-Energy Theorem
+                        </h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    The Work-Energy Theorem connects work and kinetic energy:
+                                </p>
+                                <div class="physics-formula text-center text-2xl mb-6">
+                                    \( W_{net} = \Delta KE = \frac{1}{2}mv_f^2 - \frac{1}{2}mv_i^2 \)
+                                </div>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Net work done = Change in kinetic energy</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Positive work increases kinetic energy</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Negative work decreases kinetic energy</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+                                    <h4 class="font-bold mb-4 text-dark dark:text-white">Example Problem</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                        A 1000 kg car accelerates from 20 m/s to 30 m/s. How much work is done?
+                                    </p>
+                                    <div class="physics-formula text-center text-sm mb-4">
+                                        \( W = \frac{1}{2} \times 1000 \times (30^2 - 20^2) \)
+                                    </div>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        <strong>Answer:</strong> 250,000 J (250 kJ) of work
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Potential Energy Section -->
+        <section id="potential-energy" class="py-16 bg-gradient-to-b from-emerald-50 to-white dark:from-emerald-900/10 dark:to-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="flex items-center mb-12">
+                        <div class="w-14 h-14 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-emerald-600 dark:text-emerald-400">PE</span>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">
+                                Potential Energy: <span class="text-emerald-600 dark:text-emerald-400">Stored Energy</span>
+                            </h2>
+                            <p class="text-gray-600 dark:text-gray-300 mt-2">
+                                "Potential energy is stored energy due to an object's position or configuration."
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <!-- Explanation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Energy Waiting to be Used</h3>
+                            
+                            <p class="text-gray-700 dark:text-gray-300 mb-6">
+                                Potential energy represents the possibility of doing work. 
+                                It exists in various forms:
+                            </p>
+                            
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-mountain text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Gravitational PE:</strong> Energy due to height in gravitational field
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-spring text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Elastic PE:</strong> Energy stored in stretched/compressed springs
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-atom text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Chemical PE:</strong> Energy stored in chemical bonds
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Mathematical Forms -->
+                            <div class="space-y-4">
+                                <div class="bg-emerald-50 dark:bg-emerald-900/20 p-6 rounded-xl">
+                                    <h4 class="font-bold mb-2 text-emerald-800 dark:text-emerald-300">Gravitational Potential Energy</h4>
+                                    <div class="physics-formula text-center">
+                                        \( PE_g = mgh \)
+                                    </div>
+                                    <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm">
+                                        Where \( m \) is mass (kg), \( g \) is gravitational acceleration (9.8 m/s²), and \( h \) is height (m).
+                                    </p>
+                                </div>
+                                
+                                <div class="bg-emerald-50 dark:bg-emerald-900/20 p-6 rounded-xl">
+                                    <h4 class="font-bold mb-2 text-emerald-800 dark:text-emerald-300">Elastic Potential Energy</h4>
+                                    <div class="physics-formula text-center">
+                                        \( PE_e = \frac{1}{2}kx^2 \)
+                                    </div>
+                                    <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm">
+                                        Where \( k \) is spring constant (N/m), and \( x \) is displacement from equilibrium (m).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Interactive Simulation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Energy Transformation Simulation</h3>
+                            
+                            <div class="concept-card p-6">
+                                <div class="interactive-canvas mb-6">
+                                    <canvas id="energy-conversion-canvas" class="w-full h-full"></canvas>
+                                </div>
+                                
+                                <!-- Energy Distribution -->
+                                <div class="mb-6">
+                                    <h4 class="font-bold mb-3 text-dark dark:text-white">Energy Distribution</h4>
+                                    <div class="space-y-2">
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm text-gray-600 dark:text-gray-300">Kinetic Energy</span>
+                                                <span class="text-sm font-bold text-red-600" id="ke-percentage">0%</span>
+                                            </div>
+                                            <div class="energy-bar">
+                                                <div class="energy-fill kinetic-fill" id="ke-bar" style="width: 0%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm text-gray-600 dark:text-gray-300">Potential Energy</span>
+                                                <span class="text-sm font-bold text-emerald-600" id="pe-percentage">100%</span>
+                                            </div>
+                                            <div class="energy-bar">
+                                                <div class="energy-fill potential-fill" id="pe-bar" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm text-gray-600 dark:text-gray-300">Thermal Energy</span>
+                                                <span class="text-sm font-bold text-yellow-600" id="thermal-percentage">0%</span>
+                                            </div>
+                                            <div class="energy-bar">
+                                                <div class="energy-fill thermal-fill" id="thermal-bar" style="width: 0%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Initial Height: <span id="height-value">10</span> m
+                                        </label>
+                                        <input type="range" min="5" max="20" value="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="height-slider">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Air Resistance: <span id="air-resistance-value">0.1</span>
+                                        </label>
+                                        <input type="range" min="0" max="0.5" value="0.1" step="0.01" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="air-resistance-slider">
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <button id="drop-object" class="bg-emerald-600 text-white py-3 rounded-lg font-bold hover:bg-emerald-700 transition flex items-center justify-center">
+                                            <i class="fas fa-arrow-down mr-2"></i>Drop Object
+                                        </button>
+                                        <button id="reset-energy" class="bg-gray-200 text-gray-800 py-3 rounded-lg font-bold hover:bg-gray-300 transition dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600">
+                                            <i class="fas fa-redo mr-2"></i>Reset
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Energy Values -->
+                                <div class="mt-6 grid grid-cols-3 gap-4">
+                                    <div class="text-center">
+                                        <div class="text-lg font-bold text-red-600" id="ke-value">0 J</div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">Kinetic</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-lg font-bold text-emerald-600" id="pe-value">490 J</div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">Potential</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-lg font-bold text-yellow-600" id="thermal-value">0 J</div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">Thermal</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conservation of Energy Section -->
+        <section id="conservation" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            <span class="text-primary dark:text-emerald-300">Conservation</span> of Energy
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Energy cannot be created or destroyed, only transformed from one form to another
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Principle -->
+                        <div class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-8 text-white">
+                            <h3 class="text-2xl font-bold mb-6">Fundamental Law of Physics</h3>
+                            <p class="mb-6 opacity-90">
+                                The law of conservation of energy states that the total energy in an isolated system remains constant.
+                            </p>
+                            <div class="physics-formula text-center text-2xl mb-6">
+                                \( E_{initial} = E_{final} \)
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle mr-3"></i>
+                                    <span>Total energy before = Total energy after</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-exchange-alt mr-3"></i>
+                                    <span>Energy transforms between different forms</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-balance-scale mr-3"></i>
+                                    <span>Energy accounting always balances</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Energy Flow Diagram -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl p-6 shadow-lg">
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Energy Transformation Examples</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mr-4">
+                                        <i class="fas fa-sun text-emerald-600 dark:text-emerald-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-dark dark:text-white">Solar Panel</h4>
+                                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                                            <span>Radiant → Electrical</span>
+                                            <i class="fas fa-arrow-right mx-2"></i>
+                                            <span class="text-emerald-600 dark:text-emerald-400">~20% efficient</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-4">
+                                        <i class="fas fa-battery-full text-blue-600 dark:text-blue-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-dark dark:text-white">Battery</h4>
+                                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                                            <span>Chemical → Electrical</span>
+                                            <i class="fas fa-arrow-right mx-2"></i>
+                                            <span class="text-emerald-600 dark:text-emerald-400">~90% efficient</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mr-4">
+                                        <i class="fas fa-car text-red-600 dark:text-red-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-dark dark:text-white">Car Engine</h4>
+                                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                                            <span>Chemical → Thermal → Mechanical</span>
+                                            <i class="fas fa-arrow-right mx-2"></i>
+                                            <span class="text-emerald-600 dark:text-emerald-400">~25% efficient</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-4">
+                                        <i class="fas fa-lightbulb text-purple-600 dark:text-purple-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-dark dark:text-white">LED Bulb</h4>
+                                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                                            <span>Electrical → Radiant</span>
+                                            <i class="fas fa-arrow-right mx-2"></i>
+                                            <span class="text-emerald-600 dark:text-emerald-400">~80% efficient</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Conservation Example -->
+                    <div class="mt-12 bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Roller Coaster Example</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    A roller coaster demonstrates conservation of mechanical energy (ignoring friction):
+                                </p>
+                                <div class="physics-formula text-center text-xl mb-6">
+                                    \( KE_i + PE_i = KE_f + PE_f \)
+                                </div>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-mountain text-emerald-500 mr-2"></i>
+                                        <span>Top of hill: Maximum PE, Minimum KE</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-arrow-down text-emerald-500 mr-2"></i>
+                                        <span>Descending: PE → KE conversion</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-running text-emerald-500 mr-2"></i>
+                                        <span>Bottom: Maximum KE, Minimum PE</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-arrow-up text-emerald-500 mr-2"></i>
+                                        <span>Ascending: KE → PE conversion</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="text-4xl font-bold text-primary mb-2">100%</div>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        Mechanical energy conserved<br>(in ideal, frictionless case)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Power Section -->
+        <section id="power" class="py-16 bg-gradient-to-b from-purple-50 to-white dark:from-purple-900/10 dark:to-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="flex items-center mb-12">
+                        <div class="w-14 h-14 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-purple-600 dark:text-purple-400">P</span>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white">
+                                Power: <span class="text-purple-600 dark:text-purple-400">Rate of Energy Transfer</span>
+                            </h2>
+                            <p class="text-gray-600 dark:text-gray-300 mt-2">
+                                "Power measures how quickly work is done or energy is transferred."
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <!-- Explanation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">How Fast Work Gets Done</h3>
+                            
+                            <p class="text-gray-700 dark:text-gray-300 mb-6">
+                                Power tells us not just how much work is done, but how quickly it's done. 
+                                This is crucial for engineering and technology applications.
+                            </p>
+                            
+                            <div class="space-y-4 mb-8">
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-bolt text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Definition:</strong> \( Power = \frac{Work}{Time} \)
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-horse-head text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Unit:</strong> Watt (W) = 1 Joule/second
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <i class="fas fa-car text-white text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300">
+                                        <strong>Alternative:</strong> \( Power = Force \times Velocity \)
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Mathematical Forms -->
+                            <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl mb-6">
+                                <h4 class="font-bold mb-2 text-purple-800 dark:text-purple-300">Power Formulas</h4>
+                                <div class="space-y-4">
+                                    <div class="physics-formula text-center">
+                                        \( P = \frac{W}{t} \)
+                                    </div>
+                                    <div class="physics-formula text-center">
+                                        \( P = \vec{F} \cdot \vec{v} = Fv\cos\theta \)
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm">
+                                    Where \( P \) is power (Watts), \( W \) is work (Joules), \( t \) is time (seconds), 
+                                    \( F \) is force (Newtons), and \( v \) is velocity (m/s).
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Interactive Simulation -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Power Calculation Simulation</h3>
+                            
+                            <div class="power-card concept-card p-6">
+                                <div class="interactive-canvas mb-6">
+                                    <canvas id="power-canvas" class="w-full h-full"></canvas>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-4 mb-6">
+                                    <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                        <div class="text-2xl font-bold text-purple-600 dark:text-purple-400" id="power-display">0 W</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Power Output</div>
+                                    </div>
+                                    <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                        <div class="text-2xl font-bold text-purple-600 dark:text-purple-400" id="horsepower-display">0 hp</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Horsepower</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Force: <span id="force-value-power">500</span> N
+                                        </label>
+                                        <input type="range" min="100" max="2000" value="500" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="force-slider-power">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Velocity: <span id="velocity-value-power">10</span> m/s
+                                        </label>
+                                        <input type="range" min="1" max="30" value="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="velocity-slider-power">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Angle: <span id="angle-value-power">0</span>°
+                                        </label>
+                                        <input type="range" min="0" max="90" value="0" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" id="angle-slider-power">
+                                    </div>
+                                    
+                                    <button id="calculate-power" class="w-full bg-purple-600 text-white py-3 rounded-lg font-bold hover:bg-purple-700 transition flex items-center justify-center">
+                                        <i class="fas fa-calculator mr-2"></i>Calculate Power
+                                    </button>
+                                </div>
+                                
+                                <div class="mt-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                                    <h4 class="font-bold mb-2 text-purple-800 dark:text-purple-300">Power Comparisons</h4>
+                                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-lightbulb text-purple-500 mr-2"></i>
+                                            LED Bulb: 10 W
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-laptop text-purple-500 mr-2"></i>
+                                            Laptop: 50 W
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-car text-purple-500 mr-2"></i>
+                                            Car Engine: 100,000 W (134 hp)
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-plane text-purple-500 mr-2"></i>
+                                            Jet Engine: 50,000,000 W (67,000 hp)
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Efficiency -->
+                    <div class="mt-12 bg-white dark:bg-dark-card rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Efficiency</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    Efficiency measures how well energy is converted from input to useful output:
+                                </p>
+                                <div class="physics-formula text-center text-xl mb-6">
+                                    \( \eta = \frac{\text{Useful Output Energy}}{\text{Total Input Energy}} \times 100\% \)
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm text-gray-600 dark:text-gray-300">Electric Motor</span>
+                                            <span class="text-sm font-bold text-emerald-600">85-95%</span>
+                                        </div>
+                                        <div class="energy-bar">
+                                            <div class="energy-fill potential-fill" style="width: 90%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm text-gray-600 dark:text-gray-300">Car Engine</span>
+                                            <span class="text-sm font-bold text-emerald-600">20-30%</span>
+                                        </div>
+                                        <div class="energy-bar">
+                                            <div class="energy-fill potential-fill" style="width: 25%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm text-gray-600 dark:text-gray-300">Incandescent Bulb</span>
+                                            <span class="text-sm font-bold text-emerald-600">5%</span>
+                                        </div>
+                                        <div class="energy-bar">
+                                            <div class="energy-fill potential-fill" style="width: 5%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                                    <h4 class="font-bold mb-4 text-dark dark:text-white">Why Efficiency Matters</h4>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-dollar-sign text-emerald-500 mr-2 mt-1"></i>
+                                            <span>Reduces energy costs</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-leaf text-emerald-500 mr-2 mt-1"></i>
+                                            <span>Lowers environmental impact</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-battery-full text-emerald-500 mr-2 mt-1"></i>
+                                            <span>Extends device lifespan</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-thermometer-half text-emerald-500 mr-2 mt-1"></i>
+                                            <span>Reduces waste heat generation</span>
+                                        </li>
+                                    </ul>
+                                    <div class="mt-6 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
+                                        <p class="text-sm text-gray-600 dark:text-gray-300">
+                                            <strong>Example:</strong> Replacing a 60W incandescent bulb (5% efficient) 
+                                            with a 10W LED bulb (80% efficient) saves 83% energy while producing more light!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Simulations Section -->
+        <section id="simulations" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Interactive <span class="text-primary dark:text-emerald-300">Simulations</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Explore Work, Energy, and Power through hands-on simulations
+                        </p>
+                    </div>
+                    
+                    <!-- Simulation Cards -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Pendulum Simulation -->
+                        <div class="bg-gradient-to-br from-gray-900 to-dark dark:from-dark-card dark:to-gray-900 rounded-2xl shadow-xl overflow-hidden">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-4 text-white flex items-center">
+                                    <i class="fas fa-history mr-3 text-emerald-400"></i>
+                                    Pendulum Energy Transformation
+                                </h3>
+                                <p class="text-gray-300 mb-6">
+                                    Simulate a pendulum demonstrating continuous KE ↔ PE conversion.
+                                </p>
+                                
+                                <div class="space-y-6">
+                                    <!-- Canvas Container -->
+                                    <div class="interactive-simulation">
+                                        <canvas id="pendulum-canvas" class="w-full h-full"></canvas>
+                                    </div>
+                                    
+                                    <!-- Controls -->
+                                    <div class="space-y-4">
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <div class="flex justify-between mb-2">
+                                                    <label class="text-white">Mass: <span id="pendulum-mass">2</span> kg</label>
+                                                </div>
+                                                <input type="range" min="1" max="10" value="2" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="pendulum-mass-slider">
+                                            </div>
+                                            
+                                            <div>
+                                                <div class="flex justify-between mb-2">
+                                                    <label class="text-white">Length: <span id="pendulum-length">2</span> m</label>
+                                                </div>
+                                                <input type="range" min="1" max="5" value="2" step="0.1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="pendulum-length-slider">
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-2">
+                                                <label class="text-white">Initial Angle: <span id="pendulum-angle">30</span>°</label>
+                                            </div>
+                                            <input type="range" min="10" max="80" value="30" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="pendulum-angle-slider">
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <button id="start-pendulum" class="bg-emerald-600 text-white py-3 rounded-lg font-bold hover:bg-emerald-700 transition flex items-center justify-center">
+                                                <i class="fas fa-play mr-2"></i>Start
+                                            </button>
+                                            <button id="reset-pendulum" class="bg-gray-700 text-white py-3 rounded-lg font-bold hover:bg-gray-600 transition flex items-center justify-center">
+                                                <i class="fas fa-redo mr-2"></i>Reset
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Energy Display -->
+                                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-700">
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-emerald-400" id="pendulum-ke">0 J</div>
+                                            <div class="text-sm text-gray-400">Kinetic Energy</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-emerald-400" id="pendulum-pe">5.9 J</div>
+                                            <div class="text-sm text-gray-400">Potential Energy</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-emerald-400" id="pendulum-total">5.9 J</div>
+                                            <div class="text-sm text-gray-400">Total Energy</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Spring Simulation -->
+                        <div class="bg-gradient-to-br from-gray-900 to-dark dark:from-dark-card dark:to-gray-900 rounded-2xl shadow-xl overflow-hidden">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-4 text-white flex items-center">
+                                    <i class="fas fa-spring mr-3 text-blue-400"></i>
+                                    Spring Energy Simulation
+                                </h3>
+                                <p class="text-gray-300 mb-6">
+                                    Explore elastic potential energy and simple harmonic motion.
+                                </p>
+                                
+                                <div class="space-y-6">
+                                    <!-- Canvas Container -->
+                                    <div class="interactive-simulation">
+                                        <canvas id="spring-canvas" class="w-full h-full"></canvas>
+                                    </div>
+                                    
+                                    <!-- Controls -->
+                                    <div class="space-y-4">
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <div class="flex justify-between mb-2">
+                                                    <label class="text-white">Mass: <span id="spring-mass">1</span> kg</label>
+                                                </div>
+                                                <input type="range" min="0.5" max="5" value="1" step="0.1" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="spring-mass-slider">
+                                            </div>
+                                            
+                                            <div>
+                                                <div class="flex justify-between mb-2">
+                                                    <label class="text-white">Spring Constant: <span id="spring-constant">100</span> N/m</label>
+                                                </div>
+                                                <input type="range" min="50" max="500" value="100" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="spring-constant-slider">
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-2">
+                                                <label class="text-white">Initial Compression: <span id="spring-compression">0.2</span> m</label>
+                                            </div>
+                                            <input type="range" min="0.1" max="0.5" value="0.2" step="0.01" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer" id="spring-compression-slider">
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <button id="start-spring" class="bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition flex items-center justify-center">
+                                                <i class="fas fa-play mr-2"></i>Release Spring
+                                            </button>
+                                            <button id="reset-spring" class="bg-gray-700 text-white py-3 rounded-lg font-bold hover:bg-gray-600 transition">
+                                                <i class="fas fa-redo mr-2"></i>Reset
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Energy Display -->
+                                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-700">
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-blue-400" id="spring-ke">0 J</div>
+                                            <div class="text-sm text-gray-400">Kinetic Energy</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-blue-400" id="spring-pe">2.0 J</div>
+                                            <div class="text-sm text-gray-400">Elastic PE</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-blue-400" id="spring-velocity">0 m/s</div>
+                                            <div class="text-sm text-gray-400">Max Velocity</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+        <section id="applications" class="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Real-World <span class="text-primary dark:text-emerald-300">Applications</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Work, Energy, and Power concepts are fundamental to modern technology and sustainable development
+                        </p>
+                    </div>
+                    
+                    <!-- Applications Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Renewable Energy -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl shadow-lg p-6">
+                            <div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-4">
+                                <i class="fas fa-solar-panel text-emerald-600 dark:text-emerald-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Renewable Energy</h3>
+                            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Solar panel efficiency calculations
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Wind turbine power output
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Hydroelectric dam energy storage
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Battery storage capacity
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Transportation -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl shadow-lg p-6">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                                <i class="fas fa-car text-blue-600 dark:text-blue-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Transportation</h3>
+                            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Electric vehicle battery range
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Regenerative braking systems
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Aircraft fuel efficiency
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    High-speed train power requirements
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Sports Science -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl shadow-lg p-6">
+                            <div class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mb-4">
+                                <i class="fas fa-running text-red-600 dark:text-red-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Sports Science</h3>
+                            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Athlete power output measurement
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Equipment energy efficiency
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Training load optimization
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Injury prevention through energy management
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Case Study: Electric Vehicles -->
+                    <div class="mt-12 bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Case Study: Electric Vehicle Efficiency</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                    Electric vehicles demonstrate energy efficiency principles:
+                                </p>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-battery-full text-primary mr-2"></i>
+                                        <span>Battery: 85-95% efficient (Chemical → Electrical)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-motor text-primary mr-2"></i>
+                                        <span>Motor: 85-95% efficient (Electrical → Mechanical)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-recycle text-primary mr-2"></i>
+                                        <span>Regenerative braking recovers 15-20% energy</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-chart-line text-primary mr-2"></i>
+                                        <span>Overall efficiency: ~77% vs ICE cars' ~20%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-col items-center justify-center">
+                                <div class="text-center mb-4">
+                                    <div class="text-4xl font-bold text-primary mb-2">77%</div>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        Typical EV energy efficiency
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-4xl font-bold text-gray-600 mb-2">20%</div>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        Typical ICE car efficiency
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Problems -->
+        <section id="problems" class="py-16 bg-white dark:bg-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Practice <span class="text-primary dark:text-emerald-300">Problems</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Test your understanding with these challenging problems
+                        </p>
+                    </div>
+                    
+                    <!-- Problems -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Problem 1 -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl shadow-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-3">
+                                    <span class="font-bold text-blue-600 dark:text-blue-400">1</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-dark dark:text-white">Work Problem</h3>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                A person pushes a 50 kg box with a force of 100 N at a 30° angle for 10 meters. 
+                                How much work is done on the box?
+                            </p>
+                            <div class="space-y-3">
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem1" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">500 J</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem1" class="mr-3" data-correct="true">
+                                    <span class="text-gray-700 dark:text-gray-300">866 J</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem1" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">1000 J</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem1" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">1732 J</span>
+                                </label>
+                            </div>
+                            <button class="show-solution mt-4 text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+                                Show Solution
+                            </button>
+                            <div class="solution mt-3 hidden text-sm text-gray-600 dark:text-gray-400">
+                                <p><strong>Solution:</strong> \( W = Fd\cos\theta = 100 \times 10 \times \cos(30°) = 1000 \times 0.866 = 866 \, \text{J} \)</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Problem 2 -->
+                        <div class="bg-white dark:bg-dark-card rounded-2xl shadow-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mr-3">
+                                    <span class="font-bold text-red-600 dark:text-red-400">2</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-dark dark:text-white">Energy Problem</h3>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                A 2 kg ball is dropped from a height of 20 meters. What is its speed just before 
+                                hitting the ground? (Ignore air resistance)
+                            </p>
+                            <div class="space-y-3">
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem2" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">10 m/s</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem2" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">14 m/s</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem2" class="mr-3" data-correct="true">
+                                    <span class="text-gray-700 dark:text-gray-300">20 m/s</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="problem2" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">28 m/s</span>
+                                </label>
+                            </div>
+                            <button class="show-solution mt-4 text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+                                Show Solution
+                            </button>
+                            <div class="solution mt-3 hidden text-sm text-gray-600 dark:text-gray-400">
+                                <p><strong>Solution:</strong> Using conservation of energy: \( mgh = \frac{1}{2}mv^2 \)</p>
+                                <p>\( v = \sqrt{2gh} = \sqrt{2 \times 9.8 \times 20} = \sqrt{392} \approx 20 \, \text{m/s} \)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Problem Generator -->
+                    <div class="mt-12 bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Interactive Problem Generator</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                        Problem Type
+                                    </label>
+                                    <select id="problem-type" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800">
+                                        <option value="work">Work Problems</option>
+                                        <option value="energy">Energy Problems</option>
+                                        <option value="power">Power Problems</option>
+                                        <option value="conservation">Conservation Problems</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                        Difficulty Level
+                                    </label>
+                                    <select id="difficulty" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800">
+                                        <option value="easy">Easy</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="hard">Hard</option>
+                                    </select>
+                                </div>
+                                
+                                <button id="generate-problem" class="w-full bg-primary text-white py-3 rounded-lg font-bold hover:bg-secondary transition">
+                                    Generate New Problem
+                                </button>
+                            </div>
+                            
+                            <div>
+                                <div id="generated-problem" class="bg-white dark:bg-gray-800 p-6 rounded-lg">
+                                    <h4 class="font-bold mb-4 text-dark dark:text-white">Generated Problem Will Appear Here</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        Click "Generate New Problem" to create a random physics problem based on Work, Energy, and Power.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-dark-bg">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Test Your <span class="text-primary dark:text-emerald-300">Knowledge</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Take this quiz to check your understanding of Work, Energy, and Power
+                        </p>
+                    </div>
+                    
+                    <!-- Quiz Questions -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <!-- Question 1 -->
+                        <div class="quiz-question">
+                            <h3 class="text-lg font-bold mb-3 text-dark dark:text-white">Question 1</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                When is work done on an object in physics?
+                            </p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="q1" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">When a force is applied</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q1" class="mr-3" data-correct="true">
+                                    <span class="text-gray-700 dark:text-gray-300">When force causes displacement in force direction</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q1" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">When an object moves at constant velocity</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q1" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">When an object accelerates</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 2 -->
+                        <div class="quiz-question">
+                            <h3 class="text-lg font-bold mb-3 text-dark dark:text-white">Question 2</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                If you double an object's velocity, what happens to its kinetic energy?
+                            </p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="q2" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">It doubles</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q2" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">It halves</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q2" class="mr-3" data-correct="true">
+                                    <span class="text-gray-700 dark:text-gray-300">It quadruples</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q2" class="mr-3">
+                                    <span class="text-gray-700 dark:text-gray-300">It stays the same</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button id="check-answers" class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition shadow-lg hover:shadow-xl">
+                            <i class="fas fa-check-circle mr-2"></i>Check Answers
+                        </button>
+                    </div>
+                    
+                    <!-- Results -->
+                    <div id="quiz-results" class="mt-8 hidden">
+                        <div class="bg-green-50 dark:bg-green-900/20 rounded-xl p-6">
+                            <h3 class="text-xl font-bold mb-4 text-green-800 dark:text-green-300">Quiz Results</h3>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-gray-700 dark:text-gray-300">Score:</span>
+                                <span class="text-2xl font-bold text-green-600" id="quiz-score">0/2</span>
+                            </div>
+                            <button id="retry-quiz" class="text-green-600 dark:text-green-400 hover:underline font-medium">
+                                <i class="fas fa-redo mr-2"></i>Retry Quiz
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Further Resources -->
+        <section id="resources" class="py-16 bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-white">
+                            Further <span class="text-primary dark:text-emerald-300">Resources</span>
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Continue your exploration of classical mechanics and physics
+                        </p>
+                    </div>
+                    
+                    <!-- Resource Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Related Topics -->
+                        <a href="../classical-mechanics.html" class="group">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-atom text-emerald-600 dark:text-emerald-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-dark dark:text-white group-hover:text-primary dark:group-hover:text-emerald-300 transition">
+                                    Classical Mechanics Hub
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Explore other topics in classical mechanics including momentum, rotational motion, and oscillations.
+                                </p>
+                            </div>
+                        </a>
+                        
+                        <!-- Thermodynamics -->
+                        <a href="../../thermodynamics/thermodynamics.html" class="group">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-temperature-high text-red-600 dark:text-red-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-dark dark:text-white group-hover:text-primary dark:group-hover:text-emerald-300 transition">
+                                    Thermodynamics
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Study heat, temperature, and energy transfer in thermodynamic systems.
+                                </p>
+                            </div>
+                        </a>
+                        
+                        <!-- Physics Library -->
+                        <a href="../../../library.html" class="group">
+                            <div class="bg-white dark:bg-dark-card rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                                    <i class="fas fa-book-open text-purple-600 dark:text-purple-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-dark dark:text-white group-hover:text-primary dark:group-hover:text-emerald-300 transition">
+                                    Physics Library
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    Access textbooks, research papers, and study materials for deeper learning.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Download Section -->
+                    <div class="mt-12 bg-white dark:bg-dark-card rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-dark dark:text-white">Download Study Materials</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <a href="#" class="flex items-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                                <i class="fas fa-file-pdf text-red-500 text-xl mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Formulas Cheat Sheet</div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">PDF, 180 KB</div>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                                <i class="fas fa-file-alt text-blue-500 text-xl mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Practice Problems Set</div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">PDF, 300 KB</div>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                                <i class="fas fa-play-circle text-green-500 text-xl mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Video Tutorials</div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">YouTube Playlist</div>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                                <i class="fas fa-code text-purple-500 text-xl mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Simulation Code</div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">JavaScript</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SEO Keywords (Hidden) -->
+        <div class="seo-keywords">
+            Work Energy Power, physics education, classical mechanics, kinetic energy, potential energy, 
+            conservation of energy, mechanical energy, work formula, power calculation, physics simulations, 
+            interactive physics, educational physics, energy transformation, work-energy theorem, 
+            gravitational potential energy, elastic potential energy, efficiency physics, power physics, 
+            energy conservation law, physics tutorials, mechanics problems, physics applications, 
+            engineering physics, energy equations, power calculations, physics principles, science education, 
+            STEM learning, physics demonstrations, work physics, energy physics, power physics, 
+            physics for students, physics concepts, energy conservation physics
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-atom mr-3 text-primary"></i>
+                        Physics Portal
+                    </h3>
+                    <p class="opacity-80">Interactive learning platform for physics concepts</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="../../../index.html" class="opacity-80 hover:opacity-100 hover:text-primary transition">
+                        Portfolio Home
+                    </a>
+                    <a href="../../../contact.html" class="opacity-80 hover:opacity-100 hover:text-primary transition">
+                        Contact
+                    </a>
+                    <a href="https://github.com/anshuman365" class="opacity-80 hover:opacity-100 hover:text-primary transition">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center opacity-70 text-sm">
+                <p>&copy; 2025 Anshuman Singh. Educational content for physics learning.</p>
+                <p class="mt-2">This page provides comprehensive coverage of Work, Energy, and Power concepts with interactive simulations.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Navigation Toggle
+        document.getElementById('menu-toggle')?.addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Dark Mode Toggles
+        const darkModeToggle = () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('physics-theme', 
+                document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+            );
+        };
+        
+        document.getElementById('dark-mode-toggle')?.addEventListener('click', darkModeToggle);
+        document.getElementById('dark-mode-toggle-mobile')?.addEventListener('click', darkModeToggle);
+        
+        // Mobile Physics Topics Toggle
+        document.querySelector('.mobile-physics-toggle')?.addEventListener('click', function() {
+            const submenu = this.nextElementSibling;
+            submenu.classList.toggle('hidden');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('rotate-180');
+        });
+        
+        // Initialize MathJax
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            svg: {
+                fontCache: 'global'
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                includeHtmlTags: {
+                    br: '\n',
+                    wbr: '',
+                    '#comment': ''
+                }
+            }
+        };
+        
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scroll-progress').style.width = scrolled + '%';
+        });
+        
+        // Section Tracking for Sidebar Highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        function highlightCurrentSection() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightCurrentSection);
+        highlightCurrentSection(); // Initial call
+        
+        // Formula Copy Functionality
+        document.querySelectorAll('.physics-formula').forEach(formula => {
+            formula.addEventListener('click', function() {
+                const text = this.textContent || this.innerText;
+                navigator.clipboard.writeText(text.trim()).then(() => {
+                    const original = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+                    setTimeout(() => {
+                        this.innerHTML = original;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+            });
+        });
+        
+        // Quiz Functionality
+        document.getElementById('check-answers')?.addEventListener('click', function() {
+            let score = 0;
+            const totalQuestions = 2;
+            
+            document.querySelectorAll('.quiz-question input[type="radio"]').forEach(radio => {
+                const parent = radio.parentElement;
+                parent.classList.remove('text-green-600', 'font-bold', 'text-red-600');
+                
+                if (radio.checked) {
+                    if (radio.hasAttribute('data-correct')) {
+                        parent.classList.add('text-green-600', 'font-bold');
+                        score++;
+                    } else {
+                        parent.classList.add('text-red-600', 'font-bold');
+                    }
+                }
+            });
+            
+            // Show correct answers
+            document.querySelectorAll('input[data-correct="true"]').forEach(correctRadio => {
+                correctRadio.parentElement.classList.add('text-green-600', 'font-bold');
+            });
+            
+            // Show results
+            document.getElementById('quiz-score').textContent = `${score}/${totalQuestions}`;
+            document.getElementById('quiz-results').classList.remove('hidden');
+        });
+        
+        document.getElementById('retry-quiz')?.addEventListener('click', function() {
+            document.querySelectorAll('.quiz-question input[type="radio"]').forEach(radio => {
+                radio.checked = false;
+                radio.parentElement.classList.remove('text-green-600', 'font-bold', 'text-red-600');
+            });
+            document.getElementById('quiz-results').classList.add('hidden');
+        });
+        
+        // Show Solution Buttons
+        document.querySelectorAll('.show-solution').forEach(button => {
+            button.addEventListener('click', function() {
+                const solution = this.nextElementSibling;
+                solution.classList.toggle('hidden');
+                this.textContent = solution.classList.contains('hidden') ? 'Show Solution' : 'Hide Solution';
+            });
+        });
+        
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Problem Generator
+        document.getElementById('generate-problem')?.addEventListener('click', function() {
+            const type = document.getElementById('problem-type').value;
+            const difficulty = document.getElementById('difficulty').value;
+            
+            const problems = {
+                work: {
+                    easy: "Calculate the work done when a 20 N force pushes an object 5 meters in the direction of the force.",
+                    medium: "A person pulls a 30 kg sled with a 50 N force at 60° to the horizontal for 20 meters. Calculate the work done.",
+                    hard: "A variable force F = 3x² (in Newtons) acts on an object as it moves from x=0 to x=4 meters. Calculate the total work done."
+                },
+                energy: {
+                    easy: "A 0.5 kg ball is thrown upward with 20 J of kinetic energy. What maximum height will it reach?",
+                    medium: "A 1000 kg car needs to accelerate from 0 to 27 m/s (60 mph). Calculate the minimum energy required.",
+                    hard: "A 2 kg block slides down a frictionless 30° incline from a height of 10 meters. Find its speed at the bottom."
+                },
+                power: {
+                    easy: "A 60 W light bulb operates for 5 hours. How much energy does it consume?",
+                    medium: "A motor lifts a 100 kg mass vertically at 2 m/s. What power does the motor deliver?",
+                    hard: "A car engine produces 100 kW of power. If it's 25% efficient, how much chemical energy does it consume per second?"
+                },
+                conservation: {
+                    easy: "A 0.1 kg pendulum bob is raised 0.5 meters. What is its maximum speed at the bottom?",
+                    medium: "A 5 kg block compresses a spring (k=200 N/m) by 0.2 meters. When released, what maximum height will it reach on a frictionless incline?",
+                    hard: "A roller coaster car (500 kg) starts from rest at 50 meters height. It goes through a loop of radius 10 meters. Find its speed at the top of the loop."
+                }
+            };
+            
+            const problemText = problems[type][difficulty];
+            document.getElementById('generated-problem').innerHTML = `
+                <h4 class="font-bold mb-4 text-dark dark:text-white">Generated Problem (${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)})</h4>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">${problemText}</p>
+                <div class="space-y-2">
+                    <label class="flex items-center">
+                        <input type="radio" name="generated" class="mr-3">
+                        <span class="text-gray-700 dark:text-gray-300">Option A</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="generated" class="mr-3">
+                        <span class="text-gray-700 dark:text-gray-300">Option B</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="generated" class="mr-3">
+                        <span class="text-gray-700 dark:text-gray-300">Option C</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="generated" class="mr-3">
+                        <span class="text-gray-700 dark:text-gray-300">Option D</span>
+                    </label>
+                </div>
+                <button class="show-solution mt-4 text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+                    Show Solution
+                </button>
+                <div class="solution mt-3 hidden text-sm text-gray-600 dark:text-gray-400">
+                    <p><strong>Solution will appear here...</strong></p>
+                </div>
+            `;
+        });
+        
+        // Initialize theme
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('physics-theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+            
+            // Initialize simulations
+            initSimulations();
+        });
+        
+        // Simulation Initialization
+        function initSimulations() {
+            console.log('Initializing Work & Energy simulations...');
+            // Simulations will be loaded from external JS file
+        }
+        
+    </script>
+    
+    <!-- External JavaScript Files -->
+    <script src="/physics/js/physics-common.js" defer></script>
+    <script src="/physics/js/physics-utils.js" defer></script>
+    <script src="work-energy-sim.js" defer></script>
+</body>
+</html>
