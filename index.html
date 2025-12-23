@@ -18,7 +18,7 @@
   <meta name="google-adsense-account" content="ca-pub-2633513915753897">
   
   <!-- Additional Ad Networks -->
-  <script async="async" data-cfasync="false" src="//pl28132087.effectivegatecpm.com/cf698d5b92c00b096ee43db69fccc63f/invoke.js"></script>
+<!--   <script async="async" data-cfasync="false" src="//pl28132087.effectivegatecpm.com/cf698d5b92c00b096ee43db69fccc63f/invoke.js"></script> -->
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,7 +86,7 @@
         "name": "Anshuman Singh",
         "url": "https://anshuman365.github.io/",
         "image": "https://anshuman365.github.io/assets/profile3.jpg",
-        "description": "Multi-disciplinary expert: AI Developer with massive 60+ project portfolio, Physics Researcher, and Real Estate Consultant in Uttar Pradesh",
+        "description": "Multi-disciplinary expert: AI Developer with massive project portfolio, Physics Researcher, and Real Estate Consultant in Uttar Pradesh",
         "jobTitle": ["AI Developer", "Physics Researcher", "Real Estate Consultant"],
         "knowsAbout": [
           "Python Programming",
@@ -268,17 +268,37 @@
     }
     
     /* Ad Container Styles */
-    .ad-container {
+    .ad-wrapper {
+      margin: 2rem 0;
       border-radius: 12px;
       overflow: hidden;
-      margin: 2rem 0;
       background: #f8fafc;
       border: 1px solid #e2e8f0;
+      padding: 1rem;
     }
 
-    .dark .ad-container {
+    .dark .ad-wrapper {
       background: #1e293b;
       border-color: #334155;
+    }
+    
+    .ad-label {
+      font-size: 0.75rem;
+      color: #6b7280;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Mobile Ads Optimization */
+    @media (max-width: 768px) {
+      .ad-wrapper {
+        margin: 1.5rem 0;
+      }
+      
+      /* Mobile में ads को center करें */
+      ins.adsbygoogle {
+        margin: 0 auto;
+      }
     }
     
     /* Hidden Cross-Link Navigation (as requested) */
@@ -343,6 +363,40 @@
       background: linear-gradient(135deg, #0f172a, #1e293b);
       border-color: #334155;
     }
+    
+    /* Sticky Sidebar Ad Styles */
+    .sticky-sidebar-ad {
+      width: 160px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+    }
+    
+    .dark .sticky-sidebar-ad {
+      background: #1e293b;
+      border-color: #334155;
+    }
+    
+    .sticky-sidebar-ad .ad-label {
+      font-size: 0.7rem;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+    
+    /* In-content Ad Styles */
+    .in-content-ad {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .dark .in-content-ad {
+      background: #1e293b;
+      border-color: #374151;
+    }
   </style>
 </head>
 
@@ -371,21 +425,46 @@
   </div>
 </div>
 
-<!-- ======================== STRATEGIC AD PLACEMENT 1 ======================== -->
-<div class="ad-container hidden">
-  <div class="p-4 text-center">
-    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Advertisement</p>
+<!-- ======================== STICKY SIDEBAR AD (DESKTOP ONLY) ======================== -->
+<div class="hidden lg:block fixed right-4 top-1/3 z-30">
+  <div class="sticky-sidebar-ad p-3">
+    <p class="ad-label mb-1">Advertisement</p>
+    <!-- AD CODE 2 (Responsive) - Sidebar के लिए -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897"
+         crossorigin="anonymous"></script>
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-2633513915753897"
-         data-ad-slot="9876543210"
+         data-ad-slot="6469888548"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
+         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>
 </div>
+
+<!-- ======================== HIGH VISIBILITY AD 1 ======================== -->
+<section class="py-8 bg-gray-50 hidden dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="ad-wrapper">
+        <p class="ad-label">Sponsored</p>
+        <!-- AD CODE 1 (Auto-relaxed) - High CTR के लिए -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897"
+             crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-format="autorelaxed"
+             data-ad-client="ca-pub-2633513915753897"
+             data-ad-slot="2339071842"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Hero Section -->
 <section class="pt-24 pb-16 gradient-bg text-white">
@@ -590,22 +669,6 @@
   </div>
 </section>
 
-<!-- ======================== STRATEGIC AD PLACEMENT 2 ======================== -->
-<div class="ad-container hidden">
-  <div class="p-4 text-center">
-    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Developer Tools & Resources</p>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-2633513915753897"
-         data-ad-slot="8765432109"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</div>
-
 <!-- Projects Section -->
 <section id="projects" class="py-16 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
   <div class="container mx-auto px-4">
@@ -738,6 +801,23 @@
             <p class="text-gray-700 dark:text-gray-300 mb-4">
               I'm a 12th pass developer currently building my path to entrepreneurship through <span class="font-semibold text-primary dark:text-blue-400">AI-powered development</span> across multiple domains. Despite being in a drop year, I've created a <span class="font-bold text-green-600 dark:text-green-400">massive collection of 60+ production-grade systems</span> using AI as my co-developer.
             </p>
+
+            <!-- ======= IN-CONTENT AD ======= -->
+            <div class="in-content-ad my-8">
+              <p class="ad-label">Recommended</p>
+              <!-- AD CODE 1 (Auto-relaxed) - Content के बीच में -->
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897"
+                   crossorigin="anonymous"></script>
+              <ins class="adsbygoogle"
+                   style="display:block"
+                   data-ad-format="autorelaxed"
+                   data-ad-client="ca-pub-2633513915753897"
+                   data-ad-slot="2339071842"></ins>
+              <script>
+                   (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+
             <p class="text-gray-700 dark:text-gray-300 mb-6">
               My approach focuses on understanding <span class="font-semibold">business logic and system architecture</span>, while leveraging AI for implementation. This allows me to deliver <span class="font-bold">enterprise-level solutions</span> that solve real problems across technology, physics research, and real estate consulting.
             </p>
@@ -833,21 +913,28 @@
   </div>
 </section>
 
-<!-- ======================== STRATEGIC AD PLACEMENT 3 ======================== -->
-<div class="ad-container hidden">
-  <div class="p-4 text-center">
-    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">AI Development Resources</p>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-2633513915753897"
-         data-ad-slot="7654321098"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+<!-- ======================== AD BEFORE FOOTER ======================== -->
+<section class="py-8 bg-gray-100 dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="ad-wrapper">
+        <p class="ad-label">You might like</p>
+        <!-- AD CODE 2 (Responsive) - Exit intent के लिए -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897"
+             crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2633513915753897"
+             data-ad-slot="6469888548"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- Stats Section -->
 <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
@@ -1075,6 +1162,29 @@
       card.style.transitionDelay = (index * 0.1) + 's';
       projectObserver.observe(card);
     });
+    
+    // Ad Performance Tracker
+    const ads = document.querySelectorAll('ins.adsbygoogle');
+    const adObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Send to Google Analytics
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'ad_view', {
+              'ad_slot': entry.target.dataset.adSlot,
+              'visibility': 'visible'
+            });
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    ads.forEach(ad => adObserver.observe(ad));
+    
+    // Auto ad refresh (careful with AdSense policy - check policy first)
+    setTimeout(() => {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    }, 60000); // 60 seconds
   });
 </script>
 
