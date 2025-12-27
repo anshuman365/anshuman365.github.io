@@ -1,5 +1,16 @@
 {
+  "name": "anshuman-portfolio",
+  "version": "1.0.0",
+  "description": "Anshuman Singh Portfolio Website",
+  "scripts": {
+    "optimize-images": "node scripts/optimize-images.js",
+    "build": "npm run optimize-images",
+    "deploy": "gh-pages -d .",
+    "test-performance": "lighthouse https://anshuman365.github.io --view"
+  },
   "devDependencies": {
-    "tailwindcss": "^4.1.11"
+    "sharp": "^0.33.0",
+    "gh-pages": "^6.0.0",
+    "lighthouse": "^11.0.0"
   }
 }

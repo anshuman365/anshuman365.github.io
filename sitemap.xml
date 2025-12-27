@@ -12,4 +12,9 @@
       <loc>https://anshuman365.github.io/sitemap-research.xml</loc>
       <lastmod>2025-08-02</lastmod>
    </sitemap>
+   <!-- Add new sitemap entry -->
+   <sitemap>
+      <loc>https://anshuman365.github.io/sitemap-physics.xml</loc>
+      <lastmod>2025-01-19</lastmod>
+   </sitemap>
 </sitemapindex>

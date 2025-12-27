@@ -4,6 +4,7 @@ Sitemap: https://anshuman365.github.io/sitemap.xml
 Sitemap: https://anshuman365.github.io/sitemap-static.xml
 Sitemap: https://anshuman365.github.io/sitemap-blog.xml
 Sitemap: https://anshuman365.github.io/sitemap-research.xml
+Sitemap: https://anshuman365.github.io/sitemap.html
 
 # Google AdsBot
 User-agent: AdsBot-Google

@@ -1,0 +1,156 @@
+/* main.css - Non-critical styles loaded after page load */
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Full Tailwind-like utilities (simplified) */
+.card-hover { transition: all 0.3s ease; }
+.card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15); }
+
+.text-gradient {
+  background: linear-gradient(135deg, #2563EB, #7C3AED);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark-mode-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .mobile-stack { flex-direction: column !important; }
+  .mobile-center { text-align: center !important; }
+  .mobile-p-4 { padding: 1rem !important; }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+.animate-bounce-slow { animation: bounce-slow 3s infinite; }
+
+/* Project card specific */
+.project-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #2563EB, transparent);
+  transition: left 0.6s ease;
+}
+
+.project-card:hover::before {
+  left: 100%;
+}
+
+/* Ad container styles */
+.ad-wrapper {
+  margin: 2rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 1rem;
+}
+
+.dark .ad-wrapper {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+/* Skill bars */
+.skill-bar {
+  transition: width 1.5s ease-in-out;
+  border-radius: 9999px;
+}
+
+/* Credibility Section Styles */
+.credibility-card {
+  background: linear-gradient(145deg, #ffffff, #f0f4f8);
+  border-left: 4px solid #2563EB;
+}
+
+.dark .credibility-card {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border-left-color: #3B82F6;
+}
+
+/* Stats Counter Animation */
+.stat-counter {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #2563EB, #7C3AED);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Content Recommendation Widget */
+.content-widget {
+  background: linear-gradient(135deg, #f0f7ff, #e6f0ff);
+  border-radius: 20px;
+  border: 1px solid #dbeafe;
+}
+
+.dark .content-widget {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  border-color: #334155;
+}
+
+/* In-content Ad Styles */
+.in-content-ad {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.dark .in-content-ad {
+  background: #1e293b;
+  border-color: #374151;
+}
+
+/* Sticky Sidebar Ad Styles */
+.sticky-sidebar-ad {
+  width: 160px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.dark .sticky-sidebar-ad {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.sticky-sidebar-ad .ad-label {
+  font-size: 0.7rem;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
