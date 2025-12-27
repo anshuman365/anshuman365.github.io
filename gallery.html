@@ -47,39 +47,121 @@
     }
     </script>
     
-    <link rel="stylesheet" href="css/tailwind.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/gallery.css">
-    <link rel="icon" href="assets/favicon.ico">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#2563EB',
+              secondary: '#7C3AED', 
+              accent: '#059669',
+              dark: '#1E293B',
+              light: '#F8FAFC',
+              'dark-bg': '#0f172a',
+              'dark-card': '#1e293b',
+              'dark-text': '#f1f5f9'
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-slow': 'pulse 3s ease-in-out infinite',
+              'bounce-slow': 'bounce 3s infinite',
+              'slide-in': 'slideIn 0.5s ease-out',
+              'fade-in': 'fadeIn 0.5s ease-in',
+              'progress': 'progress 2s ease-in-out'
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              slideIn: {
+                '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              progress: {
+                '0%': { width: '0%' },
+                '100%': { width: 'var(--progress-width)' }
+              }
+            }
+          }
+        }
+      }
+    </script>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
     <style>
-        /* Additional Gallery Styles */
+        /* Gallery specific styles */
         .gallery-filter-btn {
             transition: all 0.3s ease;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            background: #e5e7eb;
+            color: #374151;
+        }
+        
+        .dark .gallery-filter-btn {
+            background: #374151;
+            color: #d1d5db;
         }
         
         .gallery-filter-btn.active {
-            background-color: #2563EB;
+            background: #2563eb;
             color: white;
+        }
+        
+        .dark .gallery-filter-btn.active {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .gallery-filter-btn:hover:not(.active) {
+            background: #d1d5db;
+        }
+        
+        .dark .gallery-filter-btn:hover:not(.active) {
+            background: #4b5563;
         }
         
         .gallery-item {
             transition: all 0.3s ease;
-            border-radius: 10px;
+            border-radius: 0.75rem;
             overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            background: white;
+            cursor: pointer;
+        }
+        
+        .dark .gallery-item {
+            background: #1f2937;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
         }
         
         .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .dark .gallery-item:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
         }
         
         .gallery-image {
             width: 100%;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
@@ -96,16 +178,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 9999;
-            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #lightbox.show {
+            display: flex;
         }
         
         .lightbox-content {
-            max-width: 90%;
-            max-height: 80%;
-            margin: 5% auto;
-            display: block;
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
         }
         
         .lightbox-nav {
@@ -119,6 +205,12 @@
             padding: 10px 20px;
             cursor: pointer;
             transition: background 0.3s ease;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .lightbox-nav:hover {
@@ -138,10 +230,15 @@
             top: 20px;
             right: 30px;
             color: white;
-            font-size: 3rem;
+            font-size: 2.5rem;
             cursor: pointer;
             background: none;
             border: none;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .lightbox-caption {
@@ -151,26 +248,82 @@
             width: 100%;
             text-align: center;
             color: white;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            font-size: 1.1rem;
         }
         
-        /* Responsive Grid */
+        /* Loading animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-spinner {
+            border: 4px solid rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid #3b82f6;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        /* Gallery item overlay */
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-item-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .gallery-image {
-                height: 200px;
+                height: 180px;
             }
             
-            .lightbox-content {
-                max-width: 95%;
-                max-height: 70%;
+            .lightbox-nav {
+                padding: 8px 16px;
+                font-size: 1.5rem;
+            }
+            
+            .lightbox-close {
+                top: 10px;
+                right: 15px;
+                font-size: 2rem;
             }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 640px) {
             .gallery-image {
                 height: 150px;
             }
+        }
+        
+        /* Back to top button */
+        #back-to-top {
+            transition: all 0.3s ease;
+        }
+        
+        /* Stats cards */
+        .gallery-stat-card {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .gallery-stat-card {
+            background: #1f2937;
         }
     </style>
 </head>
@@ -188,7 +341,7 @@
         <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
             Browse my complete collection of 100+ images including project screenshots, physics simulations, research visuals, real estate properties, and personal moments
         </p>
-        <div class="text-sm text-gray-500 dark:text-gray-400">
+        <div class="text-sm text-gray-500 dark:text-gray-400 flex items-center justify-center">
             <i class="fas fa-info-circle mr-2"></i>
             All images are optimized for SEO and can appear in Google Images search
         </div>
@@ -196,44 +349,44 @@
 
     <!-- Filter Controls -->
     <div class="mb-8 flex flex-wrap justify-center gap-2 md:gap-4">
-        <button class="gallery-filter-btn active px-4 py-2 rounded-full bg-blue-600 text-white" data-filter="all">
+        <button class="gallery-filter-btn active" data-filter="all">
             <i class="fas fa-th-large mr-2"></i>All Images
         </button>
-        <button class="gallery-filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="projects">
+        <button class="gallery-filter-btn" data-filter="projects">
             <i class="fas fa-laptop-code mr-2"></i>Projects
         </button>
-        <button class="gallery-filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="personal">
+        <button class="gallery-filter-btn" data-filter="personal">
             <i class="fas fa-user mr-2"></i>Personal
         </button>
-        <button class="gallery-filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="physics">
+        <button class="gallery-filter-btn" data-filter="physics">
             <i class="fas fa-atom mr-2"></i>Physics
         </button>
-        <button class="gallery-filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="research">
+        <button class="gallery-filter-btn" data-filter="research">
             <i class="fas fa-flask mr-2"></i>Research
         </button>
-        <button class="gallery-filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="realestate">
+        <button class="gallery-filter-btn" data-filter="realestate">
             <i class="fas fa-home mr-2"></i>Real Estate
         </button>
-        <button class="gallery-filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="books">
+        <button class="gallery-filter-btn" data-filter="books">
             <i class="fas fa-book mr-2"></i>Books
         </button>
     </div>
 
     <!-- Gallery Stats -->
     <div class="mb-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg text-center">
+        <div class="gallery-stat-card text-center">
             <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">100+</div>
             <div class="text-sm text-gray-600 dark:text-gray-400">Total Images</div>
         </div>
-        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg text-center">
+        <div class="gallery-stat-card text-center">
             <div class="text-2xl font-bold text-green-600 dark:text-green-400">8</div>
             <div class="text-sm text-gray-600 dark:text-gray-400">Categories</div>
         </div>
-        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg text-center">
+        <div class="gallery-stat-card text-center">
             <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">60+</div>
             <div class="text-sm text-gray-600 dark:text-gray-400">Project Screenshots</div>
         </div>
-        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg text-center">
+        <div class="gallery-stat-card text-center">
             <div class="text-2xl font-bold text-red-600 dark:text-red-400">HD</div>
             <div class="text-sm text-gray-600 dark:text-gray-400">All Images</div>
         </div>
@@ -246,7 +399,7 @@
 
     <!-- Loading Indicator -->
     <div id="loading" class="text-center py-12">
-        <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div class="loading-spinner mx-auto"></div>
         <p class="mt-4 text-gray-600 dark:text-gray-400">Loading images gallery...</p>
     </div>
 </main>
@@ -264,14 +417,15 @@
 <div id="footer-placeholder"></div>
 
 <!-- Back to Top Button -->
-<button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-blue-600 text-white shadow-xl hover:bg-blue-700 transition hidden">
+<button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-blue-600 text-white shadow-xl hover:bg-blue-700 transition hidden flex items-center justify-center">
     <i class="fas fa-arrow-up"></i>
 </button>
 
 <!-- Scripts -->
-<script src="js/include.js"></script>
-<script src="js/nav.js"></script>
-<script src="js/dark-mode.js"></script>
+<script src="js/include.js" defer></script>
+<script src="js/nav.js" defer></script>
+<script src="js/dark-mode.js" defer></script>
+
 <script>
     // Gallery Data with SEO-optimized alt text
     const galleryImages = [
@@ -569,112 +723,6 @@
             title: "Bedroom Interior Design"
         },
         
-        // Book Cover Images
-        {
-            src: "assets/pdf/cover_img/48_laws_power_full.jpg",
-            alt: "48 Laws of Power book cover - Robert Greene personal development book",
-            category: "books",
-            title: "48 Laws of Power"
-        },
-        {
-            src: "assets/pdf/cover_img/billionaire_habits.jpg",
-            alt: "Billionaire Habits book cover - Success principles and wealth building",
-            category: "books",
-            title: "Billionaire Habits Book"
-        },
-        {
-            src: "assets/pdf/cover_img/chanakya_neeti_dp.jpg",
-            alt: "Chanakya Neeti book cover - Ancient Indian wisdom and strategy",
-            category: "books",
-            title: "Chanakya Neeti"
-        },
-        {
-            src: "assets/pdf/cover_img/human_nature.jpg",
-            alt: "Human Nature book cover - Understanding psychology and behavior",
-            category: "books",
-            title: "Human Nature Book"
-        },
-        {
-            src: "assets/pdf/cover_img/mastery.jpg",
-            alt: "Mastery book cover - Robert Greene's guide to achieving excellence",
-            category: "books",
-            title: "Mastery Book"
-        },
-        {
-            src: "assets/pdf/cover_img/python_ai_evolution.jpg",
-            alt: "Python AI Evolution book cover - Artificial intelligence programming guide",
-            category: "books",
-            title: "Python AI Evolution"
-        },
-        {
-            src: "assets/pdf/cover_img/think_grow_rich.jpg",
-            alt: "Think and Grow Rich book cover - Napoleon Hill success philosophy",
-            category: "books",
-            title: "Think and Grow Rich"
-        },
-        {
-            src: "assets/pdf/cover_img/wings_of_fire.jpg",
-            alt: "Wings of Fire book cover - APJ Abdul Kalam autobiography",
-            category: "books",
-            title: "Wings of Fire"
-        },
-        {
-            src: "assets/pdf/cover_img/zero_to_one.jpg",
-            alt: "Zero to One book cover - Peter Thiel startup innovation guide",
-            category: "books",
-            title: "Zero to One Book"
-        },
-        
-        // Blog Images
-        {
-            src: "assets/blog-ai-integration.jpg",
-            alt: "AI Integration blog post featured image showing artificial intelligence in development",
-            category: "projects",
-            title: "AI Integration Blog"
-        },
-        {
-            src: "assets/blog-banner.jpg",
-            alt: "Blog section banner showcasing technical articles and tutorials",
-            category: "projects",
-            title: "Blog Banner"
-        },
-        {
-            src: "assets/blog-cuet.jpg",
-            alt: "CUET exam preparation blog post featured image",
-            category: "personal",
-            title: "CUET Exam Blog"
-        },
-        {
-            src: "assets/blog-database.jpg",
-            alt: "Database management blog post technical tutorial image",
-            category: "projects",
-            title: "Database Management Blog"
-        },
-        {
-            src: "assets/blog-deployment.jpg",
-            alt: "Application deployment guide blog post featured image",
-            category: "projects",
-            title: "Deployment Guide Blog"
-        },
-        {
-            src: "assets/blog-featured.jpg",
-            alt: "Featured blog post banner highlighting popular articles",
-            category: "projects",
-            title: "Featured Blog Post"
-        },
-        {
-            src: "assets/blog-freelance.jpg",
-            alt: "Freelance development blog post showing client projects",
-            category: "projects",
-            title: "Freelance Development Blog"
-        },
-        {
-            src: "assets/blog-python-flask.jpg",
-            alt: "Python Flask tutorial blog post technical guide image",
-            category: "projects",
-            title: "Python Flask Tutorial"
-        },
-        
         // Collaboration and Contact Images
         {
             src: "assets/collaborate-banner.jpg",
@@ -693,12 +741,6 @@
             alt: "Digital library banner showcasing book collection and resources",
             category: "books",
             title: "Digital Library Banner"
-        },
-        {
-            src: "assets/journey-quotes",
-            alt: "Journey quotes collection inspirational images and text",
-            category: "personal",
-            title: "Journey Quotes Collection"
         }
     ];
 
@@ -726,32 +768,33 @@
             // Render all images
             shuffledImages.forEach((image, index) => {
                 const imgElement = document.createElement('div');
-                imgElement.className = 'gallery-item bg-white dark:bg-gray-800 rounded-lg overflow-hidden cursor-pointer';
+                imgElement.className = 'gallery-item';
                 imgElement.setAttribute('data-category', image.category);
                 imgElement.setAttribute('data-index', index);
                 
                 imgElement.innerHTML = `
-                    <div class="relative overflow-hidden">
+                    <div class="relative overflow-hidden h-48">
                         <img 
                             src="${image.src}" 
                             alt="${image.alt}"
                             title="${image.title}"
-                            class="gallery-image w-full h-48 object-cover"
+                            class="gallery-image w-full h-full object-cover"
                             loading="lazy"
-                            width="300"
-                            height="200"
                             onerror="this.src='assets/profile.jpg'"
                         >
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
-                            <div class="p-4 text-white">
-                                <h3 class="font-bold text-sm">${image.title}</h3>
-                                <p class="text-xs opacity-90">${image.category.toUpperCase()}</p>
-                            </div>
+                        <div class="gallery-item-overlay">
+                            <h3 class="font-bold text-white text-sm mb-1">${image.title}</h3>
+                            <span class="text-xs bg-blue-600 px-2 py-1 rounded-full">${image.category}</span>
                         </div>
                     </div>
-                    <div class="p-3">
-                        <p class="text-sm font-medium text-gray-800 dark:text-gray-200 truncate">${image.title}</p>
-                        <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">${image.category}</p>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800 dark:text-white text-sm mb-2 truncate">${image.title}</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded-full">${image.category}</span>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-expand mr-1"></i> View
+                            </span>
+                        </div>
                     </div>
                 `;
                 
@@ -809,7 +852,7 @@
         function openLightbox(index) {
             currentIndex = index;
             updateLightbox();
-            lightbox.style.display = 'block';
+            lightbox.classList.add('show');
             document.body.style.overflow = 'hidden';
         }
         
@@ -821,7 +864,7 @@
         }
         
         function closeLightbox() {
-            lightbox.style.display = 'none';
+            lightbox.classList.remove('show');
             document.body.style.overflow = 'auto';
         }
         
@@ -837,7 +880,7 @@
         
         // Keyboard Navigation
         document.addEventListener('keydown', (e) => {
-            if (lightbox.style.display === 'block') {
+            if (lightbox.classList.contains('show')) {
                 if (e.key === 'Escape') closeLightbox();
                 if (e.key === 'ArrowRight') showNextImage();
                 if (e.key === 'ArrowLeft') showPrevImage();
@@ -855,9 +898,9 @@
         // Back to Top Button
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
-                backToTopBtn.style.display = 'block';
+                backToTopBtn.classList.remove('hidden');
             } else {
-                backToTopBtn.style.display = 'none';
+                backToTopBtn.classList.add('hidden');
             }
         });
         
@@ -870,7 +913,6 @@
         
         // Add gallery to sitemap automatically
         if (window.location.pathname.includes('gallery.html')) {
-            // This page is already gallery
             console.log('Gallery page loaded successfully');
         }
     });
