@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" itemscope itemtype="https://schema.org/ImageGallery">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery - Anshuman Singh | Portfolio, Projects & Personal Photos</title>
+    <meta name="description" content="Browse my complete image gallery featuring 100+ photos including project screenshots, physics simulations, research visuals, real estate properties, and personal moments">
+    <meta name="keywords" content="Anshuman Singh gallery, portfolio images, project screenshots, physics simulations, real estate photos, personal photos, image collection">
+    <meta name="author" content="Anshuman Singh">
+    
+    <!-- Open Graph for Images -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anshuman365.github.io/gallery.html">
+    <meta property="og:title" content="Image Gallery - Anshuman Singh's Complete Visual Collection">
+    <meta property="og:description" content="100+ images including projects, research, real estate and personal photos">
+    <meta property="og:image" content="https://anshuman365.github.io/assets/profile3.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Image Gallery - Anshuman Singh">
+    <meta name="twitter:description" content="Complete visual collection of projects, research and personal moments">
+    <meta name="twitter:image" content="https://anshuman365.github.io/assets/profile3.jpg">
+    
+    <!-- Structured Data for Image Gallery -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "Anshuman Singh's Image Gallery",
+      "description": "Complete visual collection featuring project screenshots, physics simulations, research papers, real estate properties, and personal photos",
+      "url": "https://anshuman365.github.io/gallery.html",
+      "thumbnail": "https://anshuman365.github.io/assets/profile3.jpg",
+      "image": [
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://anshuman365.github.io/assets/profile3.jpg",
+          "name": "Anshuman Singh Profile Photo",
+          "description": "Anshuman Singh - AI Developer with massive 60+ project portfolio"
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://anshuman365.github.io/assets/pyfusion.jpg",
+          "name": "PyFusion Python Framework Screenshot",
+          "description": "PyFusion all-in-one Python framework for rapid development"
+        }
+      ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="icon" href="assets/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Additional Gallery Styles */
+        .gallery-filter-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-filter-btn.active {
+            background-color: #2563EB;
+            color: white;
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+        
+        /* Lightbox Styles */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            overflow: hidden;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80%;
+            margin: 5% auto;
+            display: block;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .lightbox-prev {
+            left: 20px;
+        }
+        
+        .lightbox-next {
+            right: 20px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Responsive Grid */
+        @media (max-width: 768px) {
+            .gallery-image {
+                height: 200px;
+            }
+            
+            .lightbox-content {
+                max-width: 95%;
+                max-height: 70%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-image {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 dark-mode-transition">
+<!-- Navigation -->
+<div id="nav-placeholder"></div>
+
+<main class="container mx-auto px-4 py-8">
+    <!-- Gallery Header -->
+    <section class="mb-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            <i class="fas fa-images mr-4"></i>Image Gallery
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
+            Browse my complete collection of 100+ images including project screenshots, physics simulations, research visuals, real estate properties, and personal moments
+        </p>
+        <div class="text-sm text-gray-500 dark:text-gray-400">
+            <i class="fas fa-info-circle mr-2"></i>
+            All images are optimized for SEO and can appear in Google Images search
+        </div>
+    </section>
+
+    <!-- Filter Controls -->
+    <div class="mb-8 flex flex-wrap justify-center gap-2 md:gap-4">
+        <button class="gallery-filter-btn active px-4 py-2 rounded-full bg-blue-600 text-white" data-filter="all">
+            <i class="fas fa-th-large mr-2"></i>All Images
+        </button>
+        <button class="gallery-filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="projects">
+            <i class="fas fa-laptop-code mr-2"></i>Projects
+        </button>
+        <button class="gallery-filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="personal">
+            <i class="fas fa-user mr-2"></i>Personal
+        </button>
+        <button class="gallery-filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="physics">
+            <i class="fas fa-atom mr-2"></i>Physics
+        </button>
+        <button class="gallery-filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="research">
+            <i class="fas fa-flask mr-2"></i>Research
+        </button>
+        <button class="gallery-filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="realestate">
+            <i class="fas fa-home mr-2"></i>Real Estate
+        </button>
+        <button class="gallery-filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="books">
+            <i class="fas fa-book mr-2"></i>Books
+        </button>
+    </div>
+
+    <!-- Gallery Stats -->
+    <div class="mb-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg text-center">
+            <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">100+</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Total Images</div>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg text-center">
+            <div class="text-2xl font-bold text-green-600 dark:text-green-400">8</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Categories</div>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg text-center">
+            <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">60+</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Project Screenshots</div>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg text-center">
+            <div class="text-2xl font-bold text-red-600 dark:text-red-400">HD</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">All Images</div>
+        </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Images will be loaded here by JavaScript -->
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loading" class="text-center py-12">
+        <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">Loading images gallery...</p>
+    </div>
+</main>
+
+<!-- Lightbox Modal -->
+<div id="lightbox">
+    <button class="lightbox-close">&times;</button>
+    <button class="lightbox-nav lightbox-prev">&#10094;</button>
+    <button class="lightbox-nav lightbox-next">&#10095;</button>
+    <img class="lightbox-content" alt="Gallery Image Full View">
+    <div class="lightbox-caption"></div>
+</div>
+
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-blue-600 text-white shadow-xl hover:bg-blue-700 transition hidden">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Scripts -->
+<script src="js/include.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/dark-mode.js"></script>
+<script>
+    // Gallery Data with SEO-optimized alt text
+    const galleryImages = [
+        // Personal Images (you'll add these to assets/gallery/)
+        {
+            src: "assets/gallery/personal1.jpg",
+            alt: "Anshuman Singh - AI Developer and Physics Researcher personal photo",
+            category: "personal",
+            title: "Anshuman Singh Profile"
+        },
+        {
+            src: "assets/gallery/personal2.jpg",
+            alt: "Anshuman Singh working on Python projects with AI assistance",
+            category: "personal",
+            title: "Working on AI Projects"
+        },
+        {
+            src: "assets/gallery/personal3.jpg",
+            alt: "Anshuman Singh presenting physics research and project work",
+            category: "personal",
+            title: "Presenting Research"
+        },
+        {
+            src: "assets/gallery/personal4.jpg",
+            alt: "Anshuman Singh coding session showing development setup and workspace",
+            category: "personal",
+            title: "Coding Session"
+        },
+        
+        // Profile Images from existing assets
+        {
+            src: "assets/profile.jpg",
+            alt: "Anshuman Singh professional profile photo - AI Developer and Multi-disciplinary Expert",
+            category: "personal",
+            title: "Professional Profile"
+        },
+        {
+            src: "assets/profile2.jpg",
+            alt: "Anshuman Singh working on computer science projects and AI development",
+            category: "personal",
+            title: "Project Development"
+        },
+        {
+            src: "assets/profile3.jpg",
+            alt: "Anshuman Singh portrait - Creator of 60+ production-grade projects and AI applications",
+            category: "personal",
+            title: "Portrait Photo"
+        },
+        {
+            src: "assets/professional-profile.jpg",
+            alt: "Anshuman Singh professional headshot for business and consulting services",
+            category: "personal",
+            title: "Professional Headshot"
+        },
+        
+        // Project Images
+        {
+            src: "assets/project1.jpg",
+            alt: "Project 1 screenshot - AI-powered web application built with Python Flask",
+            category: "projects",
+            title: "AI Web Application"
+        },
+        {
+            src: "assets/project2.jpg",
+            alt: "Project 2 interface - Real-time data processing system with machine learning",
+            category: "projects",
+            title: "Real-time System"
+        },
+        {
+            src: "assets/project3.jpg",
+            alt: "Project 3 dashboard - Comprehensive analytics platform with data visualization",
+            category: "projects",
+            title: "Analytics Dashboard"
+        },
+        {
+            src: "assets/pyfusion.jpg",
+            alt: "PyFusion Python framework screenshot - All-in-one development toolkit for rapid application building",
+            category: "projects",
+            title: "PyFusion Framework"
+        },
+        {
+            src: "assets/securekit_banner.jpg",
+            alt: "SecureKit application banner - Cybersecurity tool for web application protection",
+            category: "projects",
+            title: "SecureKit Security Tool"
+        },
+        {
+            src: "assets/securekit_logo.jpg",
+            alt: "SecureKit logo design - Professional security software branding",
+            category: "projects",
+            title: "SecureKit Logo"
+        },
+        {
+            src: "assets/serenity_banner.jpg",
+            alt: "Serenity AI ecosystem banner - Next-generation AI companion with Gemini integration",
+            category: "projects",
+            title: "Serenity AI Ecosystem"
+        },
+        {
+            src: "assets/bank_banner.jpg",
+            alt: "Personal Bank Demo application - Modern banking UI template with responsive design",
+            category: "projects",
+            title: "Banking UI Template"
+        },
+        {
+            src: "assets/projects-banner.jpg",
+            alt: "Projects portfolio banner showcasing 60+ production-grade applications",
+            category: "projects",
+            title: "Project Portfolio Banner"
+        },
+        {
+            src: "assets/services-banner.jpg",
+            alt: "Services banner highlighting AI development, physics research and real estate consulting",
+            category: "projects",
+            title: "Services Overview"
+        },
+        
+        // Physics Research Images
+        {
+            src: "assets/fatman-littleboy/fatman-littleboy-banner.jpg",
+            alt: "Fat Man and Little Boy atomic bombs historical physics research banner",
+            category: "physics",
+            title: "Atomic Physics Research"
+        },
+        {
+            src: "assets/fatman-littleboy/fat-man-schematic.jpg",
+            alt: "Fat Man atomic bomb schematic diagram showing plutonium implosion design",
+            category: "physics",
+            title: "Fat Man Schematic"
+        },
+        {
+            src: "assets/fatman-littleboy/little-boy-schematic.jpg",
+            alt: "Little Boy atomic bomb schematic showing gun-type uranium weapon design",
+            category: "physics",
+            title: "Little Boy Schematic"
+        },
+        {
+            src: "assets/fatman-littleboy/trinity-test.jpg",
+            alt: "Trinity test first nuclear explosion physics experiment historical photo",
+            category: "physics",
+            title: "Trinity Nuclear Test"
+        },
+        {
+            src: "assets/fatman-littleboy/manhattan-project.jpg",
+            alt: "Manhattan Project nuclear weapons development historical research photo",
+            category: "physics",
+            title: "Manhattan Project"
+        },
+        {
+            src: "assets/fatman-littleboy/hiroshima-aftermath.jpg",
+            alt: "Hiroshima aftermath showing effects of nuclear physics and atomic energy",
+            category: "physics",
+            title: "Hiroshima Aftermath"
+        },
+        {
+            src: "assets/fatman-littleboy/nagasaki-cloud.jpg",
+            alt: "Nagasaki mushroom cloud atomic bomb physics demonstration photo",
+            category: "physics",
+            title: "Nagasaki Mushroom Cloud"
+        },
+        {
+            src: "assets/fatman-littleboy/hero.jpg",
+            alt: "Nuclear physics research hero image showing atomic energy concepts",
+            category: "physics",
+            title: "Nuclear Physics Hero"
+        },
+        
+        // Research Paper Images
+        {
+            src: "assets/research/paper/assets/numerical-methods/numerical-methods-banner.jpg",
+            alt: "Numerical methods in physics research banner showing computational physics techniques",
+            category: "research",
+            title: "Numerical Methods Banner"
+        },
+        {
+            src: "assets/research/paper/assets/numerical-methods/fd-visualization.jpg",
+            alt: "Finite difference method visualization for solving physics differential equations",
+            category: "research",
+            title: "Finite Difference Visualization"
+        },
+        {
+            src: "assets/research/paper/assets/numerical-methods/fluid-simulation.jpg",
+            alt: "Computational fluid dynamics simulation showing physics of fluid flow",
+            category: "research",
+            title: "Fluid Dynamics Simulation"
+        },
+        {
+            src: "assets/research/paper/assets/numerical-methods/quantum-oscillator.jpg",
+            alt: "Quantum harmonic oscillator simulation showing wave function physics",
+            category: "research",
+            title: "Quantum Oscillator Simulation"
+        },
+        {
+            src: "assets/research/paper/assets/numerical-methods/monte-carlo-plot.jpg",
+            alt: "Monte Carlo simulation plot for statistical physics research methods",
+            category: "research",
+            title: "Monte Carlo Simulation"
+        },
+        {
+            src: "assets/research/paper/assets/numerical-methods/performance-chart.jpg",
+            alt: "Performance chart comparing numerical methods efficiency in physics",
+            category: "research",
+            title: "Performance Comparison Chart"
+        },
+        {
+            src: "assets/research/paper/assets/numerical-methods/python-code-visual.jpg",
+            alt: "Python code visualization for physics simulations and research",
+            category: "research",
+            title: "Python Physics Code"
+        },
+        {
+            src: "assets/research/paper/assets/research/paper/87678/bell_theorem.png",
+            alt: "Bell's theorem quantum physics research showing entanglement principles",
+            category: "research",
+            title: "Bell's Theorem Quantum Physics"
+        },
+        {
+            src: "assets/research/paper/assets/research/paper/87678/bloch_sphere.png",
+            alt: "Bloch sphere visualization for quantum computing physics research",
+            category: "research",
+            title: "Bloch Sphere Quantum Computing"
+        },
+        {
+            src: "assets/research/paper/assets/research/paper/87678/quantum_circuit.png",
+            alt: "Quantum circuit diagram for quantum information theory research",
+            category: "research",
+            title: "Quantum Circuit Diagram"
+        },
+        {
+            src: "assets/research/paper/assets/research/paper/87678/qubit_vs_bit.png",
+            alt: "Qubit vs classical bit comparison in quantum computing physics",
+            category: "research",
+            title: "Qubit vs Classical Bit"
+        },
+        
+        // Real Estate Images
+        {
+            src: "assets/real-estate/real-estate-banner.jpg",
+            alt: "Real estate consulting services banner for Uttar Pradesh properties",
+            category: "realestate",
+            title: "Real Estate Services Banner"
+        },
+        {
+            src: "assets/real-estate/professional-agent.jpg",
+            alt: "Professional real estate agent consultation service in Uttar Pradesh",
+            category: "realestate",
+            title: "Professional Agent Consultation"
+        },
+        {
+            src: "assets/real-estate/professional-agent-x.jpg",
+            alt: "Real estate expert providing property consultation and valuation services",
+            category: "realestate",
+            title: "Real Estate Expert"
+        },
+        {
+            src: "assets/real-estate/family-home.jpg",
+            alt: "Family home property available for sale in Uttar Pradesh real estate",
+            category: "realestate",
+            title: "Family Home Property"
+        },
+        {
+            src: "assets/real-estate/luxury-apartment.jpg",
+            alt: "Luxury apartment for sale in Uttar Pradesh with modern amenities",
+            category: "realestate",
+            title: "Luxury Apartment"
+        },
+        {
+            src: "assets/real-estate/modern-villa.jpg",
+            alt: "Modern villa property available in Uttar Pradesh real estate market",
+            category: "realestate",
+            title: "Modern Villa Property"
+        },
+        {
+            src: "assets/real-estate/property-exterior-1.jpg",
+            alt: "Property exterior view showing architecture and design features",
+            category: "realestate",
+            title: "Property Exterior View"
+        },
+        {
+            src: "assets/real-estate/property-exterior-2.jpg",
+            alt: "Beautiful property exterior with garden and parking space",
+            category: "realestate",
+            title: "Property with Garden"
+        },
+        {
+            src: "assets/real-estate/property-interior-1.jpg",
+            alt: "Property interior showing modern living room design and decor",
+            category: "realestate",
+            title: "Modern Living Room Interior"
+        },
+        {
+            src: "assets/real-estate/property-interior-2.jpg",
+            alt: "Property interior showing bedroom design and furniture arrangement",
+            category: "realestate",
+            title: "Bedroom Interior Design"
+        },
+        
+        // Book Cover Images
+        {
+            src: "assets/pdf/cover_img/48_laws_power_full.jpg",
+            alt: "48 Laws of Power book cover - Robert Greene personal development book",
+            category: "books",
+            title: "48 Laws of Power"
+        },
+        {
+            src: "assets/pdf/cover_img/billionaire_habits.jpg",
+            alt: "Billionaire Habits book cover - Success principles and wealth building",
+            category: "books",
+            title: "Billionaire Habits Book"
+        },
+        {
+            src: "assets/pdf/cover_img/chanakya_neeti_dp.jpg",
+            alt: "Chanakya Neeti book cover - Ancient Indian wisdom and strategy",
+            category: "books",
+            title: "Chanakya Neeti"
+        },
+        {
+            src: "assets/pdf/cover_img/human_nature.jpg",
+            alt: "Human Nature book cover - Understanding psychology and behavior",
+            category: "books",
+            title: "Human Nature Book"
+        },
+        {
+            src: "assets/pdf/cover_img/mastery.jpg",
+            alt: "Mastery book cover - Robert Greene's guide to achieving excellence",
+            category: "books",
+            title: "Mastery Book"
+        },
+        {
+            src: "assets/pdf/cover_img/python_ai_evolution.jpg",
+            alt: "Python AI Evolution book cover - Artificial intelligence programming guide",
+            category: "books",
+            title: "Python AI Evolution"
+        },
+        {
+            src: "assets/pdf/cover_img/think_grow_rich.jpg",
+            alt: "Think and Grow Rich book cover - Napoleon Hill success philosophy",
+            category: "books",
+            title: "Think and Grow Rich"
+        },
+        {
+            src: "assets/pdf/cover_img/wings_of_fire.jpg",
+            alt: "Wings of Fire book cover - APJ Abdul Kalam autobiography",
+            category: "books",
+            title: "Wings of Fire"
+        },
+        {
+            src: "assets/pdf/cover_img/zero_to_one.jpg",
+            alt: "Zero to One book cover - Peter Thiel startup innovation guide",
+            category: "books",
+            title: "Zero to One Book"
+        },
+        
+        // Blog Images
+        {
+            src: "assets/blog-ai-integration.jpg",
+            alt: "AI Integration blog post featured image showing artificial intelligence in development",
+            category: "projects",
+            title: "AI Integration Blog"
+        },
+        {
+            src: "assets/blog-banner.jpg",
+            alt: "Blog section banner showcasing technical articles and tutorials",
+            category: "projects",
+            title: "Blog Banner"
+        },
+        {
+            src: "assets/blog-cuet.jpg",
+            alt: "CUET exam preparation blog post featured image",
+            category: "personal",
+            title: "CUET Exam Blog"
+        },
+        {
+            src: "assets/blog-database.jpg",
+            alt: "Database management blog post technical tutorial image",
+            category: "projects",
+            title: "Database Management Blog"
+        },
+        {
+            src: "assets/blog-deployment.jpg",
+            alt: "Application deployment guide blog post featured image",
+            category: "projects",
+            title: "Deployment Guide Blog"
+        },
+        {
+            src: "assets/blog-featured.jpg",
+            alt: "Featured blog post banner highlighting popular articles",
+            category: "projects",
+            title: "Featured Blog Post"
+        },
+        {
+            src: "assets/blog-freelance.jpg",
+            alt: "Freelance development blog post showing client projects",
+            category: "projects",
+            title: "Freelance Development Blog"
+        },
+        {
+            src: "assets/blog-python-flask.jpg",
+            alt: "Python Flask tutorial blog post technical guide image",
+            category: "projects",
+            title: "Python Flask Tutorial"
+        },
+        
+        // Collaboration and Contact Images
+        {
+            src: "assets/collaborate-banner.jpg",
+            alt: "Collaboration opportunities banner for project partnership",
+            category: "projects",
+            title: "Collaboration Banner"
+        },
+        {
+            src: "assets/contact-banner.jpg",
+            alt: "Contact information banner with communication channels",
+            category: "personal",
+            title: "Contact Banner"
+        },
+        {
+            src: "assets/library-banner.jpg",
+            alt: "Digital library banner showcasing book collection and resources",
+            category: "books",
+            title: "Digital Library Banner"
+        },
+        {
+            src: "assets/journey-quotes",
+            alt: "Journey quotes collection inspirational images and text",
+            category: "personal",
+            title: "Journey Quotes Collection"
+        }
+    ];
+
+    // Gallery Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const galleryContainer = document.getElementById('gallery-container');
+        const loading = document.getElementById('loading');
+        const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('img');
+        const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        const closeBtn = lightbox.querySelector('.lightbox-close');
+        const prevBtn = lightbox.querySelector('.lightbox-prev');
+        const nextBtn = lightbox.querySelector('.lightbox-next');
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        let currentIndex = 0;
+        let filteredImages = [];
+        
+        // Initialize Gallery
+        function initGallery() {
+            // Shuffle images for better display
+            const shuffledImages = [...galleryImages].sort(() => Math.random() - 0.5);
+            
+            // Render all images
+            shuffledImages.forEach((image, index) => {
+                const imgElement = document.createElement('div');
+                imgElement.className = 'gallery-item bg-white dark:bg-gray-800 rounded-lg overflow-hidden cursor-pointer';
+                imgElement.setAttribute('data-category', image.category);
+                imgElement.setAttribute('data-index', index);
+                
+                imgElement.innerHTML = `
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="${image.src}" 
+                            alt="${image.alt}"
+                            title="${image.title}"
+                            class="gallery-image w-full h-48 object-cover"
+                            loading="lazy"
+                            width="300"
+                            height="200"
+                            onerror="this.src='assets/profile.jpg'"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                            <div class="p-4 text-white">
+                                <h3 class="font-bold text-sm">${image.title}</h3>
+                                <p class="text-xs opacity-90">${image.category.toUpperCase()}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-medium text-gray-800 dark:text-gray-200 truncate">${image.title}</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">${image.category}</p>
+                    </div>
+                `;
+                
+                // Add click event to open lightbox
+                imgElement.addEventListener('click', () => openLightbox(index));
+                
+                galleryContainer.appendChild(imgElement);
+            });
+            
+            // Hide loading
+            loading.style.display = 'none';
+            
+            // Initialize filtered images
+            filteredImages = shuffledImages;
+        }
+        
+        // Filter Gallery
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter images
+                const items = galleryContainer.querySelectorAll('.gallery-item');
+                
+                items.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 100);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+                
+                // Update filtered images array
+                if (filter === 'all') {
+                    filteredImages = [...galleryImages];
+                } else {
+                    filteredImages = galleryImages.filter(img => img.category === filter);
+                }
+            });
+        });
+        
+        // Lightbox Functions
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function updateLightbox() {
+            const image = filteredImages[currentIndex];
+            lightboxImg.src = image.src;
+            lightboxImg.alt = image.alt;
+            lightboxCaption.textContent = `${image.title} - ${image.alt}`;
+        }
+        
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        function showNextImage() {
+            currentIndex = (currentIndex + 1) % filteredImages.length;
+            updateLightbox();
+        }
+        
+        function showPrevImage() {
+            currentIndex = (currentIndex - 1 + filteredImages.length) % filteredImages.length;
+            updateLightbox();
+        }
+        
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'block') {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') showNextImage();
+                if (e.key === 'ArrowLeft') showPrevImage();
+            }
+        });
+        
+        // Lightbox Event Listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        nextBtn.addEventListener('click', showNextImage);
+        prevBtn.addEventListener('click', showPrevImage);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        
+        // Back to Top Button
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Initialize
+        initGallery();
+        
+        // Add gallery to sitemap automatically
+        if (window.location.pathname.includes('gallery.html')) {
+            // This page is already gallery
+            console.log('Gallery page loaded successfully');
+        }
+    });
+</script>
+</body>
+</html>
