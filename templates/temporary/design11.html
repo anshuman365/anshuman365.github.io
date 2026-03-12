@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evermore Sovereign | The Standard of Excellence</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;700&family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --text: #ffffff;
+            --gold: #b8924e;
+            --border: rgba(255, 255, 255, 0.1);
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Inter', sans-serif;
+            --ease: cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Global Grid Layout --- */
+        .container { width: 100%; padding: 0 5%; }
+
+        /* --- Navigation: Precision Floating --- */
+        nav {
+            position: fixed; top: 30px; left: 5%; width: 90%;
+            height: 80px; display: flex; justify-content: space-between;
+            align-items: center; z-index: 1000;
+            padding: 0 40px; background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px); border: 1px solid var(--border);
+        }
+        .nav-brand { font-family: var(--font-serif); font-size: 1.8rem; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { 
+            text-decoration: none; color: white; font-size: 0.7rem; 
+            text-transform: uppercase; letter-spacing: 3px; font-weight: 700;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 0; height: 1px; background: var(--gold); transition: 0.4s var(--ease);
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* --- Hero: SVG Masked Depth --- */
+        .hero {
+            height: 100vh; width: 100%; position: relative;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; width: 100%; height: 100%;
+            object-fit: cover; z-index: 1; filter: brightness(0.4);
+        }
+        .hero-content {
+            position: relative; z-index: 10; text-align: center;
+        }
+        .hero-title {
+            font-family: var(--font-serif); font-size: clamp(4rem, 12vw, 10rem);
+            line-height: 0.9; font-weight: 300;
+        }
+        .hero-title span { font-style: italic; color: var(--gold); }
+
+        /* --- Reveal Section: Industrial Grid --- */
+        .grid-reveal {
+            padding: 150px 0; display: grid;
+            grid-template-columns: repeat(12, 1fr); gap: 20px;
+        }
+        .grid-item { position: relative; overflow: hidden; }
+        .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s var(--ease); }
+        .grid-item:hover img { transform: scale(1.1); }
+        
+        .gi-1 { grid-column: 1 / 6; height: 700px; }
+        .gi-2 { grid-column: 7 / 13; height: 500px; margin-top: 200px; }
+        .gi-3 { grid-column: 4 / 9; height: 600px; margin-top: -100px; }
+
+        .item-label {
+            position: absolute; bottom: 30px; left: 30px;
+            font-family: var(--font-serif); font-size: 2rem;
+        }
+
+        /* --- Content Block: The "Axiom" --- */
+        .axiom {
+            padding: 200px 10%; border-top: 1px solid var(--border);
+            display: flex; flex-direction: column; align-items: flex-start;
+        }
+        .axiom-tag { color: var(--gold); text-transform: uppercase; letter-spacing: 5px; font-size: 0.8rem; margin-bottom: 40px; }
+        .axiom-text {
+            font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 4.5rem);
+            line-height: 1.2; font-weight: 300; max-width: 1000px;
+        }
+
+        /* --- The Faculty Bento System --- */
+        .bento { padding: 100px 5%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .bento-card {
+            background: #111; padding: 60px; border: 1px solid var(--border);
+            display: flex; flex-direction: column; justify-content: space-between;
+            min-height: 450px; transition: 0.5s var(--ease);
+        }
+        .bento-card:hover { border-color: var(--gold); background: #161616; }
+        .bc-num { font-size: 0.8rem; color: var(--gold); margin-bottom: 20px; }
+        .bc-title { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 20px; }
+        .bc-desc { font-size: 0.9rem; color: #888; line-height: 1.8; }
+
+        /* --- Footer --- */
+        footer {
+            padding: 100px 5% 50px; background: #000;
+            border-top: 1px solid var(--border);
+        }
+        .footer-main { display: flex; justify-content: space-between; margin-bottom: 100px; }
+        .f-col h4 { color: var(--gold); text-transform: uppercase; font-size: 0.7rem; margin-bottom: 30px; }
+        .f-col p { font-size: 1.2rem; margin-bottom: 10px; }
+
+        /* Custom Scroll Progress */
+        #progress {
+            position: fixed; top: 0; left: 0; width: 0%; height: 3px;
+            background: var(--gold); z-index: 2000;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="progress"></div>
+
+    <nav>
+        <div class="nav-brand">EVERMORE.</div>
+        <div class="nav-links">
+            <a href="#">Curriculum</a>
+            <a href="#">Heritage</a>
+            <a href="#">Admission</a>
+            <a href="#">Archives</a>
+        </div>
+        <div class="nav-cta"><button style="background: var(--gold); color: white; border: none; padding: 12px 25px; font-weight: 700; cursor: pointer;">APPLY PORTAL</button></div>
+    </nav>
+
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe1?auto=format&fit=crop&w=1920" class="hero-bg" alt="University Campus">
+        <div class="hero-content">
+            <h1 class="hero-title">Shaping <span>Human</span><br>Potential.</h1>
+            <p style="letter-spacing: 10px; margin-top: 30px; opacity: 0.6;">ESTABLISHED 1892 — ACADEMIA SUPERIOR</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="grid-reveal">
+            <div class="grid-item gi-1">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800" alt="1">
+                <div class="item-label">The Archive</div>
+            </div>
+            <div class="grid-item gi-2">
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800" alt="2">
+                <div class="item-label">Campus Life</div>
+            </div>
+            <div class="grid-item gi-3">
+                <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=800" alt="3">
+                <div class="item-label">Research</div>
+            </div>
+        </section>
+    </div>
+
+    <section class="axiom">
+        <span class="axiom-tag">Our Philosophy</span>
+        <h2 class="axiom-text">
+            We do not simply educate; we cultivate the intellectual sovereignty required to navigate a complex global landscape.
+        </h2>
+    </section>
+
+    <section class="bento">
+        <div class="bento-card">
+            <div class="bc-num">/01</div>
+            <div>
+                <h3 class="bc-title">Global Leadership</h3>
+                <p class="bc-desc">Integrating ethical policy-making with advanced geopolitical strategy to forge the leaders of the next century.</p>
+            </div>
+        </div>
+        <div class="bento-card">
+            <div class="bc-num">/02</div>
+            <div>
+                <h3 class="bc-title">Neural Research</h3>
+                <p class="bc-desc">Bridging the gap between biological intelligence and synthetic systems in our world-renowned labs.</p>
+            </div>
+        </div>
+        <div class="bento-card">
+            <div class="bc-num">/03</div>
+            <div>
+                <h3 class="bc-title">The Humanities</h3>
+                <p class="bc-desc">Re-evaluating classical wisdom in the digital age to preserve the essence of human creative spirit.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-main">
+            <div class="f-col">
+                <div class="nav-brand" style="margin-bottom: 40px;">EVERMORE.</div>
+                <p>123 University Avenue</p>
+                <p>Cambridge, MA 02138</p>
+            </div>
+            <div class="f-col">
+                <h4>Inquiries</h4>
+                <p>admissions@evermore.edu</p>
+                <p>+1 (555) 012-3456</p>
+            </div>
+            <div class="f-col">
+                <h4>Connect</h4>
+                <p>LinkedIn</p>
+                <p>Institutional Press</p>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid var(--border); padding-top: 40px; font-size: 0.8rem; color: #555;">
+            © 2026 EVERMORE SOVEREIGN. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Scroll Progress Bar
+        gsap.to("#progress", {
+            scrollTrigger: { scrub: 0.3 },
+            width: "100%"
+        });
+
+        // 2. Hero Text Animation
+        gsap.from(".hero-title", {
+            y: 100, opacity: 0, duration: 1.5, ease: "power4.out", delay: 0.5
+        });
+
+        // 3. Image Grid Parallax (The "Perfect" Feel)
+        gsap.utils.toArray(".grid-item img").forEach(img => {
+            gsap.to(img, {
+                scrollTrigger: {
+                    trigger: img,
+                    start: "top bottom",
+                    scrub: true
+                },
+                scale: 1.2,
+                y: -50
+            });
+        });
+
+        // 4. Axiom Text Reveal
+        gsap.from(".axiom-text", {
+            scrollTrigger: {
+                trigger: ".axiom",
+                start: "top 80%",
+            },
+            y: 50, opacity: 0, duration: 1.5, ease: "power4.out"
+        });
+
+        // 5. Bento Card Stagger
+        gsap.from(".bento-card", {
+            scrollTrigger: {
+                trigger: ".bento",
+                start: "top 70%"
+            },
+            y: 100, opacity: 0, duration: 1, stagger: 0.2
+        });
+
+    </script>
+</body>
+</html>

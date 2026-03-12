@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | Future of Design</title>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --accent: #a855f7;
+            --bg: #030712;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- Animated Background --- */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% -20%, #312e81 0%, transparent 50%),
+                        radial-gradient(circle at 0% 100%, #1e1b4b 0%, transparent 40%);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 10%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+        .nav-links a { color: #94a3b8; text-decoration: none; margin-left: 2rem; transition: 0.3s; }
+        .nav-links a:hover { color: white; }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1.1;
+            background: linear-gradient(to bottom right, #fff 30%, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            max-width: 600px;
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-btn {
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            border: none;
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.4s;
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+        }
+
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 20px 30px -5px rgba(99, 102, 241, 0.6); }
+
+        /* --- Bento Grid Section --- */
+        .features { padding: 100px 10%; }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 300px);
+            gap: 20px;
+        }
+
+        .bento-item {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .bento-item:hover { border-color: var(--primary); background: rgba(255,255,255,0.05); }
+
+        .item-1 { grid-column: span 2; }
+        .item-2 { grid-column: span 2; }
+        .item-3 { grid-column: span 1; }
+        .item-4 { grid-column: span 3; }
+
+        .bento-item img {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: auto;
+            opacity: 0.6;
+            mask-image: linear-gradient(to top, black, transparent);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 50px 10%;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            color: #4b5563;
+        }
+
+        @media (max-width: 768px) {
+            .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .item-1, .item-2, .item-3, .item-4 { grid-column: span 1; height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <nav>
+        <div class="logo">NEXUS.</div>
+        <div class="nav-links">
+            <a href="#">Work</a>
+            <a href="#">Features</a>
+            <a href="#">Pricing</a>
+            <button class="cta-btn" style="padding: 0.6rem 1.5rem; margin-left: 1.5rem;">Join</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1 class="reveal">Intelligence<br>Meets Aesthetics.</h1>
+        <p class="reveal">Experience the next generation of digital interfaces built with cutting-edge glassmorphism and fluid motion.</p>
+        <div class="reveal">
+            <button class="cta-btn">Start Creating</button>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="bento-grid">
+            <div class="bento-item item-1 reveal">
+                <h3>Visual Precision</h3>
+                <p>Pixel perfect renders for every screen.</p>
+                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&w=400&q=80" alt="Abstract">
+            </div>
+            <div class="bento-item item-2 reveal">
+                <h3>Real-time Sync</h3>
+                <p>Collaborate across the globe instantly.</p>
+                <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=400&q=80" alt="Code">
+            </div>
+            <div class="bento-item item-3 reveal">
+                <h3>Secure</h3>
+                <p>End-to-end encryption.</p>
+            </div>
+            <div class="bento-item item-4 reveal">
+                <h3>Cloud Infrastructure</h3>
+                <p>Scalable power at your fingertips.</p>
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Earth">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Nexus Design Lab. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Initialize ScrollReveal for advanced entry animations
+        ScrollReveal().reveal('.reveal', {
+            distance: '50px',
+            duration: 1000,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)',
+            interval: 200,
+            origin: 'bottom'
+        });
+
+        // Mouse move effect for background glow
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.querySelector('.bg-glow');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            glow.style.background = `radial-gradient(circle at ${x}% ${y}%, #312e81 0%, transparent 50%)`;
+        });
+    </script>
+</body>
+</html>

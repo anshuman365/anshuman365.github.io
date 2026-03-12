@@ -456,9 +456,8 @@
         AI-Powered Developer • <span class="text-yellow-300">Massive 60+ Project Portfolio</span> • Multi-Disciplinary Expert
       </h1>
       <p class="text-xl opacity-90 mb-8 max-w-xl leading-relaxed">
-        12th Pass Developer with <span class="font-bold">massive collection of 60+ production-grade projects</span> built using AI as co-developer. 
-        Created enterprise-level applications including AI platforms, real-time systems, and full-stack solutions. 
-        Currently preparing for NIT while building my path to entrepreneurship.
+        Developer with a <span class="font-bold">massive collection of 60+ production-grade projects</span> built using AI-assisted development. 
+        Experienced in building AI platforms, real-time systems, and full-stack applications.
       </p>
       <div class="flex flex-wrap gap-4">
         <a href="#projects" class="bg-white text-primary px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center">
@@ -656,102 +655,265 @@
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-dark dark:text-white">Featured Production Projects</h2>
     <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">
-      Showcasing real, deployed applications from my massive collection of 60+ production-grade projects
+      Showcasing real, deployed applications from my collection of 60+ production-grade projects
     </p>
-    
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Personal Bank Demo Project Card -->
+
+      <!-- FleetOps v3.0 -->
       <div class="project-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden card-hover">
-        <div class="h-48 bg-gradient-to-r from-blue-600 to-indigo-800 flex flex-col items-center justify-center overflow-hidden">
-          <img src="assets/bank_banner.jpg" alt="Personal Bank Demo - Modern Banking UI Template" 
-               class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="h-48 relative overflow-hidden">
+          <!-- Unsplash: trucks on highway / logistics -->
+          <img
+            src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=300&fit=crop&auto=format&q=80"
+            alt="FleetOps – truck logistics management platform"
+            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+            width="600" height="300"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <!-- Fallback gradient -->
+          <div style="display:none" class="w-full h-full bg-gradient-to-r from-blue-800 to-indigo-900 flex items-center justify-center">
+            <i class="fas fa-truck text-white text-6xl opacity-40"></i>
+          </div>
+          <!-- Status badge -->
+          <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">
+            Live
+          </span>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Personal Bank Demo App</h3>
+          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">FleetOps v3.0 – Truck Logistics</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A responsive banking template showcasing modern UI/UX design for financial applications with clean interface and intuitive user experience.
+            Complete logistics management with Flask + React, JWT authentication, Razorpay payments, email verification, and advanced Leaflet.js route planner using OSRM — tailored for Indian logistics.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">HTML/CSS</span>
-            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">JavaScript</span>
-            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Responsive</span>
-            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">UI/UX</span>
+            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Flask</span>
+            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">React</span>
+            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">JWT</span>
+            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Leaflet</span>
           </div>
           <div class="flex justify-between items-center mt-4">
-            <a href="https://personalbanks.github.io/" target="_blank" class="text-primary dark:text-blue-300 font-semibold hover:underline flex items-center">
+            <a href="https://fleetops-altivonholdings.onrender.com" class="text-primary dark:text-blue-300 font-semibold hover:underline flex items-center">
               Live Demo <i class="fas fa-external-link-alt ml-2"></i>
             </a>
-            <a href="https://github.com/personalbanks/personalbanks.github.io" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-300">
+            <a href="https://github.com/anshuman365/fleetops" target="_blank" rel="noopener" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-300">
               <i class="fab fa-github text-lg"></i>
             </a>
           </div>
         </div>
       </div>
-      
-      <!-- Serenity AI Project Card -->
+
+      <!-- InvoiceFlow -->
       <div class="project-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden card-hover">
-        <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex flex-col items-center justify-center relative overflow-hidden">
-          <img src="assets/serenity_banner.jpg" alt="Serenity AI - Neural Ecosystem" 
-               class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" loading="lazy">
-          <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 z-10">
-            <i class="fas fa-infinity text-white text-xl"></i>
+        <div class="h-48 relative overflow-hidden">
+          <!-- Unsplash: desk with notebook, finances, clean minimal -->
+          <img
+            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=300&fit=crop&auto=format&q=80"
+            alt="InvoiceFlow – invoice and billing management system"
+            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+            width="600" height="300"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div style="display:none" class="w-full h-full bg-gradient-to-r from-green-700 to-teal-700 flex items-center justify-center">
+            <i class="fas fa-file-invoice-dollar text-white text-6xl opacity-40"></i>
           </div>
+          <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">
+            Deployed
+          </span>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Serenity AI - Neural Ecosystem</h3>
+          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">InvoiceFlow – Invoice Management</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Next-generation AI companion with Gemini 2.0 Flash, autonomous web browsing, FLUX image generation, and real-time information synthesis.
+            Full-stack invoicing platform with Flask backend and React frontend. Deployed on Render, with Cloudflare tunnel header-stripping resolution for reliable JWT authentication.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 px-3 py-1 rounded-full text-sm">Flask</span>
+            <span class="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 px-3 py-1 rounded-full text-sm">React</span>
+            <span class="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 px-3 py-1 rounded-full text-sm">Render</span>
+            <span class="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 px-3 py-1 rounded-full text-sm">JWT</span>
+          </div>
+          <div class="flex justify-between items-center mt-4">
+            <a href="https://invoiceflow-clxz.onrender.com" class="text-primary dark:text-blue-300 font-semibold hover:underline flex items-center">
+              Live Demo <i class="fas fa-external-link-alt ml-2"></i>
+            </a>
+            <a href="https://github.com/anshuman365/invoiceflow_frontend" target="_blank" rel="noopener" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-300">
+              <i class="fab fa-github text-lg"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rajdari WaterPark -->
+      <div class="project-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden card-hover">
+        <div class="h-48 relative overflow-hidden">
+          <!-- Unsplash: aerial waterpark with colorful slides and pools -->
+          <img
+            src="https://images.unsplash.com/photo-1582192730841-2a682d7375f9?w=600&h=300&fit=crop&auto=format&q=80"
+            alt="Rajdari WaterPark management system"
+            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+            width="600" height="300"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div style="display:none" class="w-full h-full bg-gradient-to-r from-cyan-600 to-blue-600 flex items-center justify-center">
+            <i class="fas fa-water text-white text-6xl opacity-40"></i>
+          </div>
+          <span class="absolute top-3 right-3 bg-blue-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">
+            Local Deploy
+          </span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Rajdari WaterPark Management</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Large-scale Flask app running on Termux (Android). Features 24 SQLAlchemy models, 8 blueprints, Razorpay integration, QR code ticket generation, role-based access, and walk-in booking.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300 px-3 py-1 rounded-full text-sm">Flask</span>
+            <span class="bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300 px-3 py-1 rounded-full text-sm">SQLAlchemy</span>
+            <span class="bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300 px-3 py-1 rounded-full text-sm">Razorpay</span>
+            <span class="bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300 px-3 py-1 rounded-full text-sm">QR</span>
+          </div>
+          <div class="flex justify-between items-center mt-4">
+            <a href="projects/casestudy/rajdari.html" class="text-primary dark:text-blue-300 font-semibold hover:underline flex items-center">
+              Case Study <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            <span class="text-gray-400 dark:text-gray-600 text-sm italic">Private Repo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technological Chromesthesia -->
+      <div class="project-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden card-hover">
+        <div class="h-48 relative overflow-hidden">
+          <!-- Unsplash: colorful equalizer / light waves / spectrum -->
+          <img
+            src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=300&fit=crop&auto=format&q=80"
+            alt="Technological Chromesthesia – sound to color mapping"
+            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+            width="600" height="300"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div style="display:none" class="w-full h-full bg-gradient-to-r from-purple-700 to-pink-700 flex items-center justify-center">
+            <i class="fas fa-music text-white text-6xl opacity-40"></i>
+          </div>
+          <span class="absolute top-3 right-3 bg-purple-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">
+            Live
+          </span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Technological Chromesthesia</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Sound-to-color translation tool built with Flask, NumPy, SciPy, and Pillow. Uses SSE streaming instead of Socket.IO for real-time visual feedback from audio input.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 px-3 py-1 rounded-full text-sm">Flask</span>
+            <span class="bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 px-3 py-1 rounded-full text-sm">NumPy</span>
+            <span class="bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 px-3 py-1 rounded-full text-sm">SciPy</span>
+            <span class="bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 px-3 py-1 rounded-full text-sm">SSE</span>
+          </div>
+          <div class="flex justify-between items-center mt-4">
+            <a href="projects/casestudy/chromesthesis.html" class="text-primary dark:text-blue-300 font-semibold hover:underline flex items-center">
+              Case Study <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            <span class="text-gray-400 dark:text-gray-600 text-sm italic">Private Repo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Serenity AI -->
+      <div class="project-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden card-hover">
+        <div class="h-48 relative overflow-hidden">
+          <!-- Unsplash: abstract dark glowing AI / digital brain -->
+          <img
+            src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&h=300&fit=crop&auto=format&q=80"
+            alt="Serenity AI – intelligent neural companion"
+            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+            width="600" height="300"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div style="display:none" class="w-full h-full bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+            <i class="fas fa-brain text-white text-6xl opacity-40"></i>
+          </div>
+          <!-- Infinity icon overlay -->
+          <div class="absolute top-3 right-3 bg-white/15 backdrop-blur-sm rounded-full p-2">
+            <i class="fas fa-infinity text-white text-sm"></i>
+          </div>
+          <span class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">
+            Live
+          </span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">Serenity AI – Neural Ecosystem</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Next-generation AI companion powered by Gemini 2.0 Flash with autonomous web browsing, FLUX image generation, and real-time information synthesis via SSE streaming.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 px-3 py-1 rounded-full text-sm">AI Companion</span>
             <span class="bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 px-3 py-1 rounded-full text-sm">Gemini 2.0</span>
-            <span class="bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300 px-3 py-1 rounded-full text-sm">Web Intelligence</span>
+            <span class="bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300 px-3 py-1 rounded-full text-sm">Web Intel</span>
             <span class="bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300 px-3 py-1 rounded-full text-sm">React</span>
           </div>
           <div class="flex justify-between items-center mt-4">
-            <a href="https://serenity-ai-techexpert.onrender.com/" target="_blank" class="text-primary dark:text-blue-300 font-semibold hover:underline flex items-center">
+            <a href="https://serenity-ai-techexpert.onrender.com/" target="_blank" rel="noopener" class="text-primary dark:text-blue-300 font-semibold hover:underline flex items-center">
               Live Demo <i class="fas fa-external-link-alt ml-2"></i>
             </a>
-            <a href="https://github.com/anshuman365/serenity-ai" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-300">
+            <a href="https://github.com/anshuman365/serenity-ai" target="_blank" rel="noopener" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-300">
               <i class="fab fa-github text-lg"></i>
             </a>
           </div>
         </div>
       </div>
-      
-      <!-- PyFusion Project Card -->
+
+      <!-- PyFusion -->
       <div class="project-card bg-white dark:bg-dark-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden card-hover">
-        <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex flex-col items-center justify-center">
-          <img src="assets/pyfusion.jpg" alt="PyFusion - All-in-One Python Framework" 
-               class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="h-48 relative overflow-hidden">
+          <!-- Unsplash: Python code on dark screen -->
+          <img
+            src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600&h=300&fit=crop&auto=format&q=80"
+            alt="PyFusion – all-in-one Python framework published on PyPI"
+            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+            width="600" height="300"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div style="display:none" class="w-full h-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+            <i class="fab fa-python text-white text-6xl opacity-40"></i>
+          </div>
+          <span class="absolute top-3 right-3 bg-yellow-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">
+            Open Source
+          </span>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">PyFusion - Python Framework</h3>
+          <h3 class="text-xl font-bold mb-3 text-dark dark:text-white">PyFusion – Python Framework</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            All-in-One Python framework with built-in web server, database manager, HTTP client, and utilities for rapid development.
+            All-in-one Python framework with a built-in web server, database manager, HTTP client, and developer utilities. Published on PyPI as <code class="bg-gray-100 dark:bg-gray-700 px-1 rounded text-sm">pyfusion-v1</code>.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-primary/10 text-primary dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Python</span>
-            <span class="bg-primary/10 text-primary dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Flask</span>
-            <span class="bg-primary/10 text-primary dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">SQLite</span>
-            <span class="bg-primary/10 text-primary dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Open Source</span>
+            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Python</span>
+            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Flask</span>
+            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">SQLite</span>
+            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-full text-sm">Open Source</span>
           </div>
           <div class="flex justify-between items-center mt-4">
             <a href="pyfusion.html" class="text-primary dark:text-blue-300 font-semibold hover:underline flex items-center">
               Learn More <i class="fas fa-arrow-right ml-2"></i>
             </a>
-            <div class="flex space-x-2">
-              <a href="https://pypi.org/project/pyfusion-v1/" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-300">
+            <div class="flex space-x-3">
+              <a href="https://pypi.org/project/pyfusion-v1/" target="_blank" rel="noopener" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-300" title="PyPI">
                 <i class="fab fa-python text-lg"></i>
               </a>
-              <a href="https://github.com/anshuman365/pyfusion" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-300">
+              <a href="https://github.com/anshuman365/pyfusion" target="_blank" rel="noopener" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-blue-300" title="GitHub">
                 <i class="fab fa-github text-lg"></i>
               </a>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+    </div><!-- /grid -->
 
     <div class="text-center mt-12">
       <a href="projects.html" class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition inline-flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
@@ -761,6 +923,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- About Section -->
 <section id="about" class="py-16 bg-white dark:bg-dark-card">
@@ -781,7 +944,7 @@
           <h2 class="text-3xl md:text-4xl font-bold mb-6 text-dark dark:text-white">My Multi-Disciplinary Journey</h2>
           <div class="prose prose-lg dark:prose-invert mb-8">
             <p class="text-gray-700 dark:text-gray-300 mb-4">
-              I'm a 12th pass developer currently building my path to entrepreneurship through <span class="font-semibold text-primary dark:text-blue-400">AI-powered development</span> across multiple domains. Despite being in a drop year, I've created a <span class="font-bold text-green-600 dark:text-green-400">massive collection of 60+ production-grade systems</span> using AI as my co-developer.
+              I'm a developer building my path to entrepreneurship through <span class="font-semibold text-primary dark:text-blue-400">AI-powered development</span> across multiple domains.
             </p>
 
             <!-- ======= IN-CONTENT AD ======= -->

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lontroette - Modern Creative Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #ffffff;
+        }
+        
+        /* Custom Gradient for Hero Background */
+        .hero-gradient {
+            background: linear-gradient(180deg, #b0e0ff 0%, #ffffff 100%);
+        }
+
+        /* Abstract Shape Overlay (Floating effect) */
+        .floating-shape {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        /* Feature Card hover effect */
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Responsive adjustments for the custom purple blob/crystal */
+        .hero-image-container {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="absolute top-0 left-0 w-full z-50 px-6 py-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="text-xl font-bold tracking-tighter text-gray-800">
+                Lontroette
+            </div>
+            
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+                <a href="#" class="hover:text-blue-500 transition">Solutions</a>
+                <a href="#" class="hover:text-blue-500 transition">About Us</a>
+                <a href="#" class="hover:text-blue-500 transition">Community</a>
+                <a href="#" class="hover:text-blue-500 transition">Pricing</a>
+                <a href="#" class="hover:text-blue-500 transition">Support</a>
+            </div>
+
+            <button class="bg-[#4fbaff] hover:bg-blue-400 text-white px-6 py-2 rounded-lg text-sm font-semibold transition shadow-lg">
+                Get Started
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient relative pt-32 pb-20 md:pt-48 md:pb-32 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+            
+            <!-- Hero Text -->
+            <div class="z-20">
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-800 leading-tight mb-6">
+                    Lontroette <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">beedthin</span>
+                </h1>
+                <p class="text-gray-500 text-lg max-w-md mb-10 leading-relaxed">
+                    Elevate your digital presence with our high-end design solutions. Built for modern creators who demand excellence and precision.
+                </p>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-[#ff5d5d] hover:bg-red-500 text-white px-8 py-4 rounded-xl font-bold transition shadow-xl transform active:scale-95">
+                        Discover More
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hero Image (The Purple Crystal/Blob) -->
+            <div class="hero-image-container flex justify-center items-center">
+                <div class="floating-shape relative">
+                    <!-- Using a high-quality abstract purple 3D render from Unsplash -->
+                    <img 
+                        src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" 
+                        alt="Abstract 3D Purple Shape" 
+                        class="w-full max-w-[500px] rounded-3xl shadow-2xl mix-blend-multiply opacity-90 grayscale-[10%] contrast-125"
+                        onerror="this.src='https://via.placeholder.com/500x600/7c3aed/ffffff?text=Abstract+Art'"
+                    >
+                    <!-- Decorative Glow behind image -->
+                    <div class="absolute -inset-4 bg-purple-400 opacity-20 blur-3xl rounded-full -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Section -->
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-12">
+                
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="mb-4">
+                        <span class="inline-flex items-center justify-center p-3 bg-blue-100 rounded-xl text-blue-600 shadow-sm">
+                            <i class="fa-solid fa-layer-group text-xl"></i>
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 tracking-tight">Innovative Design</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        We blend aesthetics with functionality to create seamless experiences that captivate and convert users across all devices.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="mb-4">
+                        <span class="inline-flex items-center justify-center p-3 bg-blue-100 rounded-xl text-blue-600 shadow-sm">
+                            <i class="fa-solid fa-bolt text-xl"></i>
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 tracking-tight">Blazing Fast Speed</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Optimized for performance, ensuring your landing page loads instantly and provides a smooth, lag-free interaction.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="mb-4">
+                        <span class="inline-flex items-center justify-center p-3 bg-blue-100 rounded-xl text-blue-600 shadow-sm">
+                            <i class="fa-solid fa-shield-halved text-xl"></i>
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 tracking-tight">Secure & Scalable</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Built with security in mind, our architecture scales effortlessly as your business grows and your traffic increases.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="mb-4">
+                        <span class="inline-flex items-center justify-center p-3 bg-blue-100 rounded-xl text-blue-600 shadow-sm">
+                            <i class="fa-solid fa-chart-line text-xl"></i>
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 tracking-tight">Growth Focused</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Data-driven insights integrated directly into your workflow to help you make informed decisions for your brand.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="mb-4">
+                        <span class="inline-flex items-center justify-center p-3 bg-blue-100 rounded-xl text-blue-600 shadow-sm">
+                            <i class="fa-solid fa-compass text-xl"></i>
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 tracking-tight">Global Reach</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Expand your boundaries with localized content support and a design that resonates with audiences worldwide.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card">
+                    <div class="mb-4">
+                        <span class="inline-flex items-center justify-center p-3 bg-blue-100 rounded-xl text-blue-600 shadow-sm">
+                            <i class="fa-solid fa-headset text-xl"></i>
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 tracking-tight">24/7 Support</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Our dedicated team is always available to help you navigate challenges and ensure your success online.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Space (To match the layout padding) -->
+    <footer class="py-12 border-t border-gray-100 text-center">
+        <p class="text-gray-400 text-xs">© 2024 Lontroette Design. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Optional: Simple scroll animation effect for features
+        const cards = document.querySelectorAll('.feature-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            card.classList.add('transition', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
+

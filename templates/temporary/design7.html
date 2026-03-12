@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evermore Academy | Excellence in Education</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #0a192f;
+            --gold: #c5a059;
+            --white: #ffffff;
+            --cream: #f8f9fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white);
+            color: var(--navy);
+            overflow-x: hidden;
+        }
+
+        /* --- Custom Cursor --- */
+        #cursor {
+            width: 20px; height: 20px;
+            background: var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: absolute;
+            top: 0; width: 100%;
+            display: flex; justify-content: space-between;
+            align-items: center;
+            padding: 30px 5%;
+            z-index: 100;
+            color: white;
+        }
+
+        .logo { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; border-bottom: 2px solid var(--gold); }
+
+        .nav-links a { color: white; text-decoration: none; margin-left: 30px; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .hero-img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            transform: scale(1.1); /* For parallax start */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 10vw, 7rem);
+            line-height: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        /* --- Statistics Overlap Section --- */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            background: var(--navy);
+            color: white;
+            padding: 60px 10%;
+            margin-top: -50px;
+            position: relative;
+            z-index: 20;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .stat-item h2 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--gold); }
+
+        /* --- Content Section --- */
+        .content-sec {
+            padding: 150px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .image-stack {
+            position: relative;
+        }
+
+        .main-img { width: 80%; border-radius: 5px; }
+        .sub-img { 
+            position: absolute; 
+            bottom: -50px; right: 0; 
+            width: 50%; 
+            border: 10px solid white; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+        }
+
+        .text-area h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            transition: 0.4s;
+            font-weight: 600;
+        }
+
+        .btn-gold:hover { background: var(--gold); color: white; }
+
+        @media (max-width: 768px) {
+            .content-sec { grid-template-columns: 1fr; text-align: center; }
+            .stats-container { flex-direction: column; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cursor"></div>
+
+    <nav>
+        <div class="logo">EVERMORE</div>
+        <div class="nav-links">
+            <a href="#">Admissions</a>
+            <a href="#">Academics</a>
+            <a href="#">Campus</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe1?auto=format&fit=crop&w=1920&q=100" class="hero-img" alt="University">
+        <div class="hero-content">
+            <p>ESTABLISHED 1892</p>
+            <h1>Shaping Future<br>Leaders.</h1>
+        </div>
+    </section>
+
+    <section class="stats-container">
+        <div class="stat-item">
+            <h2>98%</h2>
+            <p>Ivy League Placement</p>
+        </div>
+        <div class="stat-item">
+            <h2>12:1</h2>
+            <p>Student-Teacher Ratio</p>
+        </div>
+        <div class="stat-item">
+            <h2>45+</h2>
+            <p>Global Campuses</p>
+        </div>
+    </section>
+
+    <section class="content-sec">
+        <div class="image-stack">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80" class="main-img" alt="Library">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80" class="sub-img" alt="Students">
+        </div>
+        <div class="text-area">
+            <h2>A Tradition of Academic Brilliance</h2>
+            <p>At Evermore Academy, we believe education is more than just curriculum—it's about character, curiosity, and the courage to lead. Our historic campus provides the perfect environment for intellectual growth.</p>
+            <a href="#" class="btn-gold">Explore our Programs</a>
+        </div>
+    </section>
+
+    <script>
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Smooth Hero Parallax
+        gsap.to(".hero-img", {
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            },
+            y: 200,
+            scale: 1.3
+        });
+
+        // 2. Hero Text Entry
+        gsap.from(".hero-content h1", {
+            duration: 1.5,
+            y: 100,
+            opacity: 0,
+            ease: "power4.out",
+            delay: 0.5
+        });
+
+        // 3. Reveal Stats on Scroll
+        gsap.from(".stat-item", {
+            scrollTrigger: ".stats-container",
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2
+        });
+
+        // 4. Custom Cursor Movement
+        document.addEventListener("mousemove", (e) => {
+            gsap.to("#cursor", {
+                x: e.clientX - 10,
+                y: e.clientY - 10,
+                duration: 0.1
+            });
+        });
+
+        // 5. Image Stack Animation
+        gsap.from(".main-img", {
+            scrollTrigger: ".image-stack",
+            x: -100,
+            opacity: 0,
+            duration: 1.5
+        });
+        gsap.from(".sub-img", {
+            scrollTrigger: ".image-stack",
+            x: 100,
+            opacity: 0,
+            duration: 1.5,
+            delay: 0.3
+        });
+    </script>
+</body>
+</html>

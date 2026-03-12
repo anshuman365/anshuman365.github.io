@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evermore University | The Pinnacle of Global Education</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #b8924e;
+            --accent-light: #dfc28d;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --bg-soft: #fcfaf7;
+            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* Base Setup */
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        html { scroll-behavior: initial; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: var(--bg-soft); 
+            color: var(--text-main); 
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
+
+        /* --- Advanced Loader --- */
+        #loader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--primary); z-index: 10000;
+            display: flex; justify-content: center; align-items: center; color: var(--accent);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 30px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: var(--transition);
+        }
+        nav.scrolled {
+            padding: 15px 5%; background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px); border-bottom: 1px solid rgba(184, 146, 78, 0.2);
+        }
+        .logo-wrap { display: flex; align-items: center; gap: 15px; color: var(--white); text-decoration: none; }
+        .logo-icon { width: 45px; height: 45px; border: 2px solid var(--accent); transform: rotate(45deg); display: flex; align-items: center; justify-content: center; }
+        .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; letter-spacing: 1px; }
+        
+        .nav-menu { display: flex; gap: 40px; list-style: none; }
+        .nav-menu a { color: var(--white); text-decoration: none; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; position: relative; }
+        .nav-menu a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--accent); transition: var(--transition); }
+        .nav-menu a:hover::after { width: 100%; }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 110vh; width: 100%; position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .hero-video-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(15,23,42,0.7), rgba(15,23,42,0.3), var(--bg-soft));
+            z-index: 2;
+        }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; transform: scale(1.1);
+        }
+        .hero-content {
+            position: relative; z-index: 10; text-align: center; color: var(--white);
+            max-width: 1000px; padding: 0 20px;
+        }
+        .hero-tag { font-size: 1rem; letter-spacing: 6px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: block; }
+        .hero-content h1 { font-size: clamp(3.5rem, 8vw, 7.5rem); line-height: 0.95; margin-bottom: 30px; }
+        .hero-btns { display: flex; gap: 20px; justify-content: center; }
+
+        /* --- Buttons --- */
+        .btn { padding: 18px 40px; border-radius: 0; font-weight: 700; cursor: pointer; transition: var(--transition); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; text-decoration: none; }
+        .btn-primary { background: var(--accent); color: var(--white); border: 1px solid var(--accent); }
+        .btn-primary:hover { background: transparent; color: var(--accent); }
+        .btn-outline { border: 1px solid var(--white); color: var(--white); }
+        .btn-outline:hover { background: var(--white); color: var(--primary); }
+
+        /* --- Heritage Section (The Grid) --- */
+        .heritage { padding: 150px 10%; display: grid; grid-template-columns: repeat(12, 1fr); gap: 30px; align-items: center; }
+        .h-text { grid-column: 1 / 6; }
+        .h-visual { grid-column: 7 / 13; position: relative; }
+        .h-label { font-size: 0.9rem; color: var(--accent); font-weight: 800; text-transform: uppercase; margin-bottom: 20px; display: block; }
+        .h-text h2 { font-size: 4rem; margin-bottom: 30px; line-height: 1.1; }
+        .h-text p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 40px; }
+        
+        .image-collage { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .collage-item { width: 100%; border-radius: 4px; overflow: hidden; }
+        .item-tall { grid-row: span 2; }
+        .collage-item img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s; }
+        .collage-item:hover img { transform: scale(1.1); }
+
+        /* --- Department Bento --- */
+        .departments { padding: 100px 5%; background: var(--primary); color: var(--white); }
+        .dept-header { text-align: center; margin-bottom: 80px; }
+        .dept-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .dept-card { 
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+            padding: 40px; min-height: 350px; display: flex; flex-direction: column;
+            justify-content: flex-end; transition: var(--transition); position: relative;
+        }
+        .dept-card:hover { background: var(--accent); transform: translateY(-10px); }
+        .dept-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; transition: var(--transition); }
+        .dept-card:hover i { color: var(--white); }
+        .dept-card h3 { font-size: 2rem; margin-bottom: 15px; }
+        .dept-span-2 { grid-column: span 2; }
+
+        /* --- Faculty Section --- */
+        .faculty { padding: 150px 10%; text-align: center; }
+        .fac-grid { display: flex; gap: 30px; overflow-x: auto; padding: 50px 0; scrollbar-width: none; }
+        .fac-card { min-width: 350px; text-align: left; }
+        .fac-img { width: 100%; height: 450px; background: #ddd; margin-bottom: 25px; overflow: hidden; }
+        .fac-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: var(--transition); }
+        .fac-card:hover img { filter: grayscale(0%); transform: scale(1.05); }
+        .fac-info h4 { font-size: 1.8rem; }
+        .fac-info p { color: var(--accent); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; }
+
+        /* --- Footer --- */
+        footer { background: #070d19; color: var(--white); padding: 100px 10% 50px; }
+        .f-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 80px; }
+        .f-col h5 { font-size: 1.2rem; margin-bottom: 30px; color: var(--accent); }
+        .f-links { list-style: none; }
+        .f-links li { margin-bottom: 15px; }
+        .f-links a { color: #94a3b8; text-decoration: none; transition: 0.3s; }
+        .f-links a:hover { color: var(--accent); padding-left: 10px; }
+
+        /* Smooth Scroll Helper */
+        .lenis-scroll { overflow-y: scroll; }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <h2 class="serif" style="font-size: 2rem;">EVERMORE</h2>
+    </div>
+
+    <nav id="navbar">
+        <a href="#" class="logo-wrap">
+            <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="logo-text">EVERMORE</div>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="#heritage">Legacy</a></li>
+            <li><a href="#departments">Faculties</a></li>
+            <li><a href="#faculty">Research</a></li>
+            <li><a href="#admission">Admissions</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary" style="padding: 12px 25px;">Apply Now</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-video-overlay"></div>
+        <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=100" class="hero-bg" alt="University Campus">
+        <div class="hero-content">
+            <span class="hero-tag">Where Ambition Meets Excellence</span>
+            <h1>The Future of <br><i class="serif">Higher Education</i></h1>
+            <div class="hero-btns">
+                <a href="#" class="btn btn-primary">Discover Programs</a>
+                <a href="#" class="btn btn-outline">Virtual Tour</a>
+            </div>
+        </div>
+    </section>
+
+    <div style="background: var(--white); padding: 60px 10%; display: flex; justify-content: space-between; position: relative; z-index: 10; margin-top: -100px; box-shadow: 0 30px 60px rgba(0,0,0,0.1);">
+        <div class="stat-box">
+            <h2 class="serif" style="font-size: 3rem; color: var(--accent);">130+</h2>
+            <p style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Years of Excellence</p>
+        </div>
+        <div class="stat-box">
+            <h2 class="serif" style="font-size: 3rem; color: var(--accent);">#12</h2>
+            <p style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Global Ranking</p>
+        </div>
+        <div class="stat-box">
+            <h2 class="serif" style="font-size: 3rem; color: var(--accent);">94%</h2>
+            <p style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Graduate Placement</p>
+        </div>
+        <div class="stat-box">
+            <h2 class="serif" style="font-size: 3rem; color: var(--accent);">200+</h2>
+            <p style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Research Partners</p>
+        </div>
+    </div>
+
+    <section id="heritage" class="heritage">
+        <div class="h-text">
+            <span class="h-label">Our Philosophy</span>
+            <h2>Cultivating Minds, <br>Inspiring Change.</h2>
+            <p>Founded in 1892, Evermore University has remained at the forefront of intellectual discovery. We provide a sanctuary for thinkers, creators, and leaders to challenge the status quo and build a sustainable future through interdisciplinary research.</p>
+            <div style="display: flex; gap: 40px;">
+                <div>
+                    <h4 class="serif" style="font-size: 1.5rem;">The Campus</h4>
+                    <p style="font-size: 0.9rem;">400 acres of historic architecture blended with state-of-the-art labs.</p>
+                </div>
+                <div>
+                    <h4 class="serif" style="font-size: 1.5rem;">The Faculty</h4>
+                    <p style="font-size: 0.9rem;">Led by 12 Nobel Laureates and world-renowned industry experts.</p>
+                </div>
+            </div>
+        </div>
+        <div class="h-visual">
+            <div class="image-collage">
+                <div class="collage-item item-tall"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80"></div>
+                <div class="collage-item"><img src="https://images.unsplash.com/photo-1498243639159-24d16856088d?auto=format&fit=crop&w=600&q=80"></div>
+                <div class="collage-item"><img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=600&q=80"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="departments" class="departments">
+        <div class="dept-header">
+            <span class="h-label">Academic Excellence</span>
+            <h2 class="serif" style="font-size: 4rem;">Fields of Study</h2>
+        </div>
+        <div class="dept-grid">
+            <div class="dept-card dept-span-2">
+                <i class="fa-solid fa-microchip"></i>
+                <h3>Engineering & Robotics</h3>
+                <p>Defining the next era of automation and ethical AI development.</p>
+            </div>
+            <div class="dept-card">
+                <i class="fa-solid fa-palette"></i>
+                <h3>School of Arts</h3>
+                <p>Where creativity meets traditional mastery.</p>
+            </div>
+            <div class="dept-card">
+                <i class="fa-solid fa-dna"></i>
+                <h3>Life Sciences</h3>
+                <p>Advanced genomics and healthcare research.</p>
+            </div>
+            <div class="dept-card">
+                <i class="fa-solid fa-building-columns"></i>
+                <h3>Law & Policy</h3>
+                <p>Shaping global justice and international relations.</p>
+            </div>
+            <div class="dept-card dept-span-2">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Business & Economics</h3>
+                <p>Developing leaders for the sustainable global markets of tomorrow.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faculty" class="faculty">
+        <span class="h-label">Thought Leaders</span>
+        <h2 class="serif" style="font-size: 4rem;">Our Distinguished Faculty</h2>
+        <div class="fac-grid">
+            <div class="fac-card">
+                <div class="fac-img"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80"></div>
+                <div class="fac-info">
+                    <p>Department of Physics</p>
+                    <h4>Dr. Julian Sterling</h4>
+                </div>
+            </div>
+            <div class="fac-card">
+                <div class="fac-img"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80"></div>
+                <div class="fac-info">
+                    <p>Social Sciences</p>
+                    <h4>Prof. Elena Moretti</h4>
+                </div>
+            </div>
+            <div class="fac-card">
+                <div class="fac-img"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80"></div>
+                <div class="fac-info">
+                    <p>Computer Science</p>
+                    <h4>Dr. Marcus Chen</h4>
+                </div>
+            </div>
+            <div class="fac-card">
+                <div class="fac-img"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80"></div>
+                <div class="fac-info">
+                    <p>Department of Arts</p>
+                    <h4>Sarah Jenkins</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="f-grid">
+            <div class="f-col">
+                <div class="logo-wrap" style="color: white; margin-bottom: 30px;">
+                    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="logo-text">EVERMORE</div>
+                </div>
+                <p style="color: #94a3b8; line-height: 1.8;">Leading the world in academic excellence and research since 1892. Join a global community of scholars.</p>
+            </div>
+            <div class="f-col">
+                <h5>Academic</h5>
+                <ul class="f-links">
+                    <li><a href="#">Undergraduate</a></li>
+                    <li><a href="#">Graduate Study</a></li>
+                    <li><a href="#">Online Learning</a></li>
+                    <li><a href="#">Scholarships</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h5>Campus Life</h5>
+                <ul class="f-links">
+                    <li><a href="#">Student Housing</a></li>
+                    <li><a href="#">Athletics</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Arts & Culture</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h5>Contact</h5>
+                <p style="color: #94a3b8;">123 University Ave<br>Cambridge, MA 02138</p>
+                <div style="margin-top: 20px; font-size: 1.2rem; display: flex; gap: 15px;">
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; text-align: center; font-size: 0.8rem; color: #475569;">
+            © 2026 Evermore University. Designed for Excellence.
+        </div>
+    </footer>
+
+    <script>
+        // GSAP Setup
+        gsap.registerPlugin(ScrollTrigger);
+
+        window.addEventListener('load', () => {
+            // Remove Loader
+            gsap.to("#loader", { opacity: 0, duration: 1, onComplete: () => {
+                document.getElementById('loader').style.display = 'none';
+            }});
+
+            // Hero Animation
+            const tl = gsap.timeline();
+            tl.from(".hero-bg", { scale: 1.4, duration: 2, ease: "power4.out" })
+              .from(".hero-content h1", { y: 100, opacity: 0, duration: 1 }, "-=1")
+              .from(".hero-tag", { opacity: 0, y: 20 }, "-=0.5")
+              .from(".hero-btns", { opacity: 0, y: 20 }, "-=0.5");
+
+            // Scroll-triggered Navbar
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('navbar');
+                if(window.scrollY > 100) nav.classList.add('scrolled');
+                else nav.classList.remove('scrolled');
+            });
+
+            // Parallax on Heritage Images
+            gsap.to(".item-tall img", {
+                scrollTrigger: {
+                    trigger: ".heritage",
+                    start: "top bottom",
+                    scrub: true
+                },
+                y: -100
+            });
+
+            // Staggered reveal for Dept Cards
+            gsap.from(".dept-card", {
+                scrollTrigger: {
+                    trigger: ".dept-grid",
+                    start: "top 80%"
+                },
+                y: 60,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15
+            });
+
+            // Faculty Horizontal Scroll Interaction
+            gsap.from(".fac-card", {
+                scrollTrigger: {
+                    trigger: ".faculty",
+                    start: "top 70%"
+                },
+                x: 100,
+                opacity: 0,
+                stagger: 0.2,
+                duration: 1
+            });
+        });
+    </script>
+</body>
+</html>

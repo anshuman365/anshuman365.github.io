@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technological Chromesthesia — Case Study · Anshuman Singh</title>
+  <meta name="description" content="Case study: Technological Chromesthesia — a real-time sound-to-color translation system built with Flask, NumPy, SciPy, Pillow, and SSE streaming. By Anshuman Singh.">
+  <link rel="canonical" href="https://anshuman365.github.io/projects/casestudy/chromesthesis.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #06040f;
+      --bg-2: #0d0920;
+      --surface: #110e24;
+      --surface-2: #1a1535;
+      --border: rgba(255,255,255,0.06);
+      --border-glow: rgba(168,85,247,0.25);
+      --text: #e2d9f3;
+      --text-muted: #9585b8;
+      --text-dim: #5c4f7a;
+      --violet: #a855f7;
+      --violet-2: #7c3aed;
+      --pink: #ec4899;
+      --cyan: #22d3ee;
+      --amber: #f59e0b;
+      --green: #10b981;
+      --shadow: 0 16px 60px rgba(0,0,0,0.5);
+      --glow: 0 0 60px rgba(168,85,247,0.15);
+      --r: 20px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ANIMATED GRADIENT BG */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 20% 20%, rgba(124,58,237,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(236,72,153,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 60% 10%, rgba(34,211,238,0.06) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+      animation: bgshift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgshift {
+      0% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+
+    /* NOISE TEXTURE */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6,4,15,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .nav-back:hover { color: var(--violet); gap: 12px; }
+
+    .nav-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      background: rgba(168,85,247,0.15);
+      color: #c084fc;
+      border: 1px solid rgba(168,85,247,0.25);
+      border-radius: 50px;
+      letter-spacing: 0.06em;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* CONTENT WRAPPER */
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ====== HERO ====== */
+    .hero {
+      padding: 100px 0 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* BIG COLOR BLOBS in hero */
+    .hero-blobs {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+    }
+
+    .blob-1 { width: 500px; height: 500px; background: rgba(168,85,247,0.15); top: -100px; right: -100px; }
+    .blob-2 { width: 350px; height: 350px; background: rgba(236,72,153,0.1); bottom: 0; left: 100px; }
+    .blob-3 { width: 250px; height: 250px; background: rgba(34,211,238,0.08); top: 50%; right: 200px; }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--violet);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-label-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--violet);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.5); }
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    .hero-title .line1 { color: #f1e8ff; }
+    .hero-title .line2 {
+      background: linear-gradient(135deg, var(--violet) 0%, var(--pink) 50%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 200%;
+      animation: grad-shift 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes grad-shift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 64px;
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .meta-chip i { font-size: 0.75rem; color: var(--violet); }
+
+    /* COLOR SPECTRUM HERO VISUAL */
+    .spectrum-visual {
+      width: 100%;
+      height: 360px;
+      border-radius: var(--r) var(--r) 0 0;
+      position: relative;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border-glow);
+      box-shadow: var(--glow), var(--shadow);
+    }
+
+    .spectrum-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
+      mix-blend-mode: lighten;
+    }
+
+    .spectrum-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(6,4,15,0.9) 0%, rgba(6,4,15,0.2) 50%, transparent 100%);
+    }
+
+    .spectrum-bars {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      right: 28px;
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 80px;
+    }
+
+    .bar {
+      flex: 1;
+      border-radius: 4px 4px 0 0;
+      opacity: 0.8;
+      animation: barwave 2s ease-in-out infinite;
+    }
+
+    .bar:nth-child(1)  { background: #a855f7; height: 30%; animation-delay: 0s; }
+    .bar:nth-child(2)  { background: #9333ea; height: 55%; animation-delay: 0.1s; }
+    .bar:nth-child(3)  { background: #7c3aed; height: 70%; animation-delay: 0.15s; }
+    .bar:nth-child(4)  { background: #6d28d9; height: 85%; animation-delay: 0.2s; }
+    .bar:nth-child(5)  { background: #5b21b6; height: 60%; animation-delay: 0.25s; }
+    .bar:nth-child(6)  { background: #3b82f6; height: 95%; animation-delay: 0.3s; }
+    .bar:nth-child(7)  { background: #2563eb; height: 80%; animation-delay: 0.35s; }
+    .bar:nth-child(8)  { background: #06b6d4; height: 65%; animation-delay: 0.4s; }
+    .bar:nth-child(9)  { background: #0891b2; height: 50%; animation-delay: 0.45s; }
+    .bar:nth-child(10) { background: #10b981; height: 40%; animation-delay: 0.5s; }
+    .bar:nth-child(11) { background: #059669; height: 70%; animation-delay: 0.55s; }
+    .bar:nth-child(12) { background: #84cc16; height: 90%; animation-delay: 0.6s; }
+    .bar:nth-child(13) { background: #eab308; height: 75%; animation-delay: 0.65s; }
+    .bar:nth-child(14) { background: #f59e0b; height: 60%; animation-delay: 0.7s; }
+    .bar:nth-child(15) { background: #f97316; height: 85%; animation-delay: 0.75s; }
+    .bar:nth-child(16) { background: #ef4444; height: 45%; animation-delay: 0.8s; }
+    .bar:nth-child(17) { background: #ec4899; height: 70%; animation-delay: 0.85s; }
+    .bar:nth-child(18) { background: #db2777; height: 55%; animation-delay: 0.9s; }
+    .bar:nth-child(19) { background: #be185d; height: 40%; animation-delay: 0.95s; }
+    .bar:nth-child(20) { background: #a855f7; height: 30%; animation-delay: 1s; }
+
+    @keyframes barwave {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.4); }
+    }
+
+    .spectrum-label {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+    }
+
+    /* SECTION */
+    section.section {
+      padding: 80px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--violet);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-label::before {
+      content: '//';
+      color: var(--text-dim);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: #f1e8ff;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .section-body {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.85;
+      max-width: 680px;
+    }
+
+    .section-body p + p { margin-top: 16px; }
+
+    /* CONCEPT CARD */
+    .concept-card {
+      background: var(--surface);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--r);
+      padding: 40px;
+      box-shadow: var(--glow);
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* 2-COL */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 760px) {
+      .two-col { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* HOW IT WORKS */
+    .pipeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 40px;
+    }
+
+    .pipe-step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .pipe-connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .pipe-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      border: 1px solid var(--border-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--violet);
+      flex-shrink: 0;
+    }
+
+    .pipe-line {
+      width: 1.5px;
+      flex: 1;
+      min-height: 24px;
+      background: linear-gradient(to bottom, rgba(168,85,247,0.3), transparent);
+      margin: 4px 0;
+    }
+
+    .pipe-content {
+      padding-bottom: 32px;
+    }
+
+    .pipe-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #f1e8ff;
+      margin-bottom: 6px;
+    }
+
+    .pipe-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .pipe-code {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 3px 10px;
+      background: rgba(168,85,247,0.1);
+      border: 1px solid rgba(168,85,247,0.2);
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: #c084fc;
+    }
+
+    /* COLOR MAPPING VISUAL */
+    .color-map {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+
+    .color-map-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .freq-row {
+      display: flex;
+      align-items: center;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--border);
+      gap: 16px;
+      transition: background 0.2s;
+    }
+
+    .freq-row:hover { background: rgba(255,255,255,0.02); }
+    .freq-row:last-child { border-bottom: none; }
+
+    .freq-range {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      min-width: 110px;
+    }
+
+    .freq-label {
+      font-size: 0.82rem;
+      color: var(--text);
+      font-weight: 500;
+      min-width: 80px;
+    }
+
+    .freq-swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .freq-bar {
+      flex: 1;
+      height: 4px;
+      border-radius: 4px;
+      opacity: 0.5;
+    }
+
+    /* TECH STACK */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .stack-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      transition: all 0.25s ease;
+    }
+
+    .stack-item:hover {
+      border-color: var(--border-glow);
+      box-shadow: 0 0 20px rgba(168,85,247,0.08);
+    }
+
+    .stack-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .stack-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #f1e8ff;
+      margin-bottom: 4px;
+    }
+
+    .stack-role {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    /* SSE COMPARISON */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    @media (max-width: 600px) { .compare { grid-template-columns: 1fr; } }
+
+    .compare-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .compare-card.winner {
+      border-color: var(--border-glow);
+      box-shadow: 0 0 24px rgba(168,85,247,0.08);
+    }
+
+    .compare-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .compare-title .badge {
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: 50px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .compare-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .compare-list li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .compare-list li i { font-size: 0.75rem; margin-top: 3px; flex-shrink: 0; }
+
+    /* CODE BLOCK */
+    .code-block {
+      background: #080614;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-top: 24px;
+    }
+
+    .code-header {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .code-dots { display: flex; gap: 6px; }
+    .code-dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .code-filename {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    .code-body {
+      padding: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      line-height: 1.7;
+      overflow-x: auto;
+    }
+
+    .tok-kw { color: #c084fc; }
+    .tok-fn { color: #67e8f9; }
+    .tok-str { color: #86efac; }
+    .tok-num { color: #fcd34d; }
+    .tok-cm { color: #4a4a6a; }
+    .tok-cls { color: #f9a8d4; }
+
+    /* OUTCOMES */
+    .outcome-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .outcome-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .outcome-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+
+    .outcome-box.v { --clr: var(--violet); }
+    .outcome-box.p { --clr: var(--pink); }
+    .outcome-box.c { --clr: var(--cyan); }
+    .outcome-box.a { --clr: var(--amber); }
+    .outcome-box::before { background: var(--clr); }
+
+    .outcome-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--clr);
+      margin-bottom: 6px;
+    }
+
+    .outcome-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* CTA */
+    .cta-section {
+      margin: 0 0 80px;
+      background: var(--surface);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--r);
+      padding: 60px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--glow);
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% -20%, rgba(168,85,247,0.15) 0%, transparent 70%);
+    }
+
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #f1e8ff;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .cta-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      color: white;
+      box-shadow: 0 4px 24px rgba(168,85,247,0.3);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(168,85,247,0.45); }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+    /* FOOTER */
+    .footer {
+      padding: 28px 32px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      border-top: 1px solid var(--border);
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 0 20px; }
+      .hero { padding: 60px 0 0; }
+      .spectrum-visual { height: 240px; }
+      .cta-section { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../../index.html" class="nav-back">
+      <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+    <span class="nav-tag">case-study</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero wrap">
+  <div class="hero-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-label">
+      <div class="hero-label-dot"></div>
+      Experimental · Sound Science · Real-time Visualization
+    </div>
+
+    <h1 class="hero-title">
+      <div class="line1">Technological</div>
+      <div class="line2">Chromesthesia</div>
+    </h1>
+
+    <p class="hero-desc">
+      A real-time system that translates audio frequencies into color — mapping the physics of sound onto the psychology of color perception. Built with Flask, NumPy, SciPy, and SSE streaming.
+    </p>
+
+    <div class="hero-meta">
+      <span class="meta-chip"><i class="fas fa-calendar-alt"></i> 2024</span>
+      <span class="meta-chip"><i class="fas fa-flask"></i> Experimental</span>
+      <span class="meta-chip"><i class="fas fa-broadcast-tower"></i> SSE Streaming</span>
+      <span class="meta-chip"><i class="fas fa-wave-square"></i> Signal Processing</span>
+      <span class="meta-chip"><i class="fas fa-globe"></i> Live Deployed</span>
+    </div>
+
+    <!-- ANIMATED SPECTRUM VISUAL -->
+    <div class="spectrum-visual">
+      <img
+        src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1200&h=400&fit=crop&auto=format&q=80"
+        alt="Music studio — sound visualization background"
+        class="spectrum-img"
+        loading="eager"
+        fetchpriority="high"
+        width="1100" height="360"
+      >
+      <div class="spectrum-overlay"></div>
+      <div class="spectrum-bars">
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+      </div>
+      <div class="spectrum-label">live frequency → color mapping</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="wrap">
+
+  <!-- CONCEPT -->
+  <section class="section reveal">
+    <div class="two-col">
+      <div>
+        <div class="section-label">The Concept</div>
+        <h2 class="section-title">Sound has color</h2>
+        <div class="section-body">
+          <p>Chromesthesia is a neurological condition where sounds automatically trigger color experiences. This project translates that synesthetic phenomenon into software — using the physics of sound (frequency, amplitude) to algorithmically produce corresponding colors.</p>
+          <p>The mapping isn't arbitrary. Low bass frequencies map to deep reds and purples, mid-range tones map to greens and yellows, and high treble maps to blues and whites — following both human perceptual research and physical wavelength relationships between sound and light.</p>
+        </div>
+      </div>
+
+      <div class="concept-card">
+        <div class="section-label">Core Idea</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:#f1e8ff;margin-bottom:16px;">Frequency → Wavelength → Color</h3>
+        <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.8;margin-bottom:20px;">Sound waves have frequency (Hz). Light waves have wavelength (nm). The mapping between the two domains uses a logarithmic scale to match how humans perceive both — neither sound nor color is perceived linearly.</p>
+        <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:16px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#9585b8;">
+          <div style="color:#c084fc;margin-bottom:6px">// Approximate mapping</div>
+          <div>20 Hz    → Deep Violet</div>
+          <div>80 Hz    → Indigo / Purple</div>
+          <div>250 Hz   → Blue</div>
+          <div>1,000 Hz → Green / Teal</div>
+          <div>3,500 Hz → Yellow-Green</div>
+          <div>8,000 Hz → Orange</div>
+          <div>20,000 Hz → Deep Red</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section reveal">
+    <div class="section-label">Signal Pipeline</div>
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-body">From microphone input to rendered color — the full data flow through the system.</p>
+
+    <div class="two-col" style="margin-top:40px;">
+      <div class="pipeline">
+        <div class="pipe-step">
+          <div class="pipe-connector">
+            <div class="pipe-num">01</div>
+            <div class="pipe-line"></div>
+          </div>
+          <div class="pipe-content">
+            <div class="pipe-title">Audio Capture</div>
+            <div class="pipe-desc">Browser microphone captures raw audio via Web Audio API and sends PCM data chunks to the Flask backend via POST.</div>
+            <span class="pipe-code">MediaRecorder · ArrayBuffer</span>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-connector">
+            <div class="pipe-num">02</div>
+            <div class="pipe-line"></div>
+          </div>
+          <div class="pipe-content">
+            <div class="pipe-title">FFT Frequency Analysis</div>
+            <div class="pipe-desc">NumPy and SciPy compute the Fast Fourier Transform of the incoming audio buffer — decomposing the signal into its frequency components and amplitudes.</div>
+            <span class="pipe-code">numpy.fft · scipy.signal</span>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-connector">
+            <div class="pipe-num">03</div>
+            <div class="pipe-line"></div>
+          </div>
+          <div class="pipe-content">
+            <div class="pipe-title">Dominant Frequency Extraction</div>
+            <div class="pipe-desc">The system identifies the peak frequency and weighted average across frequency bands. Amplitude weighting prevents noise spikes from dominating the output.</div>
+            <span class="pipe-code">argmax · weighted_mean</span>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-connector">
+            <div class="pipe-num">04</div>
+            <div class="pipe-line"></div>
+          </div>
+          <div class="pipe-content">
+            <div class="pipe-title">Frequency → HSL Mapping</div>
+            <div class="pipe-desc">The dominant frequency is mapped to an HSL color using a logarithmic scale across the audible spectrum. Pillow renders the resulting color as an image.</div>
+            <span class="pipe-code">Pillow · HSL · log scale</span>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-connector">
+            <div class="pipe-num">05</div>
+            <div class="pipe-line" style="min-height:0;margin:0;"></div>
+          </div>
+          <div class="pipe-content">
+            <div class="pipe-title">SSE Stream to Browser</div>
+            <div class="pipe-desc">Flask pushes the color data to the browser as a Server-Sent Event. The frontend updates the background in real time — no WebSocket, no Socket.IO.</div>
+            <span class="pipe-code">text/event-stream · EventSource</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FREQ → COLOR TABLE -->
+      <div>
+        <div class="color-map">
+          <div class="color-map-header">Frequency Band → Color Mapping</div>
+          <div class="freq-row">
+            <div class="freq-range">20–80 Hz</div>
+            <div class="freq-label">Sub Bass</div>
+            <div class="freq-swatch" style="background:#6b21a8;"></div>
+            <div class="freq-bar" style="background:#6b21a8;width:20%;"></div>
+          </div>
+          <div class="freq-row">
+            <div class="freq-range">80–300 Hz</div>
+            <div class="freq-label">Bass</div>
+            <div class="freq-swatch" style="background:#7c3aed;"></div>
+            <div class="freq-bar" style="background:#7c3aed;width:35%;"></div>
+          </div>
+          <div class="freq-row">
+            <div class="freq-range">300–1k Hz</div>
+            <div class="freq-label">Midrange</div>
+            <div class="freq-swatch" style="background:#2563eb;"></div>
+            <div class="freq-bar" style="background:#2563eb;width:55%;"></div>
+          </div>
+          <div class="freq-row">
+            <div class="freq-range">1–4k Hz</div>
+            <div class="freq-label">Presence</div>
+            <div class="freq-swatch" style="background:#10b981;"></div>
+            <div class="freq-bar" style="background:#10b981;width:70%;"></div>
+          </div>
+          <div class="freq-row">
+            <div class="freq-range">4–8k Hz</div>
+            <div class="freq-label">Brilliance</div>
+            <div class="freq-swatch" style="background:#f59e0b;"></div>
+            <div class="freq-bar" style="background:#f59e0b;width:85%;"></div>
+          </div>
+          <div class="freq-row">
+            <div class="freq-range">8–20k Hz</div>
+            <div class="freq-label">Air</div>
+            <div class="freq-swatch" style="background:#ef4444;"></div>
+            <div class="freq-bar" style="background:#ef4444;width:100%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SSE vs SOCKETIO -->
+  <section class="section reveal">
+    <div class="section-label">Technical Decision</div>
+    <h2 class="section-title">Why SSE Instead of Socket.IO</h2>
+    <p class="section-body">The original plan used Flask-SocketIO for real-time color updates — but a dependency conflict on the target environment forced a rethink. SSE turned out to be the better choice.</p>
+
+    <div class="compare">
+      <div class="compare-card">
+        <div class="compare-title" style="color:#ef4444;">
+          <i class="fas fa-times-circle" style="color:#ef4444"></i> Flask-SocketIO
+          <span class="badge" style="background:rgba(239,68,68,0.15);color:#fca5a5;">Rejected</span>
+        </div>
+        <ul class="compare-list">
+          <li><i class="fas fa-times" style="color:#ef4444"></i> Required eventlet / gevent (conflicted with Pillow)</li>
+          <li><i class="fas fa-times" style="color:#ef4444"></i> Heavy — full bidirectional WebSocket overhead</li>
+          <li><i class="fas fa-times" style="color:#ef4444"></i> More complex client-side setup</li>
+          <li><i class="fas fa-times" style="color:#ef4444"></i> Not needed — output is one-directional</li>
+        </ul>
+      </div>
+      <div class="compare-card winner">
+        <div class="compare-title" style="color:#10b981;">
+          <i class="fas fa-check-circle" style="color:#10b981"></i> Server-Sent Events
+          <span class="badge" style="background:rgba(16,185,129,0.15);color:#6ee7b7;">Chosen</span>
+        </div>
+        <ul class="compare-list">
+          <li><i class="fas fa-check" style="color:#10b981"></i> Pure HTTP — zero extra dependencies</li>
+          <li><i class="fas fa-check" style="color:#10b981"></i> Lightweight for one-directional data push</li>
+          <li><i class="fas fa-check" style="color:#10b981"></i> Browser-native <code style="font-family:monospace">EventSource</code> API</li>
+          <li><i class="fas fa-check" style="color:#10b981"></i> Auto-reconnect on connection drop</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CODE SNIPPET -->
+    <div class="code-block" style="margin-top:32px;">
+      <div class="code-header">
+        <div class="code-dots">
+          <span style="background:#ef4444"></span>
+          <span style="background:#f59e0b"></span>
+          <span style="background:#10b981"></span>
+        </div>
+        <span class="code-filename">stream.py — Flask SSE endpoint</span>
+      </div>
+      <div class="code-body"><span class="tok-kw">from</span> flask <span class="tok-kw">import</span> Response, stream_with_context
+<span class="tok-kw">import</span> numpy <span class="tok-kw">as</span> np
+<span class="tok-kw">from</span> scipy.io <span class="tok-kw">import</span> wavfile
+
+<span class="tok-cm"># Map dominant frequency to HSL color</span>
+<span class="tok-kw">def</span> <span class="tok-fn">freq_to_hsl</span>(freq_hz):
+    lo, hi = <span class="tok-num">20</span>, <span class="tok-num">20000</span>
+    clamped = max(lo, min(hi, freq_hz))
+    hue = (<span class="tok-num">1</span> - (np.log(clamped) - np.log(lo)) /
+           (np.log(hi) - np.log(lo))) * <span class="tok-num">300</span>
+    <span class="tok-kw">return</span> <span class="tok-fn">f</span><span class="tok-str">"hsl({hue:.0f}, 85%, 55%)"</span>
+
+<span class="tok-cm"># SSE generator — yields color events</span>
+<span class="tok-kw">def</span> <span class="tok-fn">color_stream</span>(audio_data):
+    freqs = np.fft.rfftfreq(len(audio_data), d=<span class="tok-num">1</span>/<span class="tok-num">44100</span>)
+    spectrum = np.abs(np.fft.rfft(audio_data))
+    dominant = freqs[np.argmax(spectrum)]
+    color = <span class="tok-fn">freq_to_hsl</span>(dominant)
+    <span class="tok-kw">yield</span> <span class="tok-fn">f</span><span class="tok-str">"data: {color}\n\n"</span>
+
+<span class="tok-cm"># Flask route</span>
+<span class="tok-cm">@app.route('/stream')</span>
+<span class="tok-kw">def</span> <span class="tok-fn">stream</span>():
+    <span class="tok-kw">return</span> <span class="tok-cls">Response</span>(
+        stream_with_context(<span class="tok-fn">color_stream</span>(audio_data)),
+        mimetype=<span class="tok-str">'text/event-stream'</span>
+    )</div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="section reveal">
+    <div class="section-label">Tech Stack</div>
+    <h2 class="section-title">Built With</h2>
+    <div class="stack-grid">
+      <div class="stack-item">
+        <div class="stack-icon" style="background:rgba(168,85,247,0.15);color:#c084fc"><i class="fab fa-python"></i></div>
+        <div class="stack-name">Flask</div>
+        <div class="stack-role">Web server · SSE routing</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-icon" style="background:rgba(34,211,238,0.1);color:#67e8f9"><i class="fas fa-calculator"></i></div>
+        <div class="stack-name">NumPy</div>
+        <div class="stack-role">FFT computation · array math</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-icon" style="background:rgba(16,185,129,0.1);color:#6ee7b7"><i class="fas fa-wave-square"></i></div>
+        <div class="stack-name">SciPy</div>
+        <div class="stack-role">Signal processing · filtering</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-icon" style="background:rgba(236,72,153,0.1);color:#f9a8d4"><i class="fas fa-image"></i></div>
+        <div class="stack-name">Pillow</div>
+        <div class="stack-role">Color rendering · image output</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-icon" style="background:rgba(245,158,11,0.1);color:#fcd34d"><i class="fas fa-broadcast-tower"></i></div>
+        <div class="stack-name">SSE</div>
+        <div class="stack-role">Real-time push · EventSource</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-icon" style="background:rgba(59,130,246,0.1);color:#93c5fd"><i class="fab fa-js"></i></div>
+        <div class="stack-name">Web Audio API</div>
+        <div class="stack-role">Mic capture · PCM data</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section class="section reveal">
+    <div class="section-label">Results</div>
+    <h2 class="section-title">What Was Achieved</h2>
+    <div class="outcome-row">
+      <div class="outcome-box v">
+        <div class="outcome-num">&lt;100ms</div>
+        <div class="outcome-label">Audio-to-color latency via SSE</div>
+      </div>
+      <div class="outcome-box p">
+        <div class="outcome-num">0</div>
+        <div class="outcome-label">External realtime dependencies needed</div>
+      </div>
+      <div class="outcome-box c">
+        <div class="outcome-num">6</div>
+        <div class="outcome-label">Frequency bands mapped to color ranges</div>
+      </div>
+      <div class="outcome-box a">
+        <div class="outcome-num">Live</div>
+        <div class="outcome-label">Deployed and accessible via browser</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section reveal">
+    <h2 class="cta-title">Interested in experimental builds?</h2>
+    <p class="cta-desc">I enjoy working on projects that sit at the intersection of science, data, and visual design. Let's make something unusual.</p>
+    <div class="cta-actions">
+      <a href="../../contact.html" class="btn btn-primary">
+        <i class="fas fa-rocket"></i> Get In Touch
+      </a>
+      <a href="../../index.html#projects" class="btn btn-ghost">
+        <i class="fas fa-layer-group"></i> More Projects
+      </a>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<footer class="footer">
+  © 2025 Anshuman Singh · Full-Stack Developer · India
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -24px 0px' });
+  reveals.forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

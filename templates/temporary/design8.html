@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evermore Zenith | The Pinnacle</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Playfair+Display:ital,wght@0,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark: #050505;
+            --white: #ffffff;
+            --gray: #1a1a1a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: var(--dark); 
+            color: var(--white); 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden;
+            cursor: none; /* We will make a custom cursor */
+        }
+
+        /* --- Custom Magnetic Cursor --- */
+        #cursor-dot {
+            width: 8px; height: 8px; background: var(--gold);
+            border-radius: 50%; position: fixed; z-index: 10001; pointer-events: none;
+        }
+        #cursor-outline {
+            width: 40px; height: 40px; border: 1px solid var(--gold);
+            border-radius: 50%; position: fixed; z-index: 10000; pointer-events: none;
+            transition: transform 0.15s ease-out;
+        }
+
+        /* --- 3D Background Canvas --- */
+        #canvas-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; opacity: 0.6;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 40px;
+            display: flex; justify-content: space-between; z-index: 1000;
+        }
+        .menu-toggle { font-family: 'Syncopate', sans-serif; font-size: 0.7rem; letter-spacing: 5px; cursor: pointer; }
+
+        /* --- Section: Hero (Kinetic) --- */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+        }
+        .hero h1 {
+            font-family: 'Syncopate', sans-serif; font-size: clamp(2rem, 12vw, 10rem);
+            line-height: 0.8; text-transform: uppercase; margin: 0;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+            color: transparent; position: relative;
+        }
+        .hero h1 .fill {
+            position: absolute; top: 0; left: 0; width: 0%; height: 100%;
+            color: var(--white); -webkit-text-stroke: 0px;
+            overflow: hidden; white-space: nowrap; transition: 1s;
+        }
+
+        /* --- Section: Horizontal Scroll Image Gallery --- */
+        .horizontal-section {
+            height: 100vh; overflow: hidden; display: flex;
+            background: var(--gray);
+        }
+        .pin-wrap {
+            height: 100vh; display: flex; align-items: center; padding: 0 10vw;
+        }
+        .gallery-item {
+            min-width: 60vw; height: 70vh; margin-right: 15vw;
+            position: relative; overflow: hidden;
+        }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(0.7) contrast(1.2);
+        }
+        .item-info {
+            position: absolute; bottom: 40px; left: -50px;
+            font-family: 'Playfair Display', serif; font-size: 5rem;
+            font-style: italic; color: var(--gold); pointer-events: none;
+        }
+
+        /* --- Section: Reveal Text --- */
+        .reveal-section {
+            padding: 200px 10%; background: var(--white); color: var(--dark);
+        }
+        .reveal-text {
+            font-size: clamp(1.5rem, 4vw, 4rem); font-family: 'Playfair Display', serif;
+            line-height: 1.4; font-weight: 400;
+        }
+        .reveal-text span { color: #ccc; transition: 0.5s; }
+        .reveal-text span.active { color: var(--dark); }
+
+        /* --- Footer --- */
+        footer {
+            height: 80vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; background: var(--dark);
+        }
+        .footer-link {
+            font-family: 'Syncopate', sans-serif; font-size: 8vw;
+            text-decoration: none; color: var(--white); transition: 0.5s;
+        }
+        .footer-link:hover { color: var(--gold); font-style: italic; }
+
+    </style>
+</head>
+<body>
+
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
+    <div id="canvas-container"></div>
+
+    <nav>
+        <div class="logo serif" style="font-size: 1.5rem;">E.Z</div>
+        <div class="menu-toggle">MENU [X]</div>
+    </nav>
+
+    <section class="hero">
+        <p style="letter-spacing: 10px; margin-bottom: 20px;">ESTABLISHED 1892</p>
+        <h1 id="main-title">
+            EVERMORE
+            <div class="fill">EVERMORE</div>
+        </h1>
+        <h1 id="sub-title" style="font-style: italic; font-family: 'Playfair Display'; text-transform: none; -webkit-text-stroke: 0; color: white; font-size: 6vw;">
+            Zenith
+        </h1>
+    </section>
+
+    <section class="horizontal-section">
+        <div class="pin-wrap">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe1?auto=format&fit=crop&w=1200" alt="1">
+                <div class="item-info">Heritage</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200" alt="2">
+                <div class="item-info">Vision</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=1200" alt="3">
+                <div class="item-info">Impact</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal-section">
+        <p class="reveal-text">
+            Our institution is not built on bricks, but on <span>bold ideas</span>. We believe that <span>education</span> is the <span>infinite</span> pursuit of <span>truth</span>. Here, we don't just teach <span>leadership</span>; we forge the <span>future</span> of the <span>human race</span>.
+        </p>
+    </section>
+
+    <footer>
+        <p style="color: var(--gold); margin-bottom: 20px;">Ready to transcend?</p>
+        <a href="#" class="footer-link">APPLY</a>
+        <div style="margin-top: 100px; font-size: 0.7rem; opacity: 0.5;">©2026 EVERMORE ZENITH DESIGN LAB</div>
+    </footer>
+
+    <script>
+        // 1. THREE.JS Particles Background
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        const particlesGeometry = new THREE.BufferGeometry();
+        const posArray = new Float32Array(5000 * 3);
+        for(let i=0; i < 5000 * 3; i++) posArray[i] = (Math.random() - 0.5) * 5;
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const material = new THREE.PointsMaterial({ size: 0.005, color: '#d4af37' });
+        const particlesMesh = new THREE.Points(particlesGeometry, material);
+        scene.add(particlesMesh);
+        camera.position.z = 2;
+
+        function animate3D() {
+            requestAnimationFrame(animate3D);
+            particlesMesh.rotation.y += 0.001;
+            renderer.render(scene, camera);
+        }
+        animate3D();
+
+        // 2. GSAP SCROLL TRIGGERS
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Fill Animation
+        gsap.to(".hero h1 .fill", {
+            width: "100%",
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom center",
+                scrub: true
+            }
+        });
+
+        // Horizontal Scroll
+        const sections = document.querySelector(".pin-wrap");
+        gsap.to(sections, {
+            xPercent: -100,
+            x: () => window.innerWidth,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".horizontal-section",
+                start: "top top",
+                end: () => `+=${sections.offsetWidth}`,
+                pin: true,
+                scrub: 1,
+            }
+        });
+
+        // Text Reveal Highlight
+        const revealSpans = document.querySelectorAll(".reveal-text span");
+        revealSpans.forEach((span) => {
+            gsap.to(span, {
+                scrollTrigger: {
+                    trigger: span,
+                    start: "top 80%",
+                    end: "top 50%",
+                    scrub: true,
+                },
+                color: "#050505", // Active color
+                ease: "none"
+            });
+        });
+
+        // 3. Custom Cursor Logic
+        const dot = document.getElementById('cursor-dot');
+        const outline = document.getElementById('cursor-outline');
+        window.addEventListener('mousemove', (e) => {
+            gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 });
+            gsap.to(outline, { x: e.clientX - 20, y: e.clientY - 20, duration: 0.15 });
+        });
+
+        // Handle Window Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evermore Vanguard | Beyond Education</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@900&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #e5e5e5;
+            --gold: #c5a059;
+            --accent: #3d3d3d;
+            --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        /* --- Global Aesthetics --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Custom Kinetic Cursor --- */
+        .cursor-follower {
+            position: fixed; width: 40px; height: 40px;
+            background: rgba(197, 160, 89, 0.2);
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            pointer-events: none; z-index: 99999;
+            transition: transform 0.1s var(--ease-out);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .cursor-follower::after {
+            content: ''; width: 4px; height: 4px; background: var(--gold); border-radius: 50%;
+        }
+
+        /* --- Noise Grain Overlay --- */
+        .noise {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 9999; pointer-events: none; opacity: .05;
+            background-image: url("https://media.giphy.com/media/oEI9uWUicKgS2Uz88L/giphy.gif");
+        }
+
+        /* --- Preloader (Complex) --- */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 10000;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .load-text { font-family: 'Unbounded'; font-size: 5vw; color: var(--gold); line-height: 1; overflow: hidden; }
+        .load-bar { width: 0%; height: 2px; background: var(--gold); margin-top: 20px; }
+
+        /* --- Navigation: The Minimalist --- */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 40px 5%;
+            display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+        }
+        .nav-logo { font-family: 'Unbounded'; font-size: 1.5rem; text-transform: uppercase; letter-spacing: -1px; }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { text-decoration: none; color: var(--text); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- Hero Section: Kinetic Brutalism --- */
+        .hero {
+            height: 100vh; width: 100%; position: relative;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            padding: 0 5%; perspective: 1000px;
+        }
+        .hero-title {
+            font-family: 'Unbounded', sans-serif; font-size: 14vw;
+            line-height: 0.8; text-transform: uppercase; text-align: center;
+            z-index: 10; transform-style: preserve-3d;
+        }
+        .hero-image-wrapper {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 40vw; height: 50vh; overflow: hidden; z-index: 5;
+            opacity: 0.6; pointer-events: none;
+        }
+        .hero-image-wrapper img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.2); }
+
+        /* --- Vertical Scrolling Gallery --- */
+        .gallery-section { padding: 200px 5%; display: flex; gap: 100px; }
+        .col-left { flex: 1; display: flex; flex-direction: column; gap: 200px; }
+        .col-right { flex: 1; display: flex; flex-direction: column; gap: 200px; padding-top: 300px; }
+        
+        .card { width: 100%; position: relative; }
+        .card-img-wrap { width: 100%; aspect-ratio: 4/5; overflow: hidden; background: #1a1a1a; }
+        .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 1s var(--ease-out); }
+        .card:hover .card-img-wrap img { transform: scale(1.1); }
+        .card-meta { margin-top: 20px; }
+        .card-meta h3 { font-family: 'Instrument Serif'; font-size: 3rem; font-style: italic; }
+        .card-meta p { font-size: 0.9rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-top: 10px; }
+
+        /* --- Text Marquee --- */
+        .marquee {
+            white-space: nowrap; overflow: hidden; padding: 100px 0;
+            border-top: 1px solid var(--accent); border-bottom: 1px solid var(--accent);
+            margin: 100px 0;
+        }
+        .marquee-inner { display: inline-block; animation: marquee 20s linear infinite; }
+        .marquee-inner span { font-family: 'Unbounded'; font-size: 8vw; color: transparent; -webkit-text-stroke: 1px var(--text); padding: 0 40px; }
+
+        @keyframes marquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
+
+        /* --- The "Thesis" Section (Complex Typography) --- */
+        .thesis { padding: 200px 15%; text-align: center; }
+        .thesis h2 { font-family: 'Instrument Serif'; font-size: 6vw; line-height: 1.1; }
+        .thesis p { max-width: 600px; margin: 40px auto; color: #888; font-size: 1.2rem; }
+
+        /* --- Footer: Dark Grandeur --- */
+        footer {
+            padding: 100px 5%; background: #000; border-top: 1px solid var(--accent);
+        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 100px; }
+        .f-big-text { font-family: 'Unbounded'; font-size: 8vw; line-height: 0.8; letter-spacing: -4px; }
+        .f-contact { display: flex; flex-direction: column; gap: 20px; }
+        .f-contact a { color: var(--gold); text-decoration: none; font-size: 1.5rem; }
+
+        @media (max-width: 768px) {
+            .gallery-section { flex-direction: column; }
+            .hero-title { font-size: 20vw; }
+            .col-right { padding-top: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="noise"></div>
+    <div class="cursor-follower" id="cursor"></div>
+
+    <div id="preloader">
+        <div class="load-text">E V E R M O R E</div>
+        <div style="width: 200px;"><div class="load-bar"></div></div>
+    </div>
+
+    <nav>
+        <div class="nav-logo">EMR</div>
+        <div class="nav-links">
+            <a href="#">Archives</a>
+            <a href="#">Faculties</a>
+            <a href="#">Admissions</a>
+        </div>
+        <div class="nav-logo">©2026</div>
+    </nav>
+
+    <main id="main">
+        <section class="hero">
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe1?auto=format&fit=crop&w=1200" alt="Architecture">
+            </div>
+            <h1 class="hero-title" data-scroll data-scroll-speed="-2">Cultivating<br>Leaders</h1>
+        </section>
+
+        <div class="marquee">
+            <div class="marquee-inner">
+                <span>EVERMORE VANGUARD</span><span>RESEARCH HUB</span><span>ELITE EDUCATION</span><span>EST. 1892</span>
+                <span>EVERMORE VANGUARD</span><span>RESEARCH HUB</span><span>ELITE EDUCATION</span><span>EST. 1892</span>
+            </div>
+        </div>
+
+        <section class="gallery-section">
+            <div class="col-left">
+                <div class="card reveal">
+                    <div class="card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800" alt="Library">
+                    </div>
+                    <div class="card-meta">
+                        <p>Foundation</p>
+                        <h3>The Great Library</h3>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <div class="card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=800" alt="Lab">
+                    </div>
+                    <div class="card-meta">
+                        <p>Innovation</p>
+                        <h3>Quantum Annex</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-right">
+                <div class="card reveal">
+                    <div class="card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800" alt="Campus">
+                    </div>
+                    <div class="card-meta">
+                        <p>Campus Life</p>
+                        <h3>The North Quad</h3>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <div class="card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800" alt="Lecture">
+                    </div>
+                    <div class="card-meta">
+                        <p>Academics</p>
+                        <h3>Philosophers Hall</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="thesis">
+            <h2 class="reveal-type">Education is the art of igniting a flame, not filling a vessel.</h2>
+            <p>Our curriculum is designed by masters of industry and Nobel laureates to push the boundaries of human knowledge.</p>
+            <div style="margin-top: 50px;">
+                <button style="padding: 20px 40px; background: none; border: 1px solid var(--gold); color: var(--gold); font-family: 'Unbounded'; font-size: 0.8rem; letter-spacing: 2px;">APPLY TO VANGUARD</button>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-grid">
+                <div class="f-big-text">GET IN<br>TOUCH</div>
+                <div class="f-contact">
+                    <p>ADMISSIONS</p>
+                    <a href="#">apply@evermore.edu</a>
+                </div>
+                <div class="f-contact">
+                    <p>SOCIALS</p>
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // --- GSAP PRELOADER & INITIAL ANIMATION ---
+        const tl = gsap.timeline();
+        
+        tl.to(".load-bar", { width: "100%", duration: 2, ease: "power4.inOut" });
+        tl.to("#preloader", { y: "-100%", duration: 1.2, ease: "expo.inOut" });
+        tl.from(".hero-title", { y: 200, opacity: 0, skewY: 10, duration: 1.5, ease: "power4.out" }, "-=0.5");
+        tl.from(".hero-image-wrapper", { scale: 0, duration: 2, ease: "expo.out" }, "-=1.5");
+
+        // --- CUSTOM CURSOR LOGIC ---
+        const cursor = document.getElementById('cursor');
+        window.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.3 });
+        });
+
+        // --- SCROLL TRIGGERS ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Image Parallax
+        gsap.to(".hero-image-wrapper img", {
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                scrub: true
+            },
+            y: -100,
+            scale: 1.5
+        });
+
+        // Gallery Item Reveals
+        document.querySelectorAll('.reveal').forEach(card => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power4.out"
+            });
+        });
+
+        // Split Type for Text Animation
+        const text = new SplitType('.reveal-type', { types: 'words, chars' });
+        gsap.from(text.chars, {
+            scrollTrigger: {
+                trigger: '.reveal-type',
+                start: 'top 80%',
+                end: 'top 20%',
+                scrub: true,
+            },
+            opacity: 0.2,
+            stagger: 0.1,
+        });
+
+        // Hover Effect on Images
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(cursor, { width: 80, height: 80, backgroundColor: 'rgba(255,255,255,0.1)', content: 'VIEW' });
+            });
+            card.addEventListener('mouseleave', () => {
+                gsap.to(cursor, { width: 40, height: 40, backgroundColor: 'rgba(197, 160, 89, 0.2)' });
+            });
+        });
+    </script>
+</body>
+</html>
